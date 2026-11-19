@@ -13,16 +13,19 @@ Walk through creating an **Angular** app as a **Frontend Capsule** on the Code C
 2. On **Welcome back**, enter your email in the **Email** textbox (placeholder “Enter your email”).
 3. Enter your password in the **Password** textbox (placeholder “Enter your password”).
 4. Click the **Log in** button.
+5. After login, open **Quick Start** in the sidebar if you are not already there. Confirm the heading **What type of capsule would you like to deploy?**
+6. In the **Angular** row, click **Deploy Now**.
+7. On **New Capsule** (breadcrumb **Plan** / **Configure** / **Deploy**), complete **Capsule Details** and use **Next** to continue the wizard. Use **Cancel** to exit without creating a capsule.
 
 ![Registration / log in entry](/img/guides/shared/step-0-open-site.png)
 
 ![Welcome back login form](/img/guides/shared/step-1-login-page.png)
 
-:::caution
-Capsule-creation steps after login are not yet documented in this guide. The next automation run will capture screenshots for **New Capsule → Frontend Capsule → Static hosting** once `EMAIL` / `PASSWORD` secrets are available on the runner.
-:::
+![Quick Start capsule chooser](/img/guides/shared/step-2-quick-start.png)
 
-After you are logged in, finish the frontend wizard with:
+![New Capsule — Capsule Details](/img/guides/create-angular-frontend-capsule/step-5-new-capsule-wizard.png)
+
+Typical Angular build settings on **Configure**:
 
 - **Build Command:** `npm run build`
 - **Path to static content:** your Angular `dist/...` folder (must contain `index.html`)
