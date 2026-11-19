@@ -1,29 +1,74 @@
-# Create Java backend capsule
+---
+slug: "/backend/java"
+description: "Deploy a Java application to Code Capsules from a GitHub repo. Build and run your Java backend in production with managed hosting, step by step."
+title: "How to Deploy a Java Application"
+sidebar_label: "Java"
+---
 
-Walk through creating a **Java** backend as a **Backend Capsule** on the Code Capsules test platform. The Quick Start page does not list a Java tile; use **Capsules** and the **New Capsule** wizard instead. Captured on **2026-11-19** on [test-platform.codecapsules.io](https://test-platform.codecapsules.io).
+# Deploy Your Java Application in Minutes
 
-## Prerequisites
+Deploy a Java application and learn how to host backend code on Code Capsules.
 
-- A Code Capsules account on the test platform
-- A Java application in a connected Git repository (Maven/Gradle project with a supported Java runtime)
+## Set Up
 
-## Steps
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-1. Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
-2. On **Welcome back**, enter your email in the **Email** textbox (placeholder “Enter your email”).
-3. Enter your password in the **Password** textbox (placeholder “Enter your password”).
-4. Click the **Log in** button.
-5. Click **Capsules** in the sidebar.
-6. Click the **+** control to open **New Capsule**.
-7. Under **Capsule Details**, open **Choose a Capsule** (placeholder “Search/Select a Capsule Type”) and select **Backend** (description includes “Node, Java, Go or Python deployments”).
-8. Under **Choose a Team** (placeholder “Search/Select a team”), pick your team, then click **Next** to continue **Plan** / **Configure** / **Deploy**.
+To demonstrate how to deploy a Java application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-java).
 
-![Registration / log in entry](/img/guides/shared/step-0-open-site.png)
+Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
 
-![Welcome back login form](/img/guides/shared/step-1-login-page.png)
+## Create an Account with Code Capsules
 
-![Capsules list and create entry](/img/guides/create-java-backend-capsule/step-4-capsules-plus.png)
+If you don't already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-![New Capsule — Capsule Details](/img/guides/create-java-backend-capsule/step-5-backend-wizard.png)
+If you've just signed up for an account, you'll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
 
-For many Java samples you can leave **Run Command** blank on **Configure** and let the platform detect the build.
+Alternatively, if you're signing in again, click on the **Spaces** tab.
+
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
+
+## Create a Space for your App
+
+Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+
+Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+
+
+1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
+2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
+3. Choose a country close to where most of your users will be
+
+## Create the Capsule
+
+A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+
+1. Navigate to the **Space** containing your recently created Data Capsule and click the yellow `+` icon on the bottom left of the screen. Follow the instructions below to create a Backend Capsule:
+2. Capsule Details page:
+   - Open Choose a Capsule and pick Backend.
+   - Open Choose a Team and pick one, for example Personal Team. A Choose a Space field then appears.
+   - Open Choose a Space and pick a Space.
+   - Click Next.
+3. Configure Plan page:
+   - Choose a plan. Basic is selected by default.
+   - Click Next.
+4. Connect a Git Repository page:
+   - Open Git Repository and pick your repository. You can type to search the list, for example "java", which found BrentonJScott/demo-java tagged "Team Repository". There is also a Configure Git for Code Capsules button for connecting a git account.
+   - The Branch fills in by itself (master for demo-java). You can change it.
+   - Repo subpath is optional. The capsule builds from the repo root by default.
+   - Click Next.
+5. Build & Deploy page:
+   - Leave Run Command blank. Code Capsules starts the Java app from the build. The grey text in the field is only an example.
+   - Capsule Name defaults to the repo name (demo-java) and can be changed later.
+   - Click Create Capsule.
+
+Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking the **Builds** tab.
+
+Once the build shows **Succeeded** on the **Deploy** tab, click **View Logs** in the **Builds** section to see the build log.
+
+## View Application
+
+Go to the **Details** tab and click the link under **Public URL**. The Java app can take about a minute to start after the build succeeds. If the page shows **Bad Gateway** at first, wait a minute and reload. You should then see your deployed application.
+
+![Deployed App](/gitbook-assets/get-started/cc-java-app.png)
+
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
