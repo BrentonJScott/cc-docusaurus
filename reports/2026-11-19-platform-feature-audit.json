@@ -1,0 +1,153 @@
+{
+  "platform": "https://test-platform.codecapsules.io",
+  "loginResult": {
+    "ok": false,
+    "detail": "EMAIL/PASSWORD env vars not set on runner"
+  },
+  "reports": [
+    {
+      "guide": "docs/guides/create-angular-frontend-capsule.md",
+      "functional": "fail",
+      "doc_fidelity": "fail",
+      "steps": [
+        {
+          "step": "Login UI: Welcome back",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Email textbox",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Password textbox",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Log in button",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "1. Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        },
+        {
+          "step": "2. On **Welcome back**, enter your email in the **Email** textbox (placeholder “Enter your email”).",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        },
+        {
+          "step": "3. Enter your password in the **Password** textbox (placeholder “Enter your password”).",
+          "fidelity": "fail",
+          "detail": "Blocked: not logged in"
+        },
+        {
+          "step": "4. Click the **Log in** button.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        }
+      ],
+      "functional_detail": "EMAIL/PASSWORD env vars not set on runner"
+    },
+    {
+      "guide": "docs/guides/create-react-frontend-capsule.md",
+      "functional": "fail",
+      "doc_fidelity": "fail",
+      "steps": [
+        {
+          "step": "Login UI: Welcome back",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Email textbox",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Password textbox",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Log in button",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "1. Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        },
+        {
+          "step": "2. On **Welcome back**, enter your email in the **Email** textbox.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        },
+        {
+          "step": "3. Enter your password in the **Password** textbox.",
+          "fidelity": "fail",
+          "detail": "Blocked: not logged in"
+        },
+        {
+          "step": "4. Click the **Log in** button.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        }
+      ],
+      "functional_detail": "EMAIL/PASSWORD env vars not set on runner"
+    },
+    {
+      "guide": "docs/guides/create-java-backend-capsule.md",
+      "functional": "fail",
+      "doc_fidelity": "fail",
+      "steps": [
+        {
+          "step": "Login UI: Welcome back",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Email textbox",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Password textbox",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "Login UI: Log in button",
+          "fidelity": "pass",
+          "detail": "Visible label/control found"
+        },
+        {
+          "step": "1. Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        },
+        {
+          "step": "2. On **Welcome back**, enter your email in the **Email** textbox.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        },
+        {
+          "step": "3. Enter your password in the **Password** textbox.",
+          "fidelity": "fail",
+          "detail": "Blocked: not logged in"
+        },
+        {
+          "step": "4. Click the **Log in** button.",
+          "fidelity": "pass",
+          "detail": "Login controls match live platform labels"
+        }
+      ],
+      "functional_detail": "EMAIL/PASSWORD env vars not set on runner"
+    }
+  ]
+}
