@@ -1,6 +1,6 @@
 # Relaxed drift PR — 2026-11-19 (12:55 UTC follow-up)
 
-**Motivation:** Prior cron scored all guides `pass` and skipped a PR under the strict rule “only open docs PR on `doc_fidelity` drift/fail or `doc_completeness` incomplete.” Observational drift and outcome gaps still warranted a docs-only PR; see [`DRIFT_PR_POLICY.md`](./DRIFT_PR_POLICY.md).
+**Motivation:** Prior cron scored all guides `pass` and skipped a PR under the strict template rule (PR only when `doc_fidelity` drift/fail or `doc_completeness` incomplete). Observational drift and outcome gaps still warranted this docs-only PR; the automation **prompt** was updated to allow that (not a separate repo policy file).
 
 **Platform:** https://test-platform.codecapsules.io  
 **Evidence:** Playwright headless run (same day); step tables in `/tmp/platform-guide-audit-2026-11-19.json` (runner artifact).
@@ -20,6 +20,6 @@
 - **Angular/React step 7 (operational):** After **Next**, query string sometimes shows `capsuleType=backend` while **Frontend** remains selected on **Capsule Details**. Not a doc label mismatch; logged for product/docs awareness only.
 - **Capsule creation:** Cron did not submit final create (runner policy). Functional pass = numbered steps only, not an existing capsule resource.
 
-## doc_completeness (relaxed)
+## doc_completeness
 
-Under [`DRIFT_PR_POLICY.md`](./DRIFT_PR_POLICY.md), **incomplete** includes title/outcome gap even when step-level `doc_fidelity` is `pass`. This PR addresses that gap in prose; extending steps through deploy remains follow-up work.
+Treat title/outcome gap as **incomplete** even when step-level `doc_fidelity` is **pass**. This PR addresses that gap in prose; extending steps through deploy remains follow-up work.
