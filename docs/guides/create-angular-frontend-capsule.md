@@ -2,6 +2,8 @@
 
 Walk through creating an **Angular** app as a **Frontend Capsule** on the Code Capsules test platform. Steps below reflect visible labels on [test-platform.codecapsules.io](https://test-platform.codecapsules.io) captured on **2026-11-19**.
 
+**Scope of numbered steps:** Steps 1–7 take you through login, **Quick Start**, and **Capsule Details** for a **Frontend** capsule (through **Next** toward **Plan**). They do not include **Configure**, repo connection, or the final deploy/create submit—continue in the wizard after step 7 to finish creation.
+
 ## Prerequisites
 
 - A Code Capsules account on the test platform

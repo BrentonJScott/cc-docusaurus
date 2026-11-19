@@ -2,6 +2,8 @@
 
 Walk through creating a **React** app as a **Frontend Capsule** on the Code Capsules test platform. Steps reflect visible labels on [test-platform.codecapsules.io](https://test-platform.codecapsules.io) captured on **2026-11-19**.
 
+**Scope of numbered steps:** Steps 1–7 end at **Capsule Details** for a **Frontend** capsule (through **Next** toward **Plan**). Completing deployment requires additional wizard steps not numbered here.
+
 ## Prerequisites
 
 - A Code Capsules account on the test platform
