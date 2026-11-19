@@ -1,6 +1,6 @@
 # Create React frontend capsule
 
-Walk through creating a **React** app as a **Frontend Capsule** on the Code Capsules test platform.
+Walk through creating a **React** app as a **Frontend Capsule** on the Code Capsules test platform. Steps reflect visible labels on [test-platform.codecapsules.io](https://test-platform.codecapsules.io) captured on **2026-11-19**.
 
 ## Prerequisites
 
@@ -10,19 +10,22 @@ Walk through creating a **React** app as a **Frontend Capsule** on the Code Caps
 ## Steps
 
 1. Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
-2. On **Welcome back**, enter your email in the **Email** textbox.
-3. Enter your password in the **Password** textbox.
+2. On **Welcome back**, enter your email in the **Email** textbox (placeholder “Enter your email”).
+3. Enter your password in the **Password** textbox (placeholder “Enter your password”).
 4. Click the **Log in** button.
+5. After login, open **Quick Start** in the sidebar if you are not already there. Confirm the heading **What type of capsule would you like to deploy?**
+6. In the **React** row, click **Deploy Now**.
+7. On **New Capsule** (breadcrumb **Plan** / **Configure** / **Deploy**), complete **Capsule Details** and use **Next** to continue the wizard.
 
 ![Registration / log in entry](/img/guides/shared/step-0-open-site.png)
 
 ![Welcome back login form](/img/guides/shared/step-1-login-page.png)
 
-:::caution
-Post-login capsule wizard steps and screenshots will be added on a later drift run when team `EMAIL` / `PASSWORD` secrets are configured for this automation.
-:::
+![Quick Start capsule chooser](/img/guides/shared/step-2-quick-start.png)
 
-Typical React build settings:
+![New Capsule after React Deploy Now](/img/guides/create-react-frontend-capsule/step-5-new-capsule-wizard.png)
+
+Typical React build settings on **Configure**:
 
 - **Build Command:** `npm run build`
 - **Path to static content:** `build` or `dist` (folder containing `index.html`)
