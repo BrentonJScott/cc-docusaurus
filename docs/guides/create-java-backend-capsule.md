@@ -14,7 +14,7 @@ Walk through creating a **Java** backend as a **Backend Capsule** on the Code Ca
 3. Enter your password in the **Password** textbox (placeholder “Enter your password”).
 4. Click the **Log in** button.
 5. Click **Capsules** in the sidebar.
-6. Click the **+** control to open **New Capsule**.
+6. On the **Capsules** list, click the **+** link in the list header (next to the search field)—not the larger **+** in the left sidebar. You should navigate to **New Capsule**.
 7. Under **Capsule Details**, open **Choose a Capsule** (placeholder “Search/Select a Capsule Type”) and select **Backend** (description includes “Node, Java, Go or Python deployments”).
 8. Under **Choose a Team** (placeholder “Search/Select a team”), pick your team, then click **Next** to continue **Plan** / **Configure** / **Deploy**.
 
