@@ -167,6 +167,11 @@ try {
   if (gitRepo) {
     await clickNgSelectIndex(page, 0);
     await page.waitForTimeout(2000);
+    const repoFilter = page.locator('ng-select').nth(0).locator('input[type="text"]');
+    if (await repoFilter.isVisible().catch(() => false)) {
+      await repoFilter.fill('demo-angular-22');
+      await page.waitForTimeout(1200);
+    }
     const repoCount = await page.getByRole('option').count();
     record(9, 'Git repositories listed', repoCount > 0, repoCount > 0 ? `${repoCount} repo(s)` : 'No items found');
     if (repoCount === 0) {
@@ -176,38 +181,74 @@ try {
       mismatches.push('Audit account has no connected repositories; steps 10–12 and GOAL blocked (platform limitation).');
       record(9, 'Connect a Git Repository', false, 'No items found');
     } else {
-      const firstRepo = (await page.getByRole('option').first().textContent())?.trim();
-      await page.getByRole('option').first().click();
-      await page.waitForTimeout(1500);
-      await clickNgSelectIndex(page, 1).catch(() => {});
-      await page.waitForTimeout(1000);
-      if ((await page.getByRole('option').count()) > 0) {
-        await page.getByRole('option').first().click();
-      }
-      record(9, 'Connect a Git Repository', true, `Repository: ${firstRepo}`);
-      await shot(page, path.join(GUIDE_IMG, 'step-8-git-repository.png'));
-      await page.getByRole('button', { name: 'Next' }).click();
-      await page.waitForTimeout(2000);
+      const repoOpt = page.getByRole('option', { name: /demo-angular-22/i });
+      const hasAngularRepo = (await repoOpt.count()) > 0;
+      if (!hasAngularRepo) {
+        const names = await page
+          .getByRole('option')
+          .allTextContents()
+          .then((t) => t.map((s) => s.trim()).filter(Boolean).slice(0, 12));
+        mismatches.push(
+          `Guide step 9 names **BrentonJScott/demo-angular-22 Team Repository**; no matching option after filtering. Visible options: ${names.join(', ') || '(none)'}`,
+        );
+        await shot(page, path.join(GUIDE_IMG, 'failure-git-repo-missing.png'));
+        record(9, 'Connect a Git Repository (demo-angular-22)', false, `Missing demo-angular-22; saw ${names.length} option(s)`);
+        blockedAt = 'demo-angular-22 not in Git Repository list — GOAL unreachable';
+      } else {
+        const repoName = (await repoOpt.first().textContent())?.trim();
+        await repoOpt.first().click();
+        await page.waitForTimeout(1500);
+        const branchLabel = page.getByText('Search/Select a Branch', { exact: true });
+        if (await branchLabel.isVisible().catch(() => false)) {
+          await clickNgSelectIndex(page, 1);
+          await page.waitForTimeout(1000);
+          const branchCount = await page.getByRole('option').count();
+          if (branchCount === 0) {
+            mismatches.push('Branch dropdown visible but no branch options loaded after selecting cc-demo-angular.');
+            record(9, 'Select branch', false, 'No branch options');
+            blockedAt = blockedAt || 'Branch list empty';
+          } else {
+            const mainBranch = page.getByRole('option', { name: /main/i }).first();
+            if ((await mainBranch.count()) > 0) {
+              await mainBranch.click();
+            } else {
+              const branchName = (await page.getByRole('option').first().textContent())?.trim();
+              await page.getByRole('option').first().click();
+              mismatches.push(`Guide does not name a branch; selected **${branchName}** because **main** was not listed.`);
+            }
+            await page.waitForTimeout(500);
+          }
+        }
+        let step9Ready = !blockedAt;
+        record(9, 'Connect a Git Repository (demo-angular-22)', step9Ready, `Repository: ${repoName}`);
+        await shot(page, path.join(GUIDE_IMG, 'step-8-git-repository.png'));
+        if (step9Ready) {
+          await page.getByRole('button', { name: 'Next' }).click();
+          await page.waitForTimeout(2000);
 
-      await page.getByPlaceholder(/npm run build/i).fill('npm run build');
-      await page.getByPlaceholder(/dist/i).fill('dist/cc-demo-angular/browser');
-      await shot(page, path.join(GUIDE_IMG, 'step-10-build-deploy.png')).catch(() => {});
-      await page.getByRole('button', { name: 'Create Capsule' }).click();
-      await page.waitForURL('**/dash/**', { timeout: 60000 }).catch(() => {});
-      await page.waitForTimeout(3000);
-      const deployTab = page.getByRole('tab', { name: 'Deploy' }).or(page.getByRole('link', { name: 'Deploy' }));
-      await deployTab.first().click().catch(() => {});
-      await page.waitForTimeout(3000);
-      goalReached = await page
-        .getByText(/Building|Queued|In progress|Build started|Running/i)
-        .first()
-        .isVisible()
-        .catch(() => false);
-      if (!goalReached) {
-        goalReached = await page.locator('table, .build').getByText(/build/i).first().isVisible().catch(() => false);
+          await page.getByPlaceholder(/npm run build/i).fill('npm run build');
+          await page.getByPlaceholder(/dist/i).fill('dist/cc-demo-angular/browser');
+          record(10, 'Build & Deploy fields', true, 'npm run build; dist/cc-demo-angular/browser');
+          await shot(page, path.join(GUIDE_IMG, 'step-10-build-deploy.png')).catch(() => {});
+          record(11, 'Create Capsule', true, 'Submit wizard');
+          await page.getByRole('button', { name: 'Create Capsule' }).click();
+          await page.waitForURL('**/dash/**', { timeout: 60000 }).catch(() => {});
+          await page.waitForTimeout(3000);
+          const deployTab = page.getByRole('tab', { name: 'Deploy' }).or(page.getByRole('link', { name: 'Deploy' }));
+          await deployTab.first().click().catch(() => {});
+          await page.waitForTimeout(3000);
+          goalReached = await page
+            .getByText(/Building|Queued|In progress|Build started|Running/i)
+            .first()
+            .isVisible()
+            .catch(() => false);
+          if (!goalReached) {
+            goalReached = await page.locator('table, .build').getByText(/build/i).first().isVisible().catch(() => false);
+          }
+          record(12, 'Deploy Builds', goalReached, goalReached ? 'Building state visible' : page.url());
+          await shot(page, path.join(GUIDE_IMG, 'step-12-deploy-builds.png')).catch(() => {});
+        }
       }
-      record(12, 'Deploy Builds', goalReached, goalReached ? 'Building state visible' : page.url());
-      await shot(page, path.join(GUIDE_IMG, 'step-12-deploy-builds.png')).catch(() => {});
     }
   } else {
     blockedAt = blockedAt || 'Did not reach Connect a Git Repository step';
@@ -252,14 +293,24 @@ fs.writeFileSync(cronMd, cron.join('\n'));
 const feature = [
   `# Create Angular frontend capsule walkthrough (${DATE})`,
   '',
+  `**Platform:** ${PLATFORM}`,
+  '',
+  '**Manifest goal:** Expect to see capsule building in builds tab',
+  '',
   `**Run completed:** ${now}`,
   `**Goal reached:** ${goalReached ? 'yes' : 'no'}`,
   blockedAt ? `**Blocked:** ${blockedAt}` : '',
   '',
+  '## Step results',
+  '',
+  '| Step | Pass | Detail |',
+  '|---|---|---|',
+  ...steps.map((s) => `| ${s.step} ${s.name} | ${s.pass ? 'pass' : 'fail'} | ${s.detail.replace(/\|/g, '\\|')} |`),
+  '',
   '## Mismatches / issues',
   '',
   ...mismatches.map((m) => `- ${m}`),
-  ...(mismatches.length === 0 ? ['- None observed beyond prior 2026-11-20 drift fixes in the guide.'] : []),
+  ...(mismatches.length === 0 ? ['- None observed for this run.'] : []),
 ].filter(Boolean);
 
 fs.writeFileSync(featureMd, feature.join('\n'));

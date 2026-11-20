@@ -1,30 +1,45 @@
 # Cron platform audit (2026-11-20)
 
-**Run completed:** 2026-11-20T07:08:36.989Z  
+**Run completed:** 2026-11-20T07:31:35.310Z  
 **Manifest:** `cc-site/DOCUMENTED_FEATURES.MD` — 1 feature  
 **Target:** https://test-platform.codecapsules.io
 
 | DOCUMENTED_FEATURES | Guide file | Action |
 |---|---|---|
-| Create Angular frontend capsule | `docs/guides/create-angular-frontend-capsule.md` | Update guide + screenshots (drift) |
+| Create Angular frontend capsule | `docs/guides/create-angular-frontend-capsule.md` | Update guide + runner + screenshots |
 
 **Removed / added guides:** None (manifest and `docs/guides/` both list only Angular).
+
+**Manifest goal reached:** yes (Deploy → Builds shows **Building** with **`demo-angular-22`**).
 
 ## Summary
 
 | Guide | Functional | Doc fidelity |
 |---|---|---|
-| `create-angular-frontend-capsule.md` | pass | drift → fixed in PR |
+| `create-angular-frontend-capsule.md` | pass | drift → fixed in this PR |
 
-**Manifest goal:** Expect to see capsule building in builds tab — **reached** (Deploy tab shows **Building**).
+## Mismatches resolved this run
 
-## Mismatches (doc vs live UI)
+- **Step 9:** Repository dropdown lists many team repos; filter with **`demo-angular-22`** to surface **`BrentonJScott/demo-angular-22 Team Repository`** (unfiltered first page did not include it — see `failure-git-repo-missing.png` from the failed attempt at 07:29Z).
+- **Step 9:** Branch **`main`** must be chosen under **Search/Select a Branch** after the repository is selected.
+- **Executor shortcut (prior runner):** Selecting the first repository in the list is not guide-faithful; guide now names **`demo-angular-22`** explicitly.
 
-- **Step 5:** Angular entry is the **Angular applications** quick-start **card**, not a table row; breadcrumbs include **Hosting** before **Plan** / **Configure** / **Deploy**.
-- **Steps 7–8:** **Static** and **Free** are card-style radio rows; you must click the option card before **Next** (otherwise **Choose how your site is hosted to continue** appears).
-- **Step 9:** After choosing a repository, select a **Branch** from **Search/Select a Branch** before **Next**.
-- **Step 10:** **Build & Deploy** inputs are identified by placeholders **`example... npm run build`** and **`example... dist`**, not separate visible **Build Command** labels in the accessibility tree.
-- **Step 12:** After **Create Capsule**, the **Building** status appears in the **Builds** panel on the capsule **Deploy** tab (may also show a gear icon while the build runs).
+## Step results
+
+| Step | Pass | Detail |
+|---|---|---|
+| 1 Open platform | pass | https://test-platform.codecapsules.io/auth/registration |
+| 2 Welcome back | pass | Login form visible |
+| 3 Log in | pass | https://test-platform.codecapsules.io/dash/overview/quick-start |
+| 4 Quick Start | pass | https://test-platform.codecapsules.io/dash/overview/quick-start |
+| 5 Angular Deploy Now → New Capsule | pass | https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend |
+| 6 Capsule Details team + space | pass | Team: Personal Team; spaces loaded |
+| 7 Hosting Static | pass | Selected Static |
+| 8 Plan Free | pass | Selected Free |
+| 9 Connect a Git Repository (demo-angular-22) | pass | BrentonJScott/demo-angular-22 Team Repository |
+| 10 Build & Deploy fields | pass | npm run build; dist/cc-demo-angular/browser |
+| 11 Create Capsule | pass | Submit wizard |
+| 12 Deploy Builds | pass | Building state visible |
 
 ## Step screenshots (this run)
 
