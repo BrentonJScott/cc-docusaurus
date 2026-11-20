@@ -9,7 +9,7 @@ sidebar_label: "Angular"
 
 # Create Angular frontend capsule
 
-**Goal:** After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds** (status such as **Building**, **Queued**, or **In progress**).
+**Goal:** After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds**.
 
 Steps below match visible labels on [test-platform.codecapsules.io](https://test-platform.codecapsules.io) as verified on **2026-11-20**. For production signup and marketing copy, use [codecapsules.io](https://www.codecapsules.io/); this guide targets the test platform used for documentation audits.
 
@@ -56,7 +56,7 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
    ![Plan step with Free selected](/img/guides/create-angular-frontend-capsule/step-7-plan-free.png)
 
 9. On **Connect a Git Repository**:
-   - Open **Search/Select a Repository** and choose a repository. If the list is empty, click **Configure Git for Code Capsules**, connect GitHub, return, and open the dropdown again (allow a few seconds for repositories to load).
+   - Open **Search/Select a Repository** and choose the angular repository. If the list is empty, click **Configure Git for Code Capsules**, connect GitHub, return, and open the dropdown again (allow a few seconds for repositories to load).
    - Under **Select a Branch to deploy from**, choose a branch after a repository is selected (**No items found** is normal until a repository is chosen).
    - Click **Next**.
 
