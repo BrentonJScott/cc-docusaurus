@@ -1,6 +1,6 @@
 # Cron platform audit (2026-11-20)
 
-**Run completed:** 2026-11-20T08:36:15.468Z  
+**Run completed:** 2026-11-20T09:19:30.340Z  
 **Manifest:** `cc-site/DOCUMENTED_FEATURES.MD` — 2 features  
 **Target:** https://test-platform.codecapsules.io
 
@@ -51,4 +51,5 @@ Walkthrough JSON: `reports/2026-11-20-create-react-frontend-capsule.json`
 
 ## Mismatches / issues
 
-- None for this run. The prior `docs/guides/react.md` described production flows without numbered steps or screenshots; it was rewritten to match the test-platform wizard verified on 2026-11-20.
+- Removed `docs/guides/vue.md`, `next.js.md`, `svelte.md`, and `static-html.md` — they are not listed in `DOCUMENTED_FEATURES.MD` (manifest lists only Angular and React).
+- Playwright walkthroughs for both documented features: all steps 1–12 pass; GOAL reached (build in progress on Deploy → Builds).
