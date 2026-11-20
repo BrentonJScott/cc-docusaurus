@@ -11,7 +11,7 @@ sidebar_label: "React"
 
 Create and deploy a React frontend capsule on the test platform, from login through the capsule wizard, until a build shows as in progress on **Deploy → Builds**.
 
-Verified on **2026-11-20** at [test-platform.codecapsules.io](https://test-platform.codecapsules.io). For production marketing and signup copy, see [codecapsules.io](https://www.codecapsules.io/).
+Verified on **2026-07-03** at [test-platform.codecapsules.io](https://test-platform.codecapsules.io). For production marketing and signup copy, see [codecapsules.io](https://www.codecapsules.io/).
 
 ## Goal
 
@@ -45,50 +45,43 @@ Click **Log in**.
 
 ### Step 4
 
-Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**
-
-![Step 4 — Quick Start framework list](/img/guides/create-react-frontend-capsule/step-4.jpg)
-
-### Step 5
-
-On **Quick Start**, find the **React** card (**React applications**) and click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Hosting** / **Plan** / **Configure** / **Deploy**.
+On the dashboard, click **Create New Capsule** and pick **React**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend`.
 
 ![Step 5 — New Capsule wizard entry](/img/guides/create-react-frontend-capsule/step-5.jpg)
 
-### Step 6
+### Step 5
 
 On **Capsule Details**:
 
 - Under **Choose a Capsule**, open the dropdown and choose **Frontend** (“Angular, React, Vue or static site deployments”) if **Backend** is still shown after **Deploy Now**.
 - Under **Choose a Team**, open the dropdown under that label, wait for teams to load, and choose **Personal Team** (or your team name).
-- Under **Choose a Space**, open the dropdown under **Choose a Space**, wait for spaces to load, and choose a space (for example **Personal Space** on the audit account).
-- Click **Next** when all three fields are filled.
+- Click **Next** when both fields are filled.
 
-![Step 6 — Capsule Details with Frontend, team, and space](/img/guides/create-react-frontend-capsule/step-6.jpg)
+![Step 6 — Capsule Details with Frontend and team](/img/guides/create-react-frontend-capsule/step-6.jpg)
 
-### Step 7
+### Step 6
 
 On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation shows **Choose how your site is hosted to continue**, the Static row is not selected yet.
 
 ![Step 7 — Hosting with Static selected](/img/guides/create-react-frontend-capsule/step-7.jpg)
 
+### Step 7
+
+On **Plan**, select the **Starter** plan card, then **Next**.
+
+![Step 8 — Plan with Starter selected](/img/guides/create-react-frontend-capsule/step-8.jpg)
+
 ### Step 8
-
-On **Plan**, select the **Free** plan card, then **Next**.
-
-![Step 8 — Plan with Free selected](/img/guides/create-react-frontend-capsule/step-8.jpg)
-
-### Step 9
 
 On **Connect a Git Repository**:
 
 - Open **Search/Select a Repository**, wait for repositories to load, and choose your React GitHub repo. On the documentation audit account, select **`BrentonJScott/demo-react Team Repository`** (type `demo-react` in the filter if the list is long). If the list is empty, use **Configure Git for Code Capsules**, connect GitHub, return, and open the repository dropdown again.
-- Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected (**No items found** is normal until a repository is chosen).
+- Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **master** after the repository is selected (**No items found** is normal until a repository is chosen).
 - Click **Next**.
 
 ![Step 9 — Connect a Git Repository](/img/guides/create-react-frontend-capsule/step-9.jpg)
 
-### Step 10
+### Step 9
 
 On **Build & Deploy**, fill the fields that use placeholder examples on the live form:
 
@@ -98,13 +91,13 @@ On **Build & Deploy**, fill the fields that use placeholder examples on the live
 
 ![Step 10 — Build & Deploy fields](/img/guides/create-react-frontend-capsule/step-10.jpg)
 
-### Step 11
+### Step 10
 
 Click **Create Capsule**.
 
 ![Step 11 — Build & Deploy ready to submit](/img/guides/create-react-frontend-capsule/step-11.jpg)
 
-### Step 12
+### Step 11
 
 On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progress**.
 
@@ -116,4 +109,4 @@ On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows *
 - **Backend instead of Frontend on Capsule Details:** Switch **Choose a Capsule** to **Frontend** before selecting team and space.
 - **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds**.
 - **React repo not visible in the dropdown:** Type part of the repository name (for example `demo-react`) in **Search/Select a Repository**; the platform may only show the first page until you filter.
-- **Named repository missing:** Step 9 must list **`BrentonJScott/demo-react Team Repository`** for the audit account; if it is absent, stop and connect the repo or pick the correct team—do not substitute another repository and expect a successful React build.
+- **Named repository missing:** Step 8 must list **`BrentonJScott/demo-react Team Repository`** for the audit account; if it is absent, stop and connect the repo or pick the correct team—do not substitute another repository and expect a successful React build.

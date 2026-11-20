@@ -1,119 +1,75 @@
 ---
 slug: "/frontend/angular"
 description: >-
-  Create an Angular Frontend Capsule on the Code Capsules test platform and confirm
-  the first build appears under Deploy → Builds.
+  Deploy an Angular application on Code Capsules with auto-deployments from a
+  specified branch on your GitHub repository.
 title: "How to Host an Angular Application"
 sidebar_label: "Angular"
 ---
 
-# Create Angular frontend capsule
+# Host Your Angular Application in Minutes
 
-Create and deploy an Angular frontend capsule on the test platform, from login through the capsule wizard, until a build shows as in progress on **Deploy → Builds**.
+Deploy an Angular application and learn how to host frontend code on Code Capsules. At the end of the guide, you would have deployed the application in the screenshot below and can adapt it to meet your unique needs.
 
-Verified on **2026-11-20** at [test-platform.codecapsules.io](https://test-platform.codecapsules.io). For production marketing and signup copy, see [codecapsules.io](https://www.codecapsules.io/).
+![Deployed App](/gitbook-assets/get-started/cc-angular-app.png)
 
-## Goal
+## Setup
 
-After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds**.
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-## Prerequisites
+To demonstrate how to deploy an Angular application with Code Capsules, we’ve provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-angular).
 
-- A Code Capsules account on the test platform
-- A Git repository with an Angular app (for example `npm run build`, static output under `dist/.../browser`)
-- GitHub connected to your team (**Configure Git for Code Capsules** if the repository list is empty)
+Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Steps
+## Create an Account with Code Capsules
 
-### Step 1
+If you don’t already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
 
-![Step 1 — open the test platform](/img/guides/create-angular-frontend-capsule/step-1.jpg)
+Alternatively, if you’re signing in again, click on the **Spaces** tab.
 
-### Step 2
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
 
-On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.
+## Create a Space for Your App
 
-![Step 2 — Welcome back login form](/img/guides/create-angular-frontend-capsule/step-2.jpg)
+Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
-### Step 3
+Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-Click **Log in**.
+![Create a New Space](/gitbook-assets/get-started/space-name-1.png)
 
-![Step 3 — signed in to the dashboard](/img/guides/create-angular-frontend-capsule/step-3.jpg)
 
-### Step 4
+1. Choose a Team — you can use a default “personal” Team if you’re the only person working on this project, or a named Team if you’re collaborating with others
+2. This should remind you of the project, for example, “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
 
-Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**
+## Create the Capsule
 
-![Step 4 — Quick Start framework list](/img/guides/create-angular-frontend-capsule/step-4.jpg)
+A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-### Step 5
+Navigate to the Space containing your recently created Data Capsule and click the yellow `+` icon on the bottom left of the screen. Follow the instructions below to create a Frontend Capsule:
 
-On **Quick Start**, find the **Angular** card (**Angular applications**) and click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Hosting** / **Plan** / **Configure** / **Deploy**.
+1. Choose **Frontend Capsule**, your Team, and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press **Next**.
+6. Type `npm run build` in **Build Command** and `dist/ng4-complete-guide` in **Build Output Directory**.
+7. Click **Create Capsule**.
 
-![Step 5 — New Capsule wizard entry](/img/guides/create-angular-frontend-capsule/step-5.jpg)
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
 
-### Step 6
+Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-On **Capsule Details**:
+![Build Logs](/gitbook-assets/get-started/angular-build-logs.png)
 
-- Under **Choose a Capsule**, open the dropdown and choose **Frontend** (“Angular, React, Vue or static site deployments”) if **Backend** is still shown after **Deploy Now**.
-- Under **Choose a Team**, open the dropdown under that label, wait for teams to load, and choose **Personal Team** (or your team name).
-- Under **Choose a Space**, open the dropdown under **Choose a Space**, wait for spaces to load, and choose a space (for example **Personal Space** on the audit account).
-- Click **Next** when all three fields are filled.
+Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application.
 
-![Step 6 — Capsule Details with Frontend, team, and space](/img/guides/create-angular-frontend-capsule/step-6.jpg)
+![Deployed App](/gitbook-assets/get-started/cc-angular-app.png)
 
-### Step 7
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/frontend/).
 
-On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation shows **Choose how your site is hosted to continue**, the Static row is not selected yet.
-
-![Step 7 — Hosting with Static selected](/img/guides/create-angular-frontend-capsule/step-7.jpg)
-
-### Step 8
-
-On **Plan**, select the **Free** plan card, then **Next**.
-
-![Step 8 — Plan with Free selected](/img/guides/create-angular-frontend-capsule/step-8.jpg)
-
-### Step 9
-
-On **Connect a Git Repository**:
-
-- Open **Search/Select a Repository**, wait for repositories to load, and choose your Angular GitHub repo. On the documentation audit account, select **`BrentonJScott/demo-angular-22 Team Repository`** (type `demo-angular-22` in the filter if the list is long). If the list is empty, use **Configure Git for Code Capsules**, connect GitHub, return, and open the repository dropdown again.
-- Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected (**No items found** is normal until a repository is chosen).
-- Click **Next**.
-
-![Step 9 — Connect a Git Repository](/img/guides/create-angular-frontend-capsule/step-9.jpg)
-
-### Step 10
-
-On **Build & Deploy**, fill the fields that use placeholder examples on the live form:
-
-- Build command placeholder → `npm run build`
-- Output directory placeholder → your Angular output folder (for example `dist/cc-demo-angular/browser`)
-- **Capsule Name** defaults from the repository; change it if needed.
-
-![Step 10 — Build & Deploy fields](/img/guides/create-angular-frontend-capsule/step-10.jpg)
-
-### Step 11
-
-Click **Create Capsule**.
-
-![Step 11 — Build & Deploy ready to submit](/img/guides/create-angular-frontend-capsule/step-11.jpg)
-
-### Step 12
-
-On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progress**.
-
-![Step 12 — Deploy tab with build in progress](/img/guides/create-angular-frontend-capsule/step-12.jpg)
-
-## Troubleshooting
-
-- **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**; use the inputs under each label so the dropdown receives the click.
-- **Backend instead of Frontend on Capsule Details:** Switch **Choose a Capsule** to **Frontend** before selecting team and space.
-- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds**.
-- **Angular repo not visible in the dropdown:** Type part of the repository name (for example `demo-angular-22`) in **Search/Select a Repository**; the platform may only show the first page until you filter.
-- **Named repository missing:** Step 9 must list **`BrentonJScott/demo-angular-22 Team Repository`** for the audit account; if it is absent, stop and connect the repo or pick the correct team—do not substitute another repository and expect a successful Angular build.
+:::tip[Video Guides]
+If you prefer watching videos to reading text, check out our [Video Guides](/tutorials/video-guides/).
+:::
