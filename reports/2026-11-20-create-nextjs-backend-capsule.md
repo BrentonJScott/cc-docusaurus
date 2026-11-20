@@ -1,7 +1,7 @@
 # Create NextJS backend capsule walkthrough (2026-11-20)
 **Platform:** https://test-platform.codecapsules.io
 **Manifest goal:** Expect to see capsule building in builds tab
-**Run completed:** 2026-11-20T11:10:44.907Z
+**Run completed:** 2026-11-20T11:21:54.903Z
 **Goal reached:** yes
 ## Step results
 | Step | Pass | Detail |
