@@ -1,7 +1,7 @@
 # Create React frontend capsule walkthrough (2026-11-20)
 **Platform:** https://test-platform.codecapsules.io
 **Manifest goal:** Expect to see capsule building in builds tab
-**Run completed:** 2026-11-20T12:03:23.840Z
+**Run completed:** 2026-11-20T12:24:05.786Z
 **Goal reached:** no
 ## Step results
 | Step | Pass | Detail |
@@ -52,8 +52,6 @@
 
 ## Mismatches / issues
 
-- Step 4: Guide: Create New Capsule; executor used Quick Start
-- Walkthrough executor recorded 12 numbered steps; guide defines 11 (`### Step N`). Step numbers must match 1:1.
 - Step 4: Guide step topic (new capsule) does not match executor evidence (quick start)
 - Step 4: Guide: Create New Capsule; executor used Quick Start
 - Step 5: Guide step topic (capsule details) does not match executor evidence (new capsule)
