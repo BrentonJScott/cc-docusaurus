@@ -56,8 +56,8 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
    ![Plan step with Free selected](/img/guides/create-angular-frontend-capsule/step-7-plan-free.png)
 
 9. On **Connect a Git Repository**:
-   - Open **Search/Select a Repository** and choose the angular repository. If the list is empty, click **Configure Git for Code Capsules**, connect GitHub, return, and open the dropdown again (allow a few seconds for repositories to load).
-   - Under **Select a Branch to deploy from**, choose a branch after a repository is selected (**No items found** is normal until a repository is chosen).
+   - Open **Search/Select a Repository**, wait for repositories to load, and choose your Angular GitHub repo. On the documentation audit account, pick **`BrentonJScott/demo-angular-22 Team Repository`** (type `demo-angular-22` in the filter if the long list does not show it immediately). If the list is empty, click **Configure Git for Code Capsules**, connect GitHub, return, and open the dropdown again.
+   - Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected (**No items found** is normal until a repository is chosen).
    - Click **Next**.
 
    ![Connect a Git Repository step](/img/guides/create-angular-frontend-capsule/step-8-git-repository.png)
@@ -79,8 +79,10 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
 
 - **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**; use the combobox inputs under each label so ng-select receives the click.
 - **Backend instead of Frontend on Capsule Details:** Switch **Choose a Capsule** to **Frontend** before selecting team and space.
-- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds** (see audit screenshot `failure-git-empty.png` when the repository list is empty).
+- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds** (see `failure-git-empty.png` when the repository list is empty).
+- **Angular repo not visible in the dropdown:** Type part of the repository name (for example `demo-angular-22`) in **Search/Select a Repository**; the platform loads many team repos and may only show the first page until you filter.
+- **Wrong repository selected:** Step 9 must be an Angular app repo; substituting a non-Angular repository can still show **Building** but the build may fail later (see `failure-git-repo-missing.png` when a named repo is absent).
 
 ## Platform note (2026-11-20 audit)
 
-The cron audit account reached the manifest **GOAL** on **2026-11-20T07:08Z** (build **Building** on **Deploy → Builds**). If **Search/Select a Repository** is empty, connect GitHub via **Configure Git for Code Capsules** before steps 10–12 (see `failure-git-empty.png` from earlier runs).
+**2026-11-20T07:30Z:** All numbered steps **pass** on the test platform with **`BrentonJScott/demo-angular-22 Team Repository`**, branch **main**, and **`dist/cc-demo-angular/browser`** on **Build & Deploy**; **Deploy → Builds** shows **Building** (**GOAL** reached).
