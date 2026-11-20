@@ -1,7 +1,7 @@
 # Create Svelte frontend capsule walkthrough (2026-11-20)
 **Platform:** https://test-platform.codecapsules.io
 **Manifest goal:** Expect to see capsule building in builds tab
-**Run completed:** 2026-11-20T11:12:06.611Z
+**Run completed:** 2026-11-20T11:23:16.492Z
 **Goal reached:** yes
 ## Step results
 | Step | Pass | Detail |

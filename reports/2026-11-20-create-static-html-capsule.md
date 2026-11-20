@@ -1,7 +1,7 @@
 # Create Static HTML frontend capsule walkthrough (2026-11-20)
 **Platform:** https://test-platform.codecapsules.io
 **Manifest goal:** Expect to see capsule building in builds tab
-**Run completed:** 2026-11-20T11:11:25.246Z
+**Run completed:** 2026-11-20T11:22:35.273Z
 **Goal reached:** yes
 ## Step results
 | Step | Pass | Detail |
