@@ -41,20 +41,6 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
 11. Click **Create Capsule**.
 12. Open the **Deploy** tab. Under **Builds**, confirm the latest build shows a building state (**Building**, **Queued**, or **In progress**). The **Details** tab may also show **Building** under capsule status while the build runs.
 
-![Registration / log in entry](/img/guides/shared/step-0-open-site.png)
-
-![Welcome back login form](/img/guides/shared/step-1-login-page.png)
-
-![Quick Start capsule chooser](/img/guides/shared/step-2-quick-start.png)
-
-![New Capsule — Capsule Details](/img/guides/create-angular-frontend-capsule/step-5-new-capsule-wizard.png)
-
-![Hosting — Static](/img/guides/create-angular-frontend-capsule/step-6-hosting-static.png)
-
-![Plan selection](/img/guides/create-angular-frontend-capsule/step-7-plan-free.png)
-
-![Connect a Git Repository](/img/guides/create-angular-frontend-capsule/step-8-git-repository.png)
-
 ## Troubleshooting
 
 - **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**.
