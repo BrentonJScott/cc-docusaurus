@@ -35,7 +35,7 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
 
    ![Quick Start with framework rows](/img/guides/shared/step-2-quick-start.png)
 
-5. In the **Angular** row, click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Plan** / **Configure** / **Deploy**.
+5. On **Quick Start**, find the **Angular** card (**Angular applications**) and click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Hosting** / **Plan** / **Configure** / **Deploy**.
 
    ![New Capsule wizard entry](/img/guides/create-angular-frontend-capsule/step-5-new-capsule-wizard.png)
 
@@ -47,11 +47,11 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
 
    ![Capsule Details with Frontend, team, and space selected](/img/guides/create-angular-frontend-capsule/step-6-capsule-details-filled.png)
 
-7. On **Hosting**, select **Static** and click **Next**.
+7. On **Hosting**, click the **Static** option card (radio row that includes **No server**), then click **Next**. If validation shows **Choose how your site is hosted to continue**, the Static row is not selected yet.
 
    ![Hosting step with Static selected](/img/guides/create-angular-frontend-capsule/step-6-hosting-static.png)
 
-8. On **Plan**, select **Free** (or a paid plan) and click **Next**.
+8. On **Plan**, click the **Free** plan card, then **Next** (other tiers use the same card-style radio rows).
 
    ![Plan step with Free selected](/img/guides/create-angular-frontend-capsule/step-7-plan-free.png)
 
@@ -62,14 +62,18 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
 
    ![Connect a Git Repository step](/img/guides/create-angular-frontend-capsule/step-8-git-repository.png)
 
-10. On **Build & Deploy**, set:
-    - **Build Command:** `npm run build`
-    - **Path to static content:** your Angular output folder (for example `dist/cc-demo-angular/browser`)
-    - Optionally adjust **Capsule Name**.
+10. On **Build & Deploy**, fill the fields that use placeholder examples on the live form:
+    - **`example... npm run build`:** `npm run build`
+    - **`example... dist`:** your Angular output folder (for example `dist/cc-demo-angular/browser`)
+    - **Capsule Name:** defaults from the repository; change if needed.
+
+    ![Build & Deploy fields](/img/guides/create-angular-frontend-capsule/step-10-build-deploy.png)
 
 11. Click **Create Capsule**.
 
-12. Open the **Deploy** tab. Under **Builds**, confirm the latest build shows a building state (**Building**, **Queued**, or **In progress**). The **Details** tab may also show **Building** under capsule status while the build runs.
+12. On the capsule **Deploy** tab, open **Builds** (or the **Builds** side panel). Confirm the latest build shows **Building**, **Queued**, or **In progress**.
+
+    ![Deploy tab with build in progress](/img/guides/create-angular-frontend-capsule/step-12-deploy-builds.png)
 
 ## Troubleshooting
 
@@ -79,4 +83,4 @@ Steps below match visible labels on [test-platform.codecapsules.io](https://test
 
 ## Platform note (2026-11-20 audit)
 
-The documentation audit account could walk through steps 1–9 but had **no connected repositories**, so steps 10–12 and the manifest **GOAL** (building on **Deploy → Builds**) were not reachable. That is an account/integration limitation on the test platform, not incorrect doc steps for accounts with GitHub connected.
+The cron audit account reached the manifest **GOAL** on **2026-11-20T07:08Z** (build **Building** on **Deploy → Builds**). If **Search/Select a Repository** is empty, connect GitHub via **Configure Git for Code Capsules** before steps 10–12 (see `failure-git-empty.png` from earlier runs).
