@@ -17,8 +17,6 @@ const PASSWORD = process.env.PASSWORD;
 
 const FEATURE_TO_GUIDE = {
   'Create Angular frontend capsule': 'docs/guides/create-angular-frontend-capsule.md',
-  'Create React frontend capsule': 'docs/guides/create-react-frontend-capsule.md',
-  'Create Java backend capsule': 'docs/guides/create-java-backend-capsule.md',
 };
 
 /** @typedef {{ guide: string, functional: 'pass'|'fail', doc_fidelity: 'pass'|'drift'|'fail', steps: { step: string, fidelity: string, detail: string }[], functional_detail: string }} Report */
@@ -32,6 +30,7 @@ function parseFeatures() {
   return raw
     .split('\n')
     .map((l) => l.replace(/^-\s*/, '').trim())
+    .map((l) => l.replace(/\s*\(GOAL:.*\)\s*$/i, '').trim())
     .filter(Boolean);
 }
 
