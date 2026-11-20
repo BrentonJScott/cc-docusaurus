@@ -90,5 +90,143 @@
       "detail": "Building state visible",
       "screenshot": "/img/guides/create-static-html-capsule/step-12.jpg"
     }
+  ],
+  "guideStepCount": 12,
+  "guideWalkthroughShaped": true,
+  "guideAlignment": [
+    {
+      "step": 1,
+      "pass": true,
+      "guideExpects": "Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your accoun",
+      "actual": "https://test-platform.codecapsules.io/auth/registration",
+      "drift": []
+    },
+    {
+      "step": 2,
+      "pass": true,
+      "guideExpects": "On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.",
+      "actual": "Login form visible",
+      "drift": []
+    },
+    {
+      "step": 3,
+      "pass": true,
+      "guideExpects": "Click **Log in**.",
+      "actual": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "drift": []
+    },
+    {
+      "step": 4,
+      "pass": true,
+      "guideExpects": "Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**",
+      "actual": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "drift": []
+    },
+    {
+      "step": 5,
+      "pass": true,
+      "guideExpects": "On **Quick Start**, find the **Static HTML** card and click **Deploy Now**. You should reach **New Capsule** at `/new/ca",
+      "actual": "https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend",
+      "drift": []
+    },
+    {
+      "step": 6,
+      "pass": true,
+      "guideExpects": "On **Capsule Details**:",
+      "actual": "Team: Personal Team; space: Personal Space  personal-space-ivbk",
+      "drift": []
+    },
+    {
+      "step": 7,
+      "pass": true,
+      "guideExpects": "On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation",
+      "actual": "Static selected",
+      "drift": []
+    },
+    {
+      "step": 8,
+      "pass": true,
+      "guideExpects": "On **Plan**, select the **Free** plan card, then **Next**.",
+      "actual": "Free plan selected",
+      "drift": []
+    },
+    {
+      "step": 9,
+      "pass": true,
+      "guideExpects": "On **Connect a Git Repository**:",
+      "actual": "Repository: BrentonJScott/demo-html Team Repository; branch: main",
+      "drift": []
+    },
+    {
+      "step": 10,
+      "pass": true,
+      "guideExpects": "On **Build & Deploy**, leave **Build Command** and **Path to static content** blank unless your repo needs a build step.",
+      "actual": "build command and output path left empty",
+      "drift": []
+    },
+    {
+      "step": 11,
+      "pass": true,
+      "guideExpects": "Click **Create Capsule**.",
+      "actual": "Ready to submit wizard",
+      "drift": []
+    },
+    {
+      "step": 12,
+      "pass": true,
+      "guideExpects": "On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progres",
+      "actual": "Building state visible",
+      "drift": []
+    }
+  ],
+  "guideSteps": [
+    {
+      "n": 1,
+      "title": "Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your accoun"
+    },
+    {
+      "n": 2,
+      "title": "On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox."
+    },
+    {
+      "n": 3,
+      "title": "Click **Log in**."
+    },
+    {
+      "n": 4,
+      "title": "Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**"
+    },
+    {
+      "n": 5,
+      "title": "On **Quick Start**, find the **Static HTML** card and click **Deploy Now**. You should reach **New Capsule** at `/new/ca"
+    },
+    {
+      "n": 6,
+      "title": "On **Capsule Details**:"
+    },
+    {
+      "n": 7,
+      "title": "On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation"
+    },
+    {
+      "n": 8,
+      "title": "On **Plan**, select the **Free** plan card, then **Next**."
+    },
+    {
+      "n": 9,
+      "title": "On **Connect a Git Repository**:"
+    },
+    {
+      "n": 10,
+      "title": "On **Build & Deploy**, leave **Build Command** and **Path to static content** blank unless your repo needs a build step."
+    },
+    {
+      "n": 11,
+      "title": "Click **Create Capsule**."
+    },
+    {
+      "n": 12,
+      "title": "On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progres"
+    }
   ]
 }
