@@ -1,12 +1,12 @@
 # Cron platform audit (2026-11-20)
 
-**Run completed:** 2026-11-20T07:58:32.473Z
+**Run completed:** 2026-11-20T08:28:15.281Z
 **Manifest:** `cc-site/DOCUMENTED_FEATURES.MD` — 1 feature
 **Target:** https://test-platform.codecapsules.io
 
 | DOCUMENTED_FEATURES | Guide |
 |---|---|
-| Create Angular frontend capsule | `docs/guides/create-angular-frontend-capsule.md` |
+| Create Angular frontend capsule | `docs/guides/angular.md` |
 
 **Manifest goal reached:** yes
 

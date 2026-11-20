@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Walk create-angular-frontend-capsule.md; screenshots + JSON report for cron.
+ * Walk docs/guides/angular.md; screenshots + JSON report for cron.
  */
 import { chromium } from 'playwright';
 import fs from 'node:fs';
@@ -350,7 +350,7 @@ const cron = [
   '',
   '| DOCUMENTED_FEATURES | Guide |',
   '|---|---|',
-  '| Create Angular frontend capsule | `docs/guides/create-angular-frontend-capsule.md` |',
+  '| Create Angular frontend capsule | `docs/guides/angular.md` |',
   '',
   `**Manifest goal reached:** ${goalPass ? 'yes' : 'no'}${blockedAt ? ` (${blockedAt})` : ''}`,
   '',

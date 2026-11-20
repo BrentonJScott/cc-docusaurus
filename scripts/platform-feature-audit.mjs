@@ -16,7 +16,7 @@ const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
 const FEATURE_TO_GUIDE = {
-  'Create Angular frontend capsule': 'docs/guides/create-angular-frontend-capsule.md',
+  'Create Angular frontend capsule': 'docs/guides/angular.md',
 };
 
 /** @typedef {{ guide: string, functional: 'pass'|'fail', doc_fidelity: 'pass'|'drift'|'fail', steps: { step: string, fidelity: string, detail: string }[], functional_detail: string }} Report */
@@ -40,8 +40,13 @@ function parseFeatures() {
 function parseGuideSteps(md) {
   const steps = [];
   for (const line of md.split('\n')) {
-    const m = line.match(/^(\d+)\.\s+(.+)/);
-    if (m) steps.push({ num: m[1], text: m[2] });
+    let m = line.match(/^(\d+)\.\s+(.+)/);
+    if (m) {
+      steps.push({ num: m[1], text: m[2] });
+      continue;
+    }
+    m = line.match(/^###\s+Step\s+(\d+)\s*$/i);
+    if (m) steps.push({ num: m[1], text: `Step ${m[1]}` });
   }
   return steps;
 }
