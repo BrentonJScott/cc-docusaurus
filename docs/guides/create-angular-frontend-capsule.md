@@ -9,80 +9,111 @@ sidebar_label: "Angular"
 
 # Create Angular frontend capsule
 
-**Goal:** After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds**.
+Create and deploy an Angular frontend capsule on the test platform, from login through the capsule wizard, until a build shows as in progress on **Deploy → Builds**.
 
-Steps below match visible labels on [test-platform.codecapsules.io](https://test-platform.codecapsules.io) as verified on **2026-11-20**. For production signup and marketing copy, use [codecapsules.io](https://www.codecapsules.io/); this guide targets the test platform used for documentation audits.
+Verified on **2026-11-20** at [test-platform.codecapsules.io](https://test-platform.codecapsules.io). For production marketing and signup copy, see [codecapsules.io](https://www.codecapsules.io/).
+
+## Goal
+
+After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds**.
 
 ## Prerequisites
 
 - A Code Capsules account on the test platform
-- A Git repository with an Angular app (example: `npm run build`, static output under `dist/.../browser`)
+- A Git repository with an Angular app (for example `npm run build`, static output under `dist/.../browser`)
 - GitHub connected to your team (**Configure Git for Code Capsules** if the repository list is empty)
 
 ## Steps
 
-1. Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
+### Step 1
 
-   ![Open the test platform](/img/guides/shared/step-0-open-site.png)
+Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
 
-2. On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.
+![Step 1 — open the test platform](/img/guides/create-angular-frontend-capsule/step-1.jpg)
 
-   ![Welcome back login form](/img/guides/shared/step-1-login-page.png)
+### Step 2
 
-3. Click **Log in**.
+On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.
 
-4. Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**
+![Step 2 — Welcome back login form](/img/guides/create-angular-frontend-capsule/step-2.jpg)
 
-   ![Quick Start with framework rows](/img/guides/shared/step-2-quick-start.png)
+### Step 3
 
-5. On **Quick Start**, find the **Angular** card (**Angular applications**) and click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Hosting** / **Plan** / **Configure** / **Deploy**.
+Click **Log in**.
 
-   ![New Capsule wizard entry](/img/guides/create-angular-frontend-capsule/step-5-new-capsule-wizard.png)
+![Step 3 — signed in to the dashboard](/img/guides/create-angular-frontend-capsule/step-3.jpg)
 
-6. On **Capsule Details**:
-   - Under **Choose a Capsule**, the first `ng-select` may still show **Backend** even from the Angular quick start. Open that dropdown and choose **Frontend** (“Angular, React, Vue or static site deployments”).
-   - Under **Choose a Team**, click the **combobox** under the label (not only the **Search/Select a team** placeholder), wait for the list, and pick your team (for example **Personal Team**).
-   - Under **Choose a Space**, click the **combobox** under **Choose a Space**, wait for spaces to load, and pick a space.
-   - Click **Next** when all three fields are filled.
+### Step 4
 
-   ![Capsule Details with Frontend, team, and space selected](/img/guides/create-angular-frontend-capsule/step-6-capsule-details-filled.png)
+Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**
 
-7. On **Hosting**, click the **Static** option card (radio row that includes **No server**), then click **Next**. If validation shows **Choose how your site is hosted to continue**, the Static row is not selected yet.
+![Step 4 — Quick Start framework list](/img/guides/create-angular-frontend-capsule/step-4.jpg)
 
-   ![Hosting step with Static selected](/img/guides/create-angular-frontend-capsule/step-6-hosting-static.png)
+### Step 5
 
-8. On **Plan**, click the **Free** plan card, then **Next** (other tiers use the same card-style radio rows).
+On **Quick Start**, find the **Angular** card (**Angular applications**) and click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Hosting** / **Plan** / **Configure** / **Deploy**.
 
-   ![Plan step with Free selected](/img/guides/create-angular-frontend-capsule/step-7-plan-free.png)
+![Step 5 — New Capsule wizard entry](/img/guides/create-angular-frontend-capsule/step-5.jpg)
 
-9. On **Connect a Git Repository**:
-   - Open **Search/Select a Repository**, wait for repositories to load, and choose your Angular GitHub repo. On the documentation audit account, pick **`BrentonJScott/demo-angular-22 Team Repository`** (type `demo-angular-22` in the filter if the long list does not show it immediately). If the list is empty, click **Configure Git for Code Capsules**, connect GitHub, return, and open the dropdown again.
-   - Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected (**No items found** is normal until a repository is chosen).
-   - Click **Next**.
+### Step 6
 
-   ![Connect a Git Repository step](/img/guides/create-angular-frontend-capsule/step-8-git-repository.png)
+On **Capsule Details**:
 
-10. On **Build & Deploy**, fill the fields that use placeholder examples on the live form:
-    - **`example... npm run build`:** `npm run build`
-    - **`example... dist`:** your Angular output folder (for example `dist/cc-demo-angular/browser`)
-    - **Capsule Name:** defaults from the repository; change if needed.
+- Under **Choose a Capsule**, open the dropdown and choose **Frontend** (“Angular, React, Vue or static site deployments”) if **Backend** is still shown after **Deploy Now**.
+- Under **Choose a Team**, open the dropdown under that label, wait for teams to load, and choose **Personal Team** (or your team name).
+- Under **Choose a Space**, open the dropdown under **Choose a Space**, wait for spaces to load, and choose a space (for example **Personal Space** on the audit account).
+- Click **Next** when all three fields are filled.
 
-    ![Build & Deploy fields](/img/guides/create-angular-frontend-capsule/step-10-build-deploy.png)
+![Step 6 — Capsule Details with Frontend, team, and space](/img/guides/create-angular-frontend-capsule/step-6.jpg)
 
-11. Click **Create Capsule**.
+### Step 7
 
-12. On the capsule **Deploy** tab, open **Builds** (or the **Builds** side panel). Confirm the latest build shows **Building**, **Queued**, or **In progress**.
+On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation shows **Choose how your site is hosted to continue**, the Static row is not selected yet.
 
-    ![Deploy tab with build in progress](/img/guides/create-angular-frontend-capsule/step-12-deploy-builds.png)
+![Step 7 — Hosting with Static selected](/img/guides/create-angular-frontend-capsule/step-7.jpg)
+
+### Step 8
+
+On **Plan**, select the **Free** plan card, then **Next**.
+
+![Step 8 — Plan with Free selected](/img/guides/create-angular-frontend-capsule/step-8.jpg)
+
+### Step 9
+
+On **Connect a Git Repository**:
+
+- Open **Search/Select a Repository**, wait for repositories to load, and choose your Angular GitHub repo. On the documentation audit account, select **`BrentonJScott/demo-angular-22 Team Repository`** (type `demo-angular-22` in the filter if the list is long). If the list is empty, use **Configure Git for Code Capsules**, connect GitHub, return, and open the repository dropdown again.
+- Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected (**No items found** is normal until a repository is chosen).
+- Click **Next**.
+
+![Step 9 — Connect a Git Repository](/img/guides/create-angular-frontend-capsule/step-9.jpg)
+
+### Step 10
+
+On **Build & Deploy**, fill the fields that use placeholder examples on the live form:
+
+- Build command placeholder → `npm run build`
+- Output directory placeholder → your Angular output folder (for example `dist/cc-demo-angular/browser`)
+- **Capsule Name** defaults from the repository; change it if needed.
+
+![Step 10 — Build & Deploy fields](/img/guides/create-angular-frontend-capsule/step-10.jpg)
+
+### Step 11
+
+Click **Create Capsule**.
+
+![Step 11 — Build & Deploy ready to submit](/img/guides/create-angular-frontend-capsule/step-11.jpg)
+
+### Step 12
+
+On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progress**.
+
+![Step 12 — Deploy tab with build in progress](/img/guides/create-angular-frontend-capsule/step-12.jpg)
 
 ## Troubleshooting
 
-- **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**; use the combobox inputs under each label so ng-select receives the click.
+- **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**; use the inputs under each label so the dropdown receives the click.
 - **Backend instead of Frontend on Capsule Details:** Switch **Choose a Capsule** to **Frontend** before selecting team and space.
-- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds** (see `failure-git-empty.png` when the repository list is empty).
-- **Angular repo not visible in the dropdown:** Type part of the repository name (for example `demo-angular-22`) in **Search/Select a Repository**; the platform loads many team repos and may only show the first page until you filter.
-- **Wrong repository selected:** Step 9 must be an Angular app repo; substituting a non-Angular repository can still show **Building** but the build may fail later (see `failure-git-repo-missing.png` when a named repo is absent).
-
-## Platform note (2026-11-20 audit)
-
-**2026-11-20T07:30Z:** All numbered steps **pass** on the test platform with **`BrentonJScott/demo-angular-22 Team Repository`**, branch **main**, and **`dist/cc-demo-angular/browser`** on **Build & Deploy**; **Deploy → Builds** shows **Building** (**GOAL** reached).
+- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds**.
+- **Angular repo not visible in the dropdown:** Type part of the repository name (for example `demo-angular-22`) in **Search/Select a Repository**; the platform may only show the first page until you filter.
+- **Named repository missing:** Step 9 must list **`BrentonJScott/demo-angular-22 Team Repository`** for the audit account; if it is absent, stop and connect the repo or pick the correct team—do not substitute another repository and expect a successful Angular build.

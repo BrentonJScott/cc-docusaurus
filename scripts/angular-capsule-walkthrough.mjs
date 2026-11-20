@@ -13,20 +13,30 @@ const DATE = new Date().toISOString().slice(0, 10);
 const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
-const SHARED = path.join(ROOT, 'static/img/guides/shared');
 const GUIDE_IMG = path.join(ROOT, 'static/img/guides/create-angular-frontend-capsule');
+const NAMED_REPO = 'BrentonJScott/demo-angular-22 Team Repository';
+const NAMED_BRANCH = 'main';
+const NAMED_TEAM = 'Personal Team';
 
-/** @type {{ step: number, name: string, pass: boolean, detail: string }[]} */
+/** @type {{ step: number, name: string, pass: boolean, detail: string, screenshot?: string }[]} */
 const steps = [];
 /** @type {string[]} */
 const mismatches = [];
 
-function record(step, name, pass, detail) {
-  steps.push({ step, name, pass, detail });
+function record(step, name, pass, detail, screenshot) {
+  steps.push({ step, name, pass, detail, screenshot });
+}
+
+function stepJpg(n) {
+  return path.join(GUIDE_IMG, `step-${n}.jpg`);
+}
+
+function stepImgRel(n) {
+  return `/img/guides/create-angular-frontend-capsule/step-${n}.jpg`;
 }
 
 async function shot(page, file) {
-  await page.screenshot({ path: file, fullPage: true });
+  await page.screenshot({ path: file, fullPage: true, type: 'jpeg', quality: 88 });
 }
 
 async function openLogin(page) {
@@ -40,15 +50,50 @@ async function openLogin(page) {
   }
 }
 
-async function clickNgSelectIndex(page, index) {
-  const container = page.locator('ng-select').nth(index).locator('.ng-select-container');
-  await container.waitFor({ state: 'visible', timeout: 20000 });
-  await container.click();
-  await page.waitForTimeout(600);
+function capsuleDetailsCard(page) {
+  return page.locator('.card').filter({ hasText: 'Capsule Details' }).first();
 }
 
-async function pickOption(page, name) {
-  const opt = page.getByRole('option', { name: new RegExp(name, 'i') }).first();
+const CAPSULE_DROPDOWN_INDEX = {
+  'Choose a Capsule': 0,
+  'Choose a Team': 1,
+  'Choose a Space': 2,
+};
+
+/** Open a Capsule Details dropdown by label (index scoped to the Capsule Details card). */
+async function openCapsuleDetailsDropdown(page, labelText) {
+  const card = capsuleDetailsCard(page);
+  await card.waitFor({ state: 'visible', timeout: 20000 });
+  let index = CAPSULE_DROPDOWN_INDEX[labelText] ?? 0;
+  if (labelText === 'Choose a Space') {
+    for (let i = 0; i < 8; i++) {
+      const count = await card.locator('.ng-select-container').count();
+      if (count >= 3) break;
+      await page.waitForTimeout(400);
+    }
+    index = 2;
+  }
+  const trigger = card.locator('.ng-select-container').nth(index);
+  await trigger.waitFor({ state: 'visible', timeout: 20000 });
+  await trigger.click();
+  await page.waitForTimeout(900);
+}
+
+/** Git step: first dropdown under Connect a Git Repository. */
+async function openGitRepoDropdown(page) {
+  const card = page.locator('.card').filter({ hasText: 'Connect a Git Repository' }).first();
+  await card.locator('.ng-select-container').first().click();
+  await page.waitForTimeout(700);
+}
+
+async function openGitBranchDropdown(page) {
+  const card = page.locator('.card').filter({ hasText: 'Connect a Git Repository' }).first();
+  await card.locator('.ng-select-container').nth(1).click();
+  await page.waitForTimeout(700);
+}
+
+async function pickOption(page, pattern) {
+  const opt = page.getByRole('option', { name: pattern }).first();
   await opt.waitFor({ state: 'visible', timeout: 15000 });
   await opt.click();
   await page.waitForTimeout(500);
@@ -65,28 +110,37 @@ let goalReached = false;
 let blockedAt = '';
 
 try {
+  if (!EMAIL || !PASSWORD) throw new Error('EMAIL/PASSWORD env vars not set');
+
   await page.goto(PLATFORM, { waitUntil: 'networkidle' });
-  record(1, 'Open platform', true, page.url());
-  await shot(page, path.join(SHARED, 'step-0-open-site.png'));
+  const s1 = stepJpg(1);
+  await shot(page, s1);
+  record(1, 'Open platform', true, page.url(), stepImgRel(1));
 
   await openLogin(page);
   const welcome = await page.getByRole('heading', { name: 'Welcome back' }).isVisible();
-  record(2, 'Welcome back', welcome, 'Login form visible');
-  await shot(page, path.join(SHARED, 'step-1-login-page.png'));
+  const s2 = stepJpg(2);
+  await shot(page, s2);
+  record(2, 'Welcome back login form', welcome, welcome ? 'Login form visible' : 'Missing Welcome back', stepImgRel(2));
+  if (!welcome) throw new Error('Welcome back not visible');
 
-  await page.getByRole('textbox', { name: 'Email' }).fill(EMAIL ?? '');
-  await page.getByRole('textbox', { name: 'Password' }).fill(PASSWORD ?? '');
+  await page.getByRole('textbox', { name: 'Email' }).fill(EMAIL);
+  await page.getByRole('textbox', { name: 'Password' }).fill(PASSWORD);
   await page.getByRole('button', { name: 'Log in' }).click();
   await page.waitForTimeout(2500);
   const loggedIn = !page.url().includes('/auth/login');
-  record(3, 'Log in', loggedIn, page.url());
+  const s3 = stepJpg(3);
+  await shot(page, s3);
+  record(3, 'Log in', loggedIn, page.url(), stepImgRel(3));
   if (!loggedIn) throw new Error('Login failed');
 
   await page.getByRole('link', { name: 'Quick Start' }).click();
   await page.waitForTimeout(1500);
   const qs = await page.getByText('What type of capsule would you like to deploy?').isVisible();
-  record(4, 'Quick Start', qs, page.url());
-  await shot(page, path.join(SHARED, 'step-2-quick-start.png'));
+  const s4 = stepJpg(4);
+  await shot(page, s4);
+  record(4, 'Quick Start', qs, page.url(), stepImgRel(4));
+  if (!qs) throw new Error('Quick Start heading not found');
 
   await page
     .locator('app-quick-start-card')
@@ -98,173 +152,194 @@ try {
 
   const capsuleDetailsText = await page.locator('body').innerText();
   const showsBackend =
-    /Choose a Capsule[\s\S]{0,200}Backend/.test(capsuleDetailsText) && !/Choose a Capsule[\s\S]{0,200}Frontend/.test(capsuleDetailsText);
+    /Choose a Capsule[\s\S]{0,240}Backend/.test(capsuleDetailsText) &&
+    !/Choose a Capsule[\s\S]{0,240}Frontend/.test(capsuleDetailsText);
   if (showsBackend) {
     mismatches.push(
-      'Angular Deploy Now lands on Capsule Details with Backend pre-selected; doc step 6 requires switching to Frontend.',
+      'Angular **Deploy Now** opens **Capsule Details** with **Backend** pre-selected; step 6 requires choosing **Frontend**.',
     );
-    await clickNgSelectIndex(page, 0);
-    await pickOption(page, 'Frontend');
+    await openCapsuleDetailsDropdown(page, 'Choose a Capsule');
+    await pickOption(page, /Frontend/);
   }
 
-  record(5, 'Angular Deploy Now → New Capsule', page.url().includes('capsuleType=frontend'), page.url());
-  await shot(page, path.join(GUIDE_IMG, 'step-5-new-capsule-wizard.png'));
+  const onWizard = page.url().includes('capsuleType=frontend');
+  const s5 = stepJpg(5);
+  await shot(page, s5);
+  record(5, 'Angular Deploy Now → New Capsule', onWizard, page.url(), stepImgRel(5));
 
-  await clickNgSelectIndex(page, 1);
-  await page.waitForTimeout(800);
-  const teamOptions = await page.getByRole('option').count();
-  if (teamOptions === 0) throw new Error('No team options loaded');
-  const teamName =
-    (await page.getByRole('option', { name: /Personal Team/i }).first().textContent().catch(() => null)) ??
-    (await page.getByRole('option').first().textContent());
-  await page
-    .getByRole('option', { name: /Personal Team/i })
-    .first()
-    .click()
-    .catch(() => page.getByRole('option').first().click());
-  await page.waitForTimeout(600);
-
-  await page.waitForTimeout(800);
-  const ngCount = await page.locator('ng-select').count();
-  if (ngCount < 3) {
-    await page.waitForTimeout(1500);
+  await openCapsuleDetailsDropdown(page, 'Choose a Team');
+  await page.waitForTimeout(1200);
+  const personalTeam = page.getByRole('option', { name: /Personal Team/i });
+  const hasPersonal = (await personalTeam.count()) > 0;
+  let step6Pass = false;
+  let step6Detail = '';
+  if (!hasPersonal) {
+    step6Detail = `${NAMED_TEAM} not in team dropdown`;
+    mismatches.push(`Guide names **${NAMED_TEAM}**; option missing.`);
+    await shot(page, path.join(GUIDE_IMG, 'failure-step-6-team.png'));
+    blockedAt = blockedAt || step6Detail;
+  } else {
+    await personalTeam.click();
+    await page.waitForTimeout(800);
+    await openCapsuleDetailsDropdown(page, 'Choose a Space');
+    await page.waitForTimeout(1200);
+    const spaceCount = await page.getByRole('option').count();
+    if (spaceCount === 0) {
+      step6Detail = 'No space options after team selected';
+      mismatches.push('Space dropdown empty after selecting team.');
+      blockedAt = blockedAt || step6Detail;
+    } else {
+      const spaceOpt = page.getByRole('option', { name: /Personal Space/i });
+      if ((await spaceOpt.count()) === 0) {
+        step6Detail = 'No space option loaded after team selection';
+        mismatches.push('Space dropdown empty after selecting Personal Team.');
+        blockedAt = blockedAt || step6Detail;
+      } else {
+        const spaceName = (await spaceOpt.first().textContent())?.trim();
+        await spaceOpt.first().click();
+        step6Pass = true;
+        step6Detail = `Team: ${NAMED_TEAM}; space: ${spaceName}`;
+      }
+    }
   }
-  await clickNgSelectIndex(page, 2);
-  await page.waitForTimeout(1000);
-  const spaceCount = await page.getByRole('option').count();
-  if (spaceCount > 0) await page.getByRole('option').first().click();
-
-  record(6, 'Capsule Details team + space', spaceCount > 0, `Team: ${teamName?.trim()}; spaces: ${spaceCount}`);
-  await shot(page, path.join(GUIDE_IMG, 'step-6-capsule-details-filled.png'));
+  const s6 = stepJpg(6);
+  await shot(page, s6);
+  record(6, 'Capsule Details', step6Pass, step6Detail, stepImgRel(6));
+  if (!step6Pass) throw new Error(step6Detail);
 
   await page.getByRole('button', { name: 'Next' }).click();
   await page.waitForTimeout(1500);
 
   const hosting = await page.getByRole('heading', { name: 'Hosting' }).isVisible();
+  let step7Pass = false;
   if (hosting) {
     const hostingCard = page.locator('.card').filter({ has: page.getByRole('heading', { name: 'Hosting' }) });
     await hostingCard.getByText('Static', { exact: true }).click();
     await page.waitForTimeout(300);
-    const validationVisible = await hostingCard.getByText('Choose how your site is hosted').isVisible().catch(() => false);
+    const validationVisible = await hostingCard
+      .getByText('Choose how your site is hosted')
+      .isVisible()
+      .catch(() => false);
+    step7Pass = !validationVisible;
+    const s7 = stepJpg(7);
+    await shot(page, s7);
+    record(7, 'Hosting Static', step7Pass, step7Pass ? 'Static selected' : 'Validation still visible', stepImgRel(7));
     await page.getByRole('button', { name: 'Next' }).click();
     await page.waitForTimeout(2000);
-    record(7, 'Hosting Static', !validationVisible, validationVisible ? 'Validation still visible after Static click' : 'Selected Static');
-    await shot(page, path.join(GUIDE_IMG, 'step-6-hosting-static.png'));
+  } else {
+    record(7, 'Hosting Static', false, 'Hosting step not visible');
+    throw new Error('Hosting step not visible');
   }
 
   const plan = await page.getByRole('heading', { name: 'Plan' }).isVisible().catch(() => false);
-  if (plan) {
-    const planCard = page.locator('.card').filter({ has: page.getByRole('heading', { name: 'Plan' }) });
-    await planCard.getByText('Free', { exact: true }).first().click();
-    await page.getByRole('button', { name: 'Next' }).click();
-    await page.waitForTimeout(2000);
-    record(8, 'Plan Free', true, 'Selected Free');
-    await shot(page, path.join(GUIDE_IMG, 'step-7-plan-free.png'));
+  if (!plan) throw new Error('Plan step not visible');
+  const planCard = page.locator('.card').filter({ has: page.getByRole('heading', { name: 'Plan' }) });
+  await planCard.getByText('Free', { exact: true }).first().click();
+  const s8 = stepJpg(8);
+  await shot(page, s8);
+  record(8, 'Plan Free', true, 'Free plan selected', stepImgRel(8));
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.waitForTimeout(2000);
+
+  const gitStepVisible = await page.getByText('Connect a Git Repository').isVisible().catch(() => false);
+  if (!gitStepVisible) throw new Error('Connect a Git Repository step not visible');
+
+  await openGitRepoDropdown(page);
+  await page.waitForTimeout(1500);
+  const repoCard = page.locator('.card').filter({ hasText: 'Connect a Git Repository' }).first();
+  const repoFilter = repoCard.locator('.ng-select').first().locator('input[type="text"]');
+  if (await repoFilter.isVisible().catch(() => false)) {
+    await repoFilter.fill('demo-angular-22');
+    await page.waitForTimeout(1500);
   }
-
-  await page.waitForTimeout(1000);
-  const gitRepo = await page.getByText('Search/Select a Repository', { exact: true }).isVisible().catch(() => false);
-  if (gitRepo) {
-    await clickNgSelectIndex(page, 0);
-    await page.waitForTimeout(2000);
-    const repoFilter = page.locator('ng-select').nth(0).locator('input[type="text"]');
-    if (await repoFilter.isVisible().catch(() => false)) {
-      await repoFilter.fill('demo-angular-22');
-      await page.waitForTimeout(1200);
-    }
-    const repoCount = await page.getByRole('option').count();
-    record(9, 'Git repositories listed', repoCount > 0, repoCount > 0 ? `${repoCount} repo(s)` : 'No items found');
-    if (repoCount === 0) {
-      await shot(page, path.join(GUIDE_IMG, 'step-8-git-repository.png'));
-      blockedAt = 'Git Repository list empty — GOAL unreachable';
-      await shot(page, path.join(GUIDE_IMG, 'failure-git-empty.png'));
-      mismatches.push('Audit account has no connected repositories; steps 10–12 and GOAL blocked (platform limitation).');
-      record(9, 'Connect a Git Repository', false, 'No items found');
-    } else {
-      const repoOpt = page.getByRole('option', { name: /demo-angular-22/i });
-      const hasAngularRepo = (await repoOpt.count()) > 0;
-      if (!hasAngularRepo) {
-        const names = await page
-          .getByRole('option')
-          .allTextContents()
-          .then((t) => t.map((s) => s.trim()).filter(Boolean).slice(0, 12));
-        mismatches.push(
-          `Guide step 9 names **BrentonJScott/demo-angular-22 Team Repository**; no matching option after filtering. Visible options: ${names.join(', ') || '(none)'}`,
-        );
-        await shot(page, path.join(GUIDE_IMG, 'failure-git-repo-missing.png'));
-        record(9, 'Connect a Git Repository (demo-angular-22)', false, `Missing demo-angular-22; saw ${names.length} option(s)`);
-        blockedAt = 'demo-angular-22 not in Git Repository list — GOAL unreachable';
-      } else {
-        const repoName = (await repoOpt.first().textContent())?.trim();
-        await repoOpt.first().click();
-        await page.waitForTimeout(1500);
-        const branchLabel = page.getByText('Search/Select a Branch', { exact: true });
-        if (await branchLabel.isVisible().catch(() => false)) {
-          await clickNgSelectIndex(page, 1);
-          await page.waitForTimeout(1000);
-          const branchCount = await page.getByRole('option').count();
-          if (branchCount === 0) {
-            mismatches.push('Branch dropdown visible but no branch options loaded after selecting cc-demo-angular.');
-            record(9, 'Select branch', false, 'No branch options');
-            blockedAt = blockedAt || 'Branch list empty';
-          } else {
-            const mainBranch = page.getByRole('option', { name: /main/i }).first();
-            if ((await mainBranch.count()) > 0) {
-              await mainBranch.click();
-            } else {
-              const branchName = (await page.getByRole('option').first().textContent())?.trim();
-              await page.getByRole('option').first().click();
-              mismatches.push(`Guide does not name a branch; selected **${branchName}** because **main** was not listed.`);
-            }
-            await page.waitForTimeout(500);
-          }
-        }
-        let step9Ready = !blockedAt;
-        record(9, 'Connect a Git Repository (demo-angular-22)', step9Ready, `Repository: ${repoName}`);
-        await shot(page, path.join(GUIDE_IMG, 'step-8-git-repository.png'));
-        if (step9Ready) {
-          await page.getByRole('button', { name: 'Next' }).click();
-          await page.waitForTimeout(2000);
-
-          await page.getByPlaceholder(/npm run build/i).fill('npm run build');
-          await page.getByPlaceholder(/dist/i).fill('dist/cc-demo-angular/browser');
-          record(10, 'Build & Deploy fields', true, 'npm run build; dist/cc-demo-angular/browser');
-          await shot(page, path.join(GUIDE_IMG, 'step-10-build-deploy.png')).catch(() => {});
-          record(11, 'Create Capsule', true, 'Submit wizard');
-          await page.getByRole('button', { name: 'Create Capsule' }).click();
-          await page.waitForURL('**/dash/**', { timeout: 60000 }).catch(() => {});
-          await page.waitForTimeout(3000);
-          const deployTab = page.getByRole('tab', { name: 'Deploy' }).or(page.getByRole('link', { name: 'Deploy' }));
-          await deployTab.first().click().catch(() => {});
-          await page.waitForTimeout(3000);
-          goalReached = await page
-            .getByText(/Building|Queued|In progress|Build started|Running/i)
-            .first()
-            .isVisible()
-            .catch(() => false);
-          if (!goalReached) {
-            goalReached = await page.locator('table, .build').getByText(/build/i).first().isVisible().catch(() => false);
-          }
-          record(12, 'Deploy Builds', goalReached, goalReached ? 'Building state visible' : page.url());
-          await shot(page, path.join(GUIDE_IMG, 'step-12-deploy-builds.png')).catch(() => {});
-        }
-      }
-    }
+  const repoOpt = page.getByRole('option', { name: /demo-angular-22/i });
+  const hasRepo = (await repoOpt.count()) > 0;
+  let step9Pass = false;
+  let step9Detail = '';
+  if (!hasRepo) {
+    const names = await page
+      .getByRole('option')
+      .allTextContents()
+      .then((t) => t.map((s) => s.trim()).filter(Boolean).slice(0, 12));
+    step9Detail = `Named repo missing; options: ${names.join(', ') || '(none)'}`;
+    mismatches.push(`Guide step 9 names **${NAMED_REPO}**; no matching dropdown option.`);
+    await shot(page, path.join(GUIDE_IMG, 'failure-git-repo-missing.png'));
+    blockedAt = 'demo-angular-22 not in Git Repository list — GOAL unreachable';
   } else {
-    blockedAt = blockedAt || 'Did not reach Connect a Git Repository step';
-    record(9, 'Connect a Git Repository', false, blockedAt);
+    await repoOpt.first().click();
+    await page.waitForTimeout(1500);
+    await openGitBranchDropdown(page);
+    await page.waitForTimeout(1000);
+    const mainBranch = page.getByRole('option', { name: new RegExp(NAMED_BRANCH, 'i') });
+    if ((await mainBranch.count()) === 0) {
+      step9Detail = `Branch **${NAMED_BRANCH}** not listed`;
+      mismatches.push(`Guide requires branch **${NAMED_BRANCH}**; option missing.`);
+      await shot(page, path.join(GUIDE_IMG, 'failure-git-branch-missing.png'));
+      blockedAt = blockedAt || step9Detail;
+    } else {
+      await mainBranch.first().click();
+      step9Pass = true;
+      step9Detail = `Repository: ${NAMED_REPO}; branch: ${NAMED_BRANCH}`;
+    }
   }
+  const s9 = stepJpg(9);
+  await shot(page, s9);
+  record(9, 'Connect a Git Repository', step9Pass, step9Detail, stepImgRel(9));
+  if (!step9Pass) throw new Error(step9Detail);
+
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.waitForTimeout(2000);
+
+  await page.getByPlaceholder(/npm run build/i).fill('npm run build');
+  await page.getByPlaceholder(/dist/i).fill('dist/cc-demo-angular/browser');
+  const s10 = stepJpg(10);
+  await shot(page, s10);
+  record(10, 'Build & Deploy fields', true, 'npm run build; dist/cc-demo-angular/browser', stepImgRel(10));
+
+  const s11 = stepJpg(11);
+  await shot(page, s11);
+  record(11, 'Create Capsule', true, 'Ready to submit wizard', stepImgRel(11));
+  await page.getByRole('button', { name: 'Create Capsule' }).click();
+  await page.waitForURL('**/dash/**', { timeout: 60000 }).catch(() => {});
+  await page.waitForTimeout(3000);
+  const deployTab = page.getByRole('tab', { name: 'Deploy' }).or(page.getByRole('link', { name: 'Deploy' }));
+  await deployTab.first().click().catch(() => {});
+  await page.waitForTimeout(3000);
+  goalReached = await page
+    .getByText(/Building|Queued|In progress|Build started|Running/i)
+    .first()
+    .isVisible()
+    .catch(() => false);
+  if (!goalReached) {
+    goalReached = await page.locator('table, .build').getByText(/build/i).first().isVisible().catch(() => false);
+  }
+  const s12 = stepJpg(12);
+  await shot(page, s12);
+  record(
+    12,
+    'Deploy Builds',
+    goalReached,
+    goalReached ? 'Building state visible' : page.url(),
+    stepImgRel(12),
+  );
 } catch (e) {
   blockedAt = blockedAt || String(e);
-  await shot(page, path.join(GUIDE_IMG, 'failure-last-state.png')).catch(() => {});
-  record(0, 'Run error', false, blockedAt);
+  const failShot = path.join(GUIDE_IMG, 'failure-last-state.jpg');
+  await shot(page, failShot).catch(() => {});
+  if (!steps.some((s) => s.step === 0)) {
+    record(0, 'Run error', false, blockedAt);
+  }
 }
 
 await browser.close();
 
 const cronMd = path.join(ROOT, 'reports', `${DATE}-cron-platform-audit.md`);
 const featureMd = path.join(ROOT, 'reports', `${DATE}-create-angular-frontend-capsule.md`);
+const featureJson = path.join(ROOT, 'reports', `${DATE}-create-angular-frontend-capsule.json`);
 const now = new Date().toISOString();
+
+const allStepsPass = steps.length > 0 && steps.every((s) => s.pass || s.step === 0);
+const goalPass = goalReached && allStepsPass;
 
 const cron = [
   `# Cron platform audit (${DATE})`,
@@ -277,7 +352,7 @@ const cron = [
   '|---|---|',
   '| Create Angular frontend capsule | `docs/guides/create-angular-frontend-capsule.md` |',
   '',
-  `**Manifest goal reached:** ${goalReached ? 'yes' : 'no'}${blockedAt ? ` (${blockedAt})` : ''}`,
+  `**Manifest goal reached:** ${goalPass ? 'yes' : 'no'}${blockedAt ? ` (${blockedAt})` : ''}`,
   '',
   '## Step results',
   '',
@@ -298,7 +373,7 @@ const feature = [
   '**Manifest goal:** Expect to see capsule building in builds tab',
   '',
   `**Run completed:** ${now}`,
-  `**Goal reached:** ${goalReached ? 'yes' : 'no'}`,
+  `**Goal reached:** ${goalPass ? 'yes' : 'no'}`,
   blockedAt ? `**Blocked:** ${blockedAt}` : '',
   '',
   '## Step results',
@@ -314,5 +389,29 @@ const feature = [
 ].filter(Boolean);
 
 fs.writeFileSync(featureMd, feature.join('\n'));
+
+fs.writeFileSync(
+  featureJson,
+  JSON.stringify(
+    {
+      date: DATE,
+      platform: PLATFORM,
+      goal: 'Expect to see capsule building in builds tab',
+      goalReached: goalPass,
+      blockedAt: blockedAt || null,
+      mismatches,
+      stepResults: steps.map((s) => ({
+        step: s.step,
+        name: s.name,
+        pass: s.pass,
+        detail: s.detail,
+        screenshot: s.screenshot ?? null,
+      })),
+    },
+    null,
+    2,
+  ),
+);
+
 console.log(cron.join('\n'));
-process.exit(goalReached ? 0 : 1);
+process.exit(goalPass ? 0 : 1);
