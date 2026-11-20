@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-20",
+  "platform": "https://test-platform.codecapsules.io",
+  "goal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "blockedAt": "Git Repository list empty (No items found)",
+  "mismatches": [
+    {
+      "issue": "Capsule type default",
+      "detail": "After Angular **Deploy Now**, **Choose a Capsule** defaults to **Backend** (not Frontend). Doc step 6 already instructs switching to **Frontend**."
+    },
+    {
+      "issue": "GOAL blocked (platform)",
+      "detail": "Audit account has no connected repositories. Cannot complete Create Capsule; manifest goal (building on Deploy → Builds) unreachable without GitHub via Configure Git for Code Capsules — documented in Troubleshooting, not a doc step error."
+    }
+  ],
+  "stepResults": [
+    {
+      "step": "1. Open platform",
+      "screenshot": "static/img/guides/shared/step-0-open-site.png",
+      "status": "ok"
+    },
+    {
+      "step": "2. Welcome back / login form",
+      "screenshot": "static/img/guides/shared/step-1-login-page.png",
+      "status": "ok"
+    },
+    {
+      "step": "4. Quick Start",
+      "screenshot": "static/img/guides/shared/step-2-quick-start.png",
+      "status": "ok"
+    },
+    {
+      "step": "5. New Capsule wizard",
+      "screenshot": "static/img/guides/create-angular-frontend-capsule/step-5-new-capsule-wizard.png",
+      "status": "ok"
+    },
+    {
+      "step": "6. Capsule Details filled",
+      "screenshot": "static/img/guides/create-angular-frontend-capsule/step-6-capsule-details-filled.png",
+      "status": "ok"
+    },
+    {
+      "step": "7. Hosting Static",
+      "screenshot": "static/img/guides/create-angular-frontend-capsule/step-6-hosting-static.png",
+      "status": "ok"
+    },
+    {
+      "step": "8. Plan Free",
+      "screenshot": "static/img/guides/create-angular-frontend-capsule/step-7-plan-free.png",
+      "status": "ok"
+    },
+    {
+      "step": "9. Git Repository",
+      "screenshot": "static/img/guides/create-angular-frontend-capsule/step-8-git-repository.png",
+      "status": "ok"
+    },
+    {
+      "step": "FAIL step 9",
+      "screenshot": "static/img/guides/create-angular-frontend-capsule/failure-git-empty.png",
+      "status": "ok"
+    }
+  ]
+}
