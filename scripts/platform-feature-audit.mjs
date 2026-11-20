@@ -16,7 +16,8 @@ const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
 const FEATURE_TO_GUIDE = {
-  'Create Angular frontend capsule': 'docs/guides/create-angular-frontend-capsule.md',
+  'Create Angular frontend capsule': 'docs/guides/angular.md',
+  'Create React frontend capsule': 'docs/guides/react.md',
 };
 
 /** @typedef {{ guide: string, functional: 'pass'|'fail', doc_fidelity: 'pass'|'drift'|'fail', steps: { step: string, fidelity: string, detail: string }[], functional_detail: string }} Report */
