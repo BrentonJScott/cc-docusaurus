@@ -1,71 +1,115 @@
 ---
 slug: "/frontend/static-html"
-description: "Deploy a static HTML website on Code Capsules and learn how to host frontend code. A simple step-by-step guide to serving static sites in production."
+description: >-
+  Create a Static HTML Frontend Capsule on the Code Capsules test platform and confirm
+  the first build appears under Deploy → Builds.
 title: "How to Host a Static HTML Website"
 sidebar_label: "Static HTML"
 ---
 
-# Host Your Static HTML Website in Minutes
+# Create Static HTML capsule
 
-Deploy a static HTML site and learn how to host frontend code on Code Capsules. At the end of this guide you'll have the application below deployed and ready to customise.
+Create and deploy a Static HTML frontend capsule on the test platform, from login through the capsule wizard, until a build shows as in progress on **Deploy → Builds**.
 
-![Deployed App](/gitbook-assets/get-started/cc-html-site.png)
+Verified on **2026-11-20** at [test-platform.codecapsules.io](https://test-platform.codecapsules.io). For production marketing and signup copy, see [codecapsules.io](https://www.codecapsules.io/).
 
-## Built with AI
+## Goal
 
-The demo site above was generated using an AI coding agent. If you're building with agents yourself, here's the prompt that produced it:
+After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds**.
 
-```
-Create a single-page static HTML site for CodeCapsules (a cloud hosting platform).
-Use only index.html and style.css — no build tools, no JavaScript frameworks.
+## Prerequisites
 
-Design requirements:
-- Dark theme with #0f0f0f background and #f5c800 yellow accent colour
-- Navigation bar with logo and "Get Started" CTA button
-- Hero section with a headline, subheading, two CTA buttons, and a terminal window graphic
-  showing a git push → build succeeded → deployed sequence
-- Features section with three cards: Frontend Capsules, Backend Capsules, Data Capsules
-- CTA section prompting the user to deploy their own copy
-- Footer with a "Built with plain HTML & CSS · Hosted on CodeCapsules" note
-- Fully responsive (single column on mobile)
+- A Code Capsules account on the test platform
+- A Git repository with a Static HTML app (for example `npm run build`, static output under dist or public per your bundler)
+- GitHub connected to your team (**Configure Git for Code Capsules** if the repository list is empty)
 
-Keep the markup semantic and the CSS clean with custom properties.
-```
+## Steps
 
-## Set up
+### Step 1
 
-To follow this guide, you'll need:
+Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
 
-- A [Code Capsules](https://www.codecapsules.io/) account with a Team and a Space. See [Teams](/platform/teams/what-is-a-team/) and [Spaces](/platform/spaces/what-is-a-space/) to learn how to create them.
-- A [GitHub or GitLab account linked](/platform/account/connect-version-control/) to Code Capsules.
-- A Git repository containing your `index.html` and `style.css` at the root. If you're starting from the Code Capsules example, fork [codecapsules-io/demo-html](https://github.com/codecapsules-io/demo-html).
+![Step 1 — open the test platform](/img/guides/create-static-html-capsule/step-1.jpg)
 
-## Create the Capsule
+### Step 2
 
-Navigate to the Space you created, then click the yellow `+` icon on the bottom left of the screen and click **New Capsule**. Follow the steps below:
+On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.
 
-1. Under **Choose a Capsule**, select **Frontend**. Select your **Team** and your **Space**, then click **Next**.
+![Step 2 — Welcome back login form](/img/guides/create-static-html-capsule/step-2.jpg)
 
-2. On **Hosting**, select **Static** and click **Next**. Static serves your files directly, with no build step needed.
+### Step 3
 
-3. On **Plan**, select **Free** or **Paid** and click **Next**. The **Free** plan costs $0, allows 30MB per build and 50GB of traffic a month. See [Static Frontend Free and Paid Plans](/products/frontend-capsule/static/plans/) for details.
+Click **Log in**.
 
-4. On **Connect a Git Repository**:
-   1. Select your HTML repository from the **Git Repository** list. Type `html` to search. If the repository isn't listed, click **Configure Git for Code Capsules** and give Code Capsules access to it. If you forked the repository after opening this page, reload the page so it appears.
-   2. The **Branch** is filled in with your repository's default branch. Leave **Repo subpath** empty and click **Next**.
+![Step 3 — signed in to the dashboard](/img/guides/create-static-html-capsule/step-3.jpg)
 
-   :::note
-   Code Capsules shows "Repo will be automatically shared with your team", so everyone on the Team can use that repo for their own capsules. To change this, see [Share a Repo with a Team](/platform/teams/share-a-repo-with-a-team/).
-   :::
+### Step 4
 
-5. On **Build & Deploy**, leave **Build Command** and **Path to static content** blank. Code Capsules serves the files from the root of your repository. Leave **Capsule Name** as it is, or change it. You can rename it later from the **Details** tab.
+Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**
 
-6. Click **Create Capsule**.
+![Step 4 — Quick Start framework list](/img/guides/create-static-html-capsule/step-4.jpg)
 
-Code Capsules automatically builds your site. While the build runs, the **Details** tab shows **Building** under **Capsule Status**.
+### Step 5
 
-To follow the build, click the **Deploy** tab. The **Builds** section lists the latest build with its status (for example **Succeeded**) and how long it took. Click **View Logs** to open the build log on the **Builds** tab.
+On **Quick Start**, find the **Static HTML** card and click **Deploy Now**. You should reach **New Capsule** at `/new/capsule?capsuleType=frontend` with breadcrumbs **Hosting** / **Plan** / **Configure** / **Deploy**.
 
-Once the build shows **Succeeded**, go to the **Details** tab and click the link under **Public URL**, and you should see your deployed site.
+![Step 5 — New Capsule wizard entry](/img/guides/create-static-html-capsule/step-5.jpg)
 
-If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](/frontend/).
+### Step 6
+
+On **Capsule Details**:
+
+- Under **Choose a Capsule**, open the dropdown and choose **Frontend** (“Angular, React, Vue or static site deployments”) if **Backend** is still shown after **Deploy Now**.
+- Under **Choose a Team**, open the dropdown under that label, wait for teams to load, and choose **Personal Team** (or your team name).
+- Under **Choose a Space**, open the dropdown under **Choose a Space**, wait for spaces to load, and choose a space (for example **Personal Space** on the audit account).
+- Click **Next** when all three fields are filled.
+
+![Step 6 — Capsule Details with Frontend, team, and space](/img/guides/create-static-html-capsule/step-6.jpg)
+
+### Step 7
+
+On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation shows **Choose how your site is hosted to continue**, the Static row is not selected yet.
+
+![Step 7 — Hosting with Static selected](/img/guides/create-static-html-capsule/step-7.jpg)
+
+### Step 8
+
+On **Plan**, select the **Free** plan card, then **Next**.
+
+![Step 8 — Plan with Free selected](/img/guides/create-static-html-capsule/step-8.jpg)
+
+### Step 9
+
+On **Connect a Git Repository**:
+
+- Open **Search/Select a Repository**, wait for repositories to load, and choose your Static HTML GitHub repo. On the documentation audit account, select **`BrentonJScott/demo-html Team Repository`** (type `demo-html` in the filter if the list is long). If the list is empty, use **Configure Git for Code Capsules**, connect GitHub, return, and open the repository dropdown again.
+- Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected (**No items found** is normal until a repository is chosen).
+- Click **Next**.
+
+![Step 9 — Connect a Git Repository](/img/guides/create-static-html-capsule/step-9.jpg)
+
+### Step 10
+
+On **Build & Deploy**, leave **Build Command** and **Path to static content** blank unless your repo needs a build step.
+
+![Step 10 — Build & Deploy fields](/img/guides/create-static-html-capsule/step-10.jpg)
+
+### Step 11
+
+Click **Create Capsule**.
+
+![Step 11 — Build & Deploy ready to submit](/img/guides/create-static-html-capsule/step-11.jpg)
+
+### Step 12
+
+On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progress**.
+
+![Step 12 — Deploy tab with build in progress](/img/guides/create-static-html-capsule/step-12.jpg)
+
+## Troubleshooting
+
+- **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**; use the inputs under each label so the dropdown receives the click.
+- **Backend instead of Frontend on Capsule Details:** Switch **Choose a Capsule** to **Frontend** before selecting team and space.
+- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds**.
+- **Static HTML repo not visible in the dropdown:** Type part of the repository name (for example `demo-html`) in **Search/Select a Repository**; the platform may only show the first page until you filter.
+- **Named repository missing:** Step 9 must list **`BrentonJScott/demo-html Team Repository`** for the audit account; if it is absent, stop and connect the repo or pick the correct team—do not substitute another repository and expect a successful Static HTML build.

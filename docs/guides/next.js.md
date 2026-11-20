@@ -1,50 +1,115 @@
 ---
 slug: "/frontend/next.js"
-description: "Deploy a Next.js application to Code Capsules from a GitHub repo. Host your React framework frontend in production with auto-deploys, step by step."
+description: >-
+  Create a Next.js Backend Capsule on the Code Capsules test platform and confirm
+  the first build appears under Deploy → Builds.
 title: "How to Host a Next.js App"
 sidebar_label: "Next.js"
 ---
 
-# Host Your Next.js App in Minutes
+# Create NextJS backend capsule
 
-:::info[Static export or server rendering]
-A Next.js **static export** (`output: 'export'`, built with `next build` into the `out` folder) deploys on a [static Frontend Capsule](/products/frontend-capsule/static/deploy/), which is free for up to five sites. A **server-rendered** Next.js app needs a running server and deploys on a Backend Capsule, which is the setup this guide walks through.
-:::
+Create and deploy a server-rendered Next.js app as a **Backend** capsule on the test platform, from login through the capsule wizard, until a build shows as in progress on **Deploy → Builds**.
 
-Deploy a Next.js application and learn how to host backend code on Code Capsules.
+Verified on **2026-11-20** at [test-platform.codecapsules.io](https://test-platform.codecapsules.io). For production marketing and signup copy, see [codecapsules.io](https://www.codecapsules.io/).
 
-## Set up
+## Goal
 
-To follow this guide, you'll need:
+After you finish the wizard, you should see the capsule **building** on the capsule **Deploy** tab under **Builds**.
 
-- A [Code Capsules](https://www.codecapsules.io/) account with a Team and a Space. See [Teams](/platform/teams/what-is-a-team/) and [Spaces](/platform/spaces/what-is-a-space/) to learn how to create them.
-- A [GitHub or GitLab account linked](/platform/account/connect-version-control/) to Code Capsules.
-- A Git repository for your Next.js app. If you're starting from the Code Capsules example, fork [codecapsules-io/demo-nextjs](https://github.com/codecapsules-io/demo-nextjs).
+## Prerequisites
 
-## Create the Capsule
+- A Code Capsules account on the test platform
+- A Git repository with a Next.js app that runs as a server workload (for example [codecapsules-io/demo-nextjs](https://github.com/codecapsules-io/demo-nextjs))
+- GitHub connected to your team (**Configure Git for Code Capsules** if the repository list is empty)
 
-Navigate to the Space you created, then click the yellow `+` icon on the bottom left of the screen and click **New Capsule**. Follow the steps below:
+## Steps
 
-1. Under **Choose a Capsule**, select **Backend**. Select your **Team** and your **Space**, then click **Next**.
+### Step 1
 
-2. On **Configure Plan**, select a plan and click **Next**. The **Basic** plan is enough for this guide. You can [change the plan later](/products/backend-capsule/scale/).
+Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your account**, use the **Log in** link under “Already have an account?”.
 
-3. On **Connect a Git Repository**:
-   1. Select your Next.js repository from the **Git Repository** list. Type `nextjs` to search. If the repository isn't listed, click **Configure Git for Code Capsules** and give Code Capsules access to it. If you forked the repository after opening this page, reload the page so it appears.
-   2. The **Branch** is filled in with your repository's default branch. Leave **Repo subpath** empty and click **Next**.
+![Step 1 — open the test platform](/img/guides/create-nextjs-backend-capsule/step-1.jpg)
 
-   :::note
-   Code Capsules shows "Repo will be automatically shared with your team", so everyone on the Team can use that repo for their own capsules. To change this, see [Share a Repo with a Team](/platform/teams/share-a-repo-with-a-team/).
-   :::
+### Step 2
 
-4. On **Build & Deploy**, leave **Run Command** blank. Code Capsules detects how to start a Next.js app from your repository. Leave **Capsule Name** as it is, or change it. You can rename it later from the **Details** tab.
+On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.
 
-5. Click **Create Capsule**.
+![Step 2 — Welcome back login form](/img/guides/create-nextjs-backend-capsule/step-2.jpg)
 
-Code Capsules automatically builds your application. While the build runs, the **Details** tab shows **Building** under **Capsule Status**.
+### Step 3
 
-To follow the build, click the **Deploy** tab. The **Builds** section lists the latest build with its status (for example **Succeeded**) and how long it took. Click **View Logs** to open the build log on the **Builds** tab.
+Click **Log in**.
 
-Once the build shows **Succeeded**, go to the **Details** tab and click the link under **Public URL**, and you should see your deployed application.
+![Step 3 — signed in to the dashboard](/img/guides/create-nextjs-backend-capsule/step-3.jpg)
 
-If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](/frontend/).
+### Step 4
+
+Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**
+
+![Step 4 — Quick Start framework list](/img/guides/create-nextjs-backend-capsule/step-4.jpg)
+
+### Step 5
+
+**Next.js** is not listed on **Quick Start**. Open [https://test-platform.codecapsules.io/new/capsule?capsuleType=backend](https://test-platform.codecapsules.io/new/capsule?capsuleType=backend) (or use **New Capsule** in the sidebar). On **Capsule Details**, choose **Backend** if another capsule type is still selected.
+
+![Step 5 — New Backend Capsule wizard](/img/guides/create-nextjs-backend-capsule/step-5.jpg)
+
+### Step 6
+
+On **Capsule Details**:
+
+- Under **Choose a Capsule**, confirm **Backend** is selected.
+- Under **Choose a Team**, open the dropdown under that label, wait for teams to load, and choose **Personal Team** (or your team name).
+- Under **Choose a Space**, open the dropdown under **Choose a Space**, wait for spaces to load, and choose a space (for example **Personal Space** on the audit account).
+- Click **Next** when all three fields are filled.
+
+![Step 6 — Capsule Details with Backend, team, and space](/img/guides/create-nextjs-backend-capsule/step-6.jpg)
+
+### Step 7
+
+On **Configure Plan**, select the **Basic** plan card (or the smallest paid plan shown), then click **Next**.
+
+![Step 7 — Configure Plan with Basic selected](/img/guides/create-nextjs-backend-capsule/step-7.jpg)
+
+### Step 8
+
+Confirm the wizard advanced past **Configure Plan** toward **Connect a Git Repository** (breadcrumbs should show **Configure** or **Deploy** next).
+
+![Step 8 — continuing to Git configuration](/img/guides/create-nextjs-backend-capsule/step-8.jpg)
+
+### Step 9
+
+On **Connect a Git Repository**:
+
+- Open **Search/Select a Repository**, wait for repositories to load, and choose your Next.js GitHub repo. On the documentation audit account, select **`BrentonJScott/demo-nextjs Team Repository`** (type `demo-nextjs` in the filter if the list is long). If the list is empty, use **Configure Git for Code Capsules**, connect GitHub, return, and open the repository dropdown again.
+- Under **Select a Branch to deploy from**, open **Search/Select a Branch** and choose **main** after the repository is selected.
+- Click **Next**.
+
+![Step 9 — Connect a Git Repository](/img/guides/create-nextjs-backend-capsule/step-9.jpg)
+
+### Step 10
+
+On **Build & Deploy**, leave **Run Command** blank so the platform detects how to start the app from the repository. Adjust **Capsule Name** if needed.
+
+![Step 10 — Build & Deploy fields](/img/guides/create-nextjs-backend-capsule/step-10.jpg)
+
+### Step 11
+
+Click **Create Capsule**.
+
+![Step 11 — Build & Deploy ready to submit](/img/guides/create-nextjs-backend-capsule/step-11.jpg)
+
+### Step 12
+
+On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progress**.
+
+![Step 12 — Deploy tab with build in progress](/img/guides/create-nextjs-backend-capsule/step-12.jpg)
+
+## Troubleshooting
+
+- **Please select a Capsule, Team and Space:** Fill all three dropdowns on **Capsule Details** before **Next**; use the inputs under each label so the dropdown receives the click.
+- **Frontend instead of Backend:** Server-rendered Next.js belongs on a **Backend** capsule, not a static **Frontend** capsule.
+- **No repositories in Search/Select a Repository:** Connect GitHub via **Configure Git for Code Capsules**; without a repository you cannot reach **Create Capsule** or a build on **Deploy → Builds**.
+- **Next.js repo not visible in the dropdown:** Type part of the repository name (for example `demo-nextjs`) in **Search/Select a Repository**; the platform may only show the first page until you filter.
+- **Named repository missing:** Step 9 must list **`BrentonJScott/demo-nextjs Team Repository`** for the audit account; if it is absent, stop and connect the repo or pick the correct team—do not substitute another repository and expect a successful Next.js build.

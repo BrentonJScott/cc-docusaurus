@@ -18,6 +18,10 @@ const PASSWORD = process.env.PASSWORD;
 const FEATURE_TO_GUIDE = {
   'Create Angular frontend capsule': 'docs/guides/angular.md',
   'Create React frontend capsule': 'docs/guides/react.md',
+  'Create Vue frontend capsule': 'docs/guides/vue.md',
+  'Create NextJS backend capsule': 'docs/guides/next.js.md',
+  'Create Static HTML capsule': 'docs/guides/static-html.md',
+  'Create Svelte frontend capsule': 'docs/guides/svelte.md',
 };
 
 /** @typedef {{ guide: string, functional: 'pass'|'fail', doc_fidelity: 'pass'|'drift'|'fail', steps: { step: string, fidelity: string, detail: string }[], functional_detail: string }} Report */
