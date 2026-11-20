@@ -2,10 +2,13 @@
   "date": "2026-11-20",
   "platform": "https://test-platform.codecapsules.io",
   "goal": "Expect to see capsule building in builds tab",
-  "goalReached": true,
+  "goalReached": false,
   "blockedAt": null,
   "mismatches": [
-    "**Next.js** is not listed on Quick Start; the guide opens **New Capsule** with **Backend** instead."
+    "**Next.js** is not listed on Quick Start; the guide opens **New Capsule** with **Backend** instead.",
+    "Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1.",
+    "Step 7: Guide step topic (git) does not match executor evidence (plan)",
+    "Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1."
   ],
   "stepResults": [
     {
@@ -91,6 +94,124 @@
       "pass": true,
       "detail": "Building state visible",
       "screenshot": "/img/guides/create-nextjs-backend-capsule/step-12.jpg"
+    }
+  ],
+  "guideStepCount": 10,
+  "guideWalkthroughShaped": true,
+  "guideAlignment": [
+    {
+      "step": 1,
+      "pass": true,
+      "guideExpects": "Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your accoun",
+      "actual": "https://test-platform.codecapsules.io/auth/registration",
+      "drift": []
+    },
+    {
+      "step": 2,
+      "pass": true,
+      "guideExpects": "On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.",
+      "actual": "Login form visible",
+      "drift": []
+    },
+    {
+      "step": 3,
+      "pass": true,
+      "guideExpects": "Click **Log in**.",
+      "actual": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "drift": []
+    },
+    {
+      "step": 4,
+      "pass": true,
+      "guideExpects": "Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**",
+      "actual": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "drift": []
+    },
+    {
+      "step": 5,
+      "pass": true,
+      "guideExpects": "**Next.js** is not listed on **Quick Start**. Open [https://test-platform.codecapsules.io/new/capsule?capsuleType=backen",
+      "actual": "https://test-platform.codecapsules.io/new/capsule?capsuleType=backend",
+      "drift": []
+    },
+    {
+      "step": 6,
+      "pass": true,
+      "guideExpects": "On **Capsule Details**:",
+      "actual": "Team: Personal Team; space: Personal Space  personal-space-ivbk",
+      "drift": []
+    },
+    {
+      "step": 7,
+      "pass": false,
+      "guideExpects": "On **Connect a Git Repository**:",
+      "actual": "Plan selected — mismatch: Guide step topic (git) does not match executor evidence (plan)",
+      "drift": [
+        "Guide step topic (git) does not match executor evidence (plan)"
+      ]
+    },
+    {
+      "step": 8,
+      "pass": true,
+      "guideExpects": "On **Build & Deploy**, set **Start Command** to `npm start`. Adjust **Capsule Name** if needed.",
+      "actual": "Continuing to Git step",
+      "drift": []
+    },
+    {
+      "step": 9,
+      "pass": true,
+      "guideExpects": "Click **Create Capsule**.",
+      "actual": "Repository: BrentonJScott/demo-nextjs Team Repository; branch: main",
+      "drift": []
+    },
+    {
+      "step": 10,
+      "pass": true,
+      "guideExpects": "On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progres",
+      "actual": "Run command left blank (platform auto-detect)",
+      "drift": []
+    }
+  ],
+  "guideSteps": [
+    {
+      "n": 1,
+      "title": "Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your accoun"
+    },
+    {
+      "n": 2,
+      "title": "On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox."
+    },
+    {
+      "n": 3,
+      "title": "Click **Log in**."
+    },
+    {
+      "n": 4,
+      "title": "Open **Quick Start** in the sidebar. Confirm the heading **What type of capsule would you like to deploy?**"
+    },
+    {
+      "n": 5,
+      "title": "**Next.js** is not listed on **Quick Start**. Open [https://test-platform.codecapsules.io/new/capsule?capsuleType=backen"
+    },
+    {
+      "n": 6,
+      "title": "On **Capsule Details**:"
+    },
+    {
+      "n": 7,
+      "title": "On **Connect a Git Repository**:"
+    },
+    {
+      "n": 8,
+      "title": "On **Build & Deploy**, set **Start Command** to `npm start`. Adjust **Capsule Name** if needed."
+    },
+    {
+      "n": 9,
+      "title": "Click **Create Capsule**."
+    },
+    {
+      "n": 10,
+      "title": "On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progres"
     }
   ]
 }

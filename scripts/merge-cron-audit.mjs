@@ -54,8 +54,31 @@ for (const f of features) {
   const data = JSON.parse(fs.readFileSync(p, 'utf8'));
   if (!data.goalReached) allGoals = false;
   if (data.mismatches?.length) allMismatches.push(...data.mismatches.map((m) => `${f.label}: ${m}`));
+  const guideAlignFail = (data.guideAlignment ?? []).some((r) => !r.pass);
+  if (guideAlignFail) allGoals = false;
 
-  sections.push(`## ${f.label}`, '', '| Step | Pass | Detail |', '|---|---|---|');
+  sections.push(
+    `## ${f.label}`,
+    '',
+    `**Goal reached:** ${data.goalReached ? 'yes' : 'no'}`,
+    `**Guide steps in doc:** ${data.guideStepCount ?? data.guideSteps?.length ?? '—'}`,
+    '',
+    '### Guide alignment',
+    '',
+    '| Step | Pass | guideExpects | actual |',
+    '|---|---|---|---|',
+  );
+  if (data.guideAlignment?.length) {
+    for (const r of data.guideAlignment) {
+      sections.push(
+        `| ${r.step} | ${r.pass ? 'pass' : 'fail'} | ${String(r.guideExpects ?? '').replace(/\|/g, '\\|').slice(0, 120)} | ${String(r.actual ?? '').replace(/\|/g, '\\|').slice(0, 120)} |`,
+      );
+    }
+  } else {
+    sections.push('| — | fail | (no alignment rows) | Guide not walkthrough-shaped or run blocked |');
+  }
+
+  sections.push('', '### Executor step results', '', '| Step | Pass | Detail |', '|---|---|---|');
   for (const s of data.stepResults ?? []) {
     if (s.step === 0) continue;
     sections.push(`| ${s.step} ${s.name} | ${s.pass ? 'pass' : 'fail'} | ${String(s.detail).replace(/\|/g, '\\|')} |`);

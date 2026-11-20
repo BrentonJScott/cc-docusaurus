@@ -1,94 +1,16 @@
 {
   "date": "2026-11-20",
   "platform": "https://test-platform.codecapsules.io",
+  "guide": "docs/guides/angular.md",
   "goal": "Expect to see capsule building in builds tab",
-  "goalReached": true,
-  "blockedAt": null,
-  "mismatches": [],
-  "stepResults": [
-    {
-      "step": 1,
-      "name": "Open platform",
-      "pass": true,
-      "detail": "https://test-platform.codecapsules.io/auth/registration",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-1.jpg"
-    },
-    {
-      "step": 2,
-      "name": "Welcome back login form",
-      "pass": true,
-      "detail": "Login form visible",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-2.jpg"
-    },
-    {
-      "step": 3,
-      "name": "Log in",
-      "pass": true,
-      "detail": "https://test-platform.codecapsules.io/dash/overview/quick-start",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-3.jpg"
-    },
-    {
-      "step": 4,
-      "name": "Quick Start",
-      "pass": true,
-      "detail": "https://test-platform.codecapsules.io/dash/overview/quick-start",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-4.jpg"
-    },
-    {
-      "step": 5,
-      "name": "Angular Deploy Now → New Capsule",
-      "pass": true,
-      "detail": "https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-5.jpg"
-    },
-    {
-      "step": 6,
-      "name": "Capsule Details",
-      "pass": true,
-      "detail": "Team: Personal Team; space: Personal Space  personal-space-ivbk",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-6.jpg"
-    },
-    {
-      "step": 7,
-      "name": "Hosting Static",
-      "pass": true,
-      "detail": "Static selected",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-7.jpg"
-    },
-    {
-      "step": 8,
-      "name": "Plan Free",
-      "pass": true,
-      "detail": "Free plan selected",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-8.jpg"
-    },
-    {
-      "step": 9,
-      "name": "Connect a Git Repository",
-      "pass": true,
-      "detail": "Repository: BrentonJScott/demo-angular-22 Team Repository; branch: main",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-9.jpg"
-    },
-    {
-      "step": 10,
-      "name": "Build & Deploy fields",
-      "pass": true,
-      "detail": "npm run build; dist/cc-demo-angular/browser",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-10.jpg"
-    },
-    {
-      "step": 11,
-      "name": "Create Capsule",
-      "pass": true,
-      "detail": "Ready to submit wizard",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-11.jpg"
-    },
-    {
-      "step": 12,
-      "name": "Deploy Builds",
-      "pass": true,
-      "detail": "Building state visible",
-      "screenshot": "/img/guides/create-angular-frontend-capsule/step-12.jpg"
-    }
-  ]
+  "goalReached": false,
+  "blockedAt": "Guide not walkthrough-shaped (no `### Step N` sections)",
+  "guideWalkthroughShaped": false,
+  "guideStepCount": 0,
+  "mismatches": [
+    "Guide not walkthrough-shaped (no `### Step N` sections)",
+    "Manifest lists Create Angular frontend capsule but `docs/guides/angular.md` has no `### Step N` walkthrough — restore walkthrough doc or remove from DOCUMENTED_FEATURES.MD."
+  ],
+  "stepResults": [],
+  "guideAlignment": []
 }
