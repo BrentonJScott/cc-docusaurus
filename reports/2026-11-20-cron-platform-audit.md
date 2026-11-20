@@ -1,6 +1,6 @@
 # Cron platform audit (2026-11-20)
 
-**Run completed:** 2026-11-20T12:06:18.981Z
+**Run completed:** 2026-11-20T12:24:09.157Z
 **Manifest:** `cc-site/DOCUMENTED_FEATURES.MD` — 6 features
 **Target:** https://test-platform.codecapsules.io
 
@@ -239,8 +239,6 @@ Walkthrough JSON: `reports/2026-11-20-create-svelte-frontend-capsule.json`
 
 - Create Angular frontend capsule: Guide not walkthrough-shaped (no `### Step N` sections)
 - Create Angular frontend capsule: Manifest lists Create Angular frontend capsule but `docs/guides/angular.md` has no `### Step N` walkthrough — restore walkthrough doc or remove from DOCUMENTED_FEATURES.MD.
-- Create React frontend capsule: Step 4: Guide: Create New Capsule; executor used Quick Start
-- Create React frontend capsule: Walkthrough executor recorded 12 numbered steps; guide defines 11 (`### Step N`). Step numbers must match 1:1.
 - Create React frontend capsule: Step 4: Guide step topic (new capsule) does not match executor evidence (quick start)
 - Create React frontend capsule: Step 4: Guide: Create New Capsule; executor used Quick Start
 - Create React frontend capsule: Step 5: Guide step topic (capsule details) does not match executor evidence (new capsule)
@@ -250,7 +248,6 @@ Walkthrough JSON: `reports/2026-11-20-create-svelte-frontend-capsule.json`
 - Create React frontend capsule: Step 9: Guide step topic (build) does not match executor evidence (git)
 - Create React frontend capsule: Walkthrough executor recorded 12 numbered steps; guide defines 11 (`### Step N`). Step numbers must match 1:1.
 - Create NextJS backend capsule: **Next.js** is not listed on Quick Start; the guide opens **New Capsule** with **Backend** instead.
-- Create NextJS backend capsule: Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1.
 - Create NextJS backend capsule: Step 7: Guide step topic (git) does not match executor evidence (plan)
 - Create NextJS backend capsule: Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1.
 - Create Svelte frontend capsule: **Svelte** is not listed on Quick Start; the guide opens **New Capsule** directly and selects **Frontend**.

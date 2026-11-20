@@ -6,7 +6,6 @@
   "blockedAt": null,
   "mismatches": [
     "**Next.js** is not listed on Quick Start; the guide opens **New Capsule** with **Backend** instead.",
-    "Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1.",
     "Step 7: Guide step topic (git) does not match executor evidence (plan)",
     "Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1."
   ],

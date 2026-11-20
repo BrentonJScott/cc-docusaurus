@@ -5,8 +5,6 @@
   "goalReached": false,
   "blockedAt": null,
   "mismatches": [
-    "Step 4: Guide: Create New Capsule; executor used Quick Start",
-    "Walkthrough executor recorded 12 numbered steps; guide defines 11 (`### Step N`). Step numbers must match 1:1.",
     "Step 4: Guide step topic (new capsule) does not match executor evidence (quick start)",
     "Step 4: Guide: Create New Capsule; executor used Quick Start",
     "Step 5: Guide step topic (capsule details) does not match executor evidence (new capsule)",

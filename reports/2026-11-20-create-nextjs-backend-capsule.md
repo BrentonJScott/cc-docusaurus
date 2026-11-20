@@ -1,7 +1,7 @@
 # Create NextJS backend capsule walkthrough (2026-11-20)
 **Platform:** https://test-platform.codecapsules.io
 **Manifest goal:** Expect to see capsule building in builds tab
-**Run completed:** 2026-11-20T12:04:43.926Z
+**Run completed:** 2026-11-20T12:21:57.388Z
 **Goal reached:** no
 ## Step results
 | Step | Pass | Detail |
@@ -51,6 +51,5 @@
 ## Mismatches / issues
 
 - **Next.js** is not listed on Quick Start; the guide opens **New Capsule** with **Backend** instead.
-- Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1.
 - Step 7: Guide step topic (git) does not match executor evidence (plan)
 - Walkthrough executor recorded 12 numbered steps; guide defines 10 (`### Step N`). Step numbers must match 1:1.

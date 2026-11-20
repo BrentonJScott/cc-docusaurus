@@ -5,7 +5,7 @@
 
 **Manifest goal:** Expect to see capsule building in builds tab
 
-**Run completed:** 2026-11-20T12:02:42.192Z
+**Run completed:** 2026-11-20T12:20:02.964Z
 **Goal reached:** no
 **Blocked:** Guide not walkthrough-shaped (no `### Step N` sections)
 
