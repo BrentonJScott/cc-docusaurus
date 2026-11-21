@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-21",
+  "platform": "https://test-platform.codecapsules.io",
+  "goal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "blockedAt": null,
+  "mismatches": [
+    "Step 4: Guide step topic (new capsule) does not match executor evidence (quick start)",
+    "Step 4: Guide: Create New Capsule; executor used Quick Start",
+    "Step 5: Guide step topic (capsule details) does not match executor evidence (new capsule)",
+    "Step 6: Guide step topic (hosting) does not match executor evidence (capsule details)",
+    "Step 7: Guide step topic (plan) does not match executor evidence (hosting)",
+    "Step 8: Guide step topic (git) does not match executor evidence (plan)",
+    "Step 9: Guide step topic (build) does not match executor evidence (git)",
+    "Walkthrough executor recorded 12 numbered steps; guide defines 11 (`### Step N`). Step numbers must match 1:1."
+  ],
+  "stepResults": [
+    {
+      "step": 1,
+      "name": "Open platform",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/auth/registration",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-1.jpg"
+    },
+    {
+      "step": 2,
+      "name": "Welcome back login form",
+      "pass": true,
+      "detail": "Login form visible",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-2.jpg"
+    },
+    {
+      "step": 3,
+      "name": "Log in",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-3.jpg"
+    },
+    {
+      "step": 4,
+      "name": "Quick Start",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-4.jpg"
+    },
+    {
+      "step": 5,
+      "name": "React Deploy Now → New Capsule",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-5.jpg"
+    },
+    {
+      "step": 6,
+      "name": "Capsule Details",
+      "pass": true,
+      "detail": "Team: Personal Team; space: Personal Space  personal-space-ivbk",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-6.jpg"
+    },
+    {
+      "step": 7,
+      "name": "Hosting Static",
+      "pass": true,
+      "detail": "Static selected",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-7.jpg"
+    },
+    {
+      "step": 8,
+      "name": "Plan Free",
+      "pass": true,
+      "detail": "Free plan selected",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-8.jpg"
+    },
+    {
+      "step": 9,
+      "name": "Connect a Git Repository",
+      "pass": true,
+      "detail": "Repository: BrentonJScott/demo-react Team Repository; branch: main",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-9.jpg"
+    },
+    {
+      "step": 10,
+      "name": "Build & Deploy fields",
+      "pass": true,
+      "detail": "npm run build; build",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-10.jpg"
+    },
+    {
+      "step": 11,
+      "name": "Create Capsule",
+      "pass": true,
+      "detail": "Ready to submit wizard",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-11.jpg"
+    },
+    {
+      "step": 12,
+      "name": "Deploy Builds",
+      "pass": true,
+      "detail": "Building state visible",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-12.jpg"
+    }
+  ],
+  "guideStepCount": 11,
+  "guideWalkthroughShaped": true,
+  "guideAlignment": [
+    {
+      "step": 1,
+      "pass": true,
+      "guideExpects": "Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your accoun",
+      "actual": "https://test-platform.codecapsules.io/auth/registration",
+      "drift": []
+    },
+    {
+      "step": 2,
+      "pass": true,
+      "guideExpects": "On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox.",
+      "actual": "Login form visible",
+      "drift": []
+    },
+    {
+      "step": 3,
+      "pass": true,
+      "guideExpects": "Click **Log in**.",
+      "actual": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "drift": []
+    },
+    {
+      "step": 4,
+      "pass": false,
+      "guideExpects": "On the dashboard, click **Create New Capsule** and pick **React**. You should reach **New Capsule** at `/new/capsule?cap",
+      "actual": "https://test-platform.codecapsules.io/dash/overview/quick-start — mismatch: Guide step topic (new capsule) does not match executor evidence (quick start); Guide: Create New Capsule; executor used Quick Start",
+      "drift": [
+        "Guide step topic (new capsule) does not match executor evidence (quick start)",
+        "Guide: Create New Capsule; executor used Quick Start"
+      ]
+    },
+    {
+      "step": 5,
+      "pass": false,
+      "guideExpects": "On **Capsule Details**:",
+      "actual": "https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend — mismatch: Guide step topic (capsule details) does not match executor evidence (new capsule)",
+      "drift": [
+        "Guide step topic (capsule details) does not match executor evidence (new capsule)"
+      ]
+    },
+    {
+      "step": 6,
+      "pass": false,
+      "guideExpects": "On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation",
+      "actual": "Team: Personal Team; space: Personal Space  personal-space-ivbk — mismatch: Guide step topic (hosting) does not match executor evidence (capsule details)",
+      "drift": [
+        "Guide step topic (hosting) does not match executor evidence (capsule details)"
+      ]
+    },
+    {
+      "step": 7,
+      "pass": false,
+      "guideExpects": "On **Plan**, select the **Starter** plan card, then **Next**.",
+      "actual": "Static selected — mismatch: Guide step topic (plan) does not match executor evidence (hosting)",
+      "drift": [
+        "Guide step topic (plan) does not match executor evidence (hosting)"
+      ]
+    },
+    {
+      "step": 8,
+      "pass": false,
+      "guideExpects": "On **Connect a Git Repository**:",
+      "actual": "Free plan selected — mismatch: Guide step topic (git) does not match executor evidence (plan)",
+      "drift": [
+        "Guide step topic (git) does not match executor evidence (plan)"
+      ]
+    },
+    {
+      "step": 9,
+      "pass": false,
+      "guideExpects": "On **Build & Deploy**, fill the fields that use placeholder examples on the live form:",
+      "actual": "Repository: BrentonJScott/demo-react Team Repository; branch: main — mismatch: Guide step topic (build) does not match executor evidence (git)",
+      "drift": [
+        "Guide step topic (build) does not match executor evidence (git)"
+      ]
+    },
+    {
+      "step": 10,
+      "pass": true,
+      "guideExpects": "Click **Create Capsule**.",
+      "actual": "npm run build; build",
+      "drift": []
+    },
+    {
+      "step": 11,
+      "pass": true,
+      "guideExpects": "On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progres",
+      "actual": "Ready to submit wizard",
+      "drift": []
+    }
+  ],
+  "guideSteps": [
+    {
+      "n": 1,
+      "title": "Open [https://test-platform.codecapsules.io](https://test-platform.codecapsules.io). If you land on **Create your accoun"
+    },
+    {
+      "n": 2,
+      "title": "On **Welcome back**, enter your email in the **Email** textbox and your password in the **Password** textbox."
+    },
+    {
+      "n": 3,
+      "title": "Click **Log in**."
+    },
+    {
+      "n": 4,
+      "title": "On the dashboard, click **Create New Capsule** and pick **React**. You should reach **New Capsule** at `/new/capsule?cap"
+    },
+    {
+      "n": 5,
+      "title": "On **Capsule Details**:"
+    },
+    {
+      "n": 6,
+      "title": "On **Hosting**, select the **Static** option card (row that includes **No server**), then click **Next**. If validation"
+    },
+    {
+      "n": 7,
+      "title": "On **Plan**, select the **Starter** plan card, then **Next**."
+    },
+    {
+      "n": 8,
+      "title": "On **Connect a Git Repository**:"
+    },
+    {
+      "n": 9,
+      "title": "On **Build & Deploy**, fill the fields that use placeholder examples on the live form:"
+    },
+    {
+      "n": 10,
+      "title": "Click **Create Capsule**."
+    },
+    {
+      "n": 11,
+      "title": "On the capsule **Deploy** tab, open **Builds**. Confirm the latest build shows **Building**, **Queued**, or **In progres"
+    }
+  ]
+}
