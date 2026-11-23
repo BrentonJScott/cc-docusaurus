@@ -27,6 +27,11 @@
 - Guide exists but the feature isn't in the list: Report that the feature is missing from the site.
 - Feature is in the list but has no guide: Explore the site to reach the goal yourself, then write a report recommending a new guide for that feature.
 
+## Format gate
+- Before walking through any guide, run the format check in `FORMAT.MD` on it.
+- If the guide fails the format check, don't walk it through. Its format report replaces the walkthrough report, and the run summary shows `Walkthrough: not run (format fail)`. This is the only allowed reason to skip a guide.
+- Only guides that pass the format check go on to the walkthrough below.
+
 ## Before running each test
 - Open and read the feature's guide file (for example, `docs/guides/react.md`) before launching Playwright.
 - Guides may be written as narrative text and don't need numbered steps or `### Step N` headings.
