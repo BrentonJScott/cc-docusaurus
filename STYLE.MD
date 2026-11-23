@@ -24,10 +24,10 @@ Example:
 ```md
 ## Prerequisites
 
-- A Code Capsules account. See [Create an account](/shared/create-an-account).
+- A Code Capsules account. See [Create an account](/docs/shared/create-an-account).
 - A [GitHub](https://github.com/) account.
-- A fork of the [demo-angular](https://github.com/codecapsules-io/demo-angular) repo. See [Fork a demo repo](/shared/fork-a-demo-repo).
-- A Space to deploy into. See [Create a Space](/shared/create-a-space).
+- A fork of the [demo-angular](https://github.com/codecapsules-io/demo-angular) repo. See [Fork a demo repo](/docs/shared/fork-a-demo-repo).
+- A Space to deploy into. See [Create a Space](/docs/shared/create-a-space).
 ```
 
 ## Steps
@@ -54,7 +54,7 @@ Example:
 - Put values the reader types or selects in code format: `npm run build`, `main`.
 - Name UI controls by what they do or say, not by colour or position alone ("click **New Space**," not "click the yellow `+` on the bottom left").
 - Don't name UI frameworks. Say "dropdown," not "ng-select."
-- Internal links use the page slug (`/shared/create-a-space`), never a full `codecapsules.io` URL.
+- Internal links use the page slug (`/docs/shared/create-a-space`), never a full `codecapsules.io` URL.
 
 ## Template
 
@@ -74,7 +74,7 @@ doc_version: drift
 
 ## Prerequisites
 
-- <Requirement>. See [<Shared page>](/shared/<page>).
+- <Requirement>. See [<Shared page>](/docs/shared/<page>).
 
 ## Steps
 

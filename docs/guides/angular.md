@@ -1,75 +1,76 @@
 ---
 slug: "/frontend/angular"
 description: >-
-  Deploy an Angular application on Code Capsules with auto-deployments from a
-  specified branch on your GitHub repository.
+  Deploy an Angular application on Code Capsules and confirm the first build
+  appears under Deploy → Builds.
 title: "How to Host an Angular Application"
 sidebar_label: "Angular"
+doc_version: drift
 ---
 
-# Host Your Angular Application in Minutes
+# Host Your Angular Application
 
-Deploy an Angular application and learn how to host frontend code on Code Capsules. At the end of the guide, you would have deployed the application in the screenshot below and can adapt it to meet your unique needs.
+At the end of this guide, you'll have an Angular Frontend Capsule building from your GitHub repository.
 
-![Deployed App](/gitbook-assets/get-started/cc-angular-app.png)
+## Prerequisites
 
-## Setup
+- A Code Capsules account. See [Create an account](/docs/shared/create-an-account).
+- A [GitHub](https://github.com/) account.
+- A fork of the [demo-angular](https://github.com/codecapsules-io/demo-angular) repo. See [Fork a demo repo](/docs/shared/fork-a-demo-repo).
+- A Space to deploy into. See [Create a Space](/docs/shared/create-a-space).
+- GitHub connected to Code Capsules. See [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules).
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Steps
 
-To demonstrate how to deploy an Angular application with Code Capsules, we’ve provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-angular).
+### Step 1: Log in
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+Open the [test platform](https://test-platform.codecapsules.io) and log in. You land on **Quick Start**.
 
-## Create an Account with Code Capsules
+### Step 2: Start the Angular capsule
 
-If you don’t already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+On **Quick Start**, click **Deploy Now** on the **Angular** card.
 
-If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
+### Step 3: Choose the Capsule type, Team, and Space
 
-Alternatively, if you’re signing in again, click on the **Spaces** tab.
+On **Capsule Details**, choose **Frontend** under **Choose a Capsule**, then choose your Team and your Space. Click **Next**.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
+### Step 4: Choose hosting and plan
 
-## Create a Space for Your App
+On **Hosting**, select the **Static** option and click **Next**. On **Plan**, select your plan and click **Next**.
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+### Step 5: Connect the repository
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+On **Connect a Git Repository**, open **Search/Select a Repository** and choose your fork of `demo-angular`. Under **Branch**, choose the branch you want to deploy, such as `master`. Click **Next**.
 
-![Create a New Space](/gitbook-assets/get-started/space-name-1.png)
+### Step 6: Set the build settings
 
+On **Build & Deploy**, enter `npm run build` as the build command and `dist/ng4-complete-guide` as the output directory. Click **Create Capsule**.
 
-1. Choose a Team — you can use a default “personal” Team if you’re the only person working on this project, or a named Team if you’re collaborating with others
-2. This should remind you of the project, for example, “customer-api” or “notetaking-app”
-3. Choose a country close to where most of your users will be
+### Step 7: Check the build
 
-## Create the Capsule
+Open the capsule's **Deploy** tab and find **Builds**. The latest build shows **Building**, **Queued**, or **In progress**.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+### Screenshots
 
-Navigate to the Space containing your recently created Data Capsule and click the yellow `+` icon on the bottom left of the screen. Follow the instructions below to create a Frontend Capsule:
+![Quick Start with the Angular card](/img/guides/create-angular-frontend-capsule/step-4.jpg)
+Step 2: Quick Start.
 
-1. Choose **Frontend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Type `npm run build` in **Build Command** and `dist/ng4-complete-guide` in **Build Output Directory**.
-7. Click **Create Capsule**.
+![Connect a Git Repository](/img/guides/create-angular-frontend-capsule/step-9.jpg)
+Step 5: Connect the repository.
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
+![Capsule building](/img/guides/create-angular-frontend-capsule/step-12.jpg)
+Step 7: Capsule building.
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+## Troubleshooting
 
-![Build Logs](/gitbook-assets/get-started/angular-build-logs.png)
+### The repository dropdown is empty
 
-Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application.
+GitHub isn't connected to your Team. Click **Configure Git for Code Capsules**, grant access to your fork, and reopen the dropdown.
 
-![Deployed App](/gitbook-assets/get-started/cc-angular-app.png)
+### The branch dropdown shows "No items found"
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/frontend/).
+No repository is selected yet. Choose a repository first, then open the branch dropdown.
 
-:::tip[Video Guides]
-If you prefer watching videos to reading text, check out our [Video Guides](/tutorials/video-guides/).
-:::
+### The build fails with `dist/ng4-complete-guide` not found
+
+The output directory doesn't match the build output. Set the output directory to `dist/ng4-complete-guide` and rebuild.
