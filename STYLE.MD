@@ -4,7 +4,7 @@ Every guide in `docs/guides/` must follow this standard. `FORMAT.MD` checks guid
 
 ## Page structure
 - A guide **must** contain these parts, in this order, and nothing else at the top level:
-  1. Frontmatter (`slug`, `title`, `description`, `sidebar_label`).
+  1. Frontmatter (`slug`, `title`, `description`, `sidebar_label`, `doc_version`). `doc_version` is `drift` on every guide that follows this version of the format.
   2. One `#` title.
   3. An optional intro of no more than two sentences that states what the reader will have at the end.
   4. `## Prerequisites`
@@ -65,6 +65,7 @@ title: "How to Host a <Framework> Application"
 description: >-
   <One sentence.>
 sidebar_label: "<Framework>"
+doc_version: drift
 ---
 
 # Host Your <Framework> Application
