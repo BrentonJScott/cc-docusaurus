@@ -1,6 +1,6 @@
 # Create vue frontend capsule — platform audit
 
-- **Run:** 2026-11-23T07:10:00Z
+- **Run:** 2026-11-23T08:35:13Z
 - **Environment:** https://test-platform.codecapsules.io
 - **Guide:** _No guide on `main` (exploratory audit)_
 - **Manifest goal reached:** no
