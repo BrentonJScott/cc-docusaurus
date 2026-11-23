@@ -1,0 +1,82 @@
+{
+  "feature": "react",
+  "runTimestamp": "2026-11-23T07:10:00Z",
+  "environment": "https://test-platform.codecapsules.io",
+  "manifestGoal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "actions": [
+    {
+      "action": 1,
+      "status": "pass",
+      "guideExpects": "Open test-platform; Log in link if needed",
+      "actual": "URL https://test-platform.codecapsules.io/auth/login"
+    },
+    {
+      "action": 2,
+      "status": "pass",
+      "guideExpects": "Email and Password on Welcome back",
+      "actual": "Credentials entered"
+    },
+    {
+      "action": 3,
+      "status": "pass",
+      "guideExpects": "Click Log in",
+      "actual": "Dashboard at https://test-platform.codecapsules.io/dash/overview/quick-start"
+    },
+    {
+      "action": 4,
+      "status": "fail",
+      "guideExpects": "Create New Capsule and pick React",
+      "actual": "No \"Create New Capsule\" control on dashboard; Quick Start shows framework cards with Deploy Now only; continued via Deploy Now on React card → https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend",
+      "screenshot": "failure-step-4.jpg"
+    },
+    {
+      "action": 5,
+      "status": "pass",
+      "guideExpects": "Capsule Details: capsule type, team, space, Next",
+      "actual": "Selected Frontend; Selected Personal Team; Selected space: Document Drift  customer-api-xkfw",
+      "screenshot": null
+    },
+    {
+      "action": 6,
+      "status": "pass",
+      "guideExpects": "Hosting: Static, Next",
+      "actual": "Static hosting selected",
+      "screenshot": null
+    },
+    {
+      "action": 7,
+      "status": "fail",
+      "guideExpects": "Plan: Starter, Next",
+      "actual": "Guide expects Starter; screen shows Free plan",
+      "screenshot": "failure-step-7.jpg"
+    },
+    {
+      "action": 8,
+      "status": "fail",
+      "guideExpects": "Git: BrentonJScott/demo-react Team Repository, branch master",
+      "actual": "Repo: BrentonJScott/demo-react Team Repository; Guide expects master; only main available; locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('option', { name: /^main$/i })\n",
+      "screenshot": "failure-step-8.jpg"
+    },
+    {
+      "action": 9,
+      "status": "pass",
+      "guideExpects": "Build: npm run build, output build",
+      "actual": "Filled build fields where visible"
+    },
+    {
+      "action": 10,
+      "status": "fail",
+      "guideExpects": "Create Capsule",
+      "actual": "locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: /create capsule/i })\n",
+      "screenshot": "failure-step-10.jpg"
+    },
+    {
+      "action": 11,
+      "status": "blocked",
+      "guideExpects": "Goal: building on Deploy → Builds",
+      "actual": "locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: /create capsule/i })\n; No Building/Queued/In progress on Deploy → Builds",
+      "screenshot": "failure-step-11.jpg"
+    }
+  ]
+}

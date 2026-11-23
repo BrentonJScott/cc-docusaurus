@@ -1,0 +1,69 @@
+{
+  "feature": "vue",
+  "runTimestamp": "2026-11-23T07:10:00Z",
+  "environment": "https://test-platform.codecapsules.io",
+  "manifestGoal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "actions": [
+    {
+      "action": 2,
+      "status": "pass",
+      "guideExpects": "Explore: open dashboard to deploy Vue",
+      "actual": "Logged in at https://test-platform.codecapsules.io/dash/overview/quick-start"
+    },
+    {
+      "action": 3,
+      "status": "pass",
+      "guideExpects": "Quick Start Deploy Now for Vue",
+      "actual": "Wizard at https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend"
+    },
+    {
+      "action": 4,
+      "status": "pass",
+      "guideExpects": "Capsule Details: capsule type, team, space, Next",
+      "actual": "Selected Frontend; Selected Personal Team; Selected space: Document Drift  customer-api-xkfw",
+      "screenshot": null
+    },
+    {
+      "action": 5,
+      "status": "pass",
+      "guideExpects": "Hosting: Static, Next",
+      "actual": "Static hosting selected",
+      "screenshot": null
+    },
+    {
+      "action": 6,
+      "status": "fail",
+      "guideExpects": "Plan: Starter, Next",
+      "actual": "Guide expects Starter; screen shows Free plan",
+      "screenshot": "failure-step-6.jpg"
+    },
+    {
+      "action": 7,
+      "status": "fail",
+      "guideExpects": "Git: vue, branch main",
+      "actual": "Selected first available repo (explore path); Branch main not found:  main ",
+      "screenshot": "failure-step-7.jpg"
+    },
+    {
+      "action": 8,
+      "status": "pass",
+      "guideExpects": "Build: npm run build, output dist",
+      "actual": "Filled build fields where visible"
+    },
+    {
+      "action": 9,
+      "status": "pass",
+      "guideExpects": "Create Capsule",
+      "actual": "URL after create: https://test-platform.codecapsules.io/dash/spaces/customer-api-xkfw/capsules/0e108a2d-92a2-b66b-37a6-8d932dda5e25/details",
+      "screenshot": null
+    },
+    {
+      "action": 10,
+      "status": "blocked",
+      "guideExpects": "Goal: building on Deploy → Builds",
+      "actual": "URL after create: https://test-platform.codecapsules.io/dash/spaces/customer-api-xkfw/capsules/0e108a2d-92a2-b66b-37a6-8d932dda5e25/details; No Building/Queued/In progress on Deploy → Builds",
+      "screenshot": "failure-step-10.jpg"
+    }
+  ]
+}

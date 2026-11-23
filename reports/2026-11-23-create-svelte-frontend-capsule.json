@@ -1,0 +1,16 @@
+{
+  "feature": "svelte",
+  "runTimestamp": "2026-11-23T07:10:00Z",
+  "environment": "https://test-platform.codecapsules.io",
+  "manifestGoal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "actions": [
+    {
+      "action": 1,
+      "status": "fail",
+      "guideExpects": "Explore Quick Start for Svelte",
+      "actual": "No Svelte card on Quick Start; only Node.js, Python, Angular, React, Vue, AI Agent, WordPress, Go, ...",
+      "screenshot": "failure-step-1.jpg"
+    }
+  ]
+}
