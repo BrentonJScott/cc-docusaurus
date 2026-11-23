@@ -1,13 +1,13 @@
 # Guide Format Check Instructions
 
-Run this check on every guide **before** the walkthrough in `PROMPT.MD`. It is a read-only review of the guide file. Don't open the browser or Playwright for this check.
+Run this check on every guide **before** the walkthrough in `WALKTHROUGH.md`. It is a read-only review of the guide file. Don't open the browser or Playwright for this check.
 
 A guide that fails this check is not walked through. Instead, you write a format report with tickets that describe how to fix the guide, and that report goes into the run's pull request.
 
 ## Setup
-- Follow the Setup section of `PROMPT.MD` first (git sync, then read `DOCUMENTED_FEATURES.MD`).
-- Build the feature list and match each feature to its guide as `PROMPT.MD` describes.
-- Read `STYLE.MD` in full before checking any guide. It is the standard every guide is checked against.
+- Follow the Setup section of `WALKTHROUGH.md` first (git sync, then read `DOCUMENTED_FEATURES.md`).
+- Build the feature list and match each feature to its guide as `WALKTHROUGH.md` describes.
+- Read `STYLE.md` in full before checking any guide. It is the standard every guide is checked against.
 
 ## Ground rules
 - Don't edit guides. Every finding becomes a ticket in a report.
@@ -16,7 +16,7 @@ A guide that fails this check is not walked through. Instead, you write a format
 - A guide passes only if all three checks pass. Any failed check fails the guide.
 
 ## Check 1: Goal steps
-Find the steps that reach the feature's goal from `DOCUMENTED_FEATURES.MD`.
+Find the steps that reach the feature's goal from `DOCUMENTED_FEATURES.md`.
 
 - Write down the goal, for example: Create an Angular Frontend Capsule (GOAL: Expect to see capsule building in builds tab).
 - Read the guide top to bottom and list every instruction it gives the reader, numbered in order, whether or not it sits under a step heading.
@@ -33,7 +33,7 @@ Find the steps that reach the feature's goal from `DOCUMENTED_FEATURES.MD`.
 ## Check 2: Prerequisites
 Check that every `prerequisite` from Check 1 is in `## Prerequisites` and linked out, not explained.
 
-- Each prerequisite must be one bullet with a link to a shared page in this repo's `docs/`, as `STYLE.MD` describes.
+- Each prerequisite must be one bullet with a link to a shared page in this repo's `docs/`, as `STYLE.md` describes.
 - For every link, confirm the target page exists in `docs/` by matching its slug or file path. Don't assume a page exists because the link looks right.
 - This check fails if:
   - A prerequisite is missing from `## Prerequisites`.
@@ -42,9 +42,9 @@ Check that every `prerequisite` from Check 1 is in `## Prerequisites` and linked
 - For each shared page that doesn't exist, raise a **shared page** ticket (see below). Check `reports/` and the open pull requests first. If a ticket for that shared page already exists, reference it instead of raising a new one.
 
 ## Check 3: Format and style
-Check the guide against every rule in `STYLE.MD`.
+Check the guide against every rule in `STYLE.md`.
 
-- Go through `STYLE.MD` section by section and record each rule the guide breaks, quoting the guide's text or heading and naming the `STYLE.MD` rule.
+- Go through `STYLE.md` section by section and record each rule the guide breaks, quoting the guide's text or heading and naming the `STYLE.md` rule.
 - At minimum, confirm:
   - The only `##` headings are `Prerequisites`, `Steps`, and `Troubleshooting`, in that order.
   - Every step uses `### Step N: Title`, numbered from 1 with no gaps, with a description under it.
@@ -53,18 +53,18 @@ Check the guide against every rule in `STYLE.MD`.
   - The writing style rules are followed.
 
 ## If the guide fails
-- Stop work on that guide. Don't run the `PROMPT.MD` walkthrough for it.
+- Stop work on that guide. Don't run the `WALKTHROUGH.md` walkthrough for it.
 - Write a format report for it (see below) with one ticket per fix.
 - In the run summary, mark the feature `Format check: fail` and `Walkthrough: not run (format fail)`, and link the format report.
 
 ## If the guide passes
 - Write a short format report that records the pass and the Check 1 instruction list.
-- Continue with the `PROMPT.MD` walkthrough for that guide.
+- Continue with the `WALKTHROUGH.md` walkthrough for that guide.
 
 ## Tickets
 Each ticket is one piece of work someone can pick up on its own. Use these types:
 
-- **Format fix**: change the guide to meet `STYLE.MD`. One ticket per guide, with a checklist of every change.
+- **Format fix**: change the guide to meet `STYLE.md`. One ticket per guide, with a checklist of every change.
 - **Move to prerequisites**: move a non-goal instruction out of the steps into `## Prerequisites` and replace it with a link.
 - **Remove content**: delete content labelled `remove` in Check 1.
 - **Missing goal step**: the steps don't reach the goal, or a needed value is missing.
@@ -75,7 +75,7 @@ Each ticket must have:
 - **Type**: one of the types above.
 - **Title**: a short imperative summary, such as "Move account sign-up to Prerequisites."
 - **Problem**: what the guide does now, quoting its text and heading.
-- **Rule**: the `STYLE.MD` rule or check it breaks.
+- **Rule**: the `STYLE.md` rule or check it breaks.
 - **Change**: exactly what to change. For a shared page, give the proposed file path, slug, and an outline of what the page should cover, taken from the content being moved out of the guide.
 - **Done when**: how a reviewer can confirm the fix.
 
@@ -84,7 +84,7 @@ Each ticket must have:
 - **Instruction list**: the numbered instructions from Check 1, each labelled `goal`, `prerequisite`, or `remove`, with the heading it currently sits under.
 - **Check results**: a table with one row per check (Goal steps, Prerequisites, Format and style), its status (`pass` or `fail`), and a short reason.
 - **Tickets**: every ticket, in the format above. Write "None" only if the guide passed all three checks.
-- **Proposed outline**: for a failed guide, the guide rewritten as an outline that meets `STYLE.MD`: the Prerequisites bullets with their links, each `### Step N: Title` with a one-line description, the screenshots list, and the Troubleshooting headings. Don't write the full guide.
+- **Proposed outline**: for a failed guide, the guide rewritten as an outline that meets `STYLE.md`: the Prerequisites bullets with their links, each `### Step N: Title` with a one-line description, the screenshots list, and the Troubleshooting headings. Don't write the full guide.
 
 ## Report files
 - Save each report as `reports/YYYY-MM-DD-format-<feature-slug>.md`, with a matching `.json` file that holds the same data (header fields, instruction list, check results, tickets).
