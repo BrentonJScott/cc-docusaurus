@@ -53,13 +53,15 @@
 ## After a failure
 - Don't stop at the first failed action. Record it with a screenshot, then continue with the next action.
 - Keep going until you've compared the whole guide, through to the final goal check.
-- `Manifest goals reached: no` is only allowed after you've attempted the guide in the browser. Every `fail` must cite an action number and a screenshot.
+- `Manifest goals reached: no` is only allowed after you've attempted the guide in the browser. Every `fail` must cite an action number, and its screenshot if one exists.
 
 ## Screenshots
 - Take a screenshot whenever you find an issue.
 - Name screenshots to match the action number: `step-1.jpg` for action 1, `step-5.jpg` for action 5.
 - If the guide already uses that image name, use `failure-step-N.jpg` instead.
-- Include a screenshot in the report for every issue.
+- Include a screenshot in the report only if the file exists and the screenshot is for an issue (a `fail` or `blocked` action). Check that the file is saved before you link it.
+- Screenshots exist only for issues. Don't take screenshots for passing actions, and never link or embed an image that doesn't exist. Where there is no screenshot, leave the report's Screenshot cell as `—`.
+- Guides are allowed to embed images. Don't report a guide's images as issues, and don't recommend removing them. Test the guide's text and values, not its pictures.
 
 ## Scripts and tooling
 - This file is the single source of truth for how to test. If any script, parser, or helper disagrees with it, this file wins.
