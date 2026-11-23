@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-23",
+  "platform": "https://test-platform.codecapsules.io",
+  "guide": "docs/guides/angular.md",
+  "goal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "blockedAt": "Angular narrative guide does not match test-platform walkthrough path",
+  "guideWalkthroughShaped": false,
+  "guideStepCount": 6,
+  "mismatches": [
+    "Guide targets www.codecapsules.io and legacy GitBook steps (Fork, Spaces yellow +, Frontend Capsule list); manifest GOAL and other framework guides use https://test-platform.codecapsules.io with `### Step` walkthroughs.",
+    "Manifest lists **Create Angular frontend capsule** with GOAL “building in builds tab” on test platform; angular.md does not describe test-platform login or Quick Start / New Capsule flows.",
+    "Action 2: Guide says “Navigate to the Code Capsules site and click **Sign Up** in the top right corner, or log in to an ex…” — observed: No Sign Up control on production homepage",
+    "Action 3: Guide says “On first login click **Go To Personal Team**, or when signing in again click the **Spaces** tab.…” — observed: Production login flow not exercised in audit (guide targets www.codecapsules.io, not test-platform); Spaces / Go To Personal Team not verified.",
+    "Action 4: Guide says “Navigate to the **Spaces** tab, click the yellow `+` icon, follow prompts, and click **Create Space*…” — observed: test-platform sidebar has **Spaces** (https://test-platform.codecapsules.io/dash/overview/quick-start) but guide’s yellow + on Spaces layout does not match current UI",
+    "Action 6: Guide says “While the build is in progress, view progress; on **Deploy** tab under **Builds** confirm build acti…” — observed: Builds tab not reached — prior guide steps target production / legacy UI, not a completed test-platform deploy"
+  ],
+  "stepResults": [
+    {
+      "step": 1,
+      "name": "Fork demo-angular on GitHub",
+      "pass": true,
+      "detail": "Fork control visible on github.com/codecapsules-io/demo-angular",
+      "screenshot": "/img/guides/create-angular-frontend-capsule/step-1.jpg"
+    },
+    {
+      "step": 2,
+      "name": "Create or sign in at codecapsules.io",
+      "pass": false,
+      "detail": "No Sign Up control on production homepage",
+      "screenshot": "/img/guides/create-angular-frontend-capsule/failure-step-2.jpg"
+    },
+    {
+      "step": 3,
+      "name": "Go To Personal Team or Spaces tab",
+      "pass": false,
+      "detail": "Production login flow not exercised in audit (guide targets www.codecapsules.io, not test-platform); Spaces / Go To Personal Team not verified.",
+      "screenshot": "/img/guides/create-angular-frontend-capsule/failure-step-3.jpg"
+    },
+    {
+      "step": 4,
+      "name": "Create a Space (yellow + on Spaces)",
+      "pass": false,
+      "detail": "test-platform sidebar has **Spaces** (https://test-platform.codecapsules.io/dash/overview/quick-start) but guide’s yellow + on Spaces layout does not match current UI",
+      "screenshot": "/img/guides/create-angular-frontend-capsule/failure-step-4.jpg"
+    },
+    {
+      "step": 5,
+      "name": "Create Frontend Capsule (wizard list)",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend — New Capsule wizard present (guide’s numbered list differs from current wizard steps)",
+      "screenshot": "/img/guides/create-angular-frontend-capsule/step-5.jpg"
+    },
+    {
+      "step": 6,
+      "name": "View build on Deploy → Builds",
+      "pass": false,
+      "detail": "Builds tab not reached — prior guide steps target production / legacy UI, not a completed test-platform deploy",
+      "screenshot": "/img/guides/create-angular-frontend-capsule/failure-step-6.jpg"
+    }
+  ],
+  "guideAlignment": [
+    {
+      "step": 1,
+      "pass": true,
+      "guideExpects": "Sign in to GitHub, and fork the example application from the Code Capsules GitHub repository (demo-angular).",
+      "actual": "Fork control visible on github.com/codecapsules-io/demo-angular"
+    },
+    {
+      "step": 2,
+      "pass": false,
+      "guideExpects": "Navigate to the Code Capsules site and click **Sign Up** in the top right corner, or log in to an existing account.",
+      "actual": "No Sign Up control on production homepage"
+    },
+    {
+      "step": 3,
+      "pass": false,
+      "guideExpects": "On first login click **Go To Personal Team**, or when signing in again click the **Spaces** tab.",
+      "actual": "Production login flow not exercised in audit (guide targets www.codecapsules.io, not test-platform); Spaces / Go To Personal Team not verified."
+    },
+    {
+      "step": 4,
+      "pass": false,
+      "guideExpects": "Navigate to the **Spaces** tab, click the yellow `+` icon, follow prompts, and click **Create Space**.",
+      "actual": "test-platform sidebar has **Spaces** (https://test-platform.codecapsules.io/dash/overview/quick-start) but guide’s yellow + on Spaces layout does not match current UI"
+    },
+    {
+      "step": 5,
+      "pass": true,
+      "guideExpects": "In a Space, click the yellow `+`, choose **Frontend Capsule**, team, plan, GitHub repo, build command `npm run build`, o",
+      "actual": "https://test-platform.codecapsules.io/new/capsule?capsuleType=frontend — New Capsule wizard present (guide’s numbered list differs from current wizard steps)"
+    },
+    {
+      "step": 6,
+      "pass": false,
+      "guideExpects": "While the build is in progress, view progress; on **Deploy** tab under **Builds** confirm build activity.",
+      "actual": "Builds tab not reached — prior guide steps target production / legacy UI, not a completed test-platform deploy"
+    }
+  ]
+}
