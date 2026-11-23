@@ -1,40 +1,40 @@
 # Format check — Create Angular frontend capsule
 
-- **Run:** 2026-11-23T08:35:13Z
+- **Run:** 2026-11-23T09:11:10Z
 - **Guide:** `docs/guides/angular.md`
 - **Feature goal:** Expect to see capsule building in builds tab
-- **Format check:** fail
+- **Format check:** pass
+
+## Instruction list (Check 1)
+
+| # | Label | Heading | Instruction |
+|---|--------|---------|-------------|
+| 1 | prerequisite | ## Prerequisites | Code Capsules account (linked shared page) |
+| 2 | prerequisite | ## Prerequisites | GitHub account |
+| 3 | prerequisite | ## Prerequisites | Fork `demo-angular` (linked shared page) |
+| 4 | prerequisite | ## Prerequisites | Space (linked shared page) |
+| 5 | prerequisite | ## Prerequisites | GitHub connected (linked shared page) |
+| 6 | goal | ### Step 1 | Open test platform and log in; land on **Quick Start** |
+| 7 | goal | ### Step 2 | **Deploy Now** on **Angular** card |
+| 8 | goal | ### Step 3 | **Frontend**, Team, Space, **Next** |
+| 9 | goal | ### Step 4 | Hosting **Static**, plan, **Next** |
+| 10 | goal | ### Step 5 | Repo `demo-angular`, branch such as `master`, **Next** |
+| 11 | goal | ### Step 6 | Build `npm run build`, output `dist/ng4-complete-guide`, **Create Capsule** |
+| 12 | goal | ### Step 7 | **Deploy → Builds** shows building/queued/in progress |
+| 13 | remove | ### Screenshots | Embedded guide images (allowed per walkthrough rules) |
 
 ## Check results
 
 | Check | Status | Reason |
 |-------|--------|--------|
-| Goal steps | fail | No `## Steps` section; deployment flow is narrative under `## Setup`, `## Create an Account`, `## Create a Space`, `## Create the Capsule`; targets production `codecapsules.io` not the test platform wizard. |
-| Prerequisites | fail | Account signup and Space creation are step-by-step on the guide page; no `## Prerequisites` with shared links. |
-| Format and style | fail | Missing `doc_version`; forbidden top-level `##` headings; images throughout; no `## Troubleshooting`; yellow `+` icon positional wording. |
+| Goal steps | pass | Goal actions live under `## Steps`; last step states Builds outcome; values named. |
+| Prerequisites | pass | Five bullets with links; all targets exist under `docs/shared/`. |
+| Format and style | pass | `doc_version: drift`; only allowed `##` sections; titled steps; screenshots grouped; troubleshooting present. |
 
 ## Tickets
 
-### angular-1 — Format fix
-
-- **Type:** Format fix
-- **Title:** Replace legacy GitBook structure with `STYLE.MD` sections.
-- **Problem:** Guide uses Setup / account / space / capsule sections instead of Prerequisites → Steps → Troubleshooting.
-- **Rule:** `STYLE.MD` page structure.
-- **Change:** Rewrite against test-platform Quick Start wizard; align with React guide pattern.
-- **Done when:** Only allowed `##` headings remain and steps reach the manifest goal.
-
-### shared-create-a-space
-
-- **Type:** Shared page
-- **Title:** Add `docs/shared/create-a-space.md` for Space prerequisite.
-- **Problem:** Space creation is fully described inside the Angular guide.
-- **Rule:** Prerequisites must link to shared pages.
-- **Change:** Extract Space creation to shared page; one-line prerequisite link.
-- **Done when:** Angular Prerequisites link resolves and Check 2 passes.
+None
 
 ## Proposed outline
 
-- **Prerequisites:** Test-platform account, GitHub, forked `demo-angular`, Space (shared links).
-- **Steps:** Log in → Quick Start **Deploy Now** (Angular) → wizard through **Create Capsule** → **Deploy → Builds** shows building.
-- **Troubleshooting:** Repo access, build output path `dist/ng4-complete-guide`.
+N/A (guide passed).

@@ -1,41 +1,41 @@
 # Format check — Create React frontend capsule
 
-- **Run:** 2026-11-23T08:35:13Z
+- **Run:** 2026-11-23T09:11:10Z
 - **Guide:** `docs/guides/react.md`
 - **Feature goal:** Expect to see capsule building in builds tab
-- **Format check:** fail
+- **Format check:** pass
+
+## Instruction list (Check 1)
+
+| # | Label | Heading | Instruction |
+|---|--------|---------|-------------|
+| 1 | prerequisite | ## Prerequisites | Code Capsules account (shared link) |
+| 2 | prerequisite | ## Prerequisites | GitHub account |
+| 3 | prerequisite | ## Prerequisites | Fork React demo e.g. `demo-react` (shared link) |
+| 4 | prerequisite | ## Prerequisites | Space (shared link) |
+| 5 | prerequisite | ## Prerequisites | GitHub connected (shared link) |
+| 6 | goal | ### Step 1 | Open test platform; **Log in** if needed |
+| 7 | goal | ### Step 2 | **Create New Capsule** → **React** |
+| 8 | goal | ### Step 3 | **Frontend**, Team, **Next** |
+| 9 | goal | ### Step 4 | Hosting **Static** (**No server**), **Next** |
+| 10 | goal | ### Step 5 | Plan **Starter**, **Next** |
+| 11 | goal | ### Step 6 | Repo `demo-react`, branch `master`, **Next** |
+| 12 | goal | ### Step 7 | Build `npm run build`, output `build` |
+| 13 | goal | ### Step 8 | **Create Capsule**; **Deploy → Builds** shows building |
+| 14 | remove | ### Screenshots | Guide reference images |
 
 ## Check results
 
 | Check | Status | Reason |
 |-------|--------|--------|
-| Goal steps | fail | Extra `## Goal` section; steps use `### Step N` without titles; images embedded inside steps; screenshots not grouped under `### Screenshots`. |
-| Prerequisites | fail | Prerequisites explain GitHub inline instead of linking shared pages (`/shared/...`); linked pages not verified on `main`. |
-| Format and style | fail | Frontmatter missing `doc_version: drift`; step headings do not match `### Step N: Title`; UI naming otherwise acceptable. |
+| Goal steps | pass | Steps reach manifest goal; values explicit. |
+| Prerequisites | pass | Linked shared pages exist on `main`. |
+| Format and style | pass | Matches `STYLE.MD` structure and step headings. |
 
 ## Tickets
 
-### react-1 — Format fix
-
-- **Type:** Format fix
-- **Title:** Restructure React guide to match `STYLE.MD`.
-- **Problem:** Guide contains `## Goal`, step images inline, and `### Step 1` headings without titles.
-- **Rule:** `STYLE.MD` page structure and Screenshots sections.
-- **Change:** Move goal outcome into last step; move images to `### Screenshots`; rename steps to `### Step N: Title`; add `doc_version: drift`.
-- **Done when:** All three format checks pass.
-
-### react-2 — Prerequisites shared pages
-
-- **Type:** Shared page
-- **Title:** Link prerequisites to shared doc pages.
-- **Problem:** "Configure Git for Code Capsules" and account setup are described in-guide.
-- **Rule:** `STYLE.MD` Prerequisites.
-- **Change:** Add or link `docs/shared/` pages for account creation and Git configuration.
-- **Done when:** Every prerequisite is one bullet with an internal shared link.
+None
 
 ## Proposed outline
 
-- **Prerequisites:** Account, GitHub, forked React demo repo, Space (shared links).
-- **Steps:** Log in on test platform → Quick Start **Deploy Now** (React) → Capsule details → Hosting → Plan → Git repo/branch → Build settings → **Create Capsule** → confirm build on **Deploy → Builds**.
-- **Screenshots:** Grouped after steps per template.
-- **Troubleshooting:** Empty repository list, branch not found, plan validation.
+N/A (guide passed).

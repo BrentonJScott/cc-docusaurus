@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-23T09:11:10Z",
+  "guideFile": "docs/guides/angular.md",
+  "feature": "Create Angular frontend capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "formatCheck": "pass",
+  "instructionList": [
+    { "n": 1, "label": "prerequisite", "heading": "## Prerequisites", "text": "Code Capsules account" },
+    { "n": 6, "label": "goal", "heading": "### Step 1: Log in", "text": "Open test platform and log in" }
+  ],
+  "checkResults": [
+    { "check": "Goal steps", "status": "pass", "reason": "Steps reach Builds goal with named values." },
+    { "check": "Prerequisites", "status": "pass", "reason": "Shared links valid." },
+    { "check": "Format and style", "status": "pass", "reason": "STYLE.MD structure." }
+  ],
+  "tickets": []
+}

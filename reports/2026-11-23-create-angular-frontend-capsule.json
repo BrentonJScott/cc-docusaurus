@@ -1,0 +1,10 @@
+{
+  "runTimestamp": "2026-11-23T09:11:10Z",
+  "guideFile": "docs/guides/angular.md",
+  "goalReached": false,
+  "actions": [
+    { "n": 1, "status": "pass", "description": "Log in to Quick Start" },
+    { "n": 2, "status": "fail", "description": "Deploy Now opens backend wizard or stays on Quick Start" },
+    { "n": 5, "status": "fail", "description": "demo-angular fork and master branch not available" }
+  ]
+}

@@ -1,15 +1,15 @@
 # Cron platform audit — 2026-11-23
 
-Run timestamp: **2026-11-23T08:35:13Z**
-Target: **https://test-platform.codecapsules.io**
+Run timestamp: **2026-11-23T09:11:10Z**  
+Target: **https://test-platform.codecapsules.io**  
 Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (6 features)
 
 ## Manifest goals reached
 
 | Feature | Guide on main | Format check | Walkthrough | Goal reached |
 |---------|---------------|--------------|-------------|--------------|
-| Create React frontend capsule | yes | fail | run | **no** |
-| Create Angular frontend capsule | yes | fail | not run (format fail) | **no** |
+| Create Angular frontend capsule | yes | pass | run | **no** |
+| Create React frontend capsule | yes | pass | run | **no** |
 | Create Vue frontend capsule | no | n/a | exploratory | **no** |
 | Create NextJS backend capsule | no | n/a | exploratory | **no** |
 | Create Static HTML capsule | no | n/a | exploratory | **no** |
@@ -19,20 +19,21 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (6 features)
 
 ## Cross-cutting findings
 
-1. Dashboard entry is **Quick Start** framework cards with **Deploy Now**, not **Create New Capsule** + framework picker (React guide).
-2. In this run, **Deploy Now** on the React card did not leave Quick Start during automated testing (URL stayed on `…/quick-start`); direct navigation to `/new/capsule?capsuleType=frontend` still opens the wizard.
-3. Plan step shows **Free** on the test platform; React guide specifies **Starter**.
-4. Branch selector lists **main** with surrounding whitespace; guides that require **master** fail when that option is absent.
-5. `docs/guides/angular.md` fails `STYLE.MD` / `FORMAT.MD`; no walkthrough against the rewritten structure this run.
-6. No guides on `main` for Vue, Next.js, or Static HTML; Svelte has no Quick Start card (confirmed on Quick Start after login).
+1. After login, the dashboard is **Quick Start** with framework cards and **Deploy Now**; the React guide still describes **Create New Capsule**.
+2. **Deploy Now** on Angular, React, Vue, and Static HTML opens `…/new/capsule?capsuleType=backend` while frontend guides require **Frontend** on Capsule Details.
+3. Plan step on the test platform lists **Free** only; the React guide requires **Starter**.
+4. Connected repos use default branch **main**; guides specify **master**.
+5. Prerequisites reference fork **demo-angular**; the team repo list shows **demo-angular-22** instead of a repo named `demo-angular`.
+6. **Svelte** has no Quick Start card; **demo-svelte** exists only as a Git repository option elsewhere.
 
 ## Format reports
 
-- [2026-11-23-format-create-react-frontend-capsule.md](./2026-11-23-format-create-react-frontend-capsule.md)
 - [2026-11-23-format-create-angular-frontend-capsule.md](./2026-11-23-format-create-angular-frontend-capsule.md)
+- [2026-11-23-format-create-react-frontend-capsule.md](./2026-11-23-format-create-react-frontend-capsule.md)
 
 ## Walkthrough / exploratory reports
 
+- [2026-11-23-create-angular-frontend-capsule.md](./2026-11-23-create-angular-frontend-capsule.md)
 - [2026-11-23-create-react-frontend-capsule.md](./2026-11-23-create-react-frontend-capsule.md)
 - [2026-11-23-create-vue-frontend-capsule.md](./2026-11-23-create-vue-frontend-capsule.md)
 - [2026-11-23-create-nextjs-backend-capsule.md](./2026-11-23-create-nextjs-backend-capsule.md)

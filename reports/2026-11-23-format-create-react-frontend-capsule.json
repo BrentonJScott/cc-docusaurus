@@ -1,0 +1,14 @@
+{
+  "runTimestamp": "2026-11-23T09:11:10Z",
+  "guideFile": "docs/guides/react.md",
+  "feature": "Create React frontend capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "formatCheck": "pass",
+  "instructionList": [],
+  "checkResults": [
+    { "check": "Goal steps", "status": "pass", "reason": "Steps cover wizard through Builds." },
+    { "check": "Prerequisites", "status": "pass", "reason": "Shared links valid." },
+    { "check": "Format and style", "status": "pass", "reason": "STYLE.MD structure." }
+  ],
+  "tickets": []
+}

@@ -1,0 +1,10 @@
+{
+  "runTimestamp": "2026-11-23T09:11:10Z",
+  "guideFile": "docs/guides/react.md",
+  "goalReached": false,
+  "actions": [
+    { "n": 2, "status": "fail", "description": "Create New Capsule not present" },
+    { "n": 5, "status": "fail", "description": "Starter plan not on platform" },
+    { "n": 6, "status": "fail", "description": "master branch missing for demo-react" }
+  ]
+}
