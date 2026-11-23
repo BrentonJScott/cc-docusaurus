@@ -1,6 +1,8 @@
 # Create angular frontend capsule — platform audit
 
-- **Run:** 2026-11-23T07:10:00Z
+> **Note:** `FORMAT.MD` failed for `docs/guides/angular.md` on this run; walkthrough was not repeated. This file retains the prior legacy-guide exploratory record for reference only. See [format report](./2026-11-23-format-create-angular-frontend-capsule.md).
+
+- **Run:** 2026-11-23T08:35:13Z
 - **Environment:** https://test-platform.codecapsules.io
 - **Guide:** docs/guides/angular.md
 - **Manifest goal reached:** no
