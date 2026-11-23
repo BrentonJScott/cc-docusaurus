@@ -47,9 +47,8 @@
 - Include a screenshot in the report for every issue.
 
 ## Scripts
-- Don't trust prewritten test scripts unless they read the guide fresh from disk on every run and check the result after every action.
+
 - If a script only checks against a fixed list of known issues, it isn't good enough. Improve it or write a new one that follows the guide.
-- `platform-feature-audit.mjs` is not a replacement for walking through the guide.
 - The walkthrough results are the final word on whether a goal was reached.
 
 ## What each report must include
@@ -59,7 +58,7 @@
 - Suggested fixes: How the guide should be updated to reflect the real steps.
 
 ## Final summary
-- If any action failed, set `Manifest goals reached: no` in the summary, even if builds showed "Building."
+- If any action failed, set `Manifest goals reached: no` in the summary
 
 ## Deliver
 - Open one pull request containing all the new reports.
