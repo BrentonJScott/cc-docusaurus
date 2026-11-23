@@ -174,40 +174,30 @@ try {
   await page.getByRole('button', { name: 'Next' }).click();
   await page.waitForTimeout(2000);
 
-  const planHeading = await page
-    .getByRole('heading', { name: /Configure Plan|Plan/i })
-    .isVisible()
-    .catch(() => false);
-  let step7Pass = false;
-  if (planHeading) {
-    const planCard = page.locator('.card').filter({ has: page.getByRole('heading', { name: /Configure Plan|Plan/i }) });
-    const basic = planCard.getByText('Basic', { exact: true });
-    if ((await basic.count()) > 0) {
-      await basic.first().click();
-      step7Pass = true;
-    } else {
-      const free = planCard.getByText(/Free|Starter/i).first();
-      if ((await free.count()) > 0) {
-        await free.click();
-        step7Pass = true;
-        mismatches.push('Guide names **Basic** plan; live wizard showed a different default plan label.');
-      }
-    }
-    await shot(page, stepJpg(7));
-    record(7, 'Configure Plan', step7Pass, step7Pass ? 'Plan selected' : 'No plan card clicked', stepImgRel(7));
-    await page.getByRole('button', { name: 'Next' }).click();
-    await page.waitForTimeout(2000);
-  } else {
-    await shot(page, stepJpg(7));
-    record(7, 'Configure Plan', false, 'Plan step not visible');
-    throw new Error('Configure Plan step not visible');
-  }
-
-  await shot(page, stepJpg(8));
-  record(8, 'Plan confirmed', step7Pass, 'Continuing to Git step', stepImgRel(8));
-
   const gitStepVisible = await page.getByText('Connect a Git Repository').isVisible().catch(() => false);
-  if (!gitStepVisible) throw new Error('Connect a Git Repository step not visible');
+  if (!gitStepVisible) {
+    const planHeading = await page
+      .getByRole('heading', { name: /Configure Plan|Plan/i })
+      .isVisible()
+      .catch(() => false);
+    if (planHeading) {
+      mismatches.push(
+        'Guide step 7 is **Connect a Git Repository** immediately after **Capsule Details**; live wizard inserted a **Plan** / **Configure Plan** step first.',
+      );
+      const planCard = page.locator('.card').filter({ has: page.getByRole('heading', { name: /Configure Plan|Plan/i }) });
+      const basic = planCard.getByText('Basic', { exact: true });
+      if ((await basic.count()) > 0) {
+        await basic.first().click();
+      } else {
+        const fallback = planCard.getByText(/Free|Starter/i).first();
+        if ((await fallback.count()) > 0) await fallback.click();
+      }
+      await page.getByRole('button', { name: 'Next' }).click();
+      await page.waitForTimeout(2000);
+    }
+  }
+  const gitVisible = await page.getByText('Connect a Git Repository').isVisible().catch(() => false);
+  if (!gitVisible) throw new Error('Connect a Git Repository step not visible');
 
   await openGitRepoDropdown(page);
   await page.waitForTimeout(1500);
@@ -222,7 +212,7 @@ try {
   let step9Detail = '';
   if ((await repoOpt.count()) === 0) {
     step9Detail = `Named repo missing`;
-    mismatches.push(`Guide step 9 names **${NAMED_REPO}**; no matching dropdown option.`);
+    mismatches.push(`Guide step 7 names **${NAMED_REPO}**; no matching dropdown option.`);
     await shot(page, path.join(GUIDE_IMG, 'failure-git-repo-missing.png'));
     blockedAt = 'demo-nextjs not in Git Repository list — GOAL unreachable';
     throw new Error(blockedAt);
@@ -236,17 +226,23 @@ try {
   await mainBranch.first().click();
   step9Pass = true;
   step9Detail = `Repository: ${NAMED_REPO}; branch: ${NAMED_BRANCH}`;
-  await shot(page, stepJpg(9));
-  record(9, 'Connect a Git Repository', step9Pass, step9Detail, stepImgRel(9));
+  await shot(page, stepJpg(7));
+  record(7, 'Connect a Git Repository', step9Pass, step9Detail, stepImgRel(7));
 
   await page.getByRole('button', { name: 'Next' }).click();
   await page.waitForTimeout(2000);
 
-  await shot(page, stepJpg(10));
-  record(10, 'Build & Deploy fields', true, 'Run command left blank (platform auto-detect)', stepImgRel(10));
+  const startCmd = page.getByPlaceholder(/npm start|start command|e\.g\./i).first();
+  if (await startCmd.isVisible().catch(() => false)) {
+    await startCmd.fill('npm start');
+  } else {
+    await page.getByLabel(/Start Command/i).fill('npm start').catch(() => {});
+  }
+  await shot(page, stepJpg(8));
+  record(8, 'Build & Deploy fields', true, 'Start Command: npm start', stepImgRel(8));
 
-  await shot(page, stepJpg(11));
-  record(11, 'Create Capsule', true, 'Ready to submit wizard', stepImgRel(11));
+  await shot(page, stepJpg(9));
+  record(9, 'Create Capsule', true, 'Ready to submit wizard', stepImgRel(9));
   await page.getByRole('button', { name: 'Create Capsule' }).click();
   await page.waitForURL('**/dash/**', { timeout: 60000 }).catch(() => {});
   await page.waitForTimeout(3000);
@@ -261,8 +257,8 @@ try {
   if (!goalReached) {
     goalReached = await page.locator('table, .build').getByText(/build/i).first().isVisible().catch(() => false);
   }
-  await shot(page, stepJpg(12));
-  record(12, 'Deploy Builds', goalReached, goalReached ? 'Building state visible' : page.url(), stepImgRel(12));
+  await shot(page, stepJpg(10));
+  record(10, 'Deploy Builds', goalReached, goalReached ? 'Building state visible' : page.url(), stepImgRel(10));
 } catch (e) {
   blockedAt = blockedAt || String(e);
   await shot(page, path.join(GUIDE_IMG, 'failure-last-state.jpg')).catch(() => {});

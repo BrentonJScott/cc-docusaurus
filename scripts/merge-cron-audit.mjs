@@ -10,32 +10,32 @@ const features = [
   {
     label: 'Create Angular frontend capsule',
     guide: 'docs/guides/angular.md',
-    json: '2026-11-20-create-angular-frontend-capsule.json',
+    json: `${DATE}-create-angular-frontend-capsule.json`,
   },
   {
     label: 'Create React frontend capsule',
     guide: 'docs/guides/react.md',
-    json: '2026-11-20-create-react-frontend-capsule.json',
+    json: `${DATE}-create-react-frontend-capsule.json`,
   },
   {
     label: 'Create Vue frontend capsule',
     guide: 'docs/guides/vue.md',
-    json: '2026-11-20-create-vue-frontend-capsule.json',
+    json: `${DATE}-create-vue-frontend-capsule.json`,
   },
   {
     label: 'Create NextJS backend capsule',
     guide: 'docs/guides/next.js.md',
-    json: '2026-11-20-create-nextjs-backend-capsule.json',
+    json: `${DATE}-create-nextjs-backend-capsule.json`,
   },
   {
     label: 'Create Static HTML capsule',
     guide: 'docs/guides/static-html.md',
-    json: '2026-11-20-create-static-html-capsule.json',
+    json: `${DATE}-create-static-html-capsule.json`,
   },
   {
     label: 'Create Svelte frontend capsule',
     guide: 'docs/guides/svelte.md',
-    json: '2026-11-20-create-svelte-frontend-capsule.json',
+    json: `${DATE}-create-svelte-frontend-capsule.json`,
   },
 ];
 

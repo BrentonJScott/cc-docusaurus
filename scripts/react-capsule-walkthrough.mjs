@@ -15,7 +15,7 @@ const PASSWORD = process.env.PASSWORD;
 
 const GUIDE_IMG = path.join(ROOT, 'static/img/guides/create-react-frontend-capsule');
 const NAMED_REPO = 'BrentonJScott/demo-react Team Repository';
-const NAMED_BRANCH = 'main';
+const NAMED_BRANCH = 'master';
 const NAMED_TEAM = 'Personal Team';
 
 /** @type {{ step: number, name: string, pass: boolean, detail: string, screenshot?: string }[]} */
@@ -134,38 +134,53 @@ try {
   record(3, 'Log in', loggedIn, page.url(), stepImgRel(3));
   if (!loggedIn) throw new Error('Login failed');
 
-  await page.getByRole('link', { name: 'Quick Start' }).click();
+  const createNewCapsule = page
+    .getByRole('link', { name: /Create New Capsule/i })
+    .or(page.getByRole('button', { name: /Create New Capsule/i }));
+  let step4Pass = false;
+  let step4Detail = '';
+  if ((await createNewCapsule.count()) === 0) {
+    step4Detail = `${page.url()} — no control labeled **Create New Capsule** on the dashboard`;
+    mismatches.push(
+      'Guide step 4: click **Create New Capsule** and pick **React**; the live dashboard has no **Create New Capsule** control (sidebar **+** offers **New Capsule**; **Quick Start** lists React **Deploy Now** instead).',
+    );
+    await shot(page, path.join(GUIDE_IMG, 'failure-step-4.jpg'));
+    record(4, 'Create New Capsule + React', false, step4Detail, stepImgRel(4));
+    throw new Error(step4Detail);
+  }
+  await createNewCapsule.first().click();
   await page.waitForTimeout(1500);
-  const qs = await page.getByText('What type of capsule would you like to deploy?').isVisible();
-  const s4 = stepJpg(4);
-  await shot(page, s4);
-  record(4, 'Quick Start', qs, page.url(), stepImgRel(4));
-  if (!qs) throw new Error('Quick Start heading not found');
-
-  await page
-    .locator('app-quick-start-card')
-    .filter({ hasText: 'React applications' })
-    .locator('.btn', { hasText: 'Deploy Now' })
-    .click();
+  const reactPick = page.getByRole('button', { name: /React/i }).or(page.getByRole('link', { name: /React/i }));
+  if ((await reactPick.count()) === 0) {
+    step4Detail = 'Create New Capsule opened but no **React** option to pick';
+    mismatches.push('Guide step 4 requires picking **React** after **Create New Capsule**; no React control appeared.');
+    await shot(page, path.join(GUIDE_IMG, 'failure-step-4.jpg'));
+    record(4, 'Create New Capsule + React', false, step4Detail, stepImgRel(4));
+    throw new Error(step4Detail);
+  }
+  await reactPick.first().click();
   await page.waitForURL('**/new/capsule**', { timeout: 25000 });
   await waitForWizardShell(page);
+  step4Pass = page.url().includes('capsuleType=frontend');
+  step4Detail = page.url();
+  if (!step4Pass) {
+    mismatches.push(
+      `Guide step 4 expects **New Capsule** at \`/new/capsule?capsuleType=frontend\`; actual URL: ${page.url()}.`,
+    );
+  }
+  const s4 = stepJpg(4);
+  await shot(page, s4);
+  record(4, 'Create New Capsule + React', step4Pass, step4Detail, stepImgRel(4));
+  if (!step4Pass) throw new Error(step4Detail);
 
   const capsuleDetailsText = await page.locator('body').innerText();
   const showsBackend =
     /Choose a Capsule[\s\S]{0,240}Backend/.test(capsuleDetailsText) &&
     !/Choose a Capsule[\s\S]{0,240}Frontend/.test(capsuleDetailsText);
   if (showsBackend) {
-    mismatches.push(
-      'React **Deploy Now** opens **Capsule Details** with **Backend** pre-selected; step 6 requires choosing **Frontend**.',
-    );
     await openCapsuleDetailsDropdown(page, 'Choose a Capsule');
     await pickOption(page, /Frontend/);
   }
-
-  const onWizard = page.url().includes('capsuleType=frontend');
-  const s5 = stepJpg(5);
-  await shot(page, s5);
-  record(5, 'React Deploy Now → New Capsule', onWizard, page.url(), stepImgRel(5));
 
   await openCapsuleDetailsDropdown(page, 'Choose a Team');
   await page.waitForTimeout(1200);
@@ -202,9 +217,9 @@ try {
       }
     }
   }
-  const s6 = stepJpg(6);
-  await shot(page, s6);
-  record(6, 'Capsule Details', step6Pass, step6Detail, stepImgRel(6));
+  const s5 = stepJpg(5);
+  await shot(page, s5);
+  record(5, 'Capsule Details', step6Pass, step6Detail, stepImgRel(5));
   if (!step6Pass) throw new Error(step6Detail);
 
   await page.getByRole('button', { name: 'Next' }).click();
@@ -221,23 +236,36 @@ try {
       .isVisible()
       .catch(() => false);
     step7Pass = !validationVisible;
-    const s7 = stepJpg(7);
-    await shot(page, s7);
-    record(7, 'Hosting Static', step7Pass, step7Pass ? 'Static selected' : 'Validation still visible', stepImgRel(7));
+    const s6 = stepJpg(6);
+    await shot(page, s6);
+    record(6, 'Hosting Static', step7Pass, step7Pass ? 'Static selected' : 'Validation still visible', stepImgRel(6));
     await page.getByRole('button', { name: 'Next' }).click();
     await page.waitForTimeout(2000);
   } else {
-    record(7, 'Hosting Static', false, 'Hosting step not visible');
+    record(6, 'Hosting Static', false, 'Hosting step not visible');
     throw new Error('Hosting step not visible');
   }
 
   const plan = await page.getByRole('heading', { name: 'Plan' }).isVisible().catch(() => false);
   if (!plan) throw new Error('Plan step not visible');
   const planCard = page.locator('.card').filter({ has: page.getByRole('heading', { name: 'Plan' }) });
-  await planCard.getByText('Free', { exact: true }).first().click();
-  const s8 = stepJpg(8);
-  await shot(page, s8);
-  record(8, 'Plan Free', true, 'Free plan selected', stepImgRel(8));
+  const starter = planCard.getByText('Starter', { exact: true });
+  let planPass = false;
+  let planDetail = '';
+  if ((await starter.count()) > 0) {
+    await starter.first().click();
+    planPass = true;
+    planDetail = 'Starter plan selected';
+  } else {
+    planDetail = 'Starter plan card not on **Plan** step';
+    mismatches.push('Guide step 7: select the **Starter** plan card; **Starter** was not available on the live wizard.');
+    await shot(page, path.join(GUIDE_IMG, 'failure-step-7.jpg'));
+    blockedAt = blockedAt || planDetail;
+  }
+  const s7 = stepJpg(7);
+  await shot(page, s7);
+  record(7, 'Plan Starter', planPass, planDetail, stepImgRel(7));
+  if (!planPass) throw new Error(planDetail);
   await page.getByRole('button', { name: 'Next' }).click();
   await page.waitForTimeout(2000);
 
@@ -262,7 +290,7 @@ try {
       .allTextContents()
       .then((t) => t.map((s) => s.trim()).filter(Boolean).slice(0, 12));
     step9Detail = `Named repo missing; options: ${names.join(', ') || '(none)'}`;
-    mismatches.push(`Guide step 9 names **${NAMED_REPO}**; no matching dropdown option.`);
+    mismatches.push(`Guide step 8 names **${NAMED_REPO}**; no matching dropdown option.`);
     await shot(page, path.join(GUIDE_IMG, 'failure-git-repo-missing.png'));
     blockedAt = 'demo-react not in Git Repository list — GOAL unreachable';
   } else {
@@ -282,9 +310,9 @@ try {
       step9Detail = `Repository: ${NAMED_REPO}; branch: ${NAMED_BRANCH}`;
     }
   }
-  const s9 = stepJpg(9);
-  await shot(page, s9);
-  record(9, 'Connect a Git Repository', step9Pass, step9Detail, stepImgRel(9));
+  const s8 = stepJpg(8);
+  await shot(page, s8);
+  record(8, 'Connect a Git Repository', step9Pass, step9Detail, stepImgRel(8));
   if (!step9Pass) throw new Error(step9Detail);
 
   await page.getByRole('button', { name: 'Next' }).click();
@@ -292,13 +320,13 @@ try {
 
   await page.getByPlaceholder(/npm run build/i).fill('npm run build');
   await page.getByPlaceholder(/dist/i).fill('build');
+  const s9 = stepJpg(9);
+  await shot(page, s9);
+  record(9, 'Build & Deploy fields', true, 'npm run build; build', stepImgRel(9));
+
   const s10 = stepJpg(10);
   await shot(page, s10);
-  record(10, 'Build & Deploy fields', true, 'npm run build; build', stepImgRel(10));
-
-  const s11 = stepJpg(11);
-  await shot(page, s11);
-  record(11, 'Create Capsule', true, 'Ready to submit wizard', stepImgRel(11));
+  record(10, 'Create Capsule', true, 'Ready to submit wizard', stepImgRel(10));
   await page.getByRole('button', { name: 'Create Capsule' }).click();
   await page.waitForURL('**/dash/**', { timeout: 60000 }).catch(() => {});
   await page.waitForTimeout(3000);
@@ -313,14 +341,14 @@ try {
   if (!goalReached) {
     goalReached = await page.locator('table, .build').getByText(/build/i).first().isVisible().catch(() => false);
   }
-  const s12 = stepJpg(12);
-  await shot(page, s12);
+  const s11 = stepJpg(11);
+  await shot(page, s11);
   record(
-    12,
+    11,
     'Deploy Builds',
     goalReached,
     goalReached ? 'Building state visible' : page.url(),
-    stepImgRel(12),
+    stepImgRel(11),
   );
 } catch (e) {
   blockedAt = blockedAt || String(e);
