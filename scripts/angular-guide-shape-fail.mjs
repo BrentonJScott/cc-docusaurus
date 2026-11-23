@@ -70,6 +70,10 @@ const md = [
   '',
   ...mismatches.map((m) => `- ${m}`),
   '',
+  '## Suggested fixes',
+  '',
+  '- Port the React/Vue `### Step N` walkthrough format into `docs/guides/angular.md` (test-platform URLs, screenshots, and audit repo names), or drop **Create Angular frontend capsule** from DOCUMENTED_FEATURES.MD until a walkthrough exists.',
+  '',
 ].join('\n');
 
 fs.writeFileSync(mdPath, md);

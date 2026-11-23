@@ -84,8 +84,13 @@ function docDriftForStep(guideBody, exec) {
       );
     }
   }
-  if (body.includes('create new capsule') && hay.includes('quick start')) {
-    issues.push('Guide: Create New Capsule; executor used Quick Start');
+  if (body.includes('create new capsule') && !body.includes('quick start')) {
+    const usedQuickStart =
+      /\bquick start\b/i.test(exec?.name ?? '') ||
+      (/\bquick start\b/i.test(exec?.detail ?? '') && !/no .*create new capsule/i.test(exec?.detail ?? ''));
+    if (usedQuickStart) {
+      issues.push('Guide: Create New Capsule; executor used Quick Start');
+    }
   }
   if (body.includes('quick start') && body.includes('deploy now') && !body.includes('create new capsule')) {
     if (hay.includes('create new capsule') && !hay.includes('quick start')) {
@@ -186,4 +191,52 @@ export function appendReportSections(md, guideSteps, alignmentRows, extraMismatc
     return `${md.slice(0, idx)}\n${sections.join('\n')}`;
   }
   return `${md}\n\n${sections.join('\n')}`;
+}
+
+/**
+ * @param {{ pass: boolean, guideExpects: string, actual: string, drift?: string[] }[]} alignmentRows
+ * @param {string[]} mismatches
+ */
+export function buildSuggestedFixes(alignmentRows, mismatches = []) {
+  const fixes = [];
+  for (const row of alignmentRows) {
+    if (row.pass) continue;
+    const expect = row.guideExpects.toLowerCase();
+    const actual = row.actual.toLowerCase();
+    if (expect.includes('create new capsule') && actual.includes('quick start')) {
+      fixes.push(
+        `Step ${row.step}: Update the guide to use **Quick Start → React → Deploy Now** (or **New Capsule** URL) — **Create New Capsule** is not on the live dashboard sidebar.`,
+      );
+    } else if (expect.includes('starter') && actual.includes('free')) {
+      fixes.push(
+        `Step ${row.step}: Rename **Starter** to **Free** (or **Paid**) to match the Plan cards on test-platform.`,
+      );
+    } else if (expect.includes('starter') && actual.includes('paid')) {
+      fixes.push(`Step ${row.step}: Replace **Starter** with the live plan label (**Free** or **Paid**).`);
+    } else if (expect.includes('quick start') && actual.includes('create new capsule')) {
+      fixes.push(`Step ${row.step}: Document **Quick Start** in the sidebar instead of **Create New Capsule**.`);
+    } else if (mismatches.some((m) => /5 of 5|free capsules/i.test(m))) {
+      fixes.push('Note in the guide that the audit account may hit the free capsule limit; document deleting a test capsule or choosing **Paid** before re-running the audit.');
+    } else if (row.drift?.length) {
+      fixes.push(`Step ${row.step}: Reconcile guide text with live UI — ${row.drift.join('; ')}.`);
+    }
+  }
+  for (const m of mismatches) {
+    if (m.includes('no `### Step N`')) {
+      fixes.push('Add a numbered `### Step N` walkthrough to the Angular guide (match React/Vue layout) or remove the feature from DOCUMENTED_FEATURES.MD.');
+    }
+    if (m.includes('Step numbers must match 1:1')) {
+      fixes.push('Align screenshot step numbers and executor actions so each `### Step N` has exactly one audit action.');
+    }
+  }
+  return [...new Set(fixes)];
+}
+
+export function suggestedFixesMarkdown(fixes) {
+  return [
+    '## Suggested fixes',
+    '',
+    ...(fixes.length ? fixes.map((f) => `- ${f}`) : ['- None — guide and live UI matched on this run.']),
+    '',
+  ];
 }

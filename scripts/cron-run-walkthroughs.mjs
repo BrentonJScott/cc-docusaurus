@@ -65,8 +65,16 @@ for (const f of FEATURES) {
   });
   if (run.status !== 0) {
     exitCode = 1;
-    if (!f.skipPlaywright) {
-      const jsonPath = path.join(ROOT, 'reports', `${f.json}.json`);
+    const jsonPath = path.join(ROOT, 'reports', `${f.json}.json`);
+    const existing = fs.existsSync(jsonPath) ? JSON.parse(fs.readFileSync(jsonPath, 'utf8')) : null;
+  if (existing?.stepResults?.length && !f.skipPlaywright) {
+      const enrich = spawnSync(
+        process.execPath,
+        [path.join(ROOT, 'scripts', 'enrich-feature-report.mjs'), f.label, f.guide, f.json],
+        { cwd: ROOT, stdio: 'inherit', env: process.env },
+      );
+      if (enrich.status !== 0) exitCode = 1;
+    } else if (!f.skipPlaywright) {
       const mdPath = path.join(ROOT, 'reports', `${f.json}.md`);
       const shaped = readGuideSteps(f.guide, ROOT);
       const blocked = {

@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-23",
+  "platform": "https://test-platform.codecapsules.io",
+  "goal": "Expect to see capsule building in builds tab",
+  "goalReached": false,
+  "blockedAt": "Error: Dashboard has no **Create New Capsule** control (sidebar shows Quick Start; framework cards use **Deploy Now** instead).",
+  "mismatches": [
+    "Guide step 4: click **Create New Capsule** and pick **React**; control not found on live dashboard."
+  ],
+  "stepResults": [
+    {
+      "step": 1,
+      "name": "Open platform",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/auth/registration",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-1.jpg"
+    },
+    {
+      "step": 2,
+      "name": "Welcome back login form",
+      "pass": true,
+      "detail": "Login form visible",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-2.jpg"
+    },
+    {
+      "step": 3,
+      "name": "Log in",
+      "pass": true,
+      "detail": "https://test-platform.codecapsules.io/dash/overview/quick-start",
+      "screenshot": "/img/guides/create-react-frontend-capsule/step-3.jpg"
+    },
+    {
+      "step": 4,
+      "name": "Create New Capsule → React",
+      "pass": false,
+      "detail": "Dashboard has no **Create New Capsule** control (sidebar shows Quick Start; framework cards use **Deploy Now** instead).",
+      "screenshot": null
+    },
+    {
+      "step": 0,
+      "name": "Run error",
+      "pass": false,
+      "detail": "Error: Dashboard has no **Create New Capsule** control (sidebar shows Quick Start; framework cards use **Deploy Now** instead).",
+      "screenshot": null
+    }
+  ]
+}

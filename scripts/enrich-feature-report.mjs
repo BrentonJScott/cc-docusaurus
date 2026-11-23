@@ -6,6 +6,8 @@ import {
   readGuideSteps,
   buildGuideAlignmentRows,
   appendReportSections,
+  buildSuggestedFixes,
+  suggestedFixesMarkdown,
 } from './walkthrough-guide-utils.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -79,6 +81,12 @@ if (data.goalReached) {
   md = md.replace(/\*\*Goal reached:\*\* no/, '**Goal reached:** yes');
 }
 md = appendReportSections(md, guideSteps, alignment, data.mismatches ?? []);
+const fixes = buildSuggestedFixes(alignment, data.mismatches ?? []);
+md = md.includes('## Suggested fixes')
+  ? md.replace(/\n## Suggested fixes[\s\S]*$/, `\n${suggestedFixesMarkdown(fixes).join('\n')}`)
+  : `${md}\n${suggestedFixesMarkdown(fixes).join('\n')}`;
+data.suggestedFixes = fixes;
+fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2));
 fs.writeFileSync(mdPath, md);
 console.log(`Enriched ${jsonBase}: goalReached=${data.goalReached}`);
 process.exit(data.goalReached ? 0 : 1);
