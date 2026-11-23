@@ -61,8 +61,11 @@
 - If the guide already uses that image name, use `failure-step-N.jpg` instead.
 - Include a screenshot in the report for every issue.
 
-## Scripts
-- If a script only checks against a fixed list of known issues, it isn't good enough. Improve it or write a new one that follows the guide.
+## Scripts and tooling
+- This file is the single source of truth for how to test. If any script, parser, or helper disagrees with it, this file wins.
+- Only use scripts that are on `main` at the start of the run. Don't restore or run scripts from git history, caches, other directories, or other repos (for example, the removed walkthrough-guide-utils scripts).
+- Drive Playwright directly from the guide's text. Don't look for or parse `### Step N` headings or any other fixed step format. Number the actions yourself as you take them.
+- Any helper script you write during a run is throwaway. Don't commit it, and don't let it decide pass or fail on its own. If it only checks against a fixed list of known issues, it isn't good enough.
 - The walkthrough results are the final word on whether a goal was reached.
 
 ## What each report must include
