@@ -1,0 +1,12 @@
+{
+  "feature": "Create Vue frontend capsule",
+  "runTimestamp": "2026-11-24T07:06:55Z",
+  "environment": "https://test-platform.codecapsules.io",
+  "guide": null,
+  "goalReached": false,
+  "actions": [
+  {"action": 1, "status": "fail", "guideExpects": "Logged-in Quick Start", "actual": "Verify your email gate", "screenshot": "failure-step-1.jpg"},
+  {"action": 2, "status": "blocked", "guideExpects": "Deploy Now Vue", "actual": "Depends on login", "screenshot": null},
+  {"action": 3, "status": "blocked", "guideExpects": "Build on Deploy → Builds", "actual": "Depends on login", "screenshot": null}
+  ]
+}

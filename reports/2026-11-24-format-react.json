@@ -1,0 +1,42 @@
+{
+  "runTimestamp": "2026-11-24T07:06:55Z",
+  "docFile": "docs/b/react.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Create React frontend capsule",
+  "featureGoal": "Expect to see capsule building in builds tab",
+  "formatCheck": "fail",
+  "contentList": [
+    { "n": 1, "label": "prerequisite", "heading": "## Prerequisites", "instruction": "Account, GitHub, fork, Space, Git connected" },
+    { "n": 6, "label": "goal", "heading": "Step 1", "instruction": "Log in" },
+    { "n": 7, "label": "goal", "heading": "Step 2", "instruction": "Create New Capsule → React" },
+    { "n": 8, "label": "goal", "heading": "Step 3", "instruction": "Frontend and Team only (Space missing)" },
+    { "n": 13, "label": "goal", "heading": "Step 8", "instruction": "Create Capsule and check Builds" }
+  ],
+  "checkResults": [
+    { "check": "Check 1: Content", "status": "fail", "reason": "Step 3 missing Space selection." },
+    { "check": "Check 2: Prerequisites", "status": "pass", "reason": "Shared links resolve." },
+    { "check": "Check 3: Links", "status": "fail", "reason": "Eight screenshot files missing." },
+    { "check": "Check 4: Format and style", "status": "pass", "reason": "Structure matches template." }
+  ],
+  "tickets": [
+    {
+      "id": "react-1",
+      "type": "Broken link",
+      "title": "Add missing React guide screenshot assets",
+      "problem": "Screenshots reference missing JPEGs",
+      "rule": "FORMAT.MD Check 3",
+      "change": "Add static/img/guides/create-react-frontend-capsule/*.jpg",
+      "doneWhen": "All Screenshots images exist"
+    },
+    {
+      "id": "react-2",
+      "type": "Missing goal step",
+      "title": "Add Space selection to Step 3",
+      "problem": "Prerequisites require Space but Step 3 does not select one",
+      "rule": "FORMAT.MD Check 1",
+      "change": "Document Space choice on Capsule Details",
+      "doneWhen": "Step 3 matches wizard requirements"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "feature": "Create Static HTML capsule",
+  "runTimestamp": "2026-11-24T07:06:55Z",
+  "goalReached": false,
+  "actions": [
+    {"action": 1, "status": "fail", "screenshot": "failure-step-1.jpg"},
+    {"action": 2, "status": "blocked"},
+    {"action": 3, "status": "blocked"}
+  ]
+}

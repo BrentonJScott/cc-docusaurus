@@ -1,0 +1,12 @@
+{
+  "feature": "Create NextJS backend capsule",
+  "runTimestamp": "2026-11-24T07:06:55Z",
+  "environment": "https://test-platform.codecapsules.io",
+  "guide": null,
+  "goalReached": false,
+  "actions": [
+    {"action": 1, "status": "fail", "guideExpects": "Login", "actual": "Verify email", "screenshot": "failure-step-1.jpg"},
+    {"action": 2, "status": "blocked", "guideExpects": "Next.js backend wizard", "actual": "Blocked", "screenshot": null},
+    {"action": 3, "status": "blocked", "guideExpects": "Builds tab", "actual": "Blocked", "screenshot": null}
+  ]
+}
