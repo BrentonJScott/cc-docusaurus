@@ -1,25 +1,19 @@
 ---
 slug: "/products/frontend-capsule/supported-runtimes"
-description: "See which frameworks, Node.js build runtimes, and package managers Code Capsules Frontend Capsules support, and how static sites deploy without a build."
 title: "Supported Frontend Frameworks and Runtimes"
+description: >-
+  See which frameworks, Node.js build runtimes, and package managers Code Capsules Frontend Capsules support, and how static sites deploy without a build.
 sidebar_label: "Supported Runtimes"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Frontend Frameworks and Runtimes You Can Use
 
 Frontend Capsules host static websites over HTTPS. You can deploy a plain HTML, CSS, and JavaScript site with no build step, or use Node.js at build time to install dependencies and compile a framework project before serving the output.
 
-:::info
 
-**Static HTML sites.** If your repository already contains the files you want to serve — for example, `index.html`, CSS, and images — you do not need Node.js, `package.json`, or a version pin. Leave the **Build Command** empty and keep **Project Path** at `/` if your files are in the repository root. See the [Static HTML](/frontend/static-html/) guide and [Configure](/products/frontend-capsule/configure/) for capsule settings.
-
-:::
-
-:::info
-
-Frontend Capsules serve **static files** over HTTPS. They do not run a persistent application server. Frameworks that need server-side rendering or a Node.js process at runtime — such as Next.js with a server or Nuxt with Nitro — should be deployed as a [Backend Capsule](/products/backend-capsule/supported-runtimes/#server-side-javascript-frameworks) instead.
-
-:::
 
 ## Node.js at build time
 
@@ -49,11 +43,6 @@ The table below lists how Node.js is selected at build time and the format to us
 
 You can pin any exact Node.js release published on nodejs.org (for example, `v18.20.8`, `v20.18.0`, or `v22.23.1`). Line pins such as `20.x.x` are not supported — they fall back to the unpinned default.
 
-:::info
-
-If your application requires a runtime or build toolchain not listed above, deploy with a [Docker Capsule](/products/docker-capsule/) and your own `Dockerfile`.
-
-:::
 
 ### Pin a runtime version
 
@@ -73,18 +62,6 @@ Set `engines.node` in `package.json` to pin an exact Node.js version for every b
 
 When a valid pin is present, the platform uses exactly that version for dependency installation and your build command.
 
-:::caution
-
-`engines.node` must be an exact version string in the form `v<major>.<minor>.<patch>` (for example, `v20.18.0` or `v22.23.1`).
-
-The following are **not** supported and cause a fallback to the latest **20.x** patch at build time:
-
-- Line pins and semver ranges (`20.x.x`, `>=18`, `^20`, `~22`, `20.x`)
-- Bare major or minor versions (`20`, `22`)
-- Version files (`.nvmrc`, `.node-version`)
-- Environment variables for Node.js version selection in the **Config** tab
-
-:::
 
 #### Platform upgrades and pins
 

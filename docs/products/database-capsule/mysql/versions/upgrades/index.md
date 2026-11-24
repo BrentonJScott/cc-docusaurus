@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule/mysql/versions/upgrades"
-description: "Upgrade your MySQL Capsule on Code Capsules one major version at a time. Pick the upgrade guide that matches your current and target MySQL version."
 title: "How to Upgrade MySQL Versions"
-sidebar_label: "Upgrades"
+description: >-
+  Upgrade your MySQL Capsule on Code Capsules one major version at a time. Pick the upgrade guide that matches your current and target MySQL version.
+sidebar_label: Upgrades
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Upgrade Your MySQL Major Version
 

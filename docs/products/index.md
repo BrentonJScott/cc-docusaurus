@@ -1,22 +1,42 @@
 ---
-slug: '/products'
+slug: "/products"
 description: >-
-  Everything you need to know about configuring and deploying apps with Code
-  Capsules.
-cover: /gitbook-assets/products/generic-docs-banner.jpg
-coverY: 60
+  Product guides for deploying and operating each Capsule type on Code Capsules.
 title: "App, Database & WordPress Hosting Products"
 sidebar_label: "Products"
+doc_version: drift
 ---
 
-# Everything You Can Host on Code Capsules
+import DocCardList from '@theme/DocCardList';
 
-This section contains all the information you need to deploy, configure, and manage applications using different Capsule types on Code Capsules.
+# Product guides
 
-## Capsule Types
+Product guides for deploying and operating each Capsule type on Code Capsules.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Backend Capsule</strong></td><td>Host and scale server-side applications and APIs.</td><td><a href="/products/backend-capsule/deploy/">Build and Deploy</a></td></tr><tr><td><strong>Docker Capsule</strong></td><td>Deploy containerized applications with full control over your Dockerfile and runtime image.</td><td><a href="/products/docker-capsule/">Deploy</a></td></tr><tr><td><strong>Frontend Capsule</strong></td><td>Serve static and single-page web apps with CDN support.</td><td><a href="/products/frontend-capsule/deploy/">Deploy</a></td></tr><tr><td><strong>Database Capsule</strong></td><td>Managed database instances: MySQL, PostgreSQL, MongoDB, Redis.</td><td><a href="/products/database-capsule/">Deploy</a></td></tr><tr><td><strong>Storage Capsule</strong></td><td>Object storage for files, assets, and backups.</td><td><a href="/products/storage-capsule/deploy/">Deploy</a></td></tr><tr><td><strong>WordPress Capsule</strong></td><td>Optimized environment for WordPress sites.</td><td><a href="/products/wordpress-capsule/deploy/">Deploy</a></td></tr></tbody></table>
+## Overview
 
-## Deployment Guides
+Each Capsule type has deploy, configure, scale, monitor, and logs pages under its product folder.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Python Application</strong></td><td>Step-by-step guide to deploying a Python app using Flask or Django.</td><td><a href="/backend/python/">Python</a></td></tr><tr><td><strong>WordPress Site</strong></td><td>Quickstart guide to running WordPress on a dedicated Capsule.</td><td><a href="/products/wordpress-capsule/deploy/">deploy.md</a></td></tr><tr><td><strong>Redis Database</strong></td><td>Configure and deploy a Redis instance.</td><td><a href="/database/redis/">Redis</a></td></tr><tr><td><strong>PostgreSQL Database</strong></td><td>Set up and manage a PostgreSQL Capsule.</td><td><a href="/database/postgres/">Postgres</a></td></tr><tr><td><strong>MySQL Database</strong></td><td>Deploy and configure MySQL on Code Capsules.</td><td><a href="/database/mysql/">MySQL</a></td></tr><tr><td><strong>MongoDB Database</strong></td><td>Guide to running MongoDB in a Database Capsule.</td><td><a href="/database/mongodb/">MongoDB</a></td></tr></tbody></table>
+## Capsule types
+
+| Capsule type | Entry guide |
+| --- | --- |
+| Backend | [/products/backend-capsule/index](/products/backend-capsule/index) |
+| Docker | [/products/docker-capsule/index](/products/docker-capsule/index) |
+| Frontend | [/products/frontend-capsule/index](/products/frontend-capsule/index) |
+| Database | [/products/database-capsule/index](/products/database-capsule/index) |
+| Storage | [/products/storage-capsule/deploy](/products/storage-capsule/deploy) |
+| WordPress | [/products/wordpress-capsule/deploy](/products/wordpress-capsule/deploy) |
+| Agent | [/products/agent-capsule/deploy](/products/agent-capsule/deploy) |
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend deploy', description: 'Language and framework deploy index.'},
+    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Frontend deploy', description: 'Static Frontend Capsule from Git.'},
+    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ MySQL deploy', description: 'Managed MySQL Database Capsule.'},
+    {type: 'link', href: '/products/alerting', label: '🛠️ Alerting', description: 'Notification preferences.'},
+    {type: 'link', href: '/platform/index', label: '📋 Platform guides', description: 'Account, Teams, and Spaces.'},
+  ]}
+/>

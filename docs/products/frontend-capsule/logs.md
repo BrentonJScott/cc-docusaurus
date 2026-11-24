@@ -1,32 +1,48 @@
 ---
 slug: "/products/frontend-capsule/logs"
-description: "View logs from your Frontend Capsule on Code Capsules to monitor build and serve activity and debug issues with your site."
 title: "How to View Logs for a Frontend App"
-sidebar_label: "Logs"
+description: >-
+  View logs from your Frontend Capsule on Code Capsules to monitor build and serve activity and debug issues with your site.
+sidebar_label: Logs
+doc_version: drift
 ---
 
-# View Your Frontend App Logs
+import DocCardList from '@theme/DocCardList';
 
-View your Capsule's logs to monitor activity and debug issues.
+# Logs logs
 
-| Log type     | Static | Container |
-| ------------ | ------ | --------- |
-| Build logs   | Yes    | Yes       |
-| Capsule logs | No     | Yes       |
-| Access logs  | Yes    | Yes       |
+View build, runtime, and access logs for your Frontend Capsule.
 
-## View Build Logs
+## Prerequisites
 
-Navigate to the "Builds" tab to see each build and read its log. Start here if a deploy fails.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Frontend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-## View Capsule Logs
 
-For container capsules, navigate to the "Logs" tab to view your Capsule's system logs. Static capsules don't have a **Logs** tab, because no server runs for your site.
+## View logs
 
-![Capsule Logs](/gitbook-assets/products/shared/logs.png)
+1. **Open the Capsule**
 
-## View Access Logs
+   Open the Space and select the Frontend Capsule.
 
-Navigate to the "Access Logs" tab to view HTTP request logs.
+2. **Open Logs**
 
-![Access Logs](/gitbook-assets/products/shared/access-logs.png)
+   Click the **Logs** tab.
+
+3. **Switch log streams**
+
+   Open **Capsule logs**, **Build logs**, or **Access logs** as listed. Scroll to the latest entries after a deploy.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Build logs are empty</summary>
+
+Trigger a new build from the **Deploy** tab or push to the connected branch, then refresh **Build logs**.
+
+</details>

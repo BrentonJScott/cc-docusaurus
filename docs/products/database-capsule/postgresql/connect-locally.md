@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule/postgresql/connect-locally"
-description: "Connect to a PostgreSQL Capsule from your local machine with the Code Capsules CLI proxy and psql to run queries, restore backups, and export data."
 title: "How to Connect to PostgreSQL Locally"
+description: >-
+  Connect to a PostgreSQL Capsule from your local machine with the Code Capsules CLI proxy and psql to run queries, restore backups, and export data.
 sidebar_label: "Connect Locally"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Connect to Your PostgreSQL Database From Your Machine
 
@@ -40,21 +44,6 @@ See the [proxy command reference](/cli/readme/commands/proxy/) for full options.
 
 On the capsule **Details** tab, click **show** in the **Connection Details** section to reveal your credentials.
 
-:::tip
-
-Copy the connection string from the **Details** tab, not the CLI copy prompt. Replace the remote host and port with `127.0.0.1` and your proxy port.
-
-```text
-# Remote (from Details tab)
-postgresql://myuser:mypass@db-host.internal:5432/mydb
-
-# Local (after proxy on port 5432)
-postgresql://myuser:mypass@127.0.0.1:5432/mydb
-```
-
-If your password contains special characters (`@`, `#`, `/`, and so on), URL-encode them in connection strings.
-
-:::
 
 ## Install PostgreSQL Client Tools
 
@@ -109,3 +98,11 @@ pg_dump "postgresql://<username>:<password>@127.0.0.1:5432/<database>" -Fc -f ba
 ```
 
 The `-Fc` flag writes a custom-format archive suitable for `pg_restore`.
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

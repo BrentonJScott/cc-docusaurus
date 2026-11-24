@@ -1,9 +1,13 @@
 ---
 slug: "/products/docker-capsule/git/deploy"
-description: "Deploy a Docker Capsule on Code Capsules from a Dockerfile in your Git repository, with automatic builds and auto-deploy on every push to your branch."
 title: "How to Deploy a Dockerfile From Git"
-sidebar_label: "Deploy"
+description: >-
+  Deploy a Docker Capsule on Code Capsules from a Dockerfile in your Git repository, with automatic builds and auto-deploy on every push to your branch.
+sidebar_label: Deploy
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Dockerfile From a Git Repository
 
@@ -51,11 +55,6 @@ app.listen(port, '0.0.0.0', () => {
 
 Everything your app needs must be declared in the Dockerfile. Unlike [Backend Capsules](/products/backend-capsule/), Docker Capsules do not detect your language or install dependencies for you.
 
-:::tip
-
-Standard Docker practices work as usual. Use [multi-stage builds](https://docs.docker.com/build/building/multi-stage/) to keep your image small, and install system packages with your base image's package manager. See Docker's [build best practices](https://docs.docker.com/build/building/best-practices/).
-
-:::
 
 By default, Code Capsules uses `/Dockerfile` at the repository root and `/` as the build context. If your Dockerfile is somewhere else, set the **Dockerfile location** when you create the capsule, or see [Configure](/products/docker-capsule/configure/#docker-file) for monorepo layouts.
 
@@ -73,8 +72,6 @@ By default, Code Capsules uses `/Dockerfile` at the repository root and `/` as t
    - **Docker build context** — the directory used as the Docker build context. Leave empty for the repository root.
    - **Capsule Name** — a display name for your capsule.
 9. Click **Create Capsule**.
-
-![Docker Capsule creation Deploy step showing Dockerfile location, build context, and capsule name](/gitbook-assets/products/docker-capsule/deploy/docker-deploy-plan.png)
 
 Code Capsules creates the capsule, links it to your repository, assigns a default hostname, and **automatically starts the first build**. You are taken to the capsule **Details** tab.
 
@@ -97,3 +94,11 @@ After the first build, manage how your capsule is rebuilt and updated:
 - [Docker PHP App](/backend/docker/docker-php-app/)
 - [Docker Laravel App](/backend/docker/docker-laravel-app/)
 - [Caddy Docker Site](/backend/docker/caddy-docker-site/)
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

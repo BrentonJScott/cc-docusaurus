@@ -1,9 +1,13 @@
 ---
 slug: "/products/wordpress-capsule/routing"
-description: "How HTTP requests are routed through a WordPress Capsule and how to customise nginx routing."
 title: "How to Configure WordPress Routing"
-sidebar_label: "Routing"
+description: >-
+  How HTTP requests are routed through a WordPress Capsule and how to customise nginx routing.
+sidebar_label: Routing
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your WordPress Routing
 
@@ -185,15 +189,6 @@ NGINX_EXTRA_CONF=location = /old-page/ {
 }
 ```
 
-:::caution
-`NGINX_EXTRA_CONF` is injected before the PHP handler. A `location /` block in `NGINX_EXTRA_CONF` will override the default WordPress routing. Make sure any custom `location /` block includes a fallback to `index.php` if you still want WordPress to handle routes:
-
-```nginx
-location / {
-    try_files $uri $uri/ /index.php?$args;
-}
-```
-:::
 
 ---
 

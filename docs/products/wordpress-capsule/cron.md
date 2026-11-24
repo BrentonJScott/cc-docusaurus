@@ -1,9 +1,13 @@
 ---
 slug: "/products/wordpress-capsule/cron"
-description: "How WordPress scheduled tasks work on Code Capsules and how to configure reliable cron execution."
 title: "How to Schedule WordPress Cron Jobs"
-sidebar_label: "Cron"
+description: >-
+  How WordPress scheduled tasks work on Code Capsules and how to configure reliable cron execution.
+sidebar_label: Cron
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Schedule Your WordPress Cron Jobs
 
@@ -70,9 +74,6 @@ DISABLE_PUBLIC_WP_CRON=false
 
 Even when public access is enabled, the endpoint is still rate-limited to protect against abuse.
 
-:::caution
-If you enable public cron access and also have a separate cron trigger, cron may run more frequently than intended. Monitor WordPress cron logs to confirm expected behaviour.
-:::
 
 ---
 

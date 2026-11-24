@@ -1,15 +1,30 @@
 ---
 slug: "/products/docker-capsule/image/updates"
-description: "Keep an image-based Docker Capsule up to date on Code Capsules: pull and deploy a newer tag, pin versions, change the image, and fix failed image deploys."
 title: "How to Update a Deployed Docker Image"
+description: >-
+  Keep an image-based Docker Capsule up to date on Code Capsules: pull and deploy a newer tag, pin versions, change the image, and fix failed image deploys.
 sidebar_label: "Image Updates"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Keep Your Container Image Up to Date
 
 When your Docker Capsule is [deployed from an existing image](/products/docker-capsule/image/deploy/), Code Capsules pulls your image and runs it. There is no Dockerfile build on Code Capsules. This page covers how image deploys work and how to deploy a new version.
 
 For deploy history, logs, and rollback, see [Deployments](/products/docker-capsule/deployments/).
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## How image deploys work
 
@@ -25,8 +40,6 @@ Each pull appears in the **Builds** tab as an **Image import**, with its own log
 
 The **Capsule Source** section on the **Deploy** tab shows the **Image** and the **Deployed digest**, which identifies the exact version of the image that is running. Before the first deploy, it shows **Not deployed yet**.
 
-![Docker Capsule Deploy tab showing an image source](/gitbook-assets/products/docker-capsule/deploy/docker-deploy-tab-image.png)
-
 ## Deploy a newer version
 
 Each deploy runs the exact version of the image that was pulled. Publishing a new image to the same tag does not update your capsule automatically, and auto-deploy is not available for image deploys.
@@ -38,11 +51,6 @@ To deploy the latest version of your tag:
 
 If the tag now points to a newer version of the image, that version is deployed.
 
-:::tip
-
-To control exactly which version runs, use a specific tag such as `nginx:1.27` rather than `latest`. You can also reference an image by digest, for example `nginx@sha256:<digest>`.
-
-:::
 
 ## Change the image
 

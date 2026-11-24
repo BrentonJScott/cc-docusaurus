@@ -1,16 +1,48 @@
 ---
 slug: "/products/storage-capsule/scale"
-description: "Scale your Persistent Storage Capsule on Code Capsules by allocating more storage and resources as your file usage grows."
 title: "How to Scale a Persistent Storage"
-sidebar_label: "Scale"
+description: >-
+  Scale your Persistent Storage Capsule on Code Capsules by allocating more storage and resources as your file usage grows.
+sidebar_label: Scale
+doc_version: drift
 ---
 
-# Scale Your Persistent Storage Without Downtime
+import DocCardList from '@theme/DocCardList';
 
-It is possible to allocate more resources to your Capsule depending on how much traffic your application will be getting and its computational needs. To view the different scaling options available for your Capsule, navigate to the "Scale" tab while on your Capsule's dashboard, and click the "Edit" button in the "Capsule Capacity" section.
+# Scale your Scale
 
-![Scale a Capsule](/gitbook-assets/products/memory-capsule/scale/storage-scale-edit-1.png)
+Change CPU, RAM, replicas, or storage for your Storage Capsule.
 
-Select a plan, or choose **Custom** to adjust resources to your requirements. Click **Save** when done.
+## Prerequisites
 
-![Configure Capsule Capacity](/gitbook-assets/products/memory-capsule/scale/storage-scale-custom-1.png)
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/storage-capsule/deploy', label: '🛠️ Storage Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
+
+## Scale the Capsule
+
+1. **Open Scale**
+
+   Open the Capsule and select the **Scale** tab.
+
+2. **Edit resources**
+
+   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+
+3. **Save**
+
+   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Save is disabled</summary>
+
+Some capsule types require the capsule to be on a paid plan or to be stopped before scaling storage. Check the message on the Scale tab.
+
+</details>

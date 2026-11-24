@@ -1,9 +1,13 @@
 ---
 slug: "/products/frontend-capsule/custom-domains"
-description: "Add a custom domain to your Frontend Capsule on Code Capsules. Configure DNS records to serve your site from your own domain."
 title: "How to Add a Custom Domain to a Frontend App"
+description: >-
+  Add a custom domain to your Frontend Capsule on Code Capsules. Configure DNS records to serve your site from your own domain.
 sidebar_label: "Custom Domains"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Put Your Frontend on Your Own Domain
 
@@ -11,34 +15,31 @@ Each application deployed on Code Capsules is assigned a default domain in the f
 
 At no additional cost, you can configure Code Capsules to use a custom domain you own (like `example.com`) instead of the default domain.
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Frontend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
+
 ## How to Add a Custom Domain
 
 The **Domains** tab contains all information about a Capsule's domain, including the option to add a custom domain.
 
 
-:::info
-
-**Before adding a custom domain:**
-
-Each Capsule can route to **only one** root domain. You won't be able to add multiple root domains.
-
-:::
 
 
 To add a new custom domain, click the yellow **+** button in the top-right corner of the dashboard.
-
-![Add a New Domain](/gitbook-assets/products/add-domain.png)
 
 Copy and save the **Static IP address**.
 
 Click the **Add Custom Domain** link and enter your custom domain in the **Domain Name** field.
 
 
-:::danger
-
-Ensure you enter only a **root domain**. Do not include a subdomain. A root domain contains only a domain name and top-level domain, for example, `example.com`. See the [notes on understanding URL structure](/products/frontend-capsule/custom-domains/#understanding-url-structure) below.
-
-:::
 
 
 Click **Create Domain**.
@@ -63,11 +64,6 @@ Where:
 Consult your domain registrar's documentation for specific instructions on adding A records to your domain.
 
 
-:::info
-
-Changes to DNS records can take several hours to propagate.
-
-:::
 
 
 ## How to Add a Subdomain
@@ -75,19 +71,9 @@ Changes to DNS records can take several hours to propagate.
 Before adding a subdomain, make sure your custom domain has an [A record](/products/frontend-capsule/custom-domains/#create-an-a-record) pointing to your application on Code Capsules.
 
 
-:::info
-
-**Note:**
-
-* Each application on Code Capsules supports a **maximum of five subdomains**.
-* **Wildcard subdomains are not supported.** You need to [create a separate CNAME record](/products/frontend-capsule/custom-domains/#create-a-cname-record) for each subdomain you add.
-
-:::
 
 
 To add a new subdomain, click the yellow **+** button in the top-right corner of the dashboard.
-
-![Add a New Domain](/gitbook-assets/products/add-domain.png)
 
 Click the **Add Custom Domain** link and enter the subdomain to create in the **Domain Name** field.
 
@@ -111,11 +97,6 @@ Where:
 Consult your domain registrar's documentation for specific instructions on adding CNAME records to your domain.
 
 
-:::info
-
-Changes to DNS records can take several hours to propagate.
-
-:::
 
 
 ## How To Remove Domains and Subdomains
@@ -125,19 +106,9 @@ To remove a domain or subdomain from a Capsule, go to the Capsule's **Domains** 
 All associated domains and subdomains are listed in the right-hand panel. To remove one, click the **trash can icon** next to the domain or subdomain.
 
 
-:::warning
-
-Removing a custom domain or subdomain does not update or delete its DNS records.
-
-* If you remove a root domain, update the A record with your domain registrar to remove or change the IP address.
-* If you remove a subdomain, delete the corresponding CNAME record from your DNS settings.
-
-:::
 
 
 ## Understanding URL Structure
-
-![URL Make Up](/gitbook-assets/products/url-makeup.png)
 
 * **Uniform Resource Locator (URL):** A web address used to locate a resource on the internet. URLs typically include a subdomain, a second-level domain, and a top-level domain.
 * **Subdomain:** The portion of a URL before the main domain name, most commonly `www`. Subdomains are often used to organize different services or sections of a website (for example, `hr.myapplication.com` might route users to your company’s human resources portal).
@@ -159,3 +130,11 @@ Removing a custom domain or subdomain does not update or delete its DNS records.
 * **Hypertext Transfer Protocol (HTTP):** Protocol used to transfer data from a server (such as a web application) to a client (such as your web browser).
 * **Hypertext Transfer Protocol Secure (HTTPS):** A secure version of HTTP that encrypts data transferred between the server and client for better security.
 * **Secure Sockets Layer (SSL) Certificate:** Authenticates a domain and enables encrypted communication between a server and a client via HTTPS (for example, `https://www.example.com`).
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

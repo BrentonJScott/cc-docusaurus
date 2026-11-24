@@ -1,9 +1,13 @@
 ---
 slug: "/products/wordpress-capsule/performance"
-description: "Tune PHP, OPcache, and PHP-FPM workers to get the best performance from your WordPress Capsule."
 title: "How to Maximize WordPress Performance"
-sidebar_label: "Performance"
+description: >-
+  Tune PHP, OPcache, and PHP-FPM workers to get the best performance from your WordPress Capsule.
+sidebar_label: Performance
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Make Your WordPress Site Fast
 
@@ -154,9 +158,6 @@ Increase it for:
 WORDPRESS_CUSTOM_INI=memory_limit = 512M
 ```
 
-:::caution
-`memory_limit` applies per PHP worker. A capsule with 8 workers and a 512MB limit could theoretically consume 4GB of RAM at peak. Set `memory_limit` conservatively relative to your capsule size and `pm.max_children`.
-:::
 
 ---
 

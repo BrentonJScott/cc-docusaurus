@@ -1,27 +1,35 @@
 ---
 slug: "/products/database-capsule/documentdb/configure"
-description: "Configure a DocumentDB Capsule on Code Capsules: view connection details, connect from your local machine, rename it, and bind it to your application."
 title: "How to Configure a DocumentDB Database"
-sidebar_label: "Configure"
+description: >-
+  Configure a DocumentDB Capsule on Code Capsules: view connection details, connect from your local machine, rename it, and bind it to your application.
+sidebar_label: Configure
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your DocumentDB Database
 
 DocumentDB Capsules are configured from the **Details** tab. There is no **Config** tab for DocumentDB — server settings are managed by the platform.
 
-:::info
 
-For new projects, Code Capsules recommends a [MongoDB Capsule](/products/database-capsule/mongodb/configure/) instead. MongoDB Capsules support additional configuration such as version selection on Dedicated clusters.
+## Prerequisites
 
-:::
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/documentdb/deploy', label: '🛠️ DocumentDB Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## View connection details
 
 The **Details** tab provides connection details once provisioning completes. While the capsule is still being created, an info message explains that details will appear when the capsule is ready.
 
 Click **show** in the **Connection details** section to view:
-
-![DocumentDB Capsule Details tab Connection details section](/gitbook-assets/products/database-capsule/details/documentdb-details.png)
 
 - Host
 - Port (default `27017`)
@@ -56,8 +64,6 @@ To provide connection details to a Backend, Docker, or Agent Capsule:
 2. In the **Data capsules** section, click **View** next to your DocumentDB Capsule.
 3. Copy individual values or click **+** next to **Connection string** to create a `DATABASE_URL` environment variable.
 
-![Application capsule Config tab Data capsules View modal with DATABASE_URL](/gitbook-assets/products/database-capsule/config/documentdb-bind-env-vars.png)
-
 Available environment variables include:
 
 | Variable            | Description                             |
@@ -70,3 +76,11 @@ Available environment variables include:
 | `DATABASE_PASSWORD` | Password                                |
 
 Saving environment variables on the application capsule restarts it with the new values.
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

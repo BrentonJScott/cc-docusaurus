@@ -1,9 +1,13 @@
 ---
 slug: "/products/docker-capsule"
-description: "Run containerized apps on Code Capsules with a Docker Capsule, built from your own Dockerfile or deployed from an existing public container image."
 title: "Docker Container Hosting"
+description: >-
+  Run containerized apps on Code Capsules with a Docker Capsule, built from your own Dockerfile or deployed from an existing public container image.
 sidebar_label: "Docker Capsule"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Everything About Hosting Your Docker Container
 
@@ -32,8 +36,6 @@ You can deploy a Docker Capsule in one of two ways:
 | **Best for**      | Apps you build from source                       | Images built in your own CI, or published software               |
 
 To start, click the yellow **+** button in your Space, select **New Capsule**, and choose **Docker Capsule**. On the **Source** step, choose **Git repository** or **Container image**.
-
-![Docker Capsule creation Source step showing the Git repository and Container image options](/gitbook-assets/products/docker-capsule/deploy/docker-choose-source.png)
 
 You can't switch between the two after the capsule is created. To use the other source, create a new Docker Capsule.
 

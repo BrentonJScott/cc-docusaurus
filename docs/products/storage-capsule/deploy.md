@@ -1,15 +1,30 @@
 ---
 slug: "/products/storage-capsule/deploy"
-description: "You need persistent storage for your application, but you don't want a full-blown database."
 title: "How to Deploy a Persistent Storage"
-sidebar_label: "Deploy"
+description: >-
+  You need persistent storage for your application, but you don't want a full-blown database.
+sidebar_label: Deploy
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Persistent Storage
 
 You need persistent storage for your application, but you don't want a full-blown database.
 
 This guide will show you how to create a persistent storage Data Capsule that you can use with backend applications running on Code Capsules.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/storage-capsule/deploy', label: '🛠️ Storage Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## What is a Persistent Storage Capsule?
 
@@ -25,8 +40,6 @@ Log in to your Code Capsules account and navigate to the Space where you want to
 
 Click the yellow **+** button on the bottom-left corner of the dashboard. Select **New Capsule** and then **Persistent Storage** from the dropdown.
 
-![Create Data Capsule](/gitbook-assets/products/create-persistent-capsule.jpg)
-
 Select your payment method, then click **Create Capsule**.
 
 ### Bind the Storage Capsule to a Backend or Docker Capsule
@@ -35,15 +48,11 @@ You need to bind the Storage Capsule to a [Backend](/products/backend-capsule/) 
 
 Navigate to the Backend or Docker Capsule and open the **Config** tab. Scroll down to the **Bind Data Capsule** section, where your recently created Storage Capsule is listed.
 
-![Bind Data Capsule](/gitbook-assets/products/bind-persistent.png)
-
 Click **Bind** to bind the Capsules.
 
 During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable that your Backend Capsule will use to access the Storage Capsule.
 
 When the two Capsules are bound, scroll to the top of the **Config** tab to view the value of the variable.
-
-![PERSISTENT STORAGE DIR Environment Variable](/gitbook-assets/products/env-variables-persistent-storage.png)
 
 Now you can use this environment variable in your code to read and write to the Storage Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and assign it to the `db_directory` variable. Alternatively, reference it directly using `os.getenv` in Python or `process.env` in Node.js.
 
@@ -98,8 +107,6 @@ To enable file browsing:
 2. Go to the **Details** tab
 3. Toggle **Public Access** to **Enabled**
 
-![Toggle Storage to Public Acess Enabled](/gitbook-assets/products/toggle-public-access.png)
-
 Enabling this setting doesn't make your files publicly accessible on the internet. They are served over the WebDAV protocol and require authentication credentials to access.
 
 ### Connect to the WebDAV Server
@@ -115,8 +122,6 @@ Enabling this setting doesn't make your files publicly accessible on the interne
 The WebDAV server will now appear as a mounted drive in **Finder**.
 
 Here you can see the files inside a WordPress Capsule accessed locally through **Finder** in macOS.
-
-![See Your Files Locally](/gitbook-assets/products/see-your-files.png)
 
 #### Windows
 
@@ -139,3 +144,11 @@ The WebDAV server will now appear as a mapped drive in **File Explorer**.
 3. Enter the username and password when prompted
 
 The WebDAV server will now appear as a drive in your file manager.
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule/mongodb/versions/upgrades"
-description: "Upgrade a Dedicated MongoDB Capsule on Code Capsules one major version at a time. Pick the guide that matches your current and target MongoDB version."
 title: "How to Upgrade MongoDB Versions"
-sidebar_label: "Upgrades"
+description: >-
+  Upgrade a Dedicated MongoDB Capsule on Code Capsules one major version at a time. Pick the guide that matches your current and target MongoDB version.
+sidebar_label: Upgrades
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Upgrade Your MongoDB Major Version
 

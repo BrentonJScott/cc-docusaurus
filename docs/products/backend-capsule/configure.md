@@ -1,15 +1,27 @@
 ---
 slug: "/products/backend-capsule/configure"
-description: "Configure a Backend Capsule in the Config tab."
 title: "How to Configure a Backend Application"
-sidebar_label: "Configure"
+description: "Configure a Backend Capsule in the Config tab."
+sidebar_label: Configure
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your Backend Application
 
 Configure a Backend Capsule in the **Config** tab.
 
-![Configure Backend Capsule](/gitbook-assets/products/backend-capsule/config/backend-config.png)
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Set Capsule Parameters
 
@@ -30,11 +42,6 @@ You can edit one section at a time.
 
 ### Build settings
 
-:::warning[Changing build settings starts a new build]
-
-When you save a change in **Build**, Code Capsules rebuilds your code with the new settings and deploys the result. A build can take a few minutes.
-
-:::
 
 #### Project Path
 
@@ -50,11 +57,6 @@ Use the **Run Command** field to specify how to start your app. Leave this field
 
 ### Runtime settings
 
-:::warning[Changing runtime settings redeploys the capsule]
-
-When you save a change in **Runtime**, Code Capsules redeploys the capsule with the new settings, replacing its running replicas. It does not start a new build.
-
-:::
 
 #### Network Port
 
@@ -97,3 +99,11 @@ Click **Bind** next to the **Persistent Storage Capsule** to attach it to your B
 
 During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable that tells your Backend Capsule where to access the Persistent Storage Capsule.
 
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

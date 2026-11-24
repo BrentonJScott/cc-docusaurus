@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule"
-description: "Deploy and manage database instances on Code Capsules, including MySQL, PostgreSQL, MongoDB, DocumentDB, and Redis."
 title: "Managed Database Hosting"
+description: >-
+  Deploy and manage database instances on Code Capsules, including MySQL, PostgreSQL, MongoDB, DocumentDB, and Redis.
 sidebar_label: "Database Capsule"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Everything About Hosting Your Managed Database
 

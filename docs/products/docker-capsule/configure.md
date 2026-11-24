@@ -1,15 +1,30 @@
 ---
 slug: "/products/docker-capsule/configure"
-description: "Configure a Docker Capsule on Code Capsules: set the network port, Dockerfile path, and build context, add environment variables, and bind data capsules."
 title: "How to Configure a Docker Container"
-sidebar_label: "Configure"
+description: >-
+  Configure a Docker Capsule on Code Capsules: set the network port, Dockerfile path, and build context, add environment variables, and bind data capsules.
+sidebar_label: Configure
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your Docker Container
 
 Configure a Docker Capsule in the **Config** tab. Settings here control how your capsule is built, how traffic reaches your application, and how the capsule connects to other services in your Space. Most settings apply to every Docker Capsule. Settings marked **Git deployments only** apply only to capsules [deployed from Git](/products/docker-capsule/git/deploy/).
 
 The capsule source and deployment strategy are managed in the **Deploy** tab — see [Deployments](/products/docker-capsule/deployments/).
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Capsule parameters
 
@@ -28,15 +43,8 @@ To change a setting:
 
 You can edit one section at a time.
 
-![Docker Capsule Config tab Capsule Parameters section](/gitbook-assets/products/docker-capsule/config/docker-config.png)
-
 ### Build settings
 
-:::warning[Changing build settings starts a new build]
-
-When you save a change in **Build**, Code Capsules rebuilds your code with the new settings and deploys the result. A build can take a few minutes.
-
-:::
 
 Build settings are only shown for capsules [deployed from Git](/products/docker-capsule/git/deploy/). Capsules [deployed from an existing image](/products/docker-capsule/image/deploy/) are not built by Code Capsules.
 
@@ -58,19 +66,9 @@ The **Docker Build Context** is the directory passed to `docker build` as the bu
 
 Set a subdirectory when your Dockerfile and application code live in a nested folder. The build context can also be a URL to a **public** Git repository — in that case, the repository is downloaded and used as the build context.
 
-:::tip
-
-For monorepos, point the build context at the service directory and set the Docker File path accordingly. This keeps the build focused and avoids sending the entire repository to the Docker daemon.
-
-:::
 
 ### Runtime settings
 
-:::warning[Changing runtime settings redeploys the capsule]
-
-When you save a change in **Runtime**, Code Capsules redeploys the capsule with the new settings, replacing its running replicas using your [deployment strategy](/products/docker-capsule/deployments/#deployment-strategy). It does not start a new build.
-
-:::
 
 #### Network port
 
@@ -117,8 +115,6 @@ See the [Database Capsule](/products/database-capsule/) documentation for creati
 
 In the **Data capsules** section of the **Config** tab, click **View** next to a Database Capsule to see its connection details.
 
-![Docker Capsule Config tab Data capsules section with View and Bind actions](/gitbook-assets/products/docker-capsule/config/docker-config-bind-database.png)
-
 Click **+** next to the connection string to create a `DATABASE_URL` environment variable in your Docker Capsule. Your application can use this variable to connect to the database.
 
 ### Storage Capsule
@@ -128,3 +124,11 @@ A [Storage Capsule](/products/storage-capsule/deploy/) provides persistent file 
 In the **Data capsules** section, click **Bind** next to your Storage Capsule. Both capsules must be running to bind.
 
 During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable and restarts your Docker Capsule. Reference this path in your application to read and write files that persist across capsule restarts and redeploys.
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

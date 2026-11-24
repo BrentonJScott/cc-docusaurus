@@ -1,13 +1,28 @@
 ---
 slug: "/products/docker-capsule/deployments"
-description: "Manage Docker Capsule deployments on Code Capsules: change the source, choose a deployment strategy, read build logs, and roll back to a previous build."
 title: "How to Manage Docker Container Deployments"
-sidebar_label: "Deployments"
+description: >-
+  Manage Docker Capsule deployments on Code Capsules: change the source, choose a deployment strategy, read build logs, and roll back to a previous build.
+sidebar_label: Deployments
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Manage, Roll Back, and Track Your Deployments
 
 Every Docker Capsule deploy creates a build, whether Code Capsules [builds your Dockerfile from Git](/products/docker-capsule/git/builds/) or [pulls an existing image](/products/docker-capsule/image/updates/). This page covers the deployment settings and build history that work the same way for both.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Deploy tab
 
@@ -22,11 +37,6 @@ Click **Edit** in the **Capsule Source** section to:
 
 Saving a new source starts a new build and deploy.
 
-:::info
-
-You choose **Git repository** or **Container image** when you create the capsule, and you can't change it later. To move to the other source, create a new Docker Capsule.
-
-:::
 
 ### Deployment strategy
 
@@ -45,11 +55,6 @@ The **Builds** panel on the **Deploy** tab lists recent builds. Click **View Log
 
 Code Capsules retains a limited number of successful builds per capsule. The **Deploy** tab shows how many successful builds are stored (for example, `3 / 5 successful builds`).
 
-:::info
-
-Only one build can run per capsule at a time. If a build is already in progress, a new build request waits or returns an error until the current build completes.
-
-:::
 
 ## Build lifecycle
 
@@ -65,8 +70,6 @@ Only one build can run per capsule at a time. If a build is already in progress,
 ## View build logs
 
 Open the **Builds** tab to view build history and logs:
-
-![Docker Capsule Builds tab with build list and log viewer](/gitbook-assets/products/docker-capsule/builds/docker-builds.png)
 
 - Select a build from the list on the left
 - Read the full build log on the right

@@ -1,9 +1,13 @@
 ---
 slug: "/products/enterprise-clusters/overview"
-description: "Deploy Code Capsules on your own cloud infrastructure with dedicated enterprise clusters for AWS, Azure, GCP, and VMware."
 title: "Enterprise Clusters — Run the Platform on Your Own Cloud"
-sidebar_label: "Overview"
+description: >-
+  Deploy Code Capsules on your own cloud infrastructure with dedicated enterprise clusters for AWS, Azure, GCP, and VMware.
+sidebar_label: Overview
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Enterprise Clusters, on Your Cloud
 

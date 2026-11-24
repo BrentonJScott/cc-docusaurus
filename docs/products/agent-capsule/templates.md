@@ -1,9 +1,13 @@
 ---
 slug: "/products/agent-capsule/templates"
-description: "Code Capsules provides a variety of agent template repos for you to use as the base for your Agent Capsule."
 title: "AI Agent Templates — Prebuilt Starting Points"
-sidebar_label: "Templates"
+description: >-
+  Code Capsules provides a variety of agent template repos for you to use as the base for your Agent Capsule.
+sidebar_label: Templates
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Start From an AI Agent Template
 
@@ -16,6 +20,17 @@ Each template comes with a tutorial on how to successfully deploy the template, 
 | Base Agent | Basic agent communication, RAG (context) functionality | [ai-agent-template](https://github.com/codecapsules-io/ai-agent-template) |
 | Telegram Bot Agent | Base Agent functionality (forked off Base Agent), runs a Telegram bot which calls the agent for communication | [ai-telegram-bot-agent-template](https://github.com/codecapsules-io/ai-telegram-bot-agent-template) |
 | Google Calendar Agent | Base Agent functionality (forked off Base Agent), add events to Google Calendar, get a list of events from Google Calendar | [ai-calendar-agent-template](https://github.com/codecapsules-io/ai-calendar-agent-template) |
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/agent-capsule/deploy', label: '🛠️ Agent Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Architecture
 
@@ -39,17 +54,6 @@ Follow the following procedure to begin creating your new agent. In this example
 8. You can now modify your codebase however you'd like to include new tools, context, and more.
 
 
-:::warning
-
-Agent Capsule templates have been built with the capabilities of using either a Redis or in-memory vector store. When using the in-memory option (i.e. no Redis Capsule is linked), it is recommended to scale the Agent Capsule to the following in order to ensure optimal performance:
-
-* CPU 25%
-* Memory 1GB
-* Replicas 1
-
-To do this, visit the Agent Capsule [Scale](/products/agent-capsule/scale/) page.
-
-:::
 
 
 ## Setting up a Vector Store (RAG)
@@ -373,3 +377,11 @@ What is the weather in Tokyo today?
 
 
 
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

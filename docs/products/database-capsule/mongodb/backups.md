@@ -1,32 +1,48 @@
 ---
 slug: "/products/database-capsule/mongodb/backups"
-description: "Protect your MongoDB Capsule on Code Capsules with manual backups and daily, weekly, or monthly automatic backup schedules, then restore when needed."
 title: "How to Back Up a MongoDB Database"
-sidebar_label: "Backups"
+description: >-
+  Protect your MongoDB Capsule on Code Capsules with manual backups and daily, weekly, or monthly automatic backup schedules, then restore when needed.
+sidebar_label: Backups
+doc_version: drift
 ---
 
-# Back Up and Restore Your MongoDB Database
+import DocCardList from '@theme/DocCardList';
 
-Protect your data by creating manual backups and setting up automatic backup schedules for your Data Capsules.
+# Back up your Backups
 
-![MongoDB Capsule Backup tab with manual backup and schedule options](/gitbook-assets/products/database-capsule/backups/mongodb-backups.png)
+Create and view backups for your MongoDB Capsule.
 
-## Manual Backup
+## Prerequisites
 
-Trigger a manual backup of your Capsule by clicking the **Backup** button in the **Manual Backup** section.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ MongoDB Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-## Automatic Backups
 
-Toggle the switch next to the backup schedule you want to use:
+## Run a backup
 
-- **Daily Backup:** Creates backups every day
-- **Weekly Backup:** Creates backups every week
-- **Monthly Backup:** Creates backups every month
+1. **Open Backups**
 
-Code Capsules retains backups based on your selected schedule and automatically deletes older backups as new ones are created.
+   Open the Capsule and select the **Backups** tab.
 
-## View Backups
+2. **Start a backup**
 
-The **Backups** section in the right-hand panel lists all completed backups. You can restore and manage backup files here.
+   Click **Create backup** or **Backup now** as labeled on your cluster.
 
-Backup storage costs $0.50/GB.
+3. **Confirm completion**
+
+   Wait until the backup status shows **Completed**. The backup appears in the list with a timestamp.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Backup stays in progress</summary>
+
+Large databases take longer. If it fails, open **Logs** and retry when the capsule is healthy.
+
+</details>

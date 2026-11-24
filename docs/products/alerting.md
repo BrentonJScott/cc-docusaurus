@@ -1,31 +1,46 @@
 ---
 slug: "/products/alerting"
-description: "Configure alerting on Code Capsules to get notified by email about your Capsules' health, errors, and resource usage."
+description: >-
+  Save alert and notification preferences. When you finish, choices persist
+  after Save Preferences.
 title: "How to Set Up Deployment Notifications"
 sidebar_label: "Notifications"
+doc_version: drift
 ---
 
-# Set Up Your Deployment Notifications
+import DocCardList from '@theme/DocCardList';
 
-![Notification Settings](/gitbook-assets/products/alert-settings.png)
+# Set Up Notification Preferences
 
-### In-App Notifications
+Save alert and notification preferences. When you finish, choices persist after **Save Preferences**.
 
-Configure which alerts you want to receive within the Code Capsules platform. Toggle individual notification types on or off based on your monitoring needs.
+## Prerequisites
 
-### Email Notifications
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+  ]}
+/>
 
-Set up email alerts to receive notifications outside the platform. You can enable or disable email notifications for the same events as in-app notifications.
+## Save preferences
 
-### Notification Types
+1. **Open notifications**
 
-Available notification types include:
+   Open **Alerting** or **Notifications** in the dashboard menu.
 
-* **Capsule Not Running** - Alert when your capsule crashes or stops
-* **Killed by OOM** - Notify when your capsule runs out of memory
-* **High CPU Usage** - Alert when CPU usage exceeds 80%
-* **High Memory Usage** - Notify when memory usage exceeds 80%
-* **High Data Usage** - Alert when data usage exceeds 80%
-* **CPU Throttle** - Notify when CPU is being throttled
+2. **Toggle events**
 
-Use "Enable All" or "Disable All" buttons to quickly configure all notifications, then click "Save Preferences" to apply your changes.
+   Enable or disable in-app and email alerts for events such as **Capsule Not Running**, **High CPU Usage**, and **High Memory Usage**.
+
+3. **Save**
+
+   Click **Save Preferences**. Reload the page; your toggles match what you saved.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Email alerts never arrive</summary>
+
+Confirm email notifications are enabled for each event and your account email on **Account** is correct. Check spam folders.
+
+</details>

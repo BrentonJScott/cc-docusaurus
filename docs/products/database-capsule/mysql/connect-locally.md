@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule/mysql/connect-locally"
-description: "Connect to a MySQL Database Capsule from your local machine using the Code Capsules CLI proxy and the mysql client."
 title: "How to Connect to MySQL Locally"
+description: >-
+  Connect to a MySQL Database Capsule from your local machine using the Code Capsules CLI proxy and the mysql client.
 sidebar_label: "Connect Locally"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Connect to Your MySQL Database From Your Machine
 
@@ -46,17 +50,6 @@ On the capsule **Details** tab, click **show** in the **Connection Details** sec
 
 Copy these values from the **Details** tab. The `mysql` client does not accept a `mysql://` connection string the way `psql` accepts a PostgreSQL URI — pass each value as a separate flag instead.
 
-:::tip
-
-When connecting through a proxy tunnel:
-
-- Set **host** to `127.0.0.1`
-- Set **port** to the local port from your proxy command (`-P`), not the port shown in Connection Details
-- Use **username**, **password**, and **database name** exactly as shown in Connection Details
-
-The port in Connection Details is the remote port inside your Space. The proxy forwards your local `-P` port to that remote endpoint, so your client must use the local port.
-
-:::
 
 ## Install the mysql Client
 
@@ -88,11 +81,6 @@ mysql -h 127.0.0.1 -P 50001 -u <username> -p'<password>' <database>
 
 This matches the [proxy command example](/cli/readme/commands/proxy/): host and port point at the tunnel on your machine; username, password, and database come from Connection Details.
 
-:::note
-
-The **Connection string** on the Details tab is intended for application drivers (for example, `mysql2` or SQLAlchemy). Do not pass it directly to the `mysql` CLI — decompose it into `-h`, `-P`, `-u`, `-p`, and the database name as shown above.
-
-:::
 
 ## Common Tasks
 
@@ -115,3 +103,11 @@ mysqldump -h 127.0.0.1 -P 50001 -u <username> -p'<password>' <database> > backup
 ```bash
 mysql -h 127.0.0.1 -P 50001 -u <username> -p'<password>' <database> < backup.sql
 ```
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

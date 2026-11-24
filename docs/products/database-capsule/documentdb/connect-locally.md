@@ -1,19 +1,18 @@
 ---
 slug: "/products/database-capsule/documentdb/connect-locally"
-description: "Connect to a DocumentDB Capsule from your local machine with the Code Capsules CLI proxy and mongosh to run queries and inspect your collections."
 title: "How to Connect to DocumentDB Locally"
+description: >-
+  Connect to a DocumentDB Capsule from your local machine with the Code Capsules CLI proxy and mongosh to run queries and inspect your collections.
 sidebar_label: "Connect Locally"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Connect to Your DocumentDB Database From Your Machine
 
 DocumentDB Capsules are private to your Space and require TLS. To run queries, inspect collections, or check your server version from your laptop, open a secure tunnel with the [Code Capsules CLI](/cli/) and connect with `mongosh`.
 
-:::info
-
-For new projects, Code Capsules recommends a [MongoDB Capsule](/products/database-capsule/mongodb/configure/) instead. MongoDB Capsules run on MongoDB Atlas and provide a public `mongodb+srv://` connection string for local access without a proxy.
-
-:::
 
 ## When to Use This
 
@@ -51,21 +50,6 @@ The connection string uses TLS:
 mongodb://<username>:<password>@<host>:<port>/<database>?tls=true&tlsAllowInvalidCertificates=true
 ```
 
-:::tip
-
-Copy the connection string from the **Details** tab, not the CLI copy prompt. Replace the remote host and port with `127.0.0.1` and your proxy port. Keep the TLS query parameters.
-
-```text
-# Remote (from Details tab)
-mongodb://myuser:mypass@db-host.internal:27017/mydb?tls=true&tlsAllowInvalidCertificates=true
-
-# Local (after proxy on port 27017)
-mongodb://myuser:mypass@127.0.0.1:27017/mydb?tls=true&tlsAllowInvalidCertificates=true
-```
-
-If your password contains special characters (`@`, `#`, `/`, and so on), URL-encode them in connection strings.
-
-:::
 
 ## Install mongosh
 
@@ -110,3 +94,11 @@ show collections
 ```javascript
 db.<collection>.find().limit(10)
 ```
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>
