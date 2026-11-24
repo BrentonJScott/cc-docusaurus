@@ -1,0 +1,760 @@
+
+### docs/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/shared/configure-git-for-code-capsules.md
+
+- **configure-git-for-code-capsules-1** (Format fix): Use numbered bold step list
+- **configure-git-for-code-capsules-2** (Format fix): Add Troubleshooting section
+- **configure-git-for-code-capsules-3** (Format fix): Add Prerequisites section
+- **configure-git-for-code-capsules-4** (Format fix): Import DocCardList
+
+### docs/products/frontend-capsule/container/deploy.md
+
+- **deploy-1** (Remove content): Remove ## Next steps
+- **deploy-2** (Format fix): Use numbered bold step list
+- **deploy-3** (Format fix): Use DocCardList for prerequisites
+- **deploy-4** (Wrong doc type): How-to has non-how-to sections
+
+### docs/products/frontend-capsule/deploy.md
+
+- **deploy-1** (Format fix): Add ## Overview
+- **deploy-2** (Format fix): Add ## Why it matters
+- **deploy-3** (Format fix): Add ## How it works
+- **deploy-4** (Format fix): Add ## When to use it
+- **deploy-5** (Format fix): Add ## Related
+- **deploy-6** (Format fix): Add two Related links
+
+### docs/products/frontend-capsule/static/deploy.md
+
+- **deploy-1** (Remove content): Remove ## Next steps
+- **deploy-2** (Format fix): Use numbered bold step list
+- **deploy-3** (Format fix): Use DocCardList for prerequisites
+- **deploy-4** (Wrong doc type): How-to has non-how-to sections
+
+### docs/products/frontend-capsule/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/frontend-capsule/custom-domains.md
+
+- **custom-domains-1** (Format fix): Use numbered bold step list
+
+### docs/products/frontend-capsule/static/plans.md
+
+- **plans-1** (Format fix): Add Overview section
+- **plans-2** (Format fix): Add two Related links
+
+### docs/products/frontend-capsule/supported-runtimes.md
+
+- **supported-runtimes-1** (Format fix): Use numbered bold step list
+
+### docs/backend/go/go-telegram-bot.md
+
+- **go-telegram-bot-1** (Remove content): Remove ## Setup
+- **go-telegram-bot-2** (Format fix): Use numbered bold step list
+- **go-telegram-bot-3** (Format fix): Add Troubleshooting section
+- **go-telegram-bot-4** (Format fix): Add Prerequisites section
+- **go-telegram-bot-5** (Format fix): Add frontmatter field sidebar_label
+- **go-telegram-bot-6** (Format fix): Add frontmatter field doc_version
+- **go-telegram-bot-7** (Format fix): Import DocCardList
+
+### docs/backend/node.js/slack-bot.md
+
+- **slack-bot-1** (Remove content): Remove ## Setup
+- **slack-bot-2** (Format fix): Add ## Overview
+- **slack-bot-3** (Format fix): Add ## Why it matters
+- **slack-bot-4** (Format fix): Add ## How it works
+- **slack-bot-5** (Format fix): Add ## When to use it
+- **slack-bot-6** (Format fix): Add ## Related
+- **slack-bot-7** (Format fix): Add two Related links
+- **slack-bot-8** (Format fix): Add frontmatter field sidebar_label
+- **slack-bot-9** (Format fix): Add frontmatter field doc_version
+- **slack-bot-10** (Format fix): Import DocCardList
+
+### docs/products/backend-capsule/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/products/backend-capsule/add-procfile.md
+
+- **add-procfile-1** (Format fix): Use numbered bold step list
+- **add-procfile-2** (Format fix): Add frontmatter field sidebar_label
+
+### docs/products/backend-capsule/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/backend-capsule/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/products/backend-capsule/supported-runtimes.md
+
+- **supported-runtimes-1** (Format fix): Use numbered bold step list
+
+### docs/products/docker-capsule/git/deploy.md
+
+- **deploy-1** (Remove content): Remove ## Next steps
+- **deploy-2** (Format fix): Use numbered bold step list
+- **deploy-3** (Format fix): Use DocCardList for prerequisites
+- **deploy-4** (Wrong doc type): How-to has non-how-to sections
+
+### docs/products/docker-capsule/image/deploy.md
+
+- **deploy-1** (Remove content): Remove ## Next steps
+- **deploy-2** (Format fix): Use numbered bold step list
+- **deploy-3** (Format fix): Use DocCardList for prerequisites
+- **deploy-4** (Wrong doc type): How-to has non-how-to sections
+
+### docs/products/docker-capsule/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/docker-capsule/container-requirements.md
+
+- **container-requirements-1** (Format fix): Add Troubleshooting section
+- **container-requirements-2** (Format fix): Add Prerequisites section
+
+### docs/products/docker-capsule/deployments.md
+
+- **deployments-1** (Format fix): Use numbered bold step list
+- **deployments-2** (Format fix): Style troubleshooting as details
+
+### docs/products/docker-capsule/git/builds.md
+
+- **builds-1** (Format fix): Use numbered bold step list
+- **builds-2** (Format fix): Add Troubleshooting section
+- **builds-3** (Format fix): Use standard troubleshooting details style
+
+### docs/products/docker-capsule/image/updates.md
+
+- **updates-1** (Format fix): Use numbered bold step list
+- **updates-2** (Format fix): Style troubleshooting as details
+
+### docs/products/docker-capsule/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/database/mongodb/django-+-mongodb.md
+
+- **django-+-mongodb-1** (Format fix): Use numbered bold step list
+- **django-+-mongodb-2** (Format fix): Use DocCardList for prerequisites
+- **django-+-mongodb-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/database/mongodb/express-+-mongodb.md
+
+- **express-+-mongodb-1** (Format fix): Use numbered bold step list
+- **express-+-mongodb-2** (Format fix): Use DocCardList for prerequisites
+- **express-+-mongodb-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/database/mongodb/flask-+-mongodb.md
+
+- **flask-+-mongodb-1** (Format fix): Use numbered bold step list
+- **flask-+-mongodb-2** (Format fix): Use DocCardList for prerequisites
+- **flask-+-mongodb-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/database/mongodb/index.md
+
+- **index-1** (Wrong doc type): Rewrite as how-to or split
+- **index-2** (Format fix): Add Overview section
+- **index-3** (Format fix): Add Related section
+- **index-4** (Move to another doc): Move steps out of reference
+- **index-5** (Format fix): Add two Related links
+
+### docs/database/mysql/django-+-mysql.md
+
+- **django-+-mysql-1** (Format fix): Use numbered bold step list
+- **django-+-mysql-2** (Format fix): Use DocCardList for prerequisites
+- **django-+-mysql-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/database/mysql/flask-+-mysql.md
+
+- **flask-+-mysql-1** (Format fix): Use numbered bold step list
+- **flask-+-mysql-2** (Format fix): Use DocCardList for prerequisites
+- **flask-+-mysql-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/database/mysql/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/database/mysql/java-+-mysql.md
+
+- **java-+-mysql-1** (Format fix): Use numbered bold step list
+- **java-+-mysql-2** (Format fix): Use DocCardList for prerequisites
+- **java-+-mysql-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/database/postgres.md
+
+- **postgres-1** (Format fix): Add ## Overview
+- **postgres-2** (Format fix): Add ## Why it matters
+- **postgres-3** (Format fix): Add ## How it works
+- **postgres-4** (Format fix): Add ## When to use it
+- **postgres-5** (Format fix): Add ## Related
+- **postgres-6** (Format fix): Add two Related links
+
+### docs/database/redis.md
+
+- **redis-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/documentdb/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/mongodb/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/mysql/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/postgresql/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/redis/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/database/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/products/database-capsule/documentdb/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/documentdb/connect-locally.md
+
+- **connect-locally-1** (Format fix): Use numbered bold step list
+- **connect-locally-2** (Format fix): Use DocCardList for prerequisites
+
+### docs/products/database-capsule/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/products/database-capsule/mongodb/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/mongodb/versions/upgrades/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/products/database-capsule/mysql/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/mysql/connect-locally.md
+
+- **connect-locally-1** (Format fix): Use numbered bold step list
+- **connect-locally-2** (Format fix): Use DocCardList for prerequisites
+
+### docs/products/database-capsule/mysql/schema-migrations.md
+
+- **schema-migrations-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/mysql/versions.md
+
+- **versions-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/mysql/versions/upgrades/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/products/database-capsule/postgresql/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/postgresql/connect-locally.md
+
+- **connect-locally-1** (Format fix): Use numbered bold step list
+- **connect-locally-2** (Format fix): Use DocCardList for prerequisites
+
+### docs/products/database-capsule/redis/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/database-capsule/redis/connect-locally.md
+
+- **connect-locally-1** (Format fix): Use numbered bold step list
+- **connect-locally-2** (Format fix): Use DocCardList for prerequisites
+
+### docs/persistent-storage.md
+
+- **persistent-storage-1** (Format fix): Use numbered bold step list
+
+### docs/products/storage-capsule/deploy.md
+
+- **deploy-1** (Format fix): Add ## Overview
+- **deploy-2** (Format fix): Add ## Why it matters
+- **deploy-3** (Format fix): Add ## How it works
+- **deploy-4** (Format fix): Add ## When to use it
+- **deploy-5** (Format fix): Add ## Related
+- **deploy-6** (Format fix): Add two Related links
+
+### docs/products/storage-capsule/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/wordpress-capsule/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/wordpress.md
+
+- **wordpress-1** (Format fix): Add ## Overview
+- **wordpress-2** (Format fix): Add ## Why it matters
+- **wordpress-3** (Format fix): Add ## How it works
+- **wordpress-4** (Format fix): Add ## When to use it
+- **wordpress-5** (Format fix): Add ## Related
+- **wordpress-6** (Format fix): Add two Related links
+
+### docs/products/wordpress-capsule/caching.md
+
+- **caching-1** (Format fix): Add Troubleshooting section
+- **caching-2** (Format fix): Add Prerequisites section
+- **caching-3** (Format fix): Remove simply/just/easy
+
+### docs/products/wordpress-capsule/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/products/wordpress-capsule/cron.md
+
+- **cron-1** (Format fix): Add Troubleshooting section
+- **cron-2** (Format fix): Add Prerequisites section
+
+### docs/products/wordpress-capsule/performance.md
+
+- **performance-1** (Format fix): Add ## Overview
+- **performance-2** (Format fix): Add ## Why it matters
+- **performance-3** (Format fix): Add ## How it works
+- **performance-4** (Format fix): Add ## When to use it
+- **performance-5** (Format fix): Add ## Related
+- **performance-6** (Format fix): Add two Related links
+
+### docs/products/wordpress-capsule/routing.md
+
+- **routing-1** (Format fix): Add ## Overview
+- **routing-2** (Format fix): Add ## Why it matters
+- **routing-3** (Format fix): Add ## How it works
+- **routing-4** (Format fix): Add ## When to use it
+- **routing-5** (Format fix): Add ## Related
+- **routing-6** (Format fix): Add two Related links
+
+### docs/products/wordpress-capsule/security.md
+
+- **security-1** (Format fix): Add ## Overview
+- **security-2** (Format fix): Add ## Why it matters
+- **security-3** (Format fix): Add ## How it works
+- **security-4** (Format fix): Add ## When to use it
+- **security-5** (Format fix): Add ## Related
+- **security-6** (Format fix): Add two Related links
+
+### docs/products/agent-capsule/deploy.md
+
+- **deploy-1** (Format fix): Use numbered bold step list
+
+### docs/products/agent-capsule/templates.md
+
+- **templates-1** (Format fix): Use numbered bold step list
+- **templates-2** (Format fix): Remove simply/just/easy
+
+### docs/products/agent-capsule/chat/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/products/agent-capsule/configure.md
+
+- **configure-1** (Format fix): Use numbered bold step list
+
+### docs/full-stack/flask-+-htmx.md
+
+- **flask-+-htmx-1** (Format fix): Use numbered bold step list
+- **flask-+-htmx-2** (Format fix): Use DocCardList for prerequisites
+- **flask-+-htmx-3** (Format fix): Remove simply/just/easy
+
+### docs/full-stack/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/full-stack/mean-stack.md
+
+- **mean-stack-1** (Remove content): Remove ## Setup
+- **mean-stack-2** (Format fix): Use numbered bold step list
+- **mean-stack-3** (Format fix): Add Troubleshooting section
+- **mean-stack-4** (Format fix): Add Prerequisites section
+- **mean-stack-5** (Format fix): Add frontmatter field doc_version
+- **mean-stack-6** (Format fix): Import DocCardList
+- **mean-stack-7** (Format fix): Remove simply/just/easy
+
+### docs/full-stack/mern-stack.md
+
+- **mern-stack-1** (Format fix): Use numbered bold step list
+- **mern-stack-2** (Format fix): Use DocCardList for prerequisites
+- **mern-stack-3** (Format fix): Remove simply/just/easy
+
+### docs/full-stack/next.js/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/full-stack/next.js/next.js-+-express.js.md
+
+- **next.js-+-express.js-1** (Format fix): Add ## Overview
+- **next.js-+-express.js-2** (Format fix): Add ## Why it matters
+- **next.js-+-express.js-3** (Format fix): Add ## How it works
+- **next.js-+-express.js-4** (Format fix): Add ## When to use it
+- **next.js-+-express.js-5** (Format fix): Add ## Related
+- **next.js-+-express.js-6** (Format fix): Add two Related links
+- **next.js-+-express.js-7** (Format fix): Add frontmatter field sidebar_label
+- **next.js-+-express.js-8** (Format fix): Remove simply/just/easy
+
+### docs/full-stack/next.js/next.js-+-mongodb.md
+
+- **next.js-+-mongodb-1** (Format fix): Use numbered bold step list
+- **next.js-+-mongodb-2** (Format fix): Use DocCardList for prerequisites
+- **next.js-+-mongodb-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/full-stack/next.js/static-file-share-with-flask-and-caddy.md
+
+- **static-file-share-with-flask-and-caddy-1** (Format fix): Use numbered bold step list
+- **static-file-share-with-flask-and-caddy-2** (Format fix): Use DocCardList for prerequisites
+- **static-file-share-with-flask-and-caddy-3** (Format fix): Add frontmatter field sidebar_label
+
+### docs/cli/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+- **index-4** (Format fix): Add frontmatter field sidebar_label
+
+### docs/cli/readme/global-options.md
+
+- **global-options-1** (Format fix): Add Overview section
+- **global-options-2** (Format fix): Add Related section
+- **global-options-3** (Format fix): Add two Related links
+
+### docs/cli/readme/getting-started/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/cli/readme/getting-started/installation-and-usage.md
+
+- **installation-and-usage-1** (Format fix): Use numbered bold step list
+- **installation-and-usage-2** (Format fix): Add frontmatter field sidebar_label
+- **installation-and-usage-3** (Format fix): Remove simply/just/easy
+
+### docs/cli/readme/getting-started/prerequisites.md
+
+- **prerequisites-1** (Format fix): Use numbered bold step list
+
+### docs/cli/readme/getting-started/quick-start.md
+
+- **quick-start-1** (Format fix): Use numbered bold step list
+- **quick-start-2** (Format fix): Remove simply/just/easy
+
+### docs/cli/readme/commands/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/cli/readme/commands/login.md
+
+- **login-1** (Format fix): Use numbered bold step list
+
+### docs/cli/readme/commands/logout.md
+
+- **logout-1** (Format fix): Use numbered bold step list
+
+### docs/cli/readme/commands/proxy.md
+
+- **proxy-1** (Format fix): Use numbered bold step list
+
+### docs/cli/readme/commands/whoami.md
+
+- **whoami-1** (Format fix): Use numbered bold step list
+
+### docs/sandbox/environments.md
+
+- **environments-1** (Format fix): Use numbered bold step list
+- **environments-2** (Format fix): Add Troubleshooting section
+- **environments-3** (Format fix): Add Prerequisites section
+- **environments-4** (Format fix): Add frontmatter field doc_version
+- **environments-5** (Format fix): Import DocCardList
+
+### docs/sandbox/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/sandbox/quickstart.md
+
+- **quickstart-1** (Remove content): Remove ## Next steps
+- **quickstart-2** (Format fix): Add ## Overview
+- **quickstart-3** (Format fix): Add ## Why it matters
+- **quickstart-4** (Format fix): Add ## How it works
+- **quickstart-5** (Format fix): Add ## When to use it
+- **quickstart-6** (Format fix): Add ## Related
+- **quickstart-7** (Format fix): Add two Related links
+
+### docs/sandbox/python/api-reference.md
+
+- **api-reference-1** (Format fix): Add Overview section
+- **api-reference-2** (Format fix): Add Related section
+- **api-reference-3** (Format fix): Add two Related links
+
+### docs/sandbox/python/index.md
+
+- **index-1** (Format fix): Add ## Overview
+- **index-2** (Format fix): Add ## Why it matters
+- **index-3** (Format fix): Add ## How it works
+- **index-4** (Format fix): Add ## When to use it
+- **index-5** (Format fix): Add ## Related
+- **index-6** (Format fix): Add two Related links
+- **index-7** (Format fix): Add frontmatter field doc_version
+- **index-8** (Format fix): Import DocCardList
+
+### docs/sandbox/typescript/api-reference.md
+
+- **api-reference-1** (Format fix): Add Overview section
+- **api-reference-2** (Format fix): Add Related section
+- **api-reference-3** (Format fix): Add two Related links
+
+### docs/sandbox/typescript/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Format fix): Add two Related links
+
+### docs/agentic-automation/deployment.md
+
+- **deployment-1** (Format fix): Use numbered bold step list
+- **deployment-2** (Format fix): Add Troubleshooting section
+- **deployment-3** (Format fix): Add Prerequisites section
+- **deployment-4** (Format fix): Add frontmatter field doc_version
+- **deployment-5** (Format fix): Import DocCardList
+
+### docs/agentic-automation/designing-agents.md
+
+- **designing-agents-1** (Format fix): Add Troubleshooting section
+- **designing-agents-2** (Format fix): Add Prerequisites section
+- **designing-agents-3** (Broken link): Fix broken internal links or images
+- **designing-agents-4** (Format fix): Remove simply/just/easy
+
+### docs/agentic-automation/index.md
+
+- **index-1** (Format fix): Add Overview section
+- **index-2** (Format fix): Add Related section
+- **index-3** (Broken link): Fix broken internal links or images
+- **index-4** (Format fix): Add two Related links
+
+### docs/agentic-automation/the-framework.md
+
+- **the-framework-1** (Format fix): Add ## Overview
+- **the-framework-2** (Format fix): Add ## Related
+- **the-framework-3** (Format fix): Add two Related links
+- **the-framework-4** (Format fix): Remove simply/just/easy
+
+### docs/agentic-automation/the-problem.md
+
+- **the-problem-1** (Format fix): Add ## Overview
+- **the-problem-2** (Format fix): Add ## Why it matters
+- **the-problem-3** (Format fix): Add ## How it works
+- **the-problem-4** (Format fix): Add ## When to use it
+- **the-problem-5** (Format fix): Add ## Related
+- **the-problem-6** (Format fix): Add two Related links
+- **the-problem-7** (Format fix): Add frontmatter field sidebar_label
+- **the-problem-8** (Format fix): Add frontmatter field doc_version
+- **the-problem-9** (Format fix): Import DocCardList
+
+### docs/enterprise/aws.md
+
+- **aws-1** (Format fix): Add ## Overview
+- **aws-2** (Format fix): Add ## Related
+- **aws-3** (Format fix): Add two Related links
+
+### docs/enterprise/azure.md
+
+- **azure-1** (Format fix): Add ## Overview
+- **azure-2** (Format fix): Add ## Related
+- **azure-3** (Format fix): Add two Related links
+
+### docs/enterprise/gcp.md
+
+- **gcp-1** (Format fix): Add ## Overview
+- **gcp-2** (Format fix): Add ## Related
+- **gcp-3** (Format fix): Add two Related links
+
+### docs/enterprise/index.md
+
+- **index-1** (Format fix): Add ## Overview
+- **index-2** (Format fix): Add ## Related
+- **index-3** (Format fix): Add two Related links
+
+### docs/enterprise/vmware.md
+
+- **vmware-1** (Format fix): Add ## Overview
+- **vmware-2** (Format fix): Add ## Related
+- **vmware-3** (Format fix): Add two Related links
+
+### docs/products/enterprise-clusters/overview.md
+
+- **overview-1** (Format fix): Add ## Overview
+- **overview-2** (Format fix): Add ## Related
+- **overview-3** (Format fix): Add two Related links
+
+### docs/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx.md
+
+- **build-a-generative-art-application-with-pillow-flask-and-htmx-1** (Remove content): Remove ## Next steps
+- **build-a-generative-art-application-with-pillow-flask-and-htmx-2** (Format fix): Add checkpoint to Part 1
+- **build-a-generative-art-application-with-pillow-flask-and-htmx-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/build-a-mern-job-board.md
+
+- **build-a-mern-job-board-1** (Remove content): Remove ## Next steps
+- **build-a-mern-job-board-2** (Format fix): Add checkpoint to Part 1
+- **build-a-mern-job-board-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/build-a-personal-calendar-assistant-with-telegram-and-agent-capsules.md
+
+- **build-a-personal-calendar-assistant-with-telegram-and-agent-capsules-1** (Remove content): Remove ## Next steps
+- **build-a-personal-calendar-assistant-with-telegram-and-agent-capsules-2** (Format fix): Add checkpoint to Part 1
+- **build-a-personal-calendar-assistant-with-telegram-and-agent-capsules-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications.md
+
+- **build-a-slackbot-with-node.js-to-monitor-your-applications-1** (Remove content): Remove ## Next steps
+- **build-a-slackbot-with-node.js-to-monitor-your-applications-2** (Format fix): Add checkpoint to Part 1
+- **build-a-slackbot-with-node.js-to-monitor-your-applications-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/building-a-book-recommendations-app-with-php-sqlite-and-docker.md
+
+- **building-a-book-recommendations-app-with-php-sqlite-and-docker-1** (Remove content): Remove ## Next steps
+- **building-a-book-recommendations-app-with-php-sqlite-and-docker-2** (Format fix): Add checkpoint to Part 1
+- **building-a-book-recommendations-app-with-php-sqlite-and-docker-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/building-a-full-stack-application-with-express-and-htmx.md
+
+- **building-a-full-stack-application-with-express-and-htmx-1** (Remove content): Remove ## Next steps
+- **building-a-full-stack-application-with-express-and-htmx-2** (Format fix): Add checkpoint to Part 1
+- **building-a-full-stack-application-with-express-and-htmx-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/building-a-full-stack-application-with-flask-and-htmx.md
+
+- **building-a-full-stack-application-with-flask-and-htmx-1** (Remove content): Remove ## Next steps
+- **building-a-full-stack-application-with-flask-and-htmx-2** (Format fix): Add checkpoint to Part 1
+- **building-a-full-stack-application-with-flask-and-htmx-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/building-a-game-catalogue-api.md
+
+- **building-a-game-catalogue-api-1** (Remove content): Remove ## Next steps
+- **building-a-game-catalogue-api-2** (Format fix): Add checkpoint to Part 1
+- **building-a-game-catalogue-api-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/building-a-web-file-store.md
+
+- **building-a-web-file-store-1** (Remove content): Remove ## Next steps
+- **building-a-web-file-store-2** (Format fix): Add checkpoint to Part 1
+- **building-a-web-file-store-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md
+
+- **create-and-host-a-telegram-bot-with-node.js-on-code-capsules-1** (Remove content): Remove ## Next steps
+- **create-and-host-a-telegram-bot-with-node.js-on-code-capsules-2** (Format fix): Add checkpoint to Part 1
+- **create-and-host-a-telegram-bot-with-node.js-on-code-capsules-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/create-and-host-an-api-with-flask.md
+
+- **create-and-host-an-api-with-flask-1** (Remove content): Remove ## Next steps
+- **create-and-host-an-api-with-flask-2** (Format fix): Add checkpoint to Part 1
+- **create-and-host-an-api-with-flask-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/create-and-host-go-ai-telegram-bot.md
+
+- **create-and-host-go-ai-telegram-bot-1** (Remove content): Remove ## Next steps
+- **create-and-host-go-ai-telegram-bot-2** (Format fix): Add checkpoint to Part 1
+- **create-and-host-go-ai-telegram-bot-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/deploy-emdash-on-code-capsules.md
+
+- **deploy-emdash-on-code-capsules-1** (Remove content): Remove ## Next steps
+- **deploy-emdash-on-code-capsules-2** (Format fix): Add checkpoint to Part 1
+
+### docs/tutorials/deploy-paperclip-ai-orchestration-on-code-capsules.md
+
+- **deploy-paperclip-ai-orchestration-on-code-capsules-1** (Remove content): Remove ## Next steps
+- **deploy-paperclip-ai-orchestration-on-code-capsules-2** (Format fix): Add checkpoint to Part 1
+
+### docs/tutorials/getting-started-with-mean-stack-a-step-by-step-tutorial.md
+
+- **getting-started-with-mean-stack-a-step-by-step-tutorial-1** (Remove content): Remove ## Next steps
+- **getting-started-with-mean-stack-a-step-by-step-tutorial-2** (Format fix): Add checkpoint to Part 1
+
+### docs/tutorials/heroku-migration-guide.md
+
+- **heroku-migration-guide-1** (Format fix): Add Part N sections
+- **heroku-migration-guide-2** (Format fix): Add Summary section
+- **heroku-migration-guide-3** (Format fix): Add Next steps section
+- **heroku-migration-guide-4** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules.md
+
+- **how-to-create-and-host-a-telegram-bot-on-code-capsules-1** (Remove content): Remove ## Next steps
+- **how-to-create-and-host-a-telegram-bot-on-code-capsules-2** (Format fix): Add checkpoint to Part 1
+- **how-to-create-and-host-a-telegram-bot-on-code-capsules-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/how-to-simply-host-a-production-wordpress-blog.md
+
+- **how-to-simply-host-a-production-wordpress-blog-1** (Remove content): Remove ## Next steps
+- **how-to-simply-host-a-production-wordpress-blog-2** (Format fix): Add checkpoint to Part 1
+- **how-to-simply-host-a-production-wordpress-blog-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/nuxt3-and-nitro.md
+
+- **nuxt3-and-nitro-1** (Remove content): Remove ## Next steps
+- **nuxt3-and-nitro-2** (Format fix): Add checkpoint to Part 1
+- **nuxt3-and-nitro-3** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/optimizing-performance-in-mern-stack-tips-and-techniques.md
+
+- **optimizing-performance-in-mern-stack-tips-and-techniques-1** (Format fix): Remove simply/just/easy
+
+### docs/tutorials/use-codecapsules-with-an-agent.md
+
+- **use-codecapsules-with-an-agent-1** (Remove content): Remove ## Next steps
+- **use-codecapsules-with-an-agent-2** (Format fix): Add checkpoint to Part 1
+
+### docs/tutorials/white-label-your-app-with-code-capsules.md
+
+- **white-label-your-app-with-code-capsules-1** (Remove content): Remove ## Next steps
+- **white-label-your-app-with-code-capsules-2** (Format fix): Add checkpoint to Part 1
+- **white-label-your-app-with-code-capsules-3** (Format fix): Remove simply/just/easy
