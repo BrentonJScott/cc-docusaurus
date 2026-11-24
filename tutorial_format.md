@@ -4,7 +4,6 @@ A Tutorial teaches by building something. The reader follows one fixed path, see
 
 - **Use it for:** "Build a…" pages that walk through a whole project.
 - **Location:** A Tutorial can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Example in this repo:** `docs/tutorials/build-a-mern-job-board.md` (How to build a MERN job board).
 - **Writing style:** follow `writing_style.md`.
 
 ## Sections

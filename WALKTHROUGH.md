@@ -9,7 +9,7 @@
 - Only guides that pass the format check go on to the walkthrough below.
 
 ## Before running each test
-- Open and read the feature's guide file (for example, `docs/guides/react.md`) before launching Playwright.
+- Open and read the feature's guide file before launching Playwright.
 - Guides may be written as narrative text and don't need numbered steps or `### Step N` headings.
 
 ## Running the guide

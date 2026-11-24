@@ -4,7 +4,6 @@ A Reference page lists facts the reader looks up: values, limits, prices, option
 
 - **Use it for:** pricing, plans and limits, supported runtimes and versions, CLI commands, environment variables, API methods.
 - **Location:** A Reference page can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Example in this repo:** `docs/references/how-does-the-pricing-work.md` (How does pricing work).
 - **Writing style:** follow `writing_style.md`.
 
 ## Sections

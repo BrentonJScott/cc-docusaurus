@@ -4,7 +4,6 @@ A How-to guide takes a reader who already knows what they want to do to one goal
 
 - **Use it for:** deployment guides and other single-task pages.
 - **Location:** a How-to guide can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Example in this repo:** `docs/guides/angular.md` (Deploying an Angular capsule).
 - **Writing style:** follow `writing_style.md`.
 
 ## Sections

@@ -4,7 +4,6 @@ An Explanation helps the reader understand a topic: what it is, why it exists, h
 
 - **Use it for:** concepts and options, such as Enterprise deployment on your own cloud, what a Space is, or how persistent storage keeps state.
 - **Location:** An Explanation can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Example in this repo:** `docs/explanations/enterprise-aws.md` (Enterprise > AWS).
 - **Writing style:** follow `writing_style.md`.
 
 ## Sections
