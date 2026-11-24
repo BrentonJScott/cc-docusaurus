@@ -228,7 +228,7 @@ If you need a runtime, OS package, or build step not listed above, deploy with a
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The UI does not match these steps</summary>
 
 Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.

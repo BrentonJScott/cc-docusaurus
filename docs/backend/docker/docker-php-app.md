@@ -52,14 +52,14 @@ Deploy the PHP demo app to a Docker Capsule and see it building in the Builds ta
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The Repository dropdown doesn't list `demo-php-docker`</summary>
 
 Code Capsules doesn't have access to your fork. Add the repository to the Code Capsules GitHub app, then reopen the capsule wizard.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The app doesn't respond after the build finishes</summary>
 
 The capsule isn't listening on the app's port. On the **Config** tab, click **Edit** next to **Runtime** in **Capsule Parameters**, set **Network Port** to `80`, click **Save**, then restart the capsule. The app is served on the `/api` route.

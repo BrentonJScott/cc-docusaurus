@@ -37,7 +37,7 @@ Register a Telegram bot with BotFather and copy its access token.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>BotFather says the username is already taken or invalid</summary>
 
 Bot usernames must be unique and end in `bot`. Choose another username that ends in `bot`.

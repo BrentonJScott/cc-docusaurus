@@ -40,7 +40,7 @@ Create a Space in your Team so you have somewhere to deploy capsules.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The Team you want isn't in the Team dropdown</summary>
 
 You aren't a member of that Team. Ask a Team owner to add you, then try again.

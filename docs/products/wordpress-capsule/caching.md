@@ -47,7 +47,7 @@ WordPress Capsules include a FastCGI full-page cache for anonymous visitors. Ena
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Visitors see stale content</summary>
 
 Lower `CACHE_TTL_SECONDS` or clear the cache by redeploying. Confirm you are testing as an anonymous visitor; logged-in requests bypass the cache.

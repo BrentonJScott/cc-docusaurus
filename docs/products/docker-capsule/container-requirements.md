@@ -46,7 +46,7 @@ Every Docker Capsule must meet these runtime requirements whether built from Git
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The capsule URL does not respond</summary>
 
 Confirm the app binds to `0.0.0.0` and the **Network port** matches the port the process listens on. Check [Logs](/products/docker-capsule/logs/).

@@ -56,14 +56,14 @@ Deploy a static site or SPA on Code Capsules with Static hosting. When you finis
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The build succeeds but the page is blank</summary>
 
 Open **Deploy** and confirm **Path to static content** points to the folder that contains `index.html`. See [Supported Runtimes](/products/frontend-capsule/supported-runtimes/) for framework output paths.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Changes did not save</summary>
 
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a new build.

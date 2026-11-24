@@ -52,7 +52,7 @@ Run schema changes against a MySQL Capsule using `db-migrate` from an Express (o
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Migrations cannot reach the database</summary>
 
 Confirm the Backend Capsule is bound to MySQL and `DATABASE_URL` is present in **Environment Variables**.

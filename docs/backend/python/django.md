@@ -68,14 +68,14 @@ Deploy the Django demo app to a Backend Capsule, bind it to a Persistent Storage
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Bind Data Capsule doesn't list your storage capsule</summary>
 
 The Persistent Storage capsule is in a different Space. Create it in the same Space as the Backend Capsule, then bind it.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The app shows an error after binding</summary>
 
 The capsule hasn't restarted since the bind. Turn the capsule toggle off and on again and wait for the build to finish.

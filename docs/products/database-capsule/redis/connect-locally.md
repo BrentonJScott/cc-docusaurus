@@ -42,7 +42,7 @@ Connect to a private Redis Capsule with the CLI proxy and `redis-cli`.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>NOAUTH errors</summary>
 
 Confirm username and password match **Connection Details** exactly.

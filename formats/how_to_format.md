@@ -6,7 +6,7 @@ A How-to guide takes a reader who already knows what they want to do to one goal
 - **Location:** a How-to guide can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Examples in this repo:** `docs/b/angular.md` and `docs/b/react.md`.
 - **Writing style:** follow `writing_style.md`.
-- **Built-in pieces only:** use Markdown and what Docusaurus provides out of the box: the `DocCardList` theme component for prerequisites and `<details>` for troubleshooting. Don't add custom components, CSS, or other files. Custom styling comes later.
+- **Built-in pieces only:** use Markdown and what Docusaurus provides out of the box: the `DocCardList` theme component for prerequisites and `<details>` for troubleshooting. Don't add custom components, CSS, inline `style` props, or other files. `src/css/custom.css` styles these pieces on every page.
 
 ## Layout
 
@@ -143,7 +143,7 @@ import DocCardList from '@theme/DocCardList';
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary><Symptom></summary>
 
 <Cause and fix.>

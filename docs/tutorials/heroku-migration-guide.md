@@ -456,7 +456,7 @@ You migrated your Heroku apps to Code Capsules using the plan, build, and cutove
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Environment variables differ from Heroku config vars</summary>
 
 Export Heroku config with `heroku config -s -a APP` and set the same keys on each Code Capsules capsule under **Configure → Environment variables**. Rename `DATABASE_URL` only if your framework expects a provider-specific name.

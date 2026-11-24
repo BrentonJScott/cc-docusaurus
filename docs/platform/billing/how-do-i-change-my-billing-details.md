@@ -38,7 +38,7 @@ Update billing contact details on your Team. When you finish, the saved details 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Save does nothing or shows an error</summary>
 
 Fill every required field marked on the form. If the error mentions tax or VAT, check the format matches your country.

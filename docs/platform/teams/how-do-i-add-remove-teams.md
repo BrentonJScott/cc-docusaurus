@@ -38,7 +38,7 @@ Create a Team and remove it when it has no Spaces. When you finish, the Team is 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Remove Team is disabled</summary>
 
 Remove every Space from the Team first. Personal Team cannot be deleted; create and remove only named Teams.

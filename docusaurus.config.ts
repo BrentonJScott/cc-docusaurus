@@ -5,9 +5,14 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
+  title: 'Code Capsules Docs',
   tagline: 'Documentation',
   favicon: 'img/favicon.ico',
+
+  // Inter, the font the Code Capsules docs theme uses
+  stylesheets: [
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -56,7 +61,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Code Capsules Docs',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',

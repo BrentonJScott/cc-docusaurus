@@ -42,7 +42,7 @@ Connect to a private DocumentDB Capsule with the CLI proxy and `mongosh`.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>TLS handshake errors</summary>
 
 Include `tls=true&tlsAllowInvalidCertificates=true` in the connection string when using the local proxy.

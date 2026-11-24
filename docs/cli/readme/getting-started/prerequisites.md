@@ -39,7 +39,7 @@ Meet these requirements before you install the Code Capsules CLI.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>You are unsure where to start on the platform</summary>
 
 Read [What is Code Capsules](/platform/what-is-code-capsules/) for Teams, Spaces, and Capsules, then return to [Install and use the CLI](/cli/readme/getting-started/installation-and-usage/).

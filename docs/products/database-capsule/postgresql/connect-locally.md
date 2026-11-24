@@ -42,7 +42,7 @@ Connect to a private PostgreSQL Capsule with the CLI proxy and `psql`.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Connection refused</summary>
 
 Confirm the proxy process is running and the local port matches your `psql` connection.

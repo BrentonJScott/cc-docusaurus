@@ -43,7 +43,7 @@ Create a PostgreSQL Database Capsule and bind it to a backend Capsule.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The database Capsule does not appear in the bind list</summary>
 
 Confirm both capsules are in the same Space and the database Capsule status is running. Refresh the backend **Configure** tab.

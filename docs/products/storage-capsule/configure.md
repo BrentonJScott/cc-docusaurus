@@ -43,7 +43,7 @@ Manage Storage Capsule settings on the **Details** and **Config** tabs.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Bind does not appear</summary>
 
 Confirm the Storage Capsule is in the same Space as the application capsule.

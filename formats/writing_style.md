@@ -24,7 +24,7 @@ These rules apply to every doc type: How-to guides (`how_to_format.md`), Tutoria
 - Don't name UI frameworks. Say "dropdown," not "ng-select."
 
 ## Page pieces
-Every doc type uses the same built-in Docusaurus pieces, so all pages feel the same. Don't add custom components, CSS, or other files. Custom styling comes later.
+Every doc type uses the same built-in Docusaurus pieces, so all pages feel the same. `src/css/custom.css` styles them on every page, so the markup must match the patterns below exactly. Don't add custom components, CSS, inline `style` props, or other files.
 
 - **Cards for lists of links.** Prerequisites, Next steps, and Related are a `DocCardList` of cards, not bullets. Import it once, directly after the frontmatter: `import DocCardList from '@theme/DocCardList';`. Each card is `{type: 'link', href: '<link>', label: '<emoji> <Title>', description: '<One line.>'}`.
   - The title is two to five words. The description is one line saying what the reader does or finds there.
@@ -43,11 +43,17 @@ Every doc type uses the same built-in Docusaurus pieces, so all pages feel the s
     | 💻 | A tool to install, such as Node.js |
 
   - A card needs a link. Something with nothing to link to, such as "basic knowledge of React," goes in one sentence under the cards.
-- **Numbered lists for steps.** Each step is a list item with a bold title, then its description and any code indented under it. No "Step N:" headings.
-- **Gray boxes with a yellow border for troubleshooting.** Each entry is a collapsed `<details>` block with this exact opening tag, so every page matches:
+- **Numbered lists for steps.** Each step is a list item with a bold title alone on its first line, a blank line, then its description and any code indented under it. No "Step N:" headings. A list styles as steps only when its first item starts with a bold title on its own line:
 
   ```md
-  <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+  1. **Connect the repository**
+
+     On **Configure**, select ...
+  ```
+- **Gray boxes with a yellow border for troubleshooting.** Each entry is a collapsed plain `<details>` block, with no `style` prop:
+
+  ```md
+  <details>
   <summary>The symptom, as the reader sees it</summary>
 
   The cause, then the fix.

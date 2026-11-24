@@ -38,7 +38,7 @@ Create a Space and remove it when it is empty. When you finish, the Space is cre
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Remove Space is disabled or fails</summary>
 
 A Space must have no Capsules left in it. Stop and remove each Capsule, then try **Remove Space** again.

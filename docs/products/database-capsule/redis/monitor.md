@@ -40,7 +40,7 @@ View usage metrics for your Redis Capsule on the **Metrics** tab.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Metrics show no data</summary>
 
 New capsules may need a few minutes of traffic or runtime before charts populate. Confirm the capsule is on and serving requests.

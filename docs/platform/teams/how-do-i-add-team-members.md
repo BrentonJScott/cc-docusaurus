@@ -39,7 +39,7 @@ Invite people to a Team by email. When you finish, they appear in the Team membe
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The invitation email never arrives</summary>
 
 Check spam folders. Confirm the email address. The invitee must create a Code Capsules account with that email to accept.

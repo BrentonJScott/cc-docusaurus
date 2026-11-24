@@ -49,7 +49,7 @@ Code Capsules provisions HTTPS for configured domains. Use registrar docs if DNS
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>HTTPS does not activate</summary>
 
 Confirm the A or CNAME record points to the values from the **Domains** tab and allow time for DNS propagation.

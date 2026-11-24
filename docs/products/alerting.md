@@ -38,7 +38,7 @@ Save alert and notification preferences. When you finish, choices persist after 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Email alerts never arrive</summary>
 
 Confirm email notifications are enabled for each event and your account email on **Account** is correct. Check spam folders.

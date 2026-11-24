@@ -38,7 +38,7 @@ Give Code Capsules access to the GitHub repository you want to deploy.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The repository isn't in the Repos list</summary>
 
 The GitHub app doesn't have access to it. In GitHub, open **Settings** > **Applications**, configure the Code Capsules app, and add the repository.

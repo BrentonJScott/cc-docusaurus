@@ -56,7 +56,7 @@ Log in with the Code Capsules CLI and proxy a Capsule to your local machine.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Login fails with invalid credentials</summary>
 
 Reset your password from the Code Capsules account settings, then run `codecaps login` again.

@@ -48,7 +48,7 @@ Pick a sandbox flavor and resource limits that match your agent workload.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>A command fails because a package is missing</summary>
 
 Run `pip install`, `npm install`, or `apt-get install` inside the sandbox with `exec()`. Sandboxes start from a clean image on every create.

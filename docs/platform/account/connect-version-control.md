@@ -42,7 +42,7 @@ Connect GitHub to Code Capsules. When you finish, your repositories appear in th
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The Git Repository dropdown is empty</summary>
 
 The repository is not granted to Code Capsules, or GitHub is not connected. Repeat **Install** on **Repos** and include that repository in **Only select repositories**.

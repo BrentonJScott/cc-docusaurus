@@ -35,7 +35,7 @@ You also need WhatsApp installed on your phone.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Twilio doesn't reply to the join code</summary>
 
 The code was sent to the wrong number or with a typo. Copy the code exactly from Sandbox Participants and send it to the sandbox number shown there.

@@ -190,7 +190,7 @@ This is the practical consequence of the scale-to-zero architecture: the system 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The orchestrator never receives a webhook result</summary>
 
 Confirm `ORCHESTRATOR_WEBHOOK_URL` is set on the agent Capsule and reachable from the agent at runtime. Check agent logs for HTTP errors when posting `AgentRunResult`.

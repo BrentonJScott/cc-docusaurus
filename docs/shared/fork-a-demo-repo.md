@@ -33,7 +33,7 @@ Fork a Code Capsules demo repository into your GitHub account so you can deploy 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>GitHub says you already have a fork of the repository</summary>
 
 You forked it earlier. Use your existing fork, or delete it in its **Settings** and fork again.

@@ -70,7 +70,7 @@ Deploy the Go Telegram echo bot to a Backend Capsule and see it reply in Telegra
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The bot does not reply in Telegram</summary>
 
 The webhook is invalid. Confirm `URL` matches the public URL and ends in `/`, then restart the capsule and open `/setwebhook` again.

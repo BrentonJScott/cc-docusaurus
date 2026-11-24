@@ -43,7 +43,7 @@ WordPress Capsules replace HTTP-triggered WP-Cron with a platform job that runs 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Scheduled posts are late</summary>
 
 Confirm `DISABLE_WP_CRON` is set and allow up to five minutes for the platform cron interval.

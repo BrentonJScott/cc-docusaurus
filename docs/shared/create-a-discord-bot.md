@@ -49,7 +49,7 @@ Register a Discord bot, copy its token, and add it to your own Discord server.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The bot joins the server but never sees message text</summary>
 
 **Message Content Intent** is off. Enable it on the **Bot** tab and click **Save Changes**.

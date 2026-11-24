@@ -61,14 +61,14 @@ Deploy the WhatsApp echo bot to a Backend Capsule, connect it to Twilio, and see
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The bot doesn't reply to your messages</summary>
 
 Twilio can't reach the bot. Check that the webhook URL ends in `/bot`, the method is `HTTP POST`, and the capsule's build has finished.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Twilio replies that you aren't a sandbox participant</summary>
 
 Your phone hasn't joined the sandbox, or the sandbox session expired. Send the join code to the sandbox number again.

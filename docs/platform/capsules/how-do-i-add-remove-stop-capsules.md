@@ -40,7 +40,7 @@ Add a Capsule, turn it off, and remove it. When you finish, the Capsule was adde
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Delete is permanent</summary>
 
 You cannot recover a removed Capsule. Turn the Capsule off instead if you only need to pause billing temporarily.

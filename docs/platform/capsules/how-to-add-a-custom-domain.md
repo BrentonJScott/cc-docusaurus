@@ -51,14 +51,14 @@ Add a root domain and a subdomain to a Capsule. When you finish, both appear on 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The domain does not verify after several hours</summary>
 
 Confirm the A record uses the static IP from **Domains**, not the Capsule default URL. Subdomains need a CNAME to the root domain that already has the A record.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>You cannot add a second root domain</summary>
 
 Each Capsule supports one root domain. Add extra hosts as subdomains under that root.

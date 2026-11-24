@@ -40,7 +40,7 @@ Share GitHub repositories with a Team. When you finish, Team members can select 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>A repository is missing from the list</summary>
 
 Connect GitHub on **Repos** and grant access to that repository. Then open **Share repositories with Team** again.

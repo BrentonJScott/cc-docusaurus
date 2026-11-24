@@ -65,21 +65,21 @@ Deploy the Node.js Discord echo bot to a Backend Capsule and see it reply in Dis
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The Repository dropdown doesn't list `nodejs-discord-echobot`</summary>
 
 Code Capsules doesn't have access to your fork. Add the repository to the Code Capsules GitHub app, then reopen the capsule wizard.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The bot is online but doesn't reply to messages</summary>
 
 The bot can't read message text. In the Discord Developer Portal, enable **Message Content Intent** on the **Bot** tab, then restart the capsule.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The bot stays offline in the member list</summary>
 
 The `TOKEN` value is wrong or was reset. Copy a new token from the **Bot** tab, update `TOKEN` on the **Config** tab, and restart the capsule.

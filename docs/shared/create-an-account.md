@@ -37,7 +37,7 @@ Sign up for Code Capsules and land on your Personal Team dashboard.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Sign-up says the email address is already in use</summary>
 
 You already have an account with that email address. Log in instead, or reset your password if you've forgotten it.

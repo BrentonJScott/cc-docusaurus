@@ -44,7 +44,7 @@ Create a Persistent Storage Capsule, bind it to a backend app, and read or write
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The backend cannot see files on the volume</summary>
 
 Confirm the storage Capsule is bound on **Config** and that your code uses the exact `PERSISTENT_STORAGE_DIR` value from the Capsule environment.

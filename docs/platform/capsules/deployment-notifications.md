@@ -38,7 +38,7 @@ Save alert and notification preferences for your Capsules. When you finish, your
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>You do not receive email alerts</summary>
 
 Enable email notifications for each event type and confirm your account email on the **Account** tab.

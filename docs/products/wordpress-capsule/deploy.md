@@ -51,7 +51,7 @@ Deploy WordPress on Code Capsules with a managed WordPress Capsule, MySQL, and p
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Installation stalls</summary>
 
 Confirm MySQL and Persistent Storage capsules are healthy on **Details**. Check **Logs** for PHP or database errors.

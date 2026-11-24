@@ -56,14 +56,14 @@ Deploy with Container hosting when you want an always-on web server, runtime log
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The page is blank after a successful build</summary>
 
 Confirm **Path to static content** matches the build output folder. See [Configure](/products/frontend-capsule/configure/) and runtime [Logs](/products/frontend-capsule/logs/).
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Changes did not save</summary>
 
 Refresh the Capsule page and confirm you clicked **Save** on the correct section.

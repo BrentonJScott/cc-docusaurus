@@ -144,7 +144,7 @@ In the **Data capsules** section, click **Bind** next to your Storage Capsule. B
 During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable and restarts your Docker Capsule. Reference this path in your application to read and write files that persist across capsule restarts and redeploys.
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Changes did not save</summary>
 
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.

@@ -48,7 +48,7 @@ Deploy a configurable Agent Capsule on Code Capsules from a template or your own
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The build fails on missing API keys</summary>
 
 Open **Config** and confirm provider environment variables from the template README are set.

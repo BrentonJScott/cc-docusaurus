@@ -38,7 +38,7 @@ Turn on two-factor authentication for your account. When you finish, **2FA** is 
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The verification code is rejected</summary>
 
 Use the current six-digit code from your authenticator app. If the clock on your device is wrong, correct it and generate a new code.

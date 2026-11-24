@@ -55,7 +55,7 @@ Run a public image from Docker Hub, GitHub Container Registry, or another public
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Image deploy fails</summary>
 
 Confirm the registry is public and the tag exists. See [Image deploy fails](/products/docker-capsule/image/updates/#image-deploy-fails).

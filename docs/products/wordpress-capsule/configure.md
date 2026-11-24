@@ -257,7 +257,7 @@ See [Cron](/products/wordpress-capsule/cron/) for the full cron reference.
 | `NGINX_EXTRA_CONF` | — | Custom nginx directives in the server block |
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Changes did not save</summary>
 
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.

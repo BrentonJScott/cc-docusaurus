@@ -106,14 +106,14 @@ Rolling back uses an existing build — it does not trigger a new build or pull.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Cannot start a new build</summary>
 
 Wait for the current build to finish or cancel it.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Build or deploy fails</summary>
 
 For a capsule deployed from Git, see [Troubleshooting builds](/products/docker-capsule/git/builds/). For a capsule deployed from an existing image, see [Image deploy fails](/products/docker-capsule/image/updates/). If the deploy succeeds but your application does not work at runtime, see [Logs](/products/docker-capsule/logs/) and [Container requirements](/products/docker-capsule/container-requirements/).

@@ -43,7 +43,7 @@ Turn on an HTTP health check for a Capsule. When you finish, the Capsule reports
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Replicas never become healthy</summary>
 
 Add a `GET /health` route that returns `200` quickly. Do not protect `/health` with application login. See [Configure a Backend Capsule](/products/backend-capsule/configure/) for Manual timeout settings if startup takes longer than 10 seconds.

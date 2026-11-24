@@ -39,7 +39,7 @@ Create and view backups for your WordPress Capsule.
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Backup stays in progress</summary>
 
 Large databases take longer. If it fails, open **Logs** and retry when the capsule is healthy.
