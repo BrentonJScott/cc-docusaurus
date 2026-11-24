@@ -1,18 +1,32 @@
 ---
-title: "PHP Book Recommendations App"
 slug: "/tutorials/building-a-book-recommendations-app-with-php-sqlite-and-docker"
-description: "Build a book recommendations web app with PHP, SQLite and Docker, then deploy it to Code Capsules. A step-by-step containerized tutorial."
-cover: /gitbook-assets/tutorials/php-book-app-cover-v2.jpg
+title: "PHP Book Recommendations App"
+description: >-
+  Build a book recommendations web app with PHP, SQLite and Docker, then deploy it to Code Capsules. A step-by-step containerized tutorial.
+sidebar_label: "PHP Book Recommendations App"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Building a Book Recommendations App With PHP, SQLite, and Docker
 
+## What you'll build
 
 PHP is one of the first technologies that made dynamic web applications possible, and it’s still widely used today. In this tutorial, we’ll look at how to build a CRUD application with PHP and SQLite. We’ll build a basic book recommendation application where we can **C**reate new entries or **R**ead, **U**pdate, or **D**elete existing ones. Nearly all applications rely on these four CRUD operations, so you’ll be able to extend this application to do anything else you want.
 
 Here’s what the final app will look like:
 
-![final app](/gitbook-assets/tutorials/building-a-book-recommendations-app-with-php-sqlite-and-docker/final-app.png)
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Requirements
 
@@ -58,16 +72,7 @@ Let’s begin by building our app’s index page. This page will use PHP and HTM
    <header>
       <h1>Book Recommendations CRUD demo</h1>
    </header>
-      <table>
-         <thead>
-            <tr>
-               <th>Book Title</th>
-               <th>Author</th>
-               <th colspan="2">Action</th>
-            </tr>
-         </thead>
-      </table>
-   </body>
+      </body>
 </html>
 ```
 
@@ -97,8 +102,6 @@ docker build . -t book-app && docker run -p 8000:80 book-app
 
 This builds a Docker image from the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the container, and maps our local port 8000 to the Docker port 80. Once it’s running, you can visit `http://localhost:8000` in your web browser to see the application.
 
-![frontend](/gitbook-assets/tutorials/building-a-book-recommendations-app-with-php-sqlite-and-docker/frontend.png)
-
 Hit `Ctrl + C` in the terminal window running Docker to stop the server.
 
 ### Adding Books
@@ -123,8 +126,6 @@ Add the following code to your `index.php` file, above the existing table defini
 This sets up a form with inputs and a submit button. Note the hidden field with a value of “create”, which we’ll be using later to differentiate between different actions, such as creating, updating, or deleting books.
 
 If you run the app again, you’ll see something like the following.
-
-![frontend with form](/gitbook-assets/tutorials/building-a-book-recommendations-app-with-php-sqlite-and-docker/frontend-with-form.png)
 
 Now you can type in a book and author name and press the “Save” button, but then the app will crash as we haven’t built the backend yet. Let’s do that next.
 
@@ -188,38 +189,6 @@ This retrieves the books from the database and returns an array containing all o
 
 ```
 <h2>Books</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th colspan="2">Action</th>
-        </tr>
-    </thead>
-    <?php
-    $results = getBooks($db);
-    while ($row = $results->fetchArray()):
-    ?>
-    <tr>
-        <td><?php echo $row["title"]; ?></td>
-        <td><?php echo $row["author"]; ?></td>
-        <td>
-            <button onclick="update_book(
-                <?php echo $row["id"] ?>,
-                '<?php echo $row["title"] ?>',
-                '<?php echo $row["author"] ?>'
-            )">Edit</button>
-        </td>
-        <td>
-            <button onclick="delete_book(
-                <?php echo $row["id"] ?>,
-                '<?php echo $row["title"] ?>',
-                '<?php echo $row["author"] ?>'
-            )">Delete</button>
-        </td>
-    </tr>
-    <?php endwhile; ?>
-</table>
 ```
 
 Here we use our `getBooks` function to retrieve all the books and then a `while` loop to iterate through each one. We add each book as a new table row, displaying the title and the author in their own columns. We also add more columns with an “Edit” and “Delete” button for each book. The buttons call JavaScript functions (that we haven’t written yet), passing in the ID, title, and author of the book that the user wants to edit or delete.
@@ -307,7 +276,9 @@ if ($_POST) {
 
 This now handles the update and delete forms we built, calling `UPDATE` or `DELETE` statements on our database as required. Note that we are still using prepared statements to protect against SQL injection.
 
-### Deploying the Application
+
+## Part 2: Deploy on Code Capsules
+
 
 The application should now run fine on your local machine, but let’s deploy it to the internet, so others can use it too. We’ll:
 
@@ -346,6 +317,27 @@ Now create a new Data Capsule and a Docker Capsule in a single Space in Code Cap
 
 For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set “Network Port” to “80” to match what Apache is running on, and bind the Docker Capsule to the Data Capsule.
 
-![Configuration](/gitbook-assets/tutorials/building-a-book-recommendations-app-with-php-sqlite-and-docker/configuration.png)
-
 Deploy and build the application, and you should see it running on a custom URL that you can share with the world.
+
+## Summary
+
+You followed **PHP Book Recommendations App** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

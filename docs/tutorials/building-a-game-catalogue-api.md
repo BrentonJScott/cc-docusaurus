@@ -1,18 +1,32 @@
 ---
 slug: "/tutorials/building-a-game-catalogue-api"
 title: "Build a Game Catalogue API"
-description: "APIs are a common way to expose data and information on the internet. Many web services and apps run off multiple APIs in the background. Because APIs..."
-cover: /gitbook-assets/tutorials/game-catalogue-cover-v2.jpg
+description: >-
+  APIs are a common way to expose data and information on the internet. Many web services and apps run off multiple APIs in the background. Because APIs...
+sidebar_label: "Build a Game Catalogue API"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Building a Game Catalogue API
 
+## What you'll build
 
 APIs are a common way to expose data and information on the internet. Many web services and apps run off multiple APIs in the background. Because APIs are so ubiquitous, it is very useful to learn the basics of how to build one.
 
 In this tutorial, we’ll build a simple [HTTP REST API](https://www.restapitutorial.com/) to provide Create, Read, Update and Delete (CRUD for short) functions for a personal game catalog. We’ll secure it with [HTTP Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication), while allowing for an easy upgrade to a more secure scheme.
 
-We’ll use [MySQL](https://www.mysql.com/) as the data store, [Node.js](https://nodejs.org/en/) as the application language, and Code Capsules to host all the components.
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Overview and Requirements
 
@@ -81,13 +95,9 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
 
-![backend capsule build logs](/gitbook-assets/root/backend-capsule-build-logs.png)
-
 ### Binding the Capsules
 
 After the two capsules have been successfully built, the next step is to bind them together. To complete this, navigate to the “Configure” tab of your Backend Capsule. Scroll down to the “Bind Data Capsule” section and click on the “Bind” option on the bottom left. This provides the capsule with information on how to connect to the MySQL database.
-
-![sql bind env](/gitbook-assets/root/sql-bind-env.png)
 
 After binding the Capsules, scroll up to the section “Capsule Parameters”. You’ll notice that an environment variable, `DATABASE_URL`, is automatically added containing the connection string to the MySQL database. We’ll use this environment variable in the code to access the MySQL database.
 
@@ -173,8 +183,6 @@ npm run setup
 
 Click “Save” to save this new setting.
 
-![run command setup](/gitbook-assets/tutorials/building-a-game-catalogue-api/run-command-setup.png)
-
 Let’s commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal:
 
 ```
@@ -184,8 +192,6 @@ git push origin
 ```
 
 If you navigate to the “Logs” tab on the Backend Capsule, you should see the script booting up and the result of the `CREATE TABLE` command.
-
-![setup logs](/gitbook-assets/tutorials/building-a-game-catalogue-api/setup-logs.png)
 
 Once this is done, you can change the “Run Command” under the “Configure” tab back to:
 
@@ -273,8 +279,6 @@ git push origin
 
 If you visit the Code Capsules dashboard for the Backend Capsule, you should see a note that it’s building. Once it’s finished building, head over to your site in a browser and navigate to the `/games` route. You should see it return an empty array:
 
-![get results](/gitbook-assets/tutorials/building-a-game-catalogue-api/get-results.png)
-
 This works, but is not very interesting! Let’s add a create route so that we can add new game entries.
 
 #### Adding a Create Route
@@ -358,8 +362,6 @@ Add the following JSON payload to the body:
 
 Click “Send”, and your API should send back the newly inserted game, along with its `id`:
 
-![post game](/gitbook-assets/tutorials/building-a-game-catalogue-api/post-game.png)
-
 #### Adding an Update Route
 
 Now that we can add a game, and read back the catalog, we might need to update an entry if we find an entry has a mistake. This is usually expressed as the [HTTP PUT method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods). As a convention, the `id` of the document to update is passed in the URL path, and the updated document values are sent in the body.
@@ -394,8 +396,6 @@ In the `queryResults` callback, we set the `req.body.id` field to the `id` from 
 
 Commit and push this code to deploy it to Code Capsules. Now, you can test this route in Postman, by updating the HTTP method to `put`. Add the ID `1` to the games path, and change some of the information in the body. Click “Send” and you should see the API return the updated document.
 
-![put game](/gitbook-assets/tutorials/building-a-game-catalogue-api/put-game.png)
-
 #### Adding a Delete Route
 
 The last route we need to add is a delete route to remove a game entry. Luckily, HTTP has a [`DELETE` method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) as part of its standard.
@@ -424,8 +424,6 @@ Because we don’t have any record to return (we deleted it!), we just return a 
 
 Great, it’s time to commit this code, push it up and test it. You should be able to select the “DELETE” verb in Postman, and add in a game `id` to the route. Click “Send”, and you should see a blank reply, with the status code as `200 OK`.
 
-![delete game](/gitbook-assets/tutorials/building-a-game-catalogue-api/delete-game.png)
-
 #### Adding Authentication
 
 We’ve built a basic CRUD API, and we can do all the usual operations on it. However, anyone can access it. Let’s add some authentication to take care of that issue.
@@ -448,8 +446,6 @@ const BasicStrategy = require('passport-http').BasicStrategy;
 We’ll need a place to store the user credentials, so we can check them against the credentials the client supplies. We can store them in the environment settings, as they’ll be stored in plain text, i.e. unencrypted. In a production application, you would store them in the database, with the password hashed and salted. We’ll leave that option as something for you to explore.
 
 Head over to the “Config” page on your Backend Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, and click `Update Capsule` when you are done.
-
-![env user password](/gitbook-assets/tutorials/building-a-game-catalogue-api/env-user-password.png)
 
 Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the `var gamesRouter = require('./routes/games');` line in `app.js`:
 
@@ -486,15 +482,9 @@ We set the `session` flag to false, as the convention for APIs is to require cre
 
 Commit and push this updated code to deploy it. Once it is running, if you try any of the routes in Postman, you should see an authentication error message.
 
-![auth error](/gitbook-assets/tutorials/building-a-game-catalogue-api/auth-error.png)
-
 To send the credentials along with your request, select the “Authorisation” tab in Postman. Choose “Basic Auth” from the dropdown list, and enter the credentials you set in the right-hand pane.
 
-![auth settings](/gitbook-assets/tutorials/building-a-game-catalogue-api/auth-settings.png)
-
 If you try your query again, it should let you pass, and come back with the usual response.
-
-![auth success](/gitbook-assets/tutorials/building-a-game-catalogue-api/auth-success.png)
 
 ### Next Steps
 
@@ -503,3 +493,26 @@ Now that you’ve built an HTTP REST CRUD API, here are several more things to t
 * Add more routes. For example, you could add a review for each game.
 * Try different authentication schemes. There are a lot on Passport to choose from. It could be interesting to implement an OAuth 2.0 scheme, as these are often used in production.
 * Try adding validation to the routes, to ensure that the incoming data is in the correct format and has all the necessary fields.
+
+## Summary
+
+You followed **Build a Game Catalogue API** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

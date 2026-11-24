@@ -1,12 +1,41 @@
 ---
-title: "MEAN/MERN/MEVN Project Structure"
 slug: "/tutorials/best-practices-for-structuring-mean-mern-mevn-projects"
-description: "How to structure MEAN, MERN and MEVN projects: folder layout, separation of concerns, and conventions that keep full-stack JS apps maintainable."
-cover: /gitbook-assets/tutorials/best-practices-cover-v2.jpg
+title: "MEAN/MERN/MEVN Project Structure"
+description: >-
+  How to structure MEAN, MERN and MEVN projects: folder layout, separation of concerns, and conventions that keep full-stack JS apps maintainable.
+sidebar_label: "MEAN/MERN/MEVN Project Structure"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Best Practices for Structuring MEAN/MERN/MEVN Projects
 
+## Overview
+
+How to structure MEAN, MERN and MEVN projects: folder layout, separation of concerns, and conventions that keep full-stack JS apps maintainable.
+
+## Why it matters
+
+Following consistent structure reduces bugs when you deploy full-stack JavaScript apps on Code Capsules.
+
+## How it works
+
+The sections below describe recommended folder layout, environment configuration, and deployment practices.
+
+## When to use it
+
+Apply these practices when starting a new MEAN, MERN, or MEVN repository or before your first production deploy.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials/getting-started-with-mean-stack-a-step-by-step-tutorial', label: '🎓 MEAN stack tutorial', description: 'Walk through a MEAN deploy.'},
+    {type: 'link', href: '/tutorials/build-a-mern-job-board', label: '🎓 MERN job board', description: 'Build a MERN sample app.'},
+    {type: 'link', href: '/full-stack/mean-stack', label: '🛠️ Deploy MEAN', description: 'Deploy the MEAN stack.'},
+  ]}
+/>
 
 ### Introduction
 
@@ -134,25 +163,19 @@ Always use a version control system like Git to manage your source code. Adopt a
 
 *   **Registration on Code Capsules**: Start by registering an account on Code Capsules. Follow the steps to create your account and get started.
 
-    ![Register a new account on Code Capsules](/gitbook-assets/tutorials/code-capsules-register-new-account.png)
-*   **Logging into Code Capsules**: Once registered, log in to your Code Capsules account to begin setting up your project.
+    *   **Logging into Code Capsules**: Once registered, log in to your Code Capsules account to begin setting up your project.
 
-    ![Code Capsules login page](/gitbook-assets/tutorials/code-capsules-login-existing-account.png)
-*   **Creating a Team**: Create a team within Code Capsules for collaborative project management.
+    *   **Creating a Team**: Create a team within Code Capsules for collaborative project management.
 
-    ![Code Capsules Dashboard create a new team](/gitbook-assets/tutorials/code-capsules-create-new-team.png)
-*   **Setting Up a New Space**: Create a new space in Code Capsules for hosting your projects. Spaces can be tailored for different environments like staging or production.
+    *   **Setting Up a New Space**: Create a new space in Code Capsules for hosting your projects. Spaces can be tailored for different environments like staging or production.
 
-    ![Code Capsules create a new space](/gitbook-assets/tutorials/code-capsules-create-new-space.jpg)
-
-#### Deploying Your MEAN Stack Application
+    #### Deploying Your MEAN Stack Application
 
 *   **Creating and Configuring a New Capsule**: Start a new capsule within your space. The capsule serves as a container for your project.
 
     Choose the type of capsule based on your needs (frontend, backend, or Docker).
 
-    ![Code Capsules - Capsule details](/gitbook-assets/tutorials/code-capsules-captule-details.png)
-* **Configuring Environment Variables**: Set environment variables in your capsule settings. This is crucial for database connections and other configuration details.
+    * **Configuring Environment Variables**: Set environment variables in your capsule settings. This is crucial for database connections and other configuration details.
 *   **Uploading Code and Dependencies**: Use Code Capsules’ interface to upload your project code or connect to your GitHub repository.
 
     Ensure that all dependencies are specified in your `package.json` files for both frontend and backend.

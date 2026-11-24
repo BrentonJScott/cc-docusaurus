@@ -1,16 +1,32 @@
 ---
-title: "Host a Go AI Telegram Bot"
 slug: "/tutorials/create-and-host-go-ai-telegram-bot"
-description: "Build a Go Telegram bot that replies with AI and a custom personality, then deploy it to production on Code Capsules. Step-by-step tutorial."
-cover: /gitbook-assets/tutorials/telegram-bot-cover-go-v2.jpg
+title: "Host a Go AI Telegram Bot"
+description: >-
+  Build a Go Telegram bot that replies with AI and a custom personality, then deploy it to production on Code Capsules. Step-by-step tutorial.
+sidebar_label: "Host a Go AI Telegram Bot"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # How to Create and Host a Go Telegram Bot on Code Capsules
 
+## What you'll build
 
 _This guide uses Go. You can find the Node.js version_ [_here_](/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules/) _or the Python version_ [_here_](/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules/).
 
 In this tutorial we'll create a [Telegram bot](https://core.telegram.org/bots/) from scratch using [Go](https://go.dev/) and host it in a [new Capsule](https://app.codecapsules.io/new/capsule?capsuleType=backend). The bot will start with the basic functionality of checking the current air temperature of a given city. Then, we'll extend its functionality by adding AI capabilities using Google AI Studio.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Getting Started
 
@@ -412,11 +428,11 @@ Open Telegram, find your bot by username, and test the commands:
 * Send `/askGoku What is your favorite food?` to get a response from Goku.
 * Send any other text to see the welcome message.
 
-![Working Telegram Bot](/gitbook-assets/tutorials/working-telegram-bot.png)
-
 Check your terminal for any error logs if something doesn't work. Once you've verified that all commands work as expected, you're ready to deploy.
 
-### Deploy the Bot
+
+## Part 2: Deploy on Code Capsules
+
 
 We will now deploy the bot on Code Capsules and make it more efficient by using webhooks instead of polling.
 
@@ -424,11 +440,7 @@ Follow [this quick guide](/backend/go/) to set up your Code Capsules account and
 
 Once it is up and running, navigate to the **Config** tab of your Capsule and add a `BOT_TOKEN` environment variable, giving it the value of your bot's access token. Similarly, add your `WEATHER_API_KEY` and `GEMINI_API_KEY`.
 
-![Add Environment Variables](/gitbook-assets/tutorials/add-environment-variables.png)
-
 Commit your bot code and push to your GitHub repository. Then, in the **Deploy** tab, find **Capsule Branch** and click **Edit**. Select your new repository from the drop down menu (if it doesn't show up, select **Configure Git for Code Capsules** and follow the steps) and click **Save**. This will trigger a new build of the project and the bot will go live.
-
-![Add Environment Variables](/gitbook-assets/tutorials/update-git-branch.png)
 
 We can then run the same tests as we ran locally (ensure the local instance is stopped) to check that the bot is still working as intended.
 
@@ -513,3 +525,26 @@ The handler immediately returns an HTTP 200 OK response to Telegram. The actual 
 The `processUpdate()` function contains the same command handling logic as before (temperature, askGoku, etc.), but it's now called for each webhook update instead of being in a polling loop.
 
 Now you can simply push the code to your GitHub repo, and your Code Capsules instance will automatically rebuild and deploy the changes to production.
+
+## Summary
+
+You followed **Host a Go AI Telegram Bot** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

@@ -1,17 +1,33 @@
 ---
-title: "Deploy Paperclip on Code Capsules"
 slug: "/tutorials/deploy-paperclip-ai-orchestration-on-code-capsules"
+title: "Deploy Paperclip on Code Capsules"
 description: >-
-  Deploy Paperclip, the open-source AI agent orchestration platform, on Code
-  Capsules using Docker, PostgreSQL, and Persistent Storage Capsules.
+  Deploy Paperclip, the open-source AI agent orchestration platform, on Code Capsules using Docker, PostgreSQL, and Persistent Storage Capsules.
+sidebar_label: "Deploy Paperclip on Code Capsules"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Deploy Paperclip AI Orchestration on Code Capsules
+
+## Part 1: Build and deploy
+
+## What you'll build
 
 [Paperclip](https://paperclip.ing) is an open-source orchestration platform for AI agents. It gives you a company structure — org charts, goals, budgets, and scheduled heartbeats — for running agents like Claude, Codex, and Gemini autonomously. Think of it as the control plane that turns individual AI agents into a coordinated team.
 
 In this tutorial we'll fork Paperclip, apply fixes required for cloud deployment, and deploy it on Code Capsules using three capsules: a Docker Capsule for the app, a PostgreSQL Database Capsule for persistence, and a Persistent Storage Capsule for configuration and file uploads.
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
 ## Prerequisites
 
 * A [Code Capsules](https://www.codecapsules.io/) account
@@ -253,3 +269,26 @@ The Paperclip Docker image is a multi-stage build that:
 7. Starts the server on port 3100, serving both the API and UI from the same process
 
 The server runs in `authenticated` mode, meaning all access requires a logged-in account.
+
+## Summary
+
+You followed **Deploy Paperclip on Code Capsules** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

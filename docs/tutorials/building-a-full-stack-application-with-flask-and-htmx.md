@@ -1,27 +1,32 @@
 ---
-title: "Full Stack App with Flask and HTMx"
 slug: "/tutorials/building-a-full-stack-application-with-flask-and-htmx"
-description: "Build a full-stack app with Flask and HTMX for server-rendered interactivity without a JS framework, then deploy it to Code Capsules."
-cover: /gitbook-assets/tutorials/flask-htmx-cover-v2.jpg
+title: "Full Stack App with Flask and HTMx"
+description: >-
+  Build a full-stack app with Flask and HTMX for server-rendered interactivity without a JS framework, then deploy it to Code Capsules.
+sidebar_label: "Full Stack App with Flask and HTMx"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Building a Full Stack Application with Flask and HTMx
 
+## What you'll build
 
 This tutorial explains how to build an application with Flask and HTMx. If you want to host an HTMx and Flask application on our PaaS, you can find a short deployment guide here that uses the same pro
 
 Recent trends in the modern web saw single page frameworks like React.js and Angular take over traditional multipage websites, mainly due to the lack of interactivity offered by HTML. It is worth noting however, that single page applications (SPAs) brought this interactivity at the cost of added complexity.
 
-This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
+## Prerequisites
 
-* Making it possible to perform partial page reloads in HTML
-* Support for PUT and DELETE methods in addition to GET and POST
-* Not being limited to click and submit event triggers only
-* Lightweight set up – no additional dependencies need to be installed to get it working
-
-In this tutorial, we’ll explore the benefits of HTMx by building a full stack application using Flask and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
-
-![Flask Htmx](/gitbook-assets/tutorials/building-a-full-stack-application-with-flask-and-htmx/flask-htmx.png)
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Overview and Requirements
 
@@ -71,8 +76,6 @@ source env/bin/activate
 ```
 
 After activating the virtual environment, the name `env` should appear in brackets on the leftmost part of your terminal in your current line. This signals that the activation was successful.
-
-![Venvactive](/gitbook-assets/tutorials/building-a-full-stack-application-with-flask-and-htmx/venvactive.png)
 
 #### Installing Dependencies
 
@@ -166,34 +169,7 @@ The code in between the `<style>` tag adds CSS to style our frontend to make it 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Book Title</th>
-            <th scope="col">Book Author</th>
-          </tr>
-        </thead>
-        <tbody id="new-book" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
-            
-{% for book in books %}
-            <tr>
-                <td>{{book.Book.title}}</td>
-                <td>{{book.Author.name}}</td>
-                <td>
-                    <button class="btn btn-primary" 
-                        hx-get="/get-edit-form/{{book.Book.book_id}}">
-                        Edit Title
-                    </button>
-                </td>
-                <td>
-                    <button hx-delete="/delete/{{book.Book.book_id}}" class="btn btn-primary">Delete</button>
-                </td>
-            </tr>
-            {% endfor %}
-
-        </tbody>
-    </table>
-</body>
+    </body>
 ```
 
 There are a couple of attributes here that aren't used in traditional HTML. Let's go over them one by one:
@@ -453,8 +429,6 @@ If the user goes through with updating the book title, then the `/update` route 
 
 Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `python3 run.py`. This should start up a development server on port 5000. Open your browser at `http://127.0.0.1:5000/` and you should see your app running:
 
-![Flask Htmx](/gitbook-assets/tutorials/flask-htmx.png)
-
 Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
 
 ```sh
@@ -466,3 +440,26 @@ git push origin
 We’ve shown you how to build a full-stack Flask HTMx application from scratch, and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
 
 You can find the complete code shown above in [this GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).
+
+## Summary
+
+You followed **Full Stack App with Flask and HTMx** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

@@ -1,25 +1,32 @@
 ---
-title: "Full Stack App with Express and HTMx"
 slug: "/tutorials/building-a-full-stack-application-with-express-and-htmx"
-description: "Build a full-stack app with Express and HTMX for dynamic, server-rendered pages without a heavy frontend framework, then deploy on Code Capsules."
-cover: /gitbook-assets/tutorials/express-htmx-cover-v2.jpg
+title: "Full Stack App with Express and HTMx"
+description: >-
+  Build a full-stack app with Express and HTMX for dynamic, server-rendered pages without a heavy frontend framework, then deploy on Code Capsules.
+sidebar_label: "Full Stack App with Express and HTMx"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Building a Full Stack Application With Express and HTMx
 
+## What you'll build
 
 Single page frameworks like Angular, React, and Vue have become the go-to solution for frontend development recently. This shift from traditional multipage websites is mainly due to the lack of interactivity offered by HTML. It’s worth noting, however, that single page applications (SPAs) aren’t a perfect solution, as they introduce an added layer of complexity by installing a host of other dependencies that need to be linked together before deploying your site to production.
 
 This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
 
-* Making it possible to perform partial page reloads in HTML.
-* Support for PUT and DELETE methods in addition to GET and POST.
-* Not being limited to click and submit event triggers only.
-* Lightweight set up – no additional dependencies need to be installed to get HTMx working.
+## Prerequisites
 
-In this tutorial, we’ll explore the benefits of HTMx by building a full-stack application using Express and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
-
-![Book App](/gitbook-assets/tutorials/book-app.png)
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Overview and Requirements
 
@@ -116,29 +123,7 @@ The code underneath the `<style>` tag adds CSS to style our frontend to make it 
     <input type="text" placeholder="Book Author" name="author" class="form-control mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <table>
-    <thead>
-      <tr>
-        <th>Book Title</th>
-        <th>Book Author</th>
-      </tr>
-    </thead>
-    <tbody id="new-book" hx-target="closest tr" hx-swap="outerHTML swap:0.5s">
-      <each book in books>
-        <tr>
-          <td>#{book.name}</td>
-          <td>#{book.author}</td>
-          <td>
-            <button class="btn btn-primary" hx-get="/get-edit-form/${book.id}">Edit Book</button>
-          </td>
-          <td>
-            <button hx-delete="/delete/${book.id}" class="btn btn-primary">Delete</button>
-          </td>
-        </tr>
-      </each>
-    </tbody>
-  </table>
-</body>
+  </body>
 ```
 
 There are a couple of attributes here that aren’t used in traditional HTML. Let’s go over them one by one:
@@ -403,8 +388,33 @@ git push -u origin main
 
 Your remote repository will now be up-to-date with your local one.
 
-### Deploy to Code Capsules
+
+## Part 2: Deploy on Code Capsules
+
 
 The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a persistent storage Data Capsule and a Backend Capsule and bind the two together to deploy the app. You can follow this [reference guide](/persistent-storage/) to see how to do so in greater detail.
 
 That’s it! Your “Book Recommendations” app should be live and fully functional now.\\
+
+## Summary
+
+You followed **Full Stack App with Express and HTMx** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

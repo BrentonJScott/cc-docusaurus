@@ -1,16 +1,32 @@
 ---
-title: "Getting Started with MEAN Stack"
 slug: "/tutorials/getting-started-with-mean-stack-a-step-by-step-tutorial"
-description: "Learn the MEAN stack step by step: build a full-stack app with MongoDB, Express, Angular and Node.js, then deploy it to Code Capsules."
-cover: /gitbook-assets/tutorials/mean-stack-cover-v2.jpg
+title: "Getting Started with MEAN Stack"
+description: >-
+  Learn the MEAN stack step by step: build a full-stack app with MongoDB, Express, Angular and Node.js, then deploy it to Code Capsules.
+sidebar_label: "Getting Started with MEAN Stack"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Getting Started With MEAN Stack: A Step-by-Step Tutorial
 
+## What you'll build
 
 As a web developer, diving into the world of full-stack development can be both exciting and challenging. One of the popular choices for building robust web applications is the MEAN stack. MEAN stands for MongoDB, Express.js, Angular, and Node.js – a powerful combination of technologies that allows you to create modern, scalable, and efficient web applications.
 
 In this step-by-step tutorial, we will guide you through the process of building a production-ready MEAN stack application. By the end of this tutorial, you will have a solid understanding of how these technologies work together and be ready to start your own MEAN stack project.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Prerequisites
 
@@ -127,7 +143,9 @@ mongodb
 
 3\. Create MongoDB models and routes to handle data storage and retrieval in your Express.js application.
 
-### Deploy Your MEAN Stack Application
+
+## Part 2: Deploy on Code Capsules
+
 
 1\. Choose a hosting provider for your MEAN stack application. Popular options include Heroku, AWS, and Microsoft Azure.
 
@@ -140,3 +158,26 @@ mongodb
 Congratulations! You’ve now built and deployed a production-ready MEAN stack application. This tutorial provides a solid foundation for creating web applications using the MEAN stack, but there is still much more to explore and learn. As you gain experience, you can enhance your application with features like user authentication, data validation, and more.
 
 Happy coding, and best of luck with your MEAN stack journey!
+
+## Summary
+
+You followed **Getting Started with MEAN Stack** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

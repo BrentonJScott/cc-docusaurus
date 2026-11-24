@@ -1,20 +1,32 @@
 ---
-title: "Build a Monitoring Slackbot"
 slug: "/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications"
+title: "Build a Monitoring Slackbot"
 description: >-
-  Create a bot that monitors the state of your applications and reports any
-  status changes via Slack.
-cover: /gitbook-assets/tutorials/slackbot-cover-v2.jpg
+  Create a bot that monitors the state of your applications and reports any status changes via Slack.
+sidebar_label: "Build a Monitoring Slackbot"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Build a Slackbot with Node.js to Monitor your Applications
 
+## What you'll build
 
 Slack is a really useful communication tool when working in teams. Many developers find themselves using it almost constantly when working on projects.
 
 One of the standout features of Slack is the rich API it exposes, to allow developers to integrate with it.
 
-In this tutorial, we'll use the Slack API to give our apps a voice. We'll be able to talk to our apps running on Code Capsules, to ask about their status and see if they are up and running. They will also be able to alert us when they boot up, so we know if they have been successfully deployed or restarted.
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Overview and Requirements
 
@@ -69,8 +81,6 @@ npm install express body-parser superagent
 
 Now let's create an `index.js` file, which will be the main file for our app. A simple way to do this is to open up your project folder in an editor, like [Visual Studio Code](https://code.visualstudio.com). Now you can create a new `index.js` file.
 
-![Create Index.js in Visual Studio](/gitbook-assets/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications/create-indexjs.gif)
-
 Save this blank file. Now add another file named `.gitignore` and add this lines to it, and save:
 
 ```
@@ -113,19 +123,11 @@ For this tutorial, we would like the following two functions:
 
 Our first requirement can be configured on the Slack side by clicking "OAuth & Permissions" on the left panel. Scroll down to the _Scopes_ section, click "Add an OAuth Scope" under the _Bot Token Scopes_ section, and choose "Chat:Write" from the options list. This now allows our bot to initiate and post messages to us when it starts up.
 
-![Select Scopes Slack](/gitbook-assets/tutorials/slack-scopes.png)
-
 Our second requirement can be configured by setting up a _slash command_. Click on the "Slash Commands" menu item on the left, under _Features_.
-
-![Slash Command Menu](/gitbook-assets/tutorials/choose-slash-command.png)
 
 Then click "Create a new Command". We'll give the command the name _/stats_. For the _Request URL_, copy the _Domain_ name from your Code Capsules Details page.
 
-![Backend Url](/gitbook-assets/tutorials/backend-url.png)
-
 Paste your domain into the _Request URL_ box on Slack, and add `/slack/command/stats` to the end of it. We can fill in a description as well, something like 'Returns key stats from the app'.
-
-![Create Command](/gitbook-assets/tutorials/create-command.png)
 
 Great, now we can click "Save" at the bottom of the page to finish setting up our slash command.
 
@@ -162,21 +164,13 @@ We could just put this token in our code. However, this is not really considered
 
 To add the access token to the environment in Code Capsules, head over to the capsule we created earlier and click on the "Config" tab. Now we can fill in our environment variable for the access token. Add a new environment variable with the name `SLACK_BOT_TOKEN` and set the value to the token copied from Slack.
 
-![Slack Bot Token](/gitbook-assets/tutorials/slack-bot-token.png)
-
 Now that we've added our access token, we need to find the ID of the channel we want to post to. Find a channel on your Slack workspace that you want to send to, or create a new channel. Now we can get the channel ID by right-clicking on the channel name to bring up a context menu. Now, we can choose "Copy Link" from that menu:
-
-![Slack Channel ID](/gitbook-assets/tutorials/copy-slack-channel-id.png)
 
 If we paste that link, we get something like `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
 
 Let's add this to our environment variables as well, as it keeps all the configurations in one place. Head back over to your Capsule, and add in an environment variable with the name `SLACK_CHANNEL_ID` and set the value to the channel ID we extracted above. Click the "Update & Start Build" button to save the changes to the environment variables.
 
-![Slack Channel Id](/gitbook-assets/tutorials/slack-channel-id.png)
-
 We also need to invite our bot to the chosen channel, so that it will be able to post there. Go to the channel, and @ mention the name you gave the bot to add it. Click "Invite Them" when Slack prompts you.
-
-![Invite Bot](/gitbook-assets/tutorials/invite-bot.png)
 
 Now let's add the code to call Slack on startup, and write a message to our channel. We can modify our boilerplate code above to make an HTTP POST to the endpoint `https://slack.com/api/chat.postMessage`. We'll use [Superagent](https://www.npmjs.com/package/superagent) to make the call.
 
@@ -246,8 +240,6 @@ git push origin
 
 If all goes well, in a few minutes you should get a message on your Slack channel from your code!
 
-![Startup Message](/gitbook-assets/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications/startup-message.png)
-
 #### Adding a slash command
 
 Now that our app can send us messages, can we send messages back to it? Let's implement the slash command, which will allow us to ask our app for some of its important stats and info. This time, Slack will send an HTTP POST to our app. If we take a look at the [Slack docs](https://api.slack.com/interactivity/slash-commands#app_command_handling) again, we notice that Slack will send the slash command instruction to the URL we specified in the command setup earlier. We can also see that the POST payload is in the format [`application/x-www-form-urlencoded`](https://www.w3schools.com/html/html_urlencode.asp). We can set up a [`body-parser`](https://github.com/expressjs/body-parser/tree/1.19.0#bodyparserurlencodedoptions) to interpret this data.
@@ -309,13 +301,9 @@ After the code has finished deploying on Code Capsules (it should send a startup
 
 Type `/stats` in the channel we chose earlier. After a second or two, the app should respond with its current vital stats and information.
 
-![Slash Command Test](/gitbook-assets/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications/slash-command-test.png)
-
 #### Adding verification
 
 We can ask our app via Slack (which we use constantly!) how it's doing; pretty cool, huh? There is a problem, though. If we call our slash command endpoint from anywhere else, for instance, if we just call it using [Postman](https://www.postman.com), it also returns all the information and stats! This would not be good for a production system, as sensitive information will be easily found by attackers.
-
-![Postman Slash Command](/gitbook-assets/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications/postman-slash-command.png)
 
 So, how can we ensure that the request comes from our Slack workspace? Luckily, Slack has thought about this and sends a [message signature with its requests](https://api.slack.com/authentication/verifying-requests-from-slack). From the [guide in Slack's docs](https://api.slack.com/authentication/verifying-requests-from-slack#verifying-requests-from-slack-using-signing-secrets__a-recipe-for-security__step-by-step-walk-through-for-validating-a-request), we can put together some code to check that the request is legitimately from Slack. The main parts of the check, copied from the docs, look like this:
 
@@ -393,11 +381,7 @@ Then, on the first few lines of the function, we get the timestamp Slack sends f
 
 After that, we retrieve the Slack Signing Secret from our environment variables. Let's get our Signing Secret from Slack and add it to the Code Capsules environment now. Head over to your Slack app dashboard, and click on "Basic Information" in the left-hand sidebar. Then scroll down to _App Credentials_, and look for the _Signing Secret_. Click "Show", and copy the secret.
 
-![Slack Signing Secret](/gitbook-assets/tutorials/slack-signing-secret.png)
-
 Now, head over to your Capsule on Code Capsules and click on the _Config_ tab. Add a new environment variable with _Name_ `SLACK_SIGNING_SECRET` and paste in the value of the _Signing Secret_ we copied above. Click "Update & Start Build" to save the changes.
-
-![Slack Signing Secret 1](/gitbook-assets/tutorials/slack-signing-secret-1.png)
 
 Ok, back to the function. After we retrieve the signing secret from the environment variables, we read out the hash calculated and sent by Slack from the headers using `const slack_signature = req.headers['x-slack-signature']`. This will be a string that looks something like `v0=xxxxxxxxxxxxxxxxxxxxxxx`, where the `xxxx` represents the actual hash value. We need to split the version identifier `v0` from the beginning of the string, though, as this is not part of the hash value. We do this in the next line, `const [version, slack_hash] = slack_signature.split('=')`. Now we have both the version and the hash string in variables that we can access.
 
@@ -439,8 +423,6 @@ git push origin
 
 Once the code is up and running on Code Capsules, test it out to see that it still responds to the Slack slash command. Then you can try again from Postman or other similar apps, and see that it will not send any info without a valid signature (you can use `v0=a2114d57b48eac39b9ad189dd8316235a7b4a8d21a10bd27519666489c69b503` as an example `x-slack-signature` parameter):
 
-![401 Auth](/gitbook-assets/tutorials/build-a-slackbot-with-node.js-to-monitor-your-applications/401-auth.png)
-
 ### Things to Try Next
 
 What else can we do? It's almost endless!
@@ -448,3 +430,26 @@ What else can we do? It's almost endless!
 * Add this code to an existing app you have built to get easy info straight from Slack!
 * Add in more slash commands for more info – for example, you could get the current user count on your app, a number of database records, etc. Basically, any information you could need for [DevOps](https://en.wikipedia.org/wiki/DevOps).
 * Look at some of the other functionality Slack offers for integration; for example, using [modals](https://api.slack.com/surfaces/modals) or listening in for [keywords in messages](https://api.slack.com/messaging/managing).
+
+## Summary
+
+You followed **Build a Monitoring Slackbot** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

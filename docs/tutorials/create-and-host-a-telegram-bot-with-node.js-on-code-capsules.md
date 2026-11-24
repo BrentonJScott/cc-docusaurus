@@ -1,16 +1,32 @@
 ---
-title: "Host a Node.js Telegram Bot"
 slug: "/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules"
-description: "Build a Node.js Telegram bot that automates replies, then deploy and host it on Code Capsules. Full walkthrough from Bot API token to production."
-cover: /gitbook-assets/tutorials/telegram-bot-cover-nodejs-v2.jpg
+title: "Host a Node.js Telegram Bot"
+description: >-
+  Build a Node.js Telegram bot that automates replies, then deploy and host it on Code Capsules. Full walkthrough from Bot API token to production.
+sidebar_label: "Host a Node.js Telegram Bot"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # How to Create and Host a Node.js Telegram Bot on Code Capsules
 
+## What you'll build
 
 _This guide uses Node.js. You can find the Python version_ [_here_](/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules/) _or the Go version_ [_here_](/tutorials/create-and-host-go-ai-telegram-bot/).
 
 In this tutorial, we'll extend a boilerplate Express application on Code Capsules to create a Telegram bot in [Node.js](https://nodejs.org/en/about/) that tracks and responds with current Ethereum prices.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Getting Started
 
@@ -144,10 +160,33 @@ expressApp.listen(port, () => console.log(`Listening on ${port}`));
 
 Navigate to the capsule you deployed at the start of this tutorial and copy its domain from the "Details" tab. In the code snippet above, replace `<YOUR_CAPSULE_URL>` with the domain you just copied.
 
-### Deploying the Bot
+
+## Part 2: Deploy on Code Capsules
+
 
 On Code Capsules, navigate to the "Config" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token.
 
-![Add a BOT\_TOKEN Environment Variable](/gitbook-assets/tutorials/bot-token-env-variable.png)
-
 Now, head over to your local development environment and commit your changes if you haven't already. Run `git push` in a terminal window while in the project's root folder, to deploy your bot to production!
+
+## Summary
+
+You followed **Host a Node.js Telegram Bot** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>
