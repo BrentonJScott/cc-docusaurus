@@ -2,6 +2,7 @@
 
 ## Setup
 - Pull the latest code from both repos before you start.
+- `DOCUMENTED_FEATURES.md` is only read from the site repo not from the docs repo.
 - Don't rely on memory from previous runs. Always work from what's on disk now.
 - Finish the git sync before reading any files. Use one shell command that syncs git and then prints `DOCUMENTED_FEATURES.MD`.
 - Don't read `DOCUMENTED_FEATURES.MD` at the same time as, or before, any `git fetch`, `git pull`, or `git reset`.

@@ -3,6 +3,7 @@
 A How-to guide takes a reader who already knows what they want to do to one goal, such as deploying an Angular capsule. It's task-focused: no teaching, no background. `FORMAT.MD` checks How-to guides against this file. A guide that breaks any rule marked **must** fails the format check.
 
 - **Use it for:** deployment guides and other single-task pages.
+- **Location:** a How-to guide can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Example in this repo:** `docs/guides/angular.md` (Deploying an Angular capsule).
 - **Writing style:** follow `writing_style.md`.
 
@@ -29,7 +30,6 @@ Content such as "Setup," "Create an Account," "Next steps," or "Video guides" ei
 
 ## Goal
 - **Must** be one sentence describing what the reader sees on screen when they've finished, such as "The capsule shows a build in progress on the **Builds** tab."
-- It matches the goal for this feature in `cc_documented_features.md`.
 
 ## Steps
 - Steps contain only the actions needed to reach the goal, starting from a reader who has every prerequisite.
@@ -41,7 +41,7 @@ Content such as "Setup," "Create an Account," "Next steps," or "Video guides" ei
 ## Screenshots
 - Screenshots **must** be grouped in this section, not placed inside steps.
 - Each screenshot has alt text and a one-line caption naming its step, such as "Step 5: Connect the repository."
-- Image files live in `static/img/guides/<guide-name>/`.
+- Image files live in `static/img/<docs-folder>/<guide-name>/`, where `<docs-folder>` is the folder the guide is in under `docs/`.
 
 ## Troubleshooting
 - **Must** have at least one entry.
@@ -83,7 +83,7 @@ doc_version: drift
 
 ## Screenshots
 
-![<Alt text>](/img/guides/<guide-name>/step-1.png)
+![<Alt text>](/img/<docs-folder>/<guide-name>/step-1.png)
 Step 1: <Caption>.
 
 ## Troubleshooting
