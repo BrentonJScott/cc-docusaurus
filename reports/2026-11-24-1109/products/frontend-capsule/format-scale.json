@@ -7,7 +7,8 @@
   "goal": "Expect to see new resources saved in the scale tab",
   "section": "Frontend Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": false,
   "matchReason": "fuzzy match",
   "matchScore": 0.82,
   "checkResults": [

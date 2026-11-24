@@ -11,27 +11,27 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 - Format **pass:** 118
 - Format **fail:** 107
 - **No matching guide:** 0
-- Walkthrough **complete:** 8
-- Walkthrough **pending** (format pass): 93
+- Walkthrough **complete:** 17
+- Walkthrough **pending** (format pass): 84
 
 ## Feature table
 
 | Feature | Guide | Format check | Walkthrough | Goal reached |
 |---------|-------|--------------|-------------|--------------|
-| Create Angular frontend capsule | `docs/frontend/angular.md` | pass | pending | **no** |
-| Create React frontend capsule | `docs/frontend/react.md` | pass | pending | **no** |
-| Create Vue frontend capsule | `docs/frontend/vue.md` | pass | pending | **no** |
-| Create Svelte frontend capsule | `docs/frontend/svelte.md` | pass | pending | **no** |
-| Create NextJS frontend capsule | `docs/frontend/next.js.md` | pass | pending | **no** |
-| Create Static HTML capsule | `docs/frontend/static-html.md` | pass | pending | **no** |
-| Create static hosting frontend capsule | `docs/products/frontend-capsule/deploy.md` | pass | pending | **no** |
-| Create container hosting frontend capsule | `docs/products/frontend-capsule/deploy.md` | pass | pending | **no** |
+| Create Angular frontend capsule | `docs/frontend/angular.md` | pass | complete | **no** |
+| Create React frontend capsule | `docs/frontend/react.md` | pass | complete | **no** |
+| Create Vue frontend capsule | `docs/frontend/vue.md` | pass | complete | **no** |
+| Create Svelte frontend capsule | `docs/frontend/svelte.md` | pass | complete | **no** |
+| Create NextJS frontend capsule | `docs/frontend/next.js.md` | pass | complete | **no** |
+| Create Static HTML capsule | `docs/frontend/static-html.md` | pass | complete | **no** |
+| Create static hosting frontend capsule | `docs/products/frontend-capsule/deploy.md` | pass | complete | **no** |
+| Create container hosting frontend capsule | `docs/products/frontend-capsule/deploy.md` | pass | complete | **no** |
 | Find a frontend framework deployment guide | `docs/frontend/index.md` | pass | not applicable | **no** |
 | Configure frontend capsule | `docs/products/frontend-capsule/configure.md` | pass | complete | **yes** |
 | View frontend capsule logs | `docs/products/frontend-capsule/index.md` | fail | not run (format fail) | **no** |
 | Monitor frontend capsule | `docs/products/frontend-capsule/monitor.md` | pass | complete | **no** |
-| Scale frontend capsule | `docs/products/frontend-capsule/scale.md` | pass | pending | **no** |
-| Add custom domain to frontend capsule | `docs/products/frontend-capsule/custom-domains.md` | pass | pending | **no** |
+| Scale frontend capsule | `docs/products/frontend-capsule/scale.md` | pass | complete | **no** |
+| Add custom domain to frontend capsule | `docs/products/frontend-capsule/custom-domains.md` | pass | complete | **no** |
 | Compare static free and paid plans | `docs/products/frontend-capsule/static/plans.md` | fail | not run (format fail) | **no** |
 | Check supported frontend frameworks and runtimes | `docs/products/frontend-capsule/supported-runtimes.md` | fail | not run (format fail) | **no** |
 | View frontend capsule overview | `docs/products/frontend-capsule/index.md` | fail | not run (format fail) | **no** |
@@ -248,7 +248,7 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 
 1. **Format gate:** 118 guides pass mechanical drift-template checks; remaining failures are legacy GitBook pages, missing sections, or broken assets.
 2. **Report layout:** Per updated `formats/FORMAT.MD`, reports are under `reports/2026-11-24-1109/<doc-folder>/format-<name>.{md,json}`.
-3. **Walkthroughs:** Eight complete ([spaces](./platform/spaces/walkthrough-how-do-i-add-remove-a-space.md), [teams](./platform/teams/walkthrough-how-do-i-add-remove-teams.md), [billing](./platform/billing/), [connect GitHub](./platform/account/walkthrough-connect-version-control.md), [frontend configure/monitor/logs](./products/frontend-capsule/)). Frontend docs reference **Metrics**/**Logs** tabs; UI uses **Usage**, **Builds**, and **Access**.
+3. **Walkthroughs:** Seventeen complete (includes [frontend deploy guides](./frontend/) and [scale/custom domains](./products/frontend-capsule/)). Common blocker: guides name `codecapsules-io/demo-*` repos but the repository dropdown lists account forks only (see [failure-step-5.jpg](./frontend/failure-step-5.jpg)). Next.js guide **Free** plan missing on backend wizard. Frontend docs reference **Metrics**/**Logs** tabs; UI uses **Usage**, **Builds**, and **Access**.
 
 ## Login / environment
 
