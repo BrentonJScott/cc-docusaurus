@@ -1,100 +1,98 @@
 ---
 slug: "/frontend/react"
-description: >-
-  Create a React Frontend Capsule on the Code Capsules test platform and confirm
-  the first build appears under Deploy → Builds.
 title: "How to Host a React Application"
+description: >-
+  Deploy a React application on Code Capsules and see the first build start on
+  the capsule's Builds tab.
 sidebar_label: "React"
 doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Host Your React Application
 
-Create a React Frontend Capsule on the Code Capsules test platform and confirm the first build appears under **Deploy → Builds**.
+Deploy a React application on Code Capsules and see the first build start on the capsule's **Builds** tab.
 
 ## Prerequisites
 
-- A Code Capsules account. See [Create an account](/docs/shared/create-an-account).
-- A [GitHub](https://github.com/) account.
-- A fork of a React demo repo, such as `demo-react`. See [Fork a demo repo](/docs/shared/fork-a-demo-repo).
-- A Space to deploy into. See [Create a Space](/docs/shared/create-a-space).
-- GitHub connected to Code Capsules. See [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and reach your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-react', description: 'Fork demo-react to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Let Code Capsules list your repositories.'},
+  ]}
+/>
 
-## Goal
+## Deploy your React app
 
-The capsule's **Builds** tab shows the first build as **Building**, **Queued**, or **In progress**.
+1. **Start the React capsule**
 
-## Steps
+   On **Quick Start**, click **Deploy Now** on the **React** card.
 
-### Step 1: Log in
+2. **Choose the capsule type, Team, and Space**
 
-Open the [test platform](https://test-platform.codecapsules.io). If you see **Create your account**, click **Log in**. Enter your email and password, then click **Log in**.
+   On **Capsule Details**, choose **Frontend** under **Choose a Capsule**, then choose your Team and your Space. Click **Next**.
 
-### Step 2: Start the React capsule
+3. **Choose hosting**
 
-On the dashboard, click **Create New Capsule** and choose **React**. You reach **New Capsule**.
+   On **Hosting**, select **Static** and click **Next**.
 
-### Step 3: Choose the Capsule type and Team
+4. **Choose a plan**
 
-On **Capsule Details**, choose **Frontend** under **Choose a Capsule**, choose your Team under **Choose a Team**, and click **Next**.
+   On **Plan**, select **Free** and click **Next**.
 
-### Step 4: Choose hosting
+5. **Connect the repository**
 
-On **Hosting**, select the **Static** option (**No server**) and click **Next**.
+   On **Connect a Git Repository**, choose your fork of `demo-react` under **Git Repository**. Under **Branch**, choose `main`. Click **Next**.
 
-### Step 5: Choose a plan
+6. **Set the build settings**
 
-On **Plan**, select the **Starter** plan and click **Next**.
+   On **Build & Deploy**, enter:
 
-### Step 6: Connect the repository
+   - **Build Command:** `npm run build`
+   - **Path to static content:** `build`
 
-On **Connect a Git Repository**, open **Search/Select a Repository** and choose your React repo, such as `demo-react`. Under **Select a Branch to deploy from**, choose `master`. Click **Next**.
+   Leave **Capsule Name** as it is and click **Create Capsule**.
 
-### Step 7: Set the build settings
+7. **Check the build**
 
-On **Build & Deploy**, enter `npm run build` as the build command and `build` as the output directory. Change **Capsule Name** if needed.
-
-### Step 8: Create the capsule and check the build
-
-Click **Create Capsule**. On the capsule's **Deploy** tab, open **Builds**. The latest build shows **Building**, **Queued**, or **In progress**.
-
-## Screenshots
-
-![Dashboard signed in](/img/guides/create-react-frontend-capsule/step-3.jpg)
-Step 1: Log in.
-
-![New Capsule wizard](/img/guides/create-react-frontend-capsule/step-5.jpg)
-Step 2: Start the React capsule.
-
-![Capsule Details](/img/guides/create-react-frontend-capsule/step-6.jpg)
-Step 3: Choose the Capsule type and Team.
-
-![Hosting with Static selected](/img/guides/create-react-frontend-capsule/step-7.jpg)
-Step 4: Choose hosting.
-
-![Plan with Starter selected](/img/guides/create-react-frontend-capsule/step-8.jpg)
-Step 5: Choose a plan.
-
-![Connect a Git Repository](/img/guides/create-react-frontend-capsule/step-9.jpg)
-Step 6: Connect the repository.
-
-![Build & Deploy fields](/img/guides/create-react-frontend-capsule/step-10.jpg)
-Step 7: Set the build settings.
+   Open the capsule's **Builds** tab. The first build is in progress.
 
 ## Troubleshooting
 
-### The repository dropdown is empty
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Git Repository dropdown is empty</summary>
 
-GitHub isn't connected. Click **Configure Git for Code Capsules**, grant access to your fork, and reopen **Search/Select a Repository**.
+GitHub isn't connected to your Team. Click **Configure Git for Code Capsules**, give access to your fork, and reopen the dropdown.
 
-### The branch dropdown shows "No items found"
+</details>
 
-No repository is selected yet. Choose a repository first, then open the branch dropdown.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Branch dropdown shows "No items found"</summary>
 
-### The wizard shows "Choose how your site is hosted to continue"
+No repository is selected yet. Choose your fork under **Git Repository** first, then open **Branch**.
 
-The **Static** option isn't selected on **Hosting**. Select it and click **Next**.
+</details>
 
-### Capsule Details shows Backend instead of Frontend
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The wizard shows "Choose how your site is hosted to continue"</summary>
 
-Switch **Choose a Capsule** to **Frontend** before choosing your Team.
+**Static** isn't selected on **Hosting**. Select it and click **Next**.
+
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Capsule Details shows Backend instead of Frontend</summary>
+
+**Choose a Capsule** is set to **Backend**. Switch it to **Frontend** before choosing your Team.
+
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Free plan can't be selected</summary>
+
+You're already using all of your free capsules. Delete a free capsule you no longer need, or select **Paid**.
+
+</details>

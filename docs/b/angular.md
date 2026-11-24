@@ -1,80 +1,91 @@
 ---
 slug: "/frontend/angular"
-description: >-
-  Deploy an Angular application on Code Capsules and confirm the first build
-  appears under Deploy → Builds.
 title: "How to Host an Angular Application"
+description: >-
+  Deploy an Angular application on Code Capsules and see the first build start
+  on the capsule's Builds tab.
 sidebar_label: "Angular"
 doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Host Your Angular Application
 
-Deploy an Angular application on Code Capsules and confirm the first build appears under **Deploy → Builds**.
+Deploy an Angular application on Code Capsules and see the first build start on the capsule's **Builds** tab.
 
 ## Prerequisites
 
-- A Code Capsules account. See [Create an account](/docs/shared/create-an-account).
-- A [GitHub](https://github.com/) account.
-- A fork of the [demo-angular](https://github.com/codecapsules-io/demo-angular) repo. See [Fork a demo repo](/docs/shared/fork-a-demo-repo).
-- A Space to deploy into. See [Create a Space](/docs/shared/create-a-space).
-- GitHub connected to Code Capsules. See [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and reach your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-angular', description: 'Fork demo-angular to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Let Code Capsules list your repositories.'},
+  ]}
+/>
 
-## Goal
+## Deploy your Angular app
 
-The capsule's **Builds** tab shows the first build as **Building**, **Queued**, or **In progress**.
+1. **Start the Angular capsule**
 
-## Steps
+   On **Quick Start**, click **Deploy Now** on the **Angular** card.
 
-### Step 1: Log in
+2. **Choose the capsule type, Team, and Space**
 
-Open the [test platform](https://test-platform.codecapsules.io) and log in. You land on **Quick Start**.
+   On **Capsule Details**, choose **Frontend** under **Choose a Capsule**, then choose your Team and your Space. Click **Next**.
 
-### Step 2: Start the Angular capsule
+3. **Choose hosting**
 
-On **Quick Start**, click **Deploy Now** on the **Angular** card.
+   On **Hosting**, select **Static** and click **Next**.
 
-### Step 3: Choose the Capsule type, Team, and Space
+4. **Choose a plan**
 
-On **Capsule Details**, choose **Frontend** under **Choose a Capsule**, then choose your Team and your Space. Click **Next**.
+   On **Plan**, select **Free** and click **Next**.
 
-### Step 4: Choose hosting and plan
+5. **Connect the repository**
 
-On **Hosting**, select the **Static** option and click **Next**. On **Plan**, select your plan and click **Next**.
+   On **Connect a Git Repository**, choose your fork of `demo-angular` under **Git Repository**. Under **Branch**, choose `main`. Click **Next**.
 
-### Step 5: Connect the repository
+6. **Set the build settings**
 
-On **Connect a Git Repository**, open **Search/Select a Repository** and choose your fork of `demo-angular`. Under **Branch**, choose the branch you want to deploy, such as `master`. Click **Next**.
+   On **Build & Deploy**, enter:
 
-### Step 6: Set the build settings
+   - **Build Command:** `npm run build`
+   - **Path to static content:** `dist/ng4-complete-guide`
 
-On **Build & Deploy**, enter `npm run build` as the build command and `dist/ng4-complete-guide` as the output directory. Click **Create Capsule**.
+   Leave **Capsule Name** as it is and click **Create Capsule**.
 
-### Step 7: Check the build
+7. **Check the build**
 
-Open the capsule's **Deploy** tab and find **Builds**. The latest build shows **Building**, **Queued**, or **In progress**.
-
-## Screenshots
-
-![Quick Start with the Angular card](/img/guides/create-angular-frontend-capsule/step-4.jpg)
-Step 2: Start the Angular capsule.
-
-![Connect a Git Repository](/img/guides/create-angular-frontend-capsule/step-9.jpg)
-Step 5: Connect the repository.
-
-![Capsule building](/img/guides/create-angular-frontend-capsule/step-12.jpg)
-Step 7: Check the build.
+   Open the capsule's **Builds** tab. The first build is in progress.
 
 ## Troubleshooting
 
-### The repository dropdown is empty
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Git Repository dropdown is empty</summary>
 
-GitHub isn't connected to your Team. Click **Configure Git for Code Capsules**, grant access to your fork, and reopen the dropdown.
+GitHub isn't connected to your Team. Click **Configure Git for Code Capsules**, give access to your fork, and reopen the dropdown.
 
-### The branch dropdown shows "No items found"
+</details>
 
-No repository is selected yet. Choose a repository first, then open the branch dropdown.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Branch dropdown shows "No items found"</summary>
 
-### The build fails with `dist/ng4-complete-guide` not found
+No repository is selected yet. Choose your fork under **Git Repository** first, then open **Branch**.
 
-The output directory doesn't match the build output. Set the output directory to `dist/ng4-complete-guide` and rebuild.
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Free plan can't be selected</summary>
+
+You're already using all of your free capsules. Delete a free capsule you no longer need, or select **Paid**.
+
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The build fails because `dist/ng4-complete-guide` isn't found</summary>
+
+**Path to static content** doesn't match the folder the build creates. Set it to `dist/ng4-complete-guide` on the capsule's **Config** tab.
+
+</details>
