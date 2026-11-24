@@ -4,7 +4,7 @@
 - Feature is in the list but has no guide: Explore the site to reach the goal yourself, then write a report recommending a new guide for that feature.
 
 ## Format gate
-- Before walking through any guide, run the format check in `FORMAT.MD` on it.
+- Before walking through any guide, run the format check in `formats/FORMAT.MD` on it.
 - If the guide fails the format check, don't walk it through. Its format report replaces the walkthrough report, and the run summary shows `Walkthrough: not run (format fail)`. This is the only allowed reason to skip a guide.
 - Only guides that pass the format check go on to the walkthrough below.
 
