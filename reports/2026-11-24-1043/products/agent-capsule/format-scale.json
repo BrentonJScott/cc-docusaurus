@@ -1,0 +1,56 @@
+{
+  "runTimestamp": "2026-11-24T10:43:00+02:00",
+  "docFile": "docs/products/agent-capsule/scale.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Scale agent capsule",
+  "goal": "Expect to see new resources saved in the scale tab",
+  "section": "Agent Capsule Info",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.867,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Image missing in static/: /gitbook-assets/products/agentscalepage-edited.png Image missing in static/: /gitbook-assets/products/agenteditscalepage-edited.png Broken internal link: /gitbook-assets/products/agentscalepage-edited.png Broken internal link: /gitbook-assets/products/agenteditscalepage-edited.png"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Missing `## Prerequisites`. Missing `## Troubleshooting`. Image missing in static/: /gitbook-assets/products/agentscalepage-edited.png Image missing in static/: /gitbook-assets/products/agenteditscalepage-edited.png Broken internal link: /gitbook-assets/products/agentscalepage-edited.png Broken internal link: /gitbook-assets/products/agenteditscalepage-edited.png"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "scale-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "how_to_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Missing `import DocCardList from '@theme/DocCardList';`.\n- Missing `## Prerequisites`.\n- Missing `## Troubleshooting`.\n- Image missing in static/: /gitbook-assets/products/agentscalepage-edited.png\n- Image missing in static/: /gitbook-assets/products/agenteditscalepage-edited.png\n- Broken internal link: /gitbook-assets/products/agentscalepage-edited.png\n- Broken internal link: /gitbook-assets/products/agenteditscalepage-edited.png",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Missing `import DocCardList from '@theme/DocCardList';`.",
+    "Missing `## Prerequisites`.",
+    "Missing `## Troubleshooting`.",
+    "Image missing in static/: /gitbook-assets/products/agentscalepage-edited.png",
+    "Image missing in static/: /gitbook-assets/products/agenteditscalepage-edited.png",
+    "Broken internal link: /gitbook-assets/products/agentscalepage-edited.png",
+    "Broken internal link: /gitbook-assets/products/agenteditscalepage-edited.png"
+  ]
+}

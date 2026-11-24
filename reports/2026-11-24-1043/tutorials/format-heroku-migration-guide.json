@@ -1,0 +1,84 @@
+{
+  "runTimestamp": "2026-11-24T10:43:00+02:00",
+  "docFile": "docs/tutorials/heroku-migration-guide.md",
+  "docType": "reference",
+  "template": "reference_format.md",
+  "feature": "Migrate from Heroku",
+  "goal": "Expect to see the example app running on Code Capsules",
+  "section": "Tutorials",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.491,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/tutorials/app.svg Image missing in static/: /gitbook-assets/tutorials/appemailer.webp Image missing in static/: /gitbook-assets/tutorials/appcomponents.webp Image missing in static/: /gitbook-assets/tutorials/ccspace.webp Image missing in static/: /gitbook-assets/tutorials/ccnewcapsule.webp Image missing in static/: /gitbook-assets/tutorials/ccnewcapsuledown.webp Image missing in static/: /gitbook-assets/tutorials/ccdbsetup.webp Image missing in static/: /gitbook-assets/tutorials/cccli.webp Image missing in static/: /gitbook-assets/tutorials/cccapsulecheap.webp Image missing in static/: /gitbook-assets/tutorials/ccinstallgithub.webp Image missing in static/: /gitbook-assets/tutorials/ccinstallgithubnew.webp Image missing in static/: /gitbook-assets/tutorials/ccgithuberror.webp Image missing in static/: /gitbook-assets/tutorials/cccapsulepath.webp Image missing in static/: /gitbook-assets/tutorials/cccapsulecommand.webp Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig.webp Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig2.webp Image missing in static/: /gitbook-assets/tutorials/ccemailer.webp Broken internal link: /gitbook-assets/tutorials/app.svg Broken internal link: /gitbook-assets/tutorials/appemailer.webp Broken internal link: /gitbook-assets/tutorials/appcomponents.webp Broken internal link: /gitbook-assets/tutorials/ccspace.webp Broken internal link: /gitbook-assets/tutorials/ccnewcapsule.webp Broken internal link: /gitbook-assets/tutorials/ccnewcapsuledown.webp Broken internal link: /gitbook-assets/tutorials/ccdbsetup.webp Broken internal link: /gitbook-assets/tutorials/cccli.webp Broken internal link: /gitbook-assets/tutorials/cccapsulecheap.webp Broken internal link: /gitbook-assets/tutorials/ccinstallgithub.webp Broken internal link: /gitbook-assets/tutorials/ccinstallgithubnew.webp Broken internal link: /gitbook-assets/tutorials/ccgithuberror.webp Broken internal link: /gitbook-assets/tutorials/cccapsulepath.webp Broken internal link: /gitbook-assets/tutorials/cccapsulecommand.webp Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig.webp Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig2.webp Broken internal link: /gitbook-assets/tutorials/ccemailer.webp"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/tutorials/app.svg Image missing in static/: /gitbook-assets/tutorials/appemailer.webp Image missing in static/: /gitbook-assets/tutorials/appcomponents.webp Image missing in static/: /gitbook-assets/tutorials/ccspace.webp Image missing in static/: /gitbook-assets/tutorials/ccnewcapsule.webp Image missing in static/: /gitbook-assets/tutorials/ccnewcapsuledown.webp Image missing in static/: /gitbook-assets/tutorials/ccdbsetup.webp Image missing in static/: /gitbook-assets/tutorials/cccli.webp Image missing in static/: /gitbook-assets/tutorials/cccapsulecheap.webp Image missing in static/: /gitbook-assets/tutorials/ccinstallgithub.webp Image missing in static/: /gitbook-assets/tutorials/ccinstallgithubnew.webp Image missing in static/: /gitbook-assets/tutorials/ccgithuberror.webp Image missing in static/: /gitbook-assets/tutorials/cccapsulepath.webp Image missing in static/: /gitbook-assets/tutorials/cccapsulecommand.webp Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig.webp Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig2.webp Image missing in static/: /gitbook-assets/tutorials/ccemailer.webp Broken internal link: /gitbook-assets/tutorials/app.svg Broken internal link: /gitbook-assets/tutorials/appemailer.webp Broken internal link: /gitbook-assets/tutorials/appcomponents.webp Broken internal link: /gitbook-assets/tutorials/ccspace.webp Broken internal link: /gitbook-assets/tutorials/ccnewcapsule.webp Broken internal link: /gitbook-assets/tutorials/ccnewcapsuledown.webp Broken internal link: /gitbook-assets/tutorials/ccdbsetup.webp Broken internal link: /gitbook-assets/tutorials/cccli.webp Broken internal link: /gitbook-assets/tutorials/cccapsulecheap.webp Broken internal link: /gitbook-assets/tutorials/ccinstallgithub.webp Broken internal link: /gitbook-assets/tutorials/ccinstallgithubnew.webp Broken internal link: /gitbook-assets/tutorials/ccgithuberror.webp Broken internal link: /gitbook-assets/tutorials/cccapsulepath.webp Broken internal link: /gitbook-assets/tutorials/cccapsulecommand.webp Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig.webp Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig2.webp Broken internal link: /gitbook-assets/tutorials/ccemailer.webp"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "heroku-migration-guide-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "reference_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Links to live codecapsules.io instead of internal docs paths.\n- Image missing in static/: /gitbook-assets/tutorials/app.svg\n- Image missing in static/: /gitbook-assets/tutorials/appemailer.webp\n- Image missing in static/: /gitbook-assets/tutorials/appcomponents.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccspace.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccnewcapsule.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccnewcapsuledown.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccdbsetup.webp\n- Image missing in static/: /gitbook-assets/tutorials/cccli.webp\n- Image missing in static/: /gitbook-assets/tutorials/cccapsulecheap.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccinstallgithub.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccinstallgithubnew.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccgithuberror.webp\n- Image missing in static/: /gitbook-assets/tutorials/cccapsulepath.webp\n- Image missing in static/: /gitbook-assets/tutorials/cccapsulecommand.webp\n- Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig.webp\n- Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig2.webp\n- Image missing in static/: /gitbook-assets/tutorials/ccemailer.webp\n- Broken internal link: /gitbook-assets/tutorials/app.svg\n- Broken internal link: /gitbook-assets/tutorials/appemailer.webp\n- Broken internal link: /gitbook-assets/tutorials/appcomponents.webp\n- Broken internal link: /gitbook-assets/tutorials/ccspace.webp\n- Broken internal link: /gitbook-assets/tutorials/ccnewcapsule.webp\n- Broken internal link: /gitbook-assets/tutorials/ccnewcapsuledown.webp\n- Broken internal link: /gitbook-assets/tutorials/ccdbsetup.webp\n- Broken internal link: /gitbook-assets/tutorials/cccli.webp\n- Broken internal link: /gitbook-assets/tutorials/cccapsulecheap.webp\n- Broken internal link: /gitbook-assets/tutorials/ccinstallgithub.webp\n- Broken internal link: /gitbook-assets/tutorials/ccinstallgithubnew.webp\n- Broken internal link: /gitbook-assets/tutorials/ccgithuberror.webp\n- Broken internal link: /gitbook-assets/tutorials/cccapsulepath.webp\n- Broken internal link: /gitbook-assets/tutorials/cccapsulecommand.webp\n- Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig.webp\n- Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig2.webp\n- Broken internal link: /gitbook-assets/tutorials/ccemailer.webp",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Links to live codecapsules.io instead of internal docs paths.",
+    "Image missing in static/: /gitbook-assets/tutorials/app.svg",
+    "Image missing in static/: /gitbook-assets/tutorials/appemailer.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/appcomponents.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccspace.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccnewcapsule.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccnewcapsuledown.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccdbsetup.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/cccli.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/cccapsulecheap.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccinstallgithub.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccinstallgithubnew.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccgithuberror.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/cccapsulepath.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/cccapsulecommand.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/cccapsuleconfig2.webp",
+    "Image missing in static/: /gitbook-assets/tutorials/ccemailer.webp",
+    "Broken internal link: /gitbook-assets/tutorials/app.svg",
+    "Broken internal link: /gitbook-assets/tutorials/appemailer.webp",
+    "Broken internal link: /gitbook-assets/tutorials/appcomponents.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccspace.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccnewcapsule.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccnewcapsuledown.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccdbsetup.webp",
+    "Broken internal link: /gitbook-assets/tutorials/cccli.webp",
+    "Broken internal link: /gitbook-assets/tutorials/cccapsulecheap.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccinstallgithub.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccinstallgithubnew.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccgithuberror.webp",
+    "Broken internal link: /gitbook-assets/tutorials/cccapsulepath.webp",
+    "Broken internal link: /gitbook-assets/tutorials/cccapsulecommand.webp",
+    "Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig.webp",
+    "Broken internal link: /gitbook-assets/tutorials/cccapsuleconfig2.webp",
+    "Broken internal link: /gitbook-assets/tutorials/ccemailer.webp"
+  ]
+}

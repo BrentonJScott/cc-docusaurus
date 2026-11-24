@@ -1,0 +1,13 @@
+{
+  "feature": "Set up deployment notifications",
+  "goal": "Expect to see notification preferences saved",
+  "section": "Platform Capsules",
+  "docFile": "docs/platform/capsules/deployment-notifications.md",
+  "formatCheck": "fail",
+  "walkthrough": "not run (no guide file)",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "issues": [
+    "Mapped guide file does not exist: docs/platform/capsules/deployment-notifications.md"
+  ]
+}

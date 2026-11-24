@@ -1,0 +1,13 @@
+{
+  "feature": "Create and bind Redis database capsule",
+  "goal": "Expect to see the Redis capsule bound to a backend capsule",
+  "section": "Database Capsule Deploy",
+  "docFile": "docs/products/database-capsule/redis/deploy-and-bind.md",
+  "formatCheck": "fail",
+  "walkthrough": "not run (no guide file)",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "issues": [
+    "Mapped guide file does not exist: docs/products/database-capsule/redis/deploy-and-bind.md"
+  ]
+}

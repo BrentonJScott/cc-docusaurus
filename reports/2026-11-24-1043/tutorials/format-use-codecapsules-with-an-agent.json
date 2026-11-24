@@ -1,0 +1,66 @@
+{
+  "runTimestamp": "2026-11-24T10:43:00+02:00",
+  "docFile": "docs/tutorials/use-codecapsules-with-an-agent.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Deploy with an AI coding agent",
+  "goal": "Expect to see the Express app deployed and redeployed by the agent",
+  "section": "Tutorials",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.8,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/tutorials/cc-skill-demo-3x.gif Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-create.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-done.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-working-app.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-build-logs.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-manage-capsule.png Broken internal link: /gitbook-assets/tutorials/cc-skill-demo-3x.gif Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-create.png Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-done.png Broken internal link: /gitbook-assets/tutorials/CC-skill-working-app.png Broken internal link: /gitbook-assets/tutorials/CC-skill-build-logs.png Broken internal link: /gitbook-assets/tutorials/CC-skill-manage-capsule.png"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Missing `## Prerequisites`. Missing `## Troubleshooting`. Legacy Setup/Create an Account sections instead of Prerequisites + steps section. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/tutorials/cc-skill-demo-3x.gif Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-create.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-done.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-working-app.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-build-logs.png Image missing in static/: /gitbook-assets/tutorials/CC-skill-manage-capsule.png Broken internal link: /gitbook-assets/tutorials/cc-skill-demo-3x.gif Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-create.png Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-done.png Broken internal link: /gitbook-assets/tutorials/CC-skill-working-app.png Broken internal link: /gitbook-assets/tutorials/CC-skill-build-logs.png Broken internal link: /gitbook-assets/tutorials/CC-skill-manage-capsule.png"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "use-codecapsules-with-an-agent-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "how_to_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Missing `import DocCardList from '@theme/DocCardList';`.\n- Missing `## Prerequisites`.\n- Missing `## Troubleshooting`.\n- Legacy Setup/Create an Account sections instead of Prerequisites + steps section.\n- Links to live codecapsules.io instead of internal docs paths.\n- Image missing in static/: /gitbook-assets/tutorials/cc-skill-demo-3x.gif\n- Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-create.png\n- Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-done.png\n- Image missing in static/: /gitbook-assets/tutorials/CC-skill-working-app.png\n- Image missing in static/: /gitbook-assets/tutorials/CC-skill-build-logs.png\n- Image missing in static/: /gitbook-assets/tutorials/CC-skill-manage-capsule.png\n- Broken internal link: /gitbook-assets/tutorials/cc-skill-demo-3x.gif\n- Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-create.png\n- Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-done.png\n- Broken internal link: /gitbook-assets/tutorials/CC-skill-working-app.png\n- Broken internal link: /gitbook-assets/tutorials/CC-skill-build-logs.png\n- Broken internal link: /gitbook-assets/tutorials/CC-skill-manage-capsule.png",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Missing `import DocCardList from '@theme/DocCardList';`.",
+    "Missing `## Prerequisites`.",
+    "Missing `## Troubleshooting`.",
+    "Legacy Setup/Create an Account sections instead of Prerequisites + steps section.",
+    "Links to live codecapsules.io instead of internal docs paths.",
+    "Image missing in static/: /gitbook-assets/tutorials/cc-skill-demo-3x.gif",
+    "Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-create.png",
+    "Image missing in static/: /gitbook-assets/tutorials/CC-skill-capsule-done.png",
+    "Image missing in static/: /gitbook-assets/tutorials/CC-skill-working-app.png",
+    "Image missing in static/: /gitbook-assets/tutorials/CC-skill-build-logs.png",
+    "Image missing in static/: /gitbook-assets/tutorials/CC-skill-manage-capsule.png",
+    "Broken internal link: /gitbook-assets/tutorials/cc-skill-demo-3x.gif",
+    "Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-create.png",
+    "Broken internal link: /gitbook-assets/tutorials/CC-skill-capsule-done.png",
+    "Broken internal link: /gitbook-assets/tutorials/CC-skill-working-app.png",
+    "Broken internal link: /gitbook-assets/tutorials/CC-skill-build-logs.png",
+    "Broken internal link: /gitbook-assets/tutorials/CC-skill-manage-capsule.png"
+  ]
+}

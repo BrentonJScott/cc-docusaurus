@@ -1,0 +1,84 @@
+{
+  "runTimestamp": "2026-11-24T10:43:00+02:00",
+  "docFile": "docs/tutorials/build-a-personal-calendar-assistant-with-telegram-and-agent-capsules.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Build a Telegram calendar assistant",
+  "goal": "Expect to manage calendar events from Telegram",
+  "section": "Tutorials",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "matchReason": "fuzzy match",
+  "matchScore": 1.085,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-auth-success.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-auth-success.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Missing `## Troubleshooting`. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-auth-success.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-auth-success.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "build-a-personal-calendar-assistant-with-telegram-and-agent-capsules-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "how_to_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Missing `import DocCardList from '@theme/DocCardList';`.\n- Missing `## Troubleshooting`.\n- Links to live codecapsules.io instead of internal docs paths.\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-auth-success.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png\n- Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-auth-success.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png\n- Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Missing `import DocCardList from '@theme/DocCardList';`.",
+    "Missing `## Troubleshooting`.",
+    "Links to live codecapsules.io instead of internal docs paths.",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-auth-success.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png",
+    "Image missing in static/: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-redis-connection-string.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-auth-link.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-auth-success.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png",
+    "Broken internal link: /gitbook-assets/tutorials/telegram-agent-bot-add-event.png"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "runTimestamp": "2026-11-24T10:43:00+02:00",
+  "docFile": "docs/products/agent-capsule/deploy.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Create agent capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "section": "Agent Capsule Deploy",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/products/add-capsule.png Image missing in static/: /gitbook-assets/products/createagentcapsule-edited.png Image missing in static/: /gitbook-assets/products/createagentscale-edited.png Image missing in static/: /gitbook-assets/products/createagentconfig-edited.png Image missing in static/: /gitbook-assets/products/agentbuildlogs-edited.png Image missing in static/: /gitbook-assets/products/agentchatpage-edited.png Broken internal link: /gitbook-assets/products/add-capsule.png Broken internal link: /gitbook-assets/products/createagentcapsule-edited.png Broken internal link: /gitbook-assets/products/createagentscale-edited.png Broken internal link: /products/agent-capsule/templates/ \"mention\" Broken internal link: /gitbook-assets/products/createagentconfig-edited.png Broken internal link: /gitbook-assets/products/agentbuildlogs-edited.png Broken internal link: /gitbook-assets/products/agentchatpage-edited.png"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Missing `## Prerequisites`. Missing `## Troubleshooting`. Legacy Setup/Create an Account sections instead of Prerequisites + steps section. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/products/add-capsule.png Image missing in static/: /gitbook-assets/products/createagentcapsule-edited.png Image missing in static/: /gitbook-assets/products/createagentscale-edited.png Image missing in static/: /gitbook-assets/products/createagentconfig-edited.png Image missing in static/: /gitbook-assets/products/agentbuildlogs-edited.png Image missing in static/: /gitbook-assets/products/agentchatpage-edited.png Broken internal link: /gitbook-assets/products/add-capsule.png Broken internal link: /gitbook-assets/products/createagentcapsule-edited.png Broken internal link: /gitbook-assets/products/createagentscale-edited.png Broken internal link: /products/agent-capsule/templates/ \"mention\" Broken internal link: /gitbook-assets/products/createagentconfig-edited.png Broken internal link: /gitbook-assets/products/agentbuildlogs-edited.png Broken internal link: /gitbook-assets/products/agentchatpage-edited.png"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "deploy-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "how_to_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Missing `import DocCardList from '@theme/DocCardList';`.\n- Missing `## Prerequisites`.\n- Missing `## Troubleshooting`.\n- Legacy Setup/Create an Account sections instead of Prerequisites + steps section.\n- Links to live codecapsules.io instead of internal docs paths.\n- Image missing in static/: /gitbook-assets/products/add-capsule.png\n- Image missing in static/: /gitbook-assets/products/createagentcapsule-edited.png\n- Image missing in static/: /gitbook-assets/products/createagentscale-edited.png\n- Image missing in static/: /gitbook-assets/products/createagentconfig-edited.png\n- Image missing in static/: /gitbook-assets/products/agentbuildlogs-edited.png\n- Image missing in static/: /gitbook-assets/products/agentchatpage-edited.png\n- Broken internal link: /gitbook-assets/products/add-capsule.png\n- Broken internal link: /gitbook-assets/products/createagentcapsule-edited.png\n- Broken internal link: /gitbook-assets/products/createagentscale-edited.png\n- Broken internal link: /products/agent-capsule/templates/ \"mention\"\n- Broken internal link: /gitbook-assets/products/createagentconfig-edited.png\n- Broken internal link: /gitbook-assets/products/agentbuildlogs-edited.png\n- Broken internal link: /gitbook-assets/products/agentchatpage-edited.png",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Missing `import DocCardList from '@theme/DocCardList';`.",
+    "Missing `## Prerequisites`.",
+    "Missing `## Troubleshooting`.",
+    "Legacy Setup/Create an Account sections instead of Prerequisites + steps section.",
+    "Links to live codecapsules.io instead of internal docs paths.",
+    "Image missing in static/: /gitbook-assets/products/add-capsule.png",
+    "Image missing in static/: /gitbook-assets/products/createagentcapsule-edited.png",
+    "Image missing in static/: /gitbook-assets/products/createagentscale-edited.png",
+    "Image missing in static/: /gitbook-assets/products/createagentconfig-edited.png",
+    "Image missing in static/: /gitbook-assets/products/agentbuildlogs-edited.png",
+    "Image missing in static/: /gitbook-assets/products/agentchatpage-edited.png",
+    "Broken internal link: /gitbook-assets/products/add-capsule.png",
+    "Broken internal link: /gitbook-assets/products/createagentcapsule-edited.png",
+    "Broken internal link: /gitbook-assets/products/createagentscale-edited.png",
+    "Broken internal link: /products/agent-capsule/templates/ \"mention\"",
+    "Broken internal link: /gitbook-assets/products/createagentconfig-edited.png",
+    "Broken internal link: /gitbook-assets/products/agentbuildlogs-edited.png",
+    "Broken internal link: /gitbook-assets/products/agentchatpage-edited.png"
+  ]
+}
