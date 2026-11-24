@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:58:00Z",
+  "docFile": "docs/e/create-a-space.md",
+  "docType": "How-to guide",
+  "template": "HOW_TO_FORMAT.MD",
+  "feature": "Create a Space",
+  "goal": "Expect to see the new Space in the Spaces tab",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Single Space task" },
+    { "check": "Check 1: Content", "status": "fail", "reason": "Login in Steps; goal not stated at end" },
+    { "check": "Check 2: Prerequisites", "status": "fail", "reason": "Missing Prerequisites with account link" },
+    { "check": "Check 3: Links", "status": "pass", "reason": "No broken links" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "No Step N; no Troubleshooting" }
+  ],
+  "walkthrough": "not run (format fail)"
+}

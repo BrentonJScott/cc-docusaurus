@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:58:00Z",
+  "docFile": "docs/e/configure-git-for-code-capsules.md",
+  "docType": "How-to guide",
+  "template": "HOW_TO_FORMAT.MD",
+  "feature": "Configure Git for Code Capsules",
+  "goal": "Expect to see your repository in the Repos tab",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Single Git connect task" },
+    { "check": "Check 1: Content", "status": "fail", "reason": "Wizard assumed; goal says Repos tab, doc says dropdown" },
+    { "check": "Check 2: Prerequisites", "status": "fail", "reason": "Missing Prerequisites" },
+    { "check": "Check 3: Links", "status": "pass", "reason": "No broken links" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "No Step N; no Troubleshooting" }
+  ],
+  "walkthrough": "not run (format fail)"
+}

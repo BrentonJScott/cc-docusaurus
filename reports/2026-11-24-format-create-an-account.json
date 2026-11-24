@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:58:00Z",
+  "docFile": "docs/e/create-an-account.md",
+  "docType": "How-to guide",
+  "template": "HOW_TO_FORMAT.MD",
+  "feature": "Create a Code Capsules account",
+  "goal": "Expect to open dashboard after sign up or login",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Single account task" },
+    { "check": "Check 1: Content", "status": "fail", "reason": "Non-action paragraph in Steps; weak goal closing" },
+    { "check": "Check 2: Prerequisites", "status": "fail", "reason": "Missing Prerequisites section" },
+    { "check": "Check 3: Links", "status": "pass", "reason": "No internal or image links broken" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "No Step N headings; no Troubleshooting" }
+  ],
+  "walkthrough": "not run (format fail)"
+}

@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:58:00Z",
+  "docFile": "docs/e/fork-a-demo-repo.md",
+  "docType": "How-to guide",
+  "template": "HOW_TO_FORMAT.MD",
+  "feature": "Fork a demo repo",
+  "goal": "Expect to see the fork under your GitHub account",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Single fork task" },
+    { "check": "Check 1: Content", "status": "fail", "reason": "GitHub login in Steps; weak goal close" },
+    { "check": "Check 2: Prerequisites", "status": "fail", "reason": "Missing Prerequisites" },
+    { "check": "Check 3: Links", "status": "pass", "reason": "External links only" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "No Step N; no Troubleshooting" }
+  ],
+  "walkthrough": "not run (format fail)"
+}
