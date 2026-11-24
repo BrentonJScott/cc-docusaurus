@@ -1,0 +1,172 @@
+---
+title: "Telegram Calendar Assistant Tutorial"
+slug: "/tutorials/build-a-personal-calendar-assistant-with-telegram-and-agent-capsules"
+description: >-
+  Build an AI-powered calendar assistant that manages your Google Calendar
+  through natural Telegram conversations, deployed on Code Capsules.
+cover: /gitbook-assets/tutorials/calendar-assistant-cover-v2.jpg
+---
+
+# Build a Personal Calendar Assistant with Telegram and Agent Capsules
+
+
+Managing your calendar through multiple apps is tedious. You check Google Calendar on desktop, get notifications on mobile, and manually coordinate across platforms. What if you could schedule meetings, check availability, and get reminders through a single Telegram chat?
+
+In this tutorial, you'll build a personal calendar assistant that handles your Google Calendar through natural conversation on Telegram. The assistant understands requests like "Schedule a team meeting tomorrow at 2pm" or "What's on my calendar this week?" without requiring you to manage servers, databases, or scaling infrastructure.
+
+![The calendar assistant you'll build in this tutorial](/gitbook-assets/tutorials/telegram-agent-bot-add-event.png)
+
+### Agentic Infrastructure
+
+Deploying AI agents to production requires managing extensive infrastructure:
+
+* Provision servers like EC2 instances and configure load balancers
+* Deploy and maintain vector databases (Pinecone, Weaviate, or Redis)
+* Configure SSL/TLS certificates and API authentication
+* Manage secrets securely
+* Add monitoring and logging for observability and error tracking
+* Configure autoscaling policies and resource limits
+
+Code Capsules eliminates this burden. The platform handles infrastructure, databases, security, and scaling automatically, letting you focus on building Agent tools and features.
+
+### Prerequisites
+
+To follow this tutorial, you need:
+
+* A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed
+* A [Code Capsules](https://www.codecapsules.io/) account
+* An LLM API key. For example: [Anthropic](https://www.anthropic.com/) or [OpenAI](https://openai.com/index/openai-api/)
+
+### Set Up a Redis Capsule
+
+The agents in this tutorial need a vector database. For simplicity, we use a Redis Capsule.
+
+**Note:** This setup is not recommended for production. Redis is designed for temporary information and caching. For production deployments, consider dedicated vector databases like [Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), or [Qdrant](https://qdrant.tech/).
+
+Follow the existing [guide to creating a Redis Capsule](/database/redis/).
+
+Once you've created the Redis Capsule, copy the connection string from the **Capsule Details** page.
+
+![Telegram Agent Redis Connection String](/gitbook-assets/tutorials/telegram-agent-redis-connection-string.png)
+
+### Configure the Telegram Agent
+
+To set up the Telegram agent, go to the [Telegram calendar agent](https://github.com/codecapsules-io/ai-telegram-bot-calendar-agent-template) GitHub repository, and click **Use this template** to create a copy in your own GitHub account.
+
+Then, deploy the Agent Capsule:
+
+1. In your Code Capsules dashboard, click **New Capsule** and select **Agent Capsule**.
+2. Choose your Team and Space.
+3. Connect your GitHub account and select the repository you just created.
+4. Click **Create Capsule**.
+
+For more detailed instructions, see the [Agent Capsule deployment guide](/products/agent-capsule/deploy/).
+
+#### Create a Telegram Bot
+
+To create a Telegram Bot, open the [Telegram](https://telegram.org/) application and search for [BotFather](https://t.me/botfather). Start a conversation with BotFather and select `/newbot`. When prompted, give the bot a name, then a username. Once it is created, the bot provides you with a token. Copy this token and save it for later.
+
+![Telegram Agent Botfather Create Bot](/gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png)
+
+To verify the setup, make sure you can start a conversation with the bot (it won't respond yet).
+
+Now that you have the token, go to your Agent Capsule **Config** page and add the following variables:
+
+```bash
+TELEGRAM_BOT_TOKEN=your_bot_token
+REDIS_URL=your_copied_connection_string
+```
+
+Paste the Telegram bot token and the Redis connection string as new **Environment Variables**.
+
+![Telegram Agent Capsule Env Vars](/gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png)
+
+The Telegram agent is now ready. Let's configure the calendar capabilities.
+
+#### Configure the Google Calendar API
+
+To ensure the agent can access your calendar, you must configure Google Cloud to integrate with it.
+
+Visit the Google Calendar API [quickstart](https://developers.google.com/workspace/calendar/api/quickstart/js). Scroll down and click the **Enable the API** button.
+
+![Telegram Agent Google Calendar Enable Api](/gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png)
+
+The button redirects you to the Google Console platform page to confirm your project and enable the API.
+
+![Telegram Agent Google Calendar Api Enabled](/gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png)
+
+After that, navigate to the **Configure the OAuth consent screen** section in the Google Calendar configuration doc. Click the **Go to Branding** button, and follow the steps in the Google documentation. If you can't select **Internal** for the audience, you can select **External**, but you'll have to add test users with the Google email address you're using.
+
+![Telegram Agent Google Oauth Consent Screen](/gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png)
+
+Then, authorize your web application credentials by clicking the **Go to Clients** button.
+
+![Telegram Agent Google Oauth Clients](/gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png)
+
+When doing so, set the redirect URI to the URL of the Calendar Agent and specify the endpoint `/api/calendar/auth/callback`. To find the public URL of your Calendar Agent, open your Agent Capsule dashboard, navigate to the **Details** tab, and copy the **Public URL**.
+
+![Telegram Agent Capsule Public Uri](/gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png)
+
+For example, the full URL would have the following structure:
+
+```
+https://agent-capsule-123.ovh-test.ccdns.co/api/calendar/auth/callback
+```
+
+After completing setup, Google provides you with credentials such as the client ID and the client secret. Add these in the Agent Capsule dashboard **Config** tab as follows:
+
+```bash
+GOOGLE_CALENDAR_CLIENT_ID=your_client_id
+GOOGLE_CALENDAR_CLIENT_SECRET=your_client_secret
+```
+
+Your environment variables configuration should look as follows:
+
+![Telegram Agent Capsule Full Env Vars](/gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png)
+
+Test the calendar configuration by clicking on the **Chat** tab, where you can make the following request:
+
+```txt
+Get the list of events in the calendar for February in the first 3 days.
+```
+
+The Agent should give you a link to click to authorize access to the Calendar API.
+
+![Telegram Agent Chat Auth Link](/gitbook-assets/tutorials/telegram-agent-chat-auth-link.png)
+
+After granting access, you should see the following screen:
+
+![Telegram Agent Auth Success](/gitbook-assets/tutorials/telegram-agent-auth-success.png)
+
+After the validation, return to the **Chat** and tell the agent to proceed. You should receive a similar response to this:
+
+![Telegram Agent Chat Calendar Response](/gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png)
+
+### Test the Integration
+
+To test the integration, go to Telegram and start a conversation with the bot. Ask the bot to retrieve your calendar events for a particular period. If the bot prompts you for login or authorization, click on the link and grant it access.
+
+![Telegram Agent Bot Auth Prompt](/gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png)
+
+After granting access, remind the Agent to continue.
+
+![Telegram Agent Bot Calendar List](/gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png)
+
+You can also add events to the calendar.
+
+![Telegram Agent Bot Add Event](/gitbook-assets/tutorials/telegram-agent-bot-add-event.png)
+
+### Conclusion
+
+In this tutorial, you built a Telegram bot that acts as an interface to a Code Capsules Agent with Google Calendar capabilities. The Agent uses an LLM to understand your requests and interact with your calendar through natural language.
+
+This same pattern can enable you to build interesting integrations like:
+
+* **Task Management Bots:** Connect [Todoist](https://todoist.com/), [Asana](https://asana.com/), or [Jira](https://www.atlassian.com/software/jira) to manage tasks through chat.
+* **More Personal Assistants:** Combine multiple services like email, calendar, and notes in one conversational interface.
+* **Customer Support Bots:** Integrate with CRM systems and knowledge bases to handle support queries.
+* **Data Analysis Tools:** Query databases or analytics platforms using natural language.
+
+The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
+
+If you're interested in learning more about building with Agent Capsules, check out the [Code Capsules documentation](/products/agent-capsule/deploy/).
