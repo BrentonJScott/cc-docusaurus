@@ -10,7 +10,7 @@ doc_version: drift
 
 # Host Your Angular Application
 
-At the end of this guide, you'll have an Angular Frontend Capsule building from your GitHub repository.
+Deploy an Angular application on Code Capsules and confirm the first build appears under **Deploy → Builds**.
 
 ## Prerequisites
 
@@ -19,6 +19,10 @@ At the end of this guide, you'll have an Angular Frontend Capsule building from 
 - A fork of the [demo-angular](https://github.com/codecapsules-io/demo-angular) repo. See [Fork a demo repo](/docs/shared/fork-a-demo-repo).
 - A Space to deploy into. See [Create a Space](/docs/shared/create-a-space).
 - GitHub connected to Code Capsules. See [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules).
+
+## Goal
+
+The capsule's **Builds** tab shows the first build as **Building**, **Queued**, or **In progress**.
 
 ## Steps
 
@@ -50,16 +54,16 @@ On **Build & Deploy**, enter `npm run build` as the build command and `dist/ng4-
 
 Open the capsule's **Deploy** tab and find **Builds**. The latest build shows **Building**, **Queued**, or **In progress**.
 
-### Screenshots
+## Screenshots
 
 ![Quick Start with the Angular card](/img/guides/create-angular-frontend-capsule/step-4.jpg)
-Step 2: Quick Start.
+Step 2: Start the Angular capsule.
 
 ![Connect a Git Repository](/img/guides/create-angular-frontend-capsule/step-9.jpg)
 Step 5: Connect the repository.
 
 ![Capsule building](/img/guides/create-angular-frontend-capsule/step-12.jpg)
-Step 7: Capsule building.
+Step 7: Check the build.
 
 ## Troubleshooting
 

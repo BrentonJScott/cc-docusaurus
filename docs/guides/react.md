@@ -10,7 +10,7 @@ doc_version: drift
 
 # Host Your React Application
 
-At the end of this guide, you'll have a React Frontend Capsule building from your GitHub repository.
+Create a React Frontend Capsule on the Code Capsules test platform and confirm the first build appears under **Deploy → Builds**.
 
 ## Prerequisites
 
@@ -19,6 +19,10 @@ At the end of this guide, you'll have a React Frontend Capsule building from you
 - A fork of a React demo repo, such as `demo-react`. See [Fork a demo repo](/docs/shared/fork-a-demo-repo).
 - A Space to deploy into. See [Create a Space](/docs/shared/create-a-space).
 - GitHub connected to Code Capsules. See [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules).
+
+## Goal
+
+The capsule's **Builds** tab shows the first build as **Building**, **Queued**, or **In progress**.
 
 ## Steps
 
@@ -54,28 +58,28 @@ On **Build & Deploy**, enter `npm run build` as the build command and `build` as
 
 Click **Create Capsule**. On the capsule's **Deploy** tab, open **Builds**. The latest build shows **Building**, **Queued**, or **In progress**.
 
-### Screenshots
+## Screenshots
 
 ![Dashboard signed in](/img/guides/create-react-frontend-capsule/step-3.jpg)
-Step 1: Logged in.
+Step 1: Log in.
 
 ![New Capsule wizard](/img/guides/create-react-frontend-capsule/step-5.jpg)
 Step 2: Start the React capsule.
 
 ![Capsule Details](/img/guides/create-react-frontend-capsule/step-6.jpg)
-Step 3: Capsule type and Team.
+Step 3: Choose the Capsule type and Team.
 
 ![Hosting with Static selected](/img/guides/create-react-frontend-capsule/step-7.jpg)
-Step 4: Hosting.
+Step 4: Choose hosting.
 
 ![Plan with Starter selected](/img/guides/create-react-frontend-capsule/step-8.jpg)
-Step 5: Plan.
+Step 5: Choose a plan.
 
 ![Connect a Git Repository](/img/guides/create-react-frontend-capsule/step-9.jpg)
 Step 6: Connect the repository.
 
 ![Build & Deploy fields](/img/guides/create-react-frontend-capsule/step-10.jpg)
-Step 7: Build settings.
+Step 7: Set the build settings.
 
 ## Troubleshooting
 

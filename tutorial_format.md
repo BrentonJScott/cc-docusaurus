@@ -47,6 +47,10 @@ A Tutorial **must** have these sections, in this order:
 ## Next steps
 - Two or three bullets, each with a link: a related tutorial, a How-to guide, a Reference page, or an Explanation of something the tutorial used without explaining.
 
+## Troubleshooting
+- Optional. Include it when a step is likely to fail for a reason the reader can't see, such as a missing environment variable.
+- Each entry is a `###` heading that describes the symptom as the reader sees it, followed by the cause and the fix.
+
 ## Template
 
 ````md

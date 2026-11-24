@@ -1,69 +1,98 @@
 ---
 slug: "/tutorials/build-a-mern-job-board"
 title: "Build a MERN Job Board"
-description: "Like other full-stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the..."
-cover: /gitbook-assets/tutorials/mern-job-board-cover-v2.jpg
+description: >-
+  Turn a MERN boilerplate app into a job board where people post and browse
+  jobs, then deploy it on Code Capsules.
+sidebar_label: "MERN Job Board"
+doc_version: drift
 ---
 
 # Build a MERN Job Board
 
+Turn a MERN boilerplate app into a job board where people post and browse jobs, then deploy it on Code Capsules.
 
-Like other full-stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the frontend and backend of an application.
+## What you'll build
 
-In this tutorial, we’ll extend a boilerplate MERN application to make a job board where users can view and submit available jobs.
+A job board with a form for posting a job (title, description, location, and salary) and a list of every job posted so far. The React frontend and the Express backend run together in one Code Capsule, and jobs are stored in a MongoDB Capsule.
 
-### Getting Started
+You'll add two React components for the form and the list, then a Mongoose model, controllers, and API routes for storing and reading jobs. Finally, you'll push the changes so Code Capsules deploys the finished app.
 
-Head over to the [MERN stack deployment guide](/full-stack/mern-stack/) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application.
+![The finished job board with the Submit a Job form and the list of available jobs](/img/tutorials/build-a-mern-job-board/job-board-ui.png)
 
-Before we can view the application’s frontend, we need to install the `node_modules` for the backend and set a local `DATABASE_URL` environment variable similar to the one on Code Capsules.
+## Prerequisites
 
-Navigate to the project’s root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](/database/mongodb/) to copy the **Public Connection String** from your MongoDB Capsule **Details** tab.
+- A deployed MERN boilerplate app with a MongoDB Capsule. See [Deploy a MERN stack app](/docs/guides/mern-stack).
+- [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) installed on your computer.
+- Basic knowledge of JavaScript and React.
 
-Set the local `DATABASE_URL` environment variable by following the steps below:
+## Part 1: Run the boilerplate locally
 
-* Create a `.env` file in the root folder.
-* Add the line below to the `.env` file replacing the connection string with your own.
+In this part, you'll get the deployed boilerplate app running on your computer, connected to your MongoDB Capsule.
 
+### Step 1: Clone your repo and install dependencies
+
+Clone the repo you deployed in the prerequisites, then run `npm install` in its root folder.
+
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+npm install
 ```
+
+### Step 2: Set the database connection
+
+On your MongoDB Capsule's **Details** tab, copy the **Public Connection String**. Create a `.env` file in the root folder and paste the string in as `DATABASE_URL`.
+
+`.env`
+
+```text
 DATABASE_URL=mongodb+srv://username:password@cluster.example.mongodb.net/database
 ```
 
-* Run the command below in a terminal window from the root folder to install the package for loading environment variables.
+Install `dotenv` so the app reads the `.env` file:
 
-```
+```bash
 npm install dotenv
 ```
 
-* Open the `index.js` file in the root folder and add the following line just below the other require statements.
+Then add this line to `index.js`, below the other `require` statements:
 
-```
+`index.js`
+
+```js
 require('dotenv').config();
 ```
 
-### Extending the Frontend
+### Step 3: Build the frontend and start the app
 
-Open the project’s root folder and navigate to the client directory. This is where you’ll find the code for the React frontend in the `src` subdirectory. Open a terminal and run `npm install` from the client directory to install the `node_modules` required by the frontend code.
+Install the frontend's dependencies and build it, then start the app from the root folder. The Express server serves the built frontend from `client/build`.
 
-Next, type in `npm run build`. This command creates a `build` folder with an optimized version of our frontend source code. This code has all the extra spacing removed, which is great for efficiency but impossible for humans to read or edit. An excerpt is shown below:
-
+```bash
+cd client
+npm install
+npm run build
+cd ..
+node index.js
 ```
-a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"fe1e148c"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(f);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;
-```
 
-Whenever we change our application’s frontend code, we edit the files in the `src` directory and use the `npm run build` command to create the optimized code in the `build` directory, which will be executed when we load our application in a web browser.
+### Checkpoint
 
-Run `node index.js` in the terminal from the project’s root folder to start the boilerplate MERN application. You can view it in your browser at `http://localhost:8080`. The app should look something like this:
+Open `http://localhost:8080`. You see the boilerplate MERN app.
 
-![mern stack](/gitbook-assets/tutorials/build-a-mern-job-board/mern-stack.png)
+![The boilerplate MERN app running locally](/img/tutorials/build-a-mern-job-board/mern-stack.png)
 
-Let’s extend this frontend to reflect the job board functionality.
+## Part 2: Build the frontend
 
-#### Adding the `SubmitJob` Component
+In this part, you'll add a form for posting jobs and a list that shows every job.
 
-Create a `components` folder within the `client/src` directory (`client/src/components`) to house the submit job and view jobs components that we’re going to build next. Create a `submitJob.js` file in the components folder and add the following code:
+### Step 4: Add the job form
 
-```
+Create a `components` folder in `client/src`, then create `submitJob.js` in it with this code. It sends the form's values to `/api/jobs/` when the reader clicks **Submit**.
+
+`client/src/components/submitJob.js`
+
+```jsx
 import React, { useState } from 'react'
 import axios from 'axios'
 
@@ -99,13 +128,13 @@ const SubmitJob = () => {
 export default SubmitJob
 ```
 
-The `SubmitJob` component uses state to keep track of the job field values as they are entered by a user. You can add more state variables to capture more job fields in your application. When the user clicks “Submit”, the `postJob` method posts the job field values to the endpoint specified in the `axios.post()` method. Notice that we use the relative URL `/api/jobs/` in the `post` request, since the frontend will be hosted at the same URL as the backend.
+### Step 5: Add the job list
 
-#### Adding the `ViewJobs` Component
+Create `viewJobs.js` in the same folder. It loads every job from `/api/jobs/` when the page opens.
 
-Create a `viewJobs.js` file in the components folder and add the following code to it:
+`client/src/components/viewJobs.js`
 
-```
+```jsx
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -113,7 +142,7 @@ const ViewJobs = () => {
 
     const [jobsStateArray, setJobsStateArray] = useState([])
 
-    useEffect(() => {          
+    useEffect(() => {
         axios.get('/api/jobs/')
         .then(response => {
             console.log(response)
@@ -141,17 +170,16 @@ const ViewJobs = () => {
 export default ViewJobs
 ```
 
-The `ViewJobs` component uses the `useEffect` hook to fetch available jobs as soon as the page loads. After fetching the jobs, they are stored in the `jobsStateArray` before being displayed using the `map` function.
+### Step 6: Show both components on the page
 
-#### Viewing the Frontend
+Replace the contents of `client/src/App.js` with this code.
 
-We need to import the two components we have just created in `src/App.js` before we can see the changes we just made. Open `App.js` and replace its contents with this code:
+`client/src/App.js`
 
-```
+```jsx
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import SubmitJob from './components/submitJob';
 import ViewJobs from './components/viewJobs';
 
@@ -171,25 +199,32 @@ function App() {
 export default App;
 ```
 
-Here, we’re importing the `SubmitJob` and `ViewJobs` components so that they can be rendered when React displays the contents of `App.js`.
+### Step 7: Add the styles and rebuild
 
-Now you can run `npm run build` again from the client directory to build the app, then open your browser to take a look at the extended frontend.
+Replace the contents of `client/src/App.css` with the [job board styles](https://github.com/ritza-co/mern-job-board/blob/main/client/src/App.css). Then rebuild the frontend and restart the app.
 
-You’ll notice the page layout has changed, but the styling is a bit off. Add the contents of [this CSS file](https://github.com/ritza-co/mern-job-board/blob/main/client/src/App.css) to `src/App.css` to make our frontend prettier.
-
-When you rebuild your application and take a look at the frontend, it should look like this:
-
-![job board ui](/gitbook-assets/tutorials/build-a-mern-job-board/job-board-ui.png)
-
-### Extending the Backend
-
-We’re now ready to extend the backend to include functionality for the addition and retrieval of jobs on the job board.
-
-#### Adding the Job Model
-
-Let’s define our job model to declare which job fields we want to save. Open `app/models/index.js` and replace its contents with this code:
-
+```bash
+cd client
+npm run build
+cd ..
+node index.js
 ```
+
+### Checkpoint
+
+Refresh `http://localhost:8080`. You see the **Submit a Job** form and the **View Available Jobs** heading. The list is empty because the backend doesn't have a jobs API yet.
+
+## Part 3: Build the backend
+
+In this part, you'll add the model, controllers, and routes that store jobs in MongoDB and return them to the frontend.
+
+### Step 8: Add the job model
+
+Replace the contents of `app/models/index.js` with this code.
+
+`app/models/index.js`
+
+```js
 const dbConfig = require("../config/db-config.js");
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
@@ -202,11 +237,11 @@ db.jobs = require("./job.model.js")(mongoose);
 module.exports = db;
 ```
 
-Here, we create and export a `db` variable that we’ll use to access the database. We’ll use the [Mongoose library](https://mongoosejs.com/) to handle all communication with our MongoDB database.
+Create `job.model.js` in the same folder. It tells MongoDB what a job looks like.
 
-Now create a file named `job.model.js` in the `models` folder to define the fields and field types of the job model. Populate it with the code below. If you added more fields to your frontend `SubmitJob` component, remember to add them here too, or they won’t be saved when a user submits a job.
+`app/models/job.model.js`
 
-```
+```js
 module.exports = mongoose => {
     var schema = mongoose.Schema(
         {
@@ -229,15 +264,15 @@ module.exports = mongoose => {
 };
 ```
 
-By default, Mongoose adds an `_id` property to `ObjectId` fields. The `schema.method()` function makes sure the name of the `ObjectId` field is just `id`, which is the name our frontend expects.
+Delete `app/models/person.model.js`.
 
-Delete the `person.model.js` file that came with the boilerplate project, as we won’t be needing it.
+### Step 9: Add the job controllers
 
-#### Adding Job Controllers
+Create `job.controller.js` in `app/controllers`. `create` saves a new job, and `findAll` returns every job.
 
-The next step is to create controllers to decide whether the app is reading or writing jobs to the database. In the `app/controllers/` folder, create a file named `job.controller.js` and add the following code to it:
+`app/controllers/job.controller.js`
 
-```
+```js
 const db = require("../models");
 const Job = db.jobs;
 
@@ -289,15 +324,15 @@ exports.findAll = (req, res) => {
 };
 ```
 
-The `create` export is responsible for creating a new job object using the job model and saving it to the database. The `findAll` export retrieves all jobs that were previously submitted.
+Delete `app/controllers/person.controller.js`.
 
-Delete the `person.controller.js` file that came with the boilerplate project, as we won’t be needing it.
+### Step 10: Add the job routes
 
-#### Adding Endpoints
+Create `job.routes.js` in `app/routes`. It connects `POST` and `GET` requests on `/api/jobs` to the controllers.
 
-The last step in extending the backend is to add endpoints for the frontend to make `post` and `get` requests to. Create a `job.routes.js` file in the `app/routes/` folder and add the following code:
+`app/routes/job.routes.js`
 
-```
+```js
 module.exports = app => {
     const jobs = require("../controllers/job.controller.js");
 
@@ -313,68 +348,71 @@ module.exports = app => {
 };
 ```
 
-The routes use request methods and the controller exports we made earlier to decide what happens when each endpoint is hit by a `get` or `post` request.
+Delete `app/routes/person.routes.js`.
 
-Delete the `person.routes.js` file that was in the routes folder.
+### Step 11: Use the job routes
 
-In `index.js` in the root folder of the project, find the following line:
+In `index.js`, find this line:
 
-```
+```js
 require("./app/routes/person.routes")(app);
 ```
 
-and change it to:
+Replace it with:
 
-```
+```js
 require("./app/routes/job.routes")(app);
 ```
 
-This tells our backend to use the routes defined in our `job.routes.js` file.
+Restart the app with `node index.js`.
 
-### Integrating the Frontend and Backend
+### Checkpoint
 
-Our Express backend uses the contents of the `client/build` folder to render the frontend of our MERN stack application. The lines below in the `index.js` file in the root folder handle that responsibility:
+Open `http://localhost:8080`, fill in the form, and click **Submit**. The page reloads and your job appears under **View Available Jobs**.
 
-```
-const path = __dirname + '/client/build/';
-const app = express();
-app.use(express.static(path));
-```
+## Part 4: Deploy the job board
 
-### Using Version Control
+In this part, you'll push your changes so Code Capsules builds and deploys the finished app.
 
-We’ll use version control to keep track of the new files we added when we were extending our application.
+### Step 12: Stop tracking the build folder
 
-We don’t want to track the build folder in git (the frontend will rebuild when we deploy to Code Capsules), so we’ll add this folder to be ignored in the `.gitignore` file in the project’s root folder, like this:
+Code Capsules builds the frontend when it deploys, so the build folder doesn't belong in Git. Add this line to `.gitignore` in the root folder:
 
-```
+`.gitignore`
+
+```text
 /client/build
 ```
 
-#### Git Add
+### Step 13: Commit and push
 
-To add all the new files we created, run the command below in the root folder of the project.
+Commit your changes and push them to the branch Code Capsules deploys from.
 
-```
+```bash
 git add -A
-```
-
-#### Git Commit
-
-Next, we need to commit the files we just added to our repository. To do this, run this command:
-
-```
-git commit -m "Added job board files"
-```
-
-#### Git Push
-
-The final step is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push the changes we just made:
-
-```
+git commit -m "Add job board"
 git push origin main
 ```
 
-Code Capsules automatically deploys the new version of your application as soon as you push to the deploy branch, which is `main` in this case.
+### Checkpoint
 
-That’s it, your job board should be fully functional now.
+Open your capsule's **Deploy** tab. A new build starts. When it finishes, open the capsule's URL: you see the job board, and jobs you submit appear in the list.
+
+## Summary
+
+You turned the MERN boilerplate into a job board. The React frontend has a form for posting jobs and a list of every job, and the Express backend stores jobs in your MongoDB Capsule through a model, controllers, and an API. Pushing to `main` deployed the whole app on Code Capsules.
+
+## Next steps
+
+- [How does pricing work](/docs/platform/billing/how-does-the-pricing-work): see what your Backend and MongoDB Capsules cost.
+- [Host a React application](/docs/frontend/react): deploy a React frontend on its own Frontend Capsule.
+
+## Troubleshooting
+
+### The job list stays empty and the browser console shows a 500 error
+
+The app can't reach MongoDB. Check that `DATABASE_URL` in `.env` is the **Public Connection String** from your MongoDB Capsule, and that `require('dotenv').config();` is in `index.js`.
+
+### The app won't start and shows `Cannot find module './app/routes/person.routes'`
+
+`index.js` still loads the deleted person routes. Change the line to `require("./app/routes/job.routes")(app);` as in Step 11.
