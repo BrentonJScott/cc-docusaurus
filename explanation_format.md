@@ -4,7 +4,8 @@ An Explanation helps the reader understand a topic: what it is, why it exists, h
 
 - **Use it for:** concepts and options, such as Enterprise deployment on your own cloud, what a Space is, or how persistent storage keeps state.
 - **Location:** An Explanation can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Writing style:** follow `writing_style.md`.
+- **Example in this repo:** `docs/a/enterprise-aws.md`.
+- **Writing style:** follow `writing_style.md`, including its [Page pieces](writing_style.md#page-pieces) for cards.
 
 ## Sections
 
@@ -12,7 +13,7 @@ An Explanation **must** have these sections, in this order:
 
 | # | Section | What goes in it |
 |---|---|---|
-| 1 | Title and description | Frontmatter, one `#` title, and one or two sentences on what the topic is. |
+| 1 | Title and description | Frontmatter, the `DocCardList` import, one `#` title, and one or two sentences on what the topic is. |
 | 2 | `## Overview` | What it is, in plain words, in one short paragraph. |
 | 3 | `## Why it matters` | The problem it solves and who it's for. |
 | 4 | `## How it works` | The parts involved and how they fit together. |
@@ -38,7 +39,7 @@ An Explanation **must** have these sections, in this order:
 - Include the trade-offs: cost, setup effort, and what the reader becomes responsible for.
 
 ## Related
-- Two to five bullets, each a link with a few words on why to go there.
+- **Must** be one `DocCardList` of two to five cards. Each card's description says in a few words why to go there.
 
 ## Template
 
@@ -51,6 +52,8 @@ description: >-
 sidebar_label: "<Topic>"
 doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # <Topic>
 
@@ -82,5 +85,9 @@ doc_version: drift
 
 ## Related
 
-- [<Page>](/docs/<path>): <why to go there>.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/<path>', label: '<emoji> <Title>', description: '<Why to go there.>'},
+  ]}
+/>
 ```

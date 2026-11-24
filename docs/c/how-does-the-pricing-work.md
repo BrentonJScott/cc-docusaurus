@@ -8,6 +8,8 @@ sidebar_label: "Pricing"
 doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Pricing
 
 Prices, plans, and limits for Code Capsules capsules, static hosting, and backups.
@@ -62,6 +64,10 @@ Limits for static Frontend Capsules on each plan.
 
 ## Related
 
-- [Host a React application](/docs/frontend/react): choose a plan when you create a Frontend Capsule.
-- [Host an Angular application](/docs/frontend/angular): deploy a static frontend.
-- [Build a MERN job board](/docs/tutorials/build-a-mern-job-board): an app that uses a Backend and a MongoDB Capsule.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/frontend/react', label: '🛠️ Host a React application', description: 'Choose a plan when you create a Frontend Capsule.'},
+    {type: 'link', href: '/docs/frontend/angular', label: '🛠️ Host an Angular application', description: 'Deploy a static frontend.'},
+    {type: 'link', href: '/docs/tutorials/build-a-mern-job-board', label: '🎓 Build a MERN job board', description: 'An app that uses a Backend and a MongoDB Capsule.'},
+  ]}
+/>

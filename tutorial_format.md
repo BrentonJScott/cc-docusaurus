@@ -4,7 +4,40 @@ A Tutorial teaches by building something. The reader follows one fixed path, see
 
 - **Use it for:** "Build a…" pages that walk through a whole project.
 - **Location:** A Tutorial can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Writing style:** follow `writing_style.md`.
+- **Example in this repo:** `docs/d/build-a-mern-job-board.md`.
+- **Writing style:** follow `writing_style.md`, including its [Page pieces](writing_style.md#page-pieces): cards, numbered steps, and troubleshooting boxes.
+
+## Layout
+
+```
+Build a MERN Job Board                        ← # title
+Turn a MERN boilerplate app into ...          ← description
+
+What you'll build                             ← short paragraph
+
+Prerequisites                                 ← cards, 2 columns
+  [🛠️ Deployed MERN boilerplate] [💻 Node.js installed]
+  You also need basic knowledge of React.     ← knowledge, as one sentence
+
+Part 1: Run the boilerplate locally           ← one part per milestone
+  In this part, you'll ...
+  1. Clone your repo                          ← numbered steps, numbering
+     Clone the repo ...  [code]                 continues across parts
+  2. Set the database connection
+  ┌ Checkpoint ─────────────────────────┐     ← green callout: what the
+  │ Open localhost:8080. You see ...    │       reader sees now
+  └─────────────────────────────────────┘
+
+Part 2: Build the frontend
+  4. Add the job form ...
+
+Summary                                       ← what the reader built
+
+Next steps                                    ← cards
+
+Troubleshooting                               ← gray boxes with a yellow
+  ▸ The job list stays empty ...                border, collapsed
+```
 
 ## Sections
 
@@ -12,44 +45,46 @@ A Tutorial **must** have these sections, in this order:
 
 | # | Section | What goes in it |
 |---|---|---|
-| 1 | Title and description | Frontmatter, one `#` title, and one or two sentences on what the reader will build. |
-| 2 | `## What you'll build` | The finished result, in a short paragraph and one screenshot. |
-| 3 | `## Prerequisites` | What the reader needs before Part 1, linked out. |
-| 4 | `## Part N: Title` | The work, in parts. Each part has steps and ends with a checkpoint. |
+| 1 | Title and description | Frontmatter, the `DocCardList` import, one `#` title, and one or two sentences on what the reader will build. |
+| 2 | `## What you'll build` | The finished result, in a short paragraph. |
+| 3 | `## Prerequisites` | Cards for what the reader needs before Part 1. |
+| 4 | `## Part N: Title` | The work, in parts. Each part has numbered steps and ends with a checkpoint. |
 | 5 | `## Summary` | What the reader built. |
-| 6 | `## Next steps` | Two or three links to where to go next. |
-| 7 | `## Troubleshooting` | Optional. Problems the reader might hit, each with its fix. |
+| 6 | `## Next steps` | Two or three cards for where to go next. |
+| 7 | `## Troubleshooting` | Optional. Problems the reader might hit, each a collapsed box with its fix. |
 
 ## What you'll build
 - Describe the finished app from the reader's point of view, such as "A job board where users can post jobs and browse open listings."
-- Include one screenshot of the finished result.
+- Don't include screenshots.
 - Say what the reader will **do**, not what they will learn. Write "You'll add a form for posting jobs and an API that stores them," not "You'll learn how Mongoose models work."
 
 ## Prerequisites
-- Same rules as How-to guides: one bullet per prerequisite, linked to a page in `docs/shared/` or to a How-to guide.
-- If the tutorial builds on a deployed app, link the How-to guide that deploys it, such as "A deployed MERN boilerplate app. See [Deploy a MERN stack app](...)."
-- Name the tools and knowledge the reader needs, such as Node.js installed or basic React.
+- **Must** be one `DocCardList`, with one card per prerequisite, linked to a page in `docs/shared/`, a How-to guide, or the site to download a tool from.
+- If the tutorial builds on a deployed app, add a card for the How-to guide that deploys it, such as `🛠️ Deployed MERN boilerplate`.
+- Name the tools the reader needs as cards, such as `💻 Node.js installed`.
+- Knowledge the reader needs has no page to link, so it goes in one sentence under the cards, such as "You also need basic knowledge of JavaScript and React."
 
 ## Parts
 - Group the work into two to five parts. Each part is one milestone, such as "Build the frontend" or "Add the backend."
 - Each part **must** start with one or two sentences saying what the reader will do in it.
-- Each step inside a part **must** have a heading in the form `### Step N: Title`. Number steps from 1 across the whole tutorial, not per part.
-- Show the full code the reader adds, with the file path above each code block.
+- The steps in a part **must** be one numbered list. Each item has a bold title, a short imperative phrase, then its description and code indented under it. Don't write "Step N:".
+- Number steps from 1 across the whole tutorial, not per part. Start each part's list at the next number, such as `4.` for the first step of Part 2.
+- Show the full code the reader adds, with the file path in code format on its own line above each code block.
 - Each step **must** give the reader something to do and, where possible, something they can see happen, such as a command's output or a change in the browser.
 - Keep explanation to one sentence at most per step, such as "This model tells MongoDB what a job looks like." For anything longer, link an Explanation page.
 - Give one path only. Don't offer alternatives, options, or "you could also…". Choose for the reader.
-- Each part **must** end with a `### Checkpoint` that says what the reader should see now, such as "Run `npm start` and open `localhost:3000`. The form shows **Title** and **Company** fields." One screenshot is allowed at each checkpoint.
+- Each part **must** end with a checkpoint: a `:::tip[Checkpoint]` box after the list that says what the reader should see now, such as "Run `npm start` and open `localhost:3000`. The form shows **Title** and **Company** fields." No screenshots.
 - The last part ends with the app deployed on Code Capsules.
 
 ## Summary
 - Two to four sentences on what the reader built and what it now does. Don't introduce anything new.
 
 ## Next steps
-- Two or three bullets, each with a link: a related tutorial, a How-to guide, a Reference page, or an Explanation of something the tutorial used without explaining.
+- **Must** be one `DocCardList` of two or three cards: a related tutorial, a How-to guide, a Reference page, or an Explanation of something the tutorial used without explaining.
 
 ## Troubleshooting
 - Optional. Include it when a step is likely to fail for a reason the reader can't see, such as a missing environment variable.
-- Each entry is a `###` heading that describes the symptom as the reader sees it, followed by the cause and the fix.
+- Each entry **must** be one `<details>` box as `writing_style.md` shows. The `<summary>` is the symptom as the reader sees it, and the body is the cause and then the fix.
 
 ## Template
 
@@ -63,6 +98,8 @@ sidebar_label: "<Thing>"
 doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Build a <Thing>
 
 <Same one or two sentences as the description.>
@@ -71,41 +108,49 @@ doc_version: drift
 
 <Short description of the finished result.>
 
-![<Alt text>](/img/<docs-folder>/<name>/result.png)
-
 ## Prerequisites
 
-- <What they need>. See [<Page>](/docs/<path>).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/<path>', label: '<emoji> <Title>', description: '<One line.>'},
+  ]}
+/>
+
+You also need <knowledge>.
 
 ## Part 1: <Milestone>
 
 <What the reader will do in this part.>
 
-### Step 1: <Title>
+1. **<Title>**
 
-<Description.>
+   <Description.>
 
-`<path/to/file>`
+   `<path/to/file>`
 
-```js
-<code>
-```
+   ```js
+   <code>
+   ```
 
-### Checkpoint
+:::tip[Checkpoint]
 
 <What the reader should see now.>
+
+:::
 
 ## Part 2: <Milestone>
 
 <What the reader will do in this part.>
 
-### Step 2: <Title>
+2. **<Title>**
 
-<Description.>
+   <Description.>
 
-### Checkpoint
+:::tip[Checkpoint]
 
 <What the reader should see now.>
+
+:::
 
 ## Summary
 
@@ -113,11 +158,18 @@ doc_version: drift
 
 ## Next steps
 
-- [<Page>](/docs/<path>): <why to go there>.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/<path>', label: '<emoji> <Title>', description: '<Why to go there.>'},
+  ]}
+/>
 
 ## Troubleshooting
 
-### <Symptom>
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary><Symptom></summary>
 
 <Cause and fix.>
+
+</details>
 ````

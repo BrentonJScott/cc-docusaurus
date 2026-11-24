@@ -8,6 +8,8 @@ sidebar_label: "AWS"
 doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Code Capsules on Your AWS
 
 Run Code Capsules on Amazon Web Services with dedicated enterprise clusters for your organisation.
@@ -58,5 +60,9 @@ The trade-offs: pricing model, setup effort, and what the customer becomes respo
 
 ## Related
 
-- [Pricing](/docs/platform/billing/how-does-the-pricing-work): prices for capsules on the hosted platform.
-- [Create a Space](/docs/shared/create-a-space): get started on the hosted platform today.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/platform/billing/how-does-the-pricing-work', label: '📋 Pricing', description: 'Prices for capsules on the hosted platform.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 Create a Space', description: 'Get started on the hosted platform today.'},
+  ]}
+/>

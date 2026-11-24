@@ -4,7 +4,8 @@ A Reference page lists facts the reader looks up: values, limits, prices, option
 
 - **Use it for:** pricing, plans and limits, supported runtimes and versions, CLI commands, environment variables, API methods.
 - **Location:** A Reference page can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Writing style:** follow `writing_style.md`.
+- **Example in this repo:** `docs/c/how-does-the-pricing-work.md`.
+- **Writing style:** follow `writing_style.md`, including its [Page pieces](writing_style.md#page-pieces) for cards.
 
 ## Sections
 
@@ -12,7 +13,7 @@ A Reference page **must** have these sections, in this order:
 
 | # | Section | What goes in it |
 |---|---|---|
-| 1 | Title and description | Frontmatter, one `#` title, and one or two sentences on what the page lists. |
+| 1 | Title and description | Frontmatter, the `DocCardList` import, one `#` title, and one or two sentences on what the page lists. |
 | 2 | `## Overview` | The one or two facts that apply to everything on the page. |
 | 3 | `## <Subject>` | One section per subject. Each is mostly a table. |
 | 4 | `## Examples` | Optional. Worked examples that use the values above. |
@@ -34,7 +35,7 @@ A Reference page **must** have these sections, in this order:
 - Each example has a one-line scenario, the working, and the result.
 
 ## Related
-- Two to five bullets, each a link with a few words on why to go there.
+- **Must** be one `DocCardList` of two to five cards. Each card's description says in a few words why to go there.
 
 ## Template
 
@@ -47,6 +48,8 @@ description: >-
 sidebar_label: "<Subject>"
 doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # <Subject>
 
@@ -76,5 +79,9 @@ doc_version: drift
 
 ## Related
 
-- [<Page>](/docs/<path>): <why to go there>.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/<path>', label: '<emoji> <Title>', description: '<Why to go there.>'},
+  ]}
+/>
 ```
