@@ -56,10 +56,30 @@
 - Actions taken: A numbered list of the actions you took from the guide, including `not testable` setup actions and what you did instead.
 - Guide alignment: A table with the status (`pass`, `fail`, `blocked`, or `not testable`) for each action, plus columns for what the guide expects and what actually happened.
 - Mismatches / issues: Every difference between the guide and the site, with the guide's wording next to what you saw. Only write "None observed" if you actually compared the whole guide.
-- Suggested fixes: How the guide should be updated to reflect the real steps.
+- Tickets: One ticket for each fix needed, in the format under "Tickets" below. Write "None" only if every action passed. Don't write a separate suggested-fixes list.
+
+## Tickets
+Tickets simulate the ticket creation a later version will do. Each one is a piece of work someone can pick up on its own. Don't edit guides or the site yourself. Use these types:
+
+- **Guide fix**: change the guide's wording, label, value or order to match what the site really does. One ticket per distinct mismatch, listing every action number it affects.
+- **Missing prerequisite**: add something the reader needs before the guide's first action, such as a fork, app permission or account setting, to `## Prerequisites`.
+- **Missing step**: the real flow needs an action the guide doesn't mention, or the guide's last step doesn't reach the goal.
+- **Site issue**: the guide is right but the site doesn't behave as documented, such as a missing option or an error.
+- **New guide**: a feature in the list has no guide. Give the proposed file path, slug, goal and an outline of the steps you took.
+- **Missing feature**: a guide exists but its feature isn't in `DOCUMENTED_FEATURES.md`.
+
+Each ticket must have:
+- **ID**: `<guide-name>-wt-<n>`, for example `go-wt-1`, so walkthrough tickets never clash with format tickets.
+- **Type**: one of the types above.
+- **Title**: a short imperative summary, such as "Replace `Source Code` with `Connect a Git Repository`."
+- **Problem**: what the guide says and what the site shows, quoting both, with the action numbers and the screenshot if one exists.
+- **Change**: exactly what to change, with the replacement text or value.
+- **Done when**: how a reviewer can confirm the fix, such as re-running the action and seeing it pass.
 
 ## Report files
-- Only write a walkthrough report if an action is `fail` or `blocked`, or the report would have a suggested fix. If every action is `pass` or `not testable`, don't write one; record the result as a row in the run summary.
+- Only write a walkthrough report for a guide that has at least one ticket. A guide with no tickets doesn't get a report, even if you took notes. Record the result only as a row in the run summary.
+- A `fail` or `blocked` action always produces a ticket, so every failed guide gets a report.
+- A guide where every action is `pass` or `not testable` and no ticket is needed gets no report.
 - Save each walkthrough report as `reports/<datetime>/<guide folder>/walkthrough-<guide-name>.md`.
 - `<datetime>` is the run's start time as `YYYY-MM-DD-HHmm`, the same value used for every report in the run, so file names don't need a date.
 - `<guide folder>` is the guide's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/cli/readme/commands/<guide-name>.md` goes in `reports/<datetime>/cli/readme/commands/`. Create the folders if they don't exist.
@@ -71,3 +91,4 @@
 
 ## Deliver
 - Open one pull request containing all the new reports.
+- List the tickets in the pull request description, grouped by guide.
