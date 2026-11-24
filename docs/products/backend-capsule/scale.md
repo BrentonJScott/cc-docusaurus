@@ -1,20 +1,48 @@
 ---
 slug: "/products/backend-capsule/scale"
-description: "Scale your Backend Capsule on Code Capsules by allocating more CPU and memory as your app traffic grows."
 title: "How to Scale a Backend Application"
-sidebar_label: "Scale"
+description: >-
+  Scale your Backend Capsule on Code Capsules by allocating more CPU and memory as your app traffic grows.
+sidebar_label: Scale
+doc_version: drift
 ---
 
-# Scale Your Backend Application Without Downtime
+import DocCardList from '@theme/DocCardList';
 
-You can allocate more resources to a Capsule as your application's traffic and computational needs change.
+# Scale your Scale
 
-View the scaling options available for your Capsule in the **Scale** tab of the Capsule dashboard. To adjust the allocated resources, click **Edit** in the **Capsule Capacity** section.
+Change CPU, RAM, replicas, or storage for your Backend Capsule.
 
-![Scale a Capsule](/gitbook-assets/products/backend-capsule/scale/backend-scale-edit.png)
+## Prerequisites
 
-Select a plan, or choose **Custom** to adjust resources to your requirements, then click **Save**.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-Saving redeploys the capsule with the new resources. It does not start a new build.
 
-![Configure Capsule Capacity](/gitbook-assets/products/backend-capsule/scale/backend-scale-custom.png)
+## Scale the Capsule
+
+1. **Open Scale**
+
+   Open the Capsule and select the **Scale** tab.
+
+2. **Edit resources**
+
+   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+
+3. **Save**
+
+   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Save is disabled</summary>
+
+Some capsule types require the capsule to be on a paid plan or to be stopped before scaling storage. Check the message on the Scale tab.
+
+</details>

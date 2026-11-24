@@ -1,31 +1,48 @@
 ---
 slug: "/products/database-capsule/documentdb/scale"
-description: "Scale your DocumentDB Capsule on Code Capsules by allocating more CPU, RAM, storage, and replicas as your document database workload grows."
 title: "How to Scale a DocumentDB Database"
-sidebar_label: "Scale"
+description: >-
+  Scale your DocumentDB Capsule on Code Capsules by allocating more CPU, RAM, storage, and replicas as your document database workload grows.
+sidebar_label: Scale
+doc_version: drift
 ---
 
-# Scale Your DocumentDB Database Without Downtime
+import DocCardList from '@theme/DocCardList';
 
-Allocate more resources to a DocumentDB Capsule as your workload grows. Open the **Scale** tab on the capsule dashboard and click **Edit** in the **Capsule Capacity** section. You can only edit capacity while the capsule is running.
+# Scale your Scale
 
-![DocumentDB Capsule Scale tab Capsule Capacity plan selection](/gitbook-assets/products/database-capsule/scale/documentdb-scale.png)
+Change CPU, RAM, replicas, or storage for your DocumentDB Capsule.
 
-Select a plan, or choose **Custom** to adjust resources to your requirements:
+## Prerequisites
 
-| Resource    | Description                               |
-| ----------- | ----------------------------------------- |
-| **CPU**     | Processing power allocated to the capsule |
-| **RAM**     | Memory available to the capsule           |
-| **Storage** | Disk space for database data              |
-| **Scale**   | Number of replicas                        |
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/documentdb/deploy', label: '🛠️ DocumentDB Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-Click **Save** to apply your changes.
 
-The right-hand panel shows estimated monthly costs for your selected plan.
+## Scale the Capsule
 
-:::tip
+1. **Open Scale**
 
-For managed scaling, version upgrades, and Atlas-backed operations, consider migrating to a [MongoDB Capsule](/products/database-capsule/mongodb/scale/).
+   Open the Capsule and select the **Scale** tab.
 
-:::
+2. **Edit resources**
+
+   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+
+3. **Save**
+
+   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Save is disabled</summary>
+
+Some capsule types require the capsule to be on a paid plan or to be stopped before scaling storage. Check the message on the Scale tab.
+
+</details>

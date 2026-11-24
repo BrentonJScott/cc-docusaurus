@@ -1,15 +1,28 @@
 ---
 slug: "/products/frontend-capsule/configure"
-description: "To configure your Frontend Capsule, navigate to the \"Config\" tab."
 title: "How to Configure a Frontend App"
-sidebar_label: "Configure"
+description: >-
+  To configure your Frontend Capsule, navigate to the \"Config\" tab.
+sidebar_label: Configure
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your Frontend App
 
 To configure your Frontend Capsule, navigate to the "Config" tab. These settings work the same way for [Static](/products/frontend-capsule/static/deploy/) and [Container](/products/frontend-capsule/container/deploy/) hosting.
 
-![Configure Frontend Capsule](/gitbook-assets/products/frontend-capsule/config/frontend-config.png)
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Frontend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Set Capsule Parameters
 
@@ -21,11 +34,6 @@ Frontend settings are in the **Build** part of the **Capsule Parameters** sectio
 
 Frontend Capsules have no **Runtime** settings.
 
-:::warning[Changing build settings starts a new build]
-
-When you save a change in **Build**, Code Capsules rebuilds your site with the new settings and deploys the result. A build can take a few minutes.
-
-:::
 
 ### Project Path
 
@@ -54,8 +62,11 @@ To add custom variables:
 
 Environment variables are available to your build command, so frameworks can include them in your site when it's built (for example, Vite's `VITE_` variables or Create React App's `REACT_APP_` variables). They aren't read again after the build. On static capsules, saving a change to your environment variables starts a new build.
 
-:::warning
+## Troubleshooting
 
-Anything included in your build can be read by everyone who visits your site. Don't put secrets such as API keys or database passwords in a Frontend Capsule's environment variables.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
 
-:::
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

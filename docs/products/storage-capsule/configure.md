@@ -1,15 +1,28 @@
 ---
 slug: "/products/storage-capsule/configure"
-description: "To configure your Persistent Storage Capsule, navigate to the \"Details\" tab."
 title: "How to Configure a Persistent Storage"
-sidebar_label: "Configure"
+description: >-
+  To configure your Persistent Storage Capsule, navigate to the \"Details\" tab.
+sidebar_label: Configure
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your Persistent Storage
 
 To configure your Persistent Storage Capsule, navigate to the "Details" tab.
 
-![Configure Persistent Storage Capsule](/gitbook-assets/products/storage-capsule/config/storage-details.png)
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/storage-capsule/deploy', label: '🛠️ Storage Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Edit Capsule Name
 
@@ -24,8 +37,6 @@ This is disabled by default for security.
 ## Connect to WebDAV
 
 When Public Access is enabled, you can connect to your storage using WebDAV.
-
-![Connect to Public Storage with WebDAV](/gitbook-assets/products/storage-capsule/config/storage-public-access.png)
 
 ### View Connection Information
 
@@ -62,3 +73,11 @@ Click "show" in the "WebDAV Connection Information" section to view:
    - `webdavs://@server-address` for Dolphin
 3. Enter the username and password when prompted
 4. The WebDAV server will now appear as a mounted drive in your file manager
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

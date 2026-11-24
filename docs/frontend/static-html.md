@@ -1,77 +1,72 @@
 ---
 slug: "/frontend/static-html"
-description: "Deploy a static HTML website on Code Capsules and learn how to host frontend code. A simple step-by-step guide to serving static sites in production."
+description: >-
+  Deploy a static HTML site on Code Capsules. When you finish, the first build is
+  in progress on the Deploy tab Builds section.
 title: "How to Host a Static HTML Website"
 sidebar_label: "Static HTML"
+doc_version: drift
 ---
 
-# Host Your Static HTML Website in Minutes
+import DocCardList from '@theme/DocCardList';
 
-Deploy a static HTML site and learn how to host frontend code on Code Capsules. At the end of this guide you'll have the application below deployed and ready to customise.
+# Host Your Static HTML Website
 
-![Deployed App](/gitbook-assets/get-started/cc-html-site.png)
+Deploy a static HTML site on Code Capsules. When you finish, the first build is in progress on the **Deploy** tab **Builds** section.
 
-## Built with AI
+## Prerequisites
 
-The demo site above was generated using an AI coding agent. If you're building with agents yourself, here's the prompt that produced it:
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-html', description: 'Fork codecapsules-io/demo-html on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so the fork appears in the wizard.'},
+  ]}
+/>
 
-```
-Create a single-page static HTML site for CodeCapsules (a cloud hosting platform).
-Use only index.html and style.css — no build tools, no JavaScript frameworks.
+## Deploy your static HTML site
 
-Design requirements:
-- Dark theme with #0f0f0f background and #f5c800 yellow accent colour
-- Navigation bar with logo and "Get Started" CTA button
-- Hero section with a headline, subheading, two CTA buttons, and a terminal window graphic
-  showing a git push → build succeeded → deployed sequence
-- Features section with three cards: Frontend Capsules, Backend Capsules, Data Capsules
-- CTA section prompting the user to deploy their own copy
-- Footer with a "Built with plain HTML & CSS · Hosted on CodeCapsules" note
-- Fully responsive (single column on mobile)
+1. **Open the capsule wizard**
 
-Keep the markup semantic and the CSS clean with custom properties.
-```
+   Open the Space for this app. Click the yellow **+** and select **New Capsule**.
 
-## Setup
+2. **Choose capsule details**
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+   On **Capsule Details**, choose **Frontend Capsule**, your Team, and your Space. Click **Next**.
 
-To demonstrate how to deploy a static HTML site with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-html).
+3. **Choose static hosting**
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+   On **Hosting**, select **Static**. Click **Next**.
 
-## Create an Account with Code Capsules
+4. **Choose a plan**
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+   On **Plan**, select **Free**. Click **Next**.
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+5. **Connect the repository**
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+   On **Configure**, select the **Git Repository** `codecapsules-io/demo-html` and the branch `main`. Click **Next**.
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+6. **Set build settings**
 
-## Create the Capsule
+   On **Deploy**, leave **Build Command** empty and set **Path to static content** to `/`. Click **Build & Deploy**.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+7. **Check the build**
 
-To create a new Capsule for your Space, follow the instructions below:
+   On the capsule **Deploy** tab, open **Builds**. The first build is in progress or queued.
 
-1. Choose **Frontend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Build Command** blank and **Build Output Directory** as `/`.
-7. Click **Create Capsule**.
+## Troubleshooting
 
-Code Capsules will automatically build your application when you've finished creating the Capsule.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Git Repository dropdown is empty</summary>
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+You have not connected GitHub, or the fork is missing from the granted repositories. Follow [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules) and confirm `codecapsules-io/demo-html` is listed.
 
-![Build Logs](/gitbook-assets/get-started/frontend-build-logs.png)
+</details>
 
-Once the build is complete, a URL link will appear in the URL section in the **Details** tab. Click the link, and you should see your deployed application.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The site loads but index.html is not found</summary>
 
-If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](/frontend/).
+`codecapsules-io/demo-html` serves files from the repository root. Set **Path to static content** to `/` and leave **Build Command** empty.
+
+</details>

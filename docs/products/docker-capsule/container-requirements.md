@@ -1,9 +1,13 @@
 ---
 slug: "/products/docker-capsule/container-requirements"
-description: "Make sure your container runs on a Code Capsules Docker Capsule: listen on the network port, bind to 0.0.0.0, start your app, and read the PORT variable."
 title: "Docker Container Runtime Requirements"
+description: >-
+  Make sure your container runs on a Code Capsules Docker Capsule: listen on the network port, bind to 0.0.0.0, start your app, and read the PORT variable.
 sidebar_label: "Container Requirements"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Make Your Container Ready for Code Capsules
 

@@ -1,20 +1,32 @@
 ---
 slug: "/tutorials/building-a-web-file-store"
 title: "Build a Web File Store on Code Capsules"
-description: "Build and deploy your own online file store on Code Capsules, a self-hosted alternative to Dropbox or Google Drive you can access from any device."
-cover: /gitbook-assets/tutorials/file-store-cover-v2.jpg
+description: >-
+  Build and deploy your own online file store on Code Capsules, a self-hosted alternative to Dropbox or Google Drive you can access from any device.
+sidebar_label: "Build a Web File Store on Code Capsules"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Building a Web File Store
 
+## What you'll build
 
 An online file storage drive you can access from all your devices is a very useful tool. It’s the basis of services like Dropbox and Google Drive.
 
 Code Capsules’s File System Data Capsule mounts as a standard file system to a Backend Capsule, providing a convenient file storage option you can use instead of a blob store on other platforms. The file systems are well-supported in most programming languages and familiar to programmers.
 
-In this tutorial, we’ll build a basic web interface to upload, download and delete files, secured with a simple, single-user authentication scheme.
+## Prerequisites
 
-We’ll use a [Backend Capsule](/products/backend-capsule/deploy/) with a file store Data Capsule, [Node.js](https://nodejs.org/) as the programming language, and [Express](http://expressjs.com/) as the web framework.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Overview and Requirements
 
@@ -89,10 +101,6 @@ To use the Data Capsule with the Backend Capsule, we need to link the two. Head 
 \
 After binding the capsules, scroll up to the section “Capsule Parameters”. You’ll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, is automatically added with the mount point. We’ll use this environment variable in the code to access the storage drive.\\
 
-![Env Variables Persistent Storage](/gitbook-assets/tutorials/building-a-web-file-store/env-variables-persistent-storage.png)
-
-![Bind Persistent 1](/gitbook-assets/root/bind-persistent-1.png)
-
 ### Writing the Web Files Code
 
 Now that we have all our systems setup, we can get onto the best part – coding!
@@ -138,19 +146,7 @@ Our backend route gets the file list, and passes it through to the `index` HTML 
 
 <div>
   <h2>File list</h2>
-  <table>
-    <tr>
-      <th>File Name</th>
-    </tr>
-      {{#each files}}
-      <tr>
-        <td> 
-            {{this}}
-        </td>
-      </tr>
-      {{/each}}
-  </table>
-</div>
+  </div>
 ```
 
 Handlebars uses the sequence `{{ }}` to indicate sections of the template to be populated. In the first line, `{{title}}` will be replaced with the title we specified in the return from the `GET /` route we added earlier.
@@ -160,8 +156,6 @@ Then we set up a simple table, and use the Handlebars of each function to iterat
 You can save, commit and push your changes so far. Our code should deploy automatically on [Code Capsules](https://www.codecapsules.io/). After deploying, you can visit the public URL, and you should see something like this:
 
 \
-![blank files](/gitbook-assets/tutorials/building-a-web-file-store/blank-files.png)
-
 This is good, but a little uninteresting without any files to view!
 
 #### Adding the File Upload Route
@@ -242,8 +236,6 @@ This is a good point to commit the code to Git, and test the new deployment on C
 \
 The upload control may look slightly different depending on the web browser and operating system you use. Try choosing a file and uploading it, and you should see it appear in the browser.
 
-![Upload Section](/gitbook-assets/tutorials/building-a-web-file-store/upload-section.png)
-
 #### Downloading a File
 
 We’ve got the functionality to upload files, and to list what files are on the server. Now let’s add functionality to download files.
@@ -268,24 +260,10 @@ Now we need a way to call this route from the front end. Open the `index.hbs` fi
 ```
 <div>
   <h2>File list</h2>
-  <table>
-    <tr>
-      <th>File Name</th>
-    </tr>
-      {{#each files}}
-      <tr>
-        <td> 
-            <a href='/{{this}}' download>{{this}}</a> 
-        </td>
-      </tr>
-      {{/each}}
-  </table>
-</div>
+  </div>
 ```
 
 Commit these changes, and wait for Code Capsules to redeploy the site. If you navigate to the site now, you should see the file you uploaded earlier as a hyperlink. Clicking on the link should download the file.\\
-
-![Download File](/gitbook-assets/tutorials/building-a-web-file-store/download-file.png)
 
 #### Deleting a File
 
@@ -310,23 +288,7 @@ Now let’s update the front end to be able to call this route. Open the `index.
 ```
 <div>
   <h2>File list</h2>
-  <table>
-    <tr>
-      <th>File Name</th>
-      <th></th>
-    </tr>
-      {{#each files}}
-      <tr>
-        <td> 
-            <a href='/{{this}}' target="_blank">{{this}}</a> 
-        </td>
-        <td>
-          <button>Delete</button>
-        </td>
-      </tr>
-      {{/each}}
-  </table>
-</div>
+  </div>
 ```
 
 Next, we’ll create some front-end JavaScript code for the button to call when clicked. We’ll use the browser-side [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to call the `DELETE` file route. Add this script block at the bottom of the `index.hbs` file:
@@ -356,8 +318,6 @@ Now let’s hook this function up to the button we added for each file. We’ll 
 ```
 
 Commit these changes, and wait for Code Capsules to redeploy the site. Then navigate to the site and try out the “Delete” button next to the filename.\\
-
-![File Delete](/gitbook-assets/tutorials/building-a-web-file-store/file-delete.png)
 
 #### Adding Authentication
 
@@ -438,8 +398,6 @@ Head over to the “Config” tab on your backend Code Capsule, and add 2 new en
 \
 **Note:** _While this method of storing user credentials is appropriate for a small, single-user hobby project, it is not sufficient for production with customer credentials. Look to implementing a more robust user store, with password hashing and salting, or using a third-party authentication service such as a social network or an OAuth provider_
 
-![Username Env](/gitbook-assets/tutorials/building-a-web-file-store/username-env.png)
-
 Passport offers many other [authentication strategies](https://www.passportjs.org/features/), from OAuth 2.0 strategies allowing authentication through Facebook, Google, Twitter and other OAuth 2.0 providers, to API authentication strategies such as Bearer Tokens.
 
 Now that we have set the username and password for our app, we can add the login page routes to render the login page and send the form `POST` with user credentials to Passport.
@@ -499,8 +457,6 @@ We’re done with authentication. Commit these changes, and wait for Code Capsul
 \
 Congratulations, you have completed building a personal web drive using [Code Capsules](https://www.codecapsules.io/) and [Node.js](https://nodejs.org/)!
 
-![Auth](/gitbook-assets/tutorials/building-a-web-file-store/auth.png)
-
 ### Next Steps
 
 This project has some decent basic functionality, but there are many things you could add to upgrade it, such as:
@@ -510,3 +466,26 @@ This project has some decent basic functionality, but there are many things you 
 * Add support for multi-file upload
 * Add logout functionality, using the [Passport logout function](http://www.passportjs.org/docs/logout/)
 * Add better authentication, and perhaps separate user accounts for a multi-user drive
+
+## Summary
+
+You followed **Build a Web File Store on Code Capsules** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

@@ -2,24 +2,30 @@
 slug: "/tutorials/create-and-host-an-api-with-flask"
 title: "Create and Host an API with Flask"
 description: >-
-  Build a personal API that lets you access up to the minute exchange rates and
-  weather data for cities of your choosing.
-cover: /gitbook-assets/tutorials/flask-api-cover-v2.jpg
+  Build a personal API that lets you access up to the minute exchange rates and weather data for cities of your choosing.
+sidebar_label: "Create and Host an API with Flask"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Create and Host an API With Flask
 
+## What you'll build
 
 An API, or Application Programming Interface, is a tool enabling developers to interact with data online. Imagine: you navigate to some website and see your location’s temperature displayed on their homepage. How did they present this information?
 
 Undoubtedly, they used an API. APIs are hosted on a server and operate as an access point between the user and some data.
 
-Part of this guide takes a look at the weatherstack API – an API providing weather data. For the website to retrieve your location’s temperature, they would’ve sent a request to an API like weatherstack. In the request, they would include information about your computer’s location. weatherstack’s API would then return weather data related to your locale, such as the temperature and cloud cover. The weather website will then display this data on their homepage for you to view.
+## Prerequisites
 
-In this tutorial, we’ll learn how to create a personal API with Python (using Flask). Our API will use data from the weatherstack and OpenExchangeRates APIs to give us up-to-the-minute USD exchange rates and the temperature of a given city.
-
-We’ll host our API on Code Capsules so that anyone will be able to request information from it, no matter their location.
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
 ## Prerequisites
 
 Before starting, we’ll need a GitHub account and knowledge of how to push code from a local repository to a remote repository.
@@ -43,16 +49,11 @@ virtualenv env
 
 To activate the virtual environment, enter one of the following:
 
-
-
 #### Linux/MacOSX
 
 ```
 source env/bin/activate
 ```
-
-
-
 
 #### Windows
 
@@ -60,12 +61,9 @@ source env/bin/activate
 envScriptsactivate.bat
 ```
 
-
-
-
 If the virtual environment has activated correctly, you’ll see (env) to the left of your name in the terminal.
 
-![env active](/gitbook-assets/tutorials/env-active-1.png)
+## Part 1: Build the project
 
 ### Installing the Dependencies
 
@@ -297,3 +295,26 @@ print(api_data.json())
 ```
 
 All done!
+
+## Summary
+
+You followed **Create and Host an API with Flask** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

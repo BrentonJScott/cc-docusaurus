@@ -1,72 +1,48 @@
 ---
 slug: "/platform/capsules/how-do-i-add-remove-stop-capsules"
-description: "To add a new Capsule, click the yellow + button in the bottom-left corner of the dashboard and select New Capsule."
+description: >-
+  Add a Capsule, turn it off, and remove it. When you finish, the Capsule was
+  added, switched off, and deleted.
 title: "How to Add, Remove, and Stop Hosted Apps"
 sidebar_label: "Add, Remove, and Turn Off Capsules"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Add, Remove, and Turn Off Capsules
 
-## Add a Capsule
+Add a Capsule, turn it off, and remove it. When you finish, the Capsule was added, switched off, and deleted.
 
-To add a new Capsule, click the yellow **+** button in the bottom-left corner of the dashboard and select **New Capsule**.
+## Prerequisites
 
-![Create a Capsule](/gitbook-assets/platform/add-capsule.png)
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to hold the Capsule.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Connect GitHub for repository deploys.'},
+  ]}
+/>
 
-Choose the **Capsule Type**, **Team**, and **Space**. Click **Next** to confirm.
+## Manage your Capsule
 
-![Enter Capsule Details](/gitbook-assets/platform/platform/capsules/capsule-details.jpg)
+1. **Add a Capsule**
 
-### Configure the Plan
+   In your Space, click the yellow **+** and select **New Capsule**. On **Capsule Details**, choose a **Capsule Type**, **Team**, and **Space**, then click **Next**. Complete **Plan**, **Configure**, and **Deploy**, then click **Create Capsule** or **Build & Deploy**. The new Capsule opens on **Details**.
 
-Configure the Capsule's resources by choosing a plan. To customize resources to suit your needs, select **Custom** and move the sliders to increase or decrease **CPU**, **RAM**, and **Replica Scale**. Click **Next**.
+2. **Turn off the Capsule**
 
-![Choose Capsule Plan](/gitbook-assets/platform/platform/billing/capsule-plan-1.png)
+   On the Capsule **Details** page, toggle the switch at the top right to off. The Capsule stops serving traffic until you turn it on again.
 
-### Connect to a Repo
+3. **Remove the Capsule**
 
-Code Capsules connects to your version control provider to deploy applications from your repositories. You need to give Code Capsules permission to access the repository you want to use.
+   On **Details**, scroll to **Remove Capsule**. Enter the Capsule name and click **Delete**. The Capsule no longer appears in the Space.
 
-Docker Capsules can also deploy an existing public container image instead of a repository — see [Deploy an existing image](/products/docker-capsule/image/deploy/).
+## Troubleshooting
 
-To connect a Capsule to your repository:
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Delete is permanent</summary>
 
-1. Select the repository from the dropdown. If you haven't yet linked your Code Capsules account to a version control provider, click **Configure Git for Code Capsules** and follow the prompts.
-2. Select the branch to deploy from.
-3. Select the folder the Capsule will build from, or leave this field blank to build from the root of the branch.
+You cannot recover a removed Capsule. Turn the Capsule off instead if you only need to pause billing temporarily.
 
-![Connect a Repository](/gitbook-assets/platform/platform/capsules/connect-a-repo.png)
-
-### Configure the Capsule
-
-Capsule-specific settings depend on the type of Capsule you're creating. For example, if you're adding a Frontend Capsule, you'll specify a build command, the path to the project's static files, and a name.
-
-Click **Create Capsule** to complete the setup.
-
-![Capsule-Specific Settings](/gitbook-assets/platform/platform/capsules/capsule-specific-settings.png)
-
-## Remove a Capsule
-
-To delete a Capsule, navigate to the **Capsule Details** page, scroll to the end, and click **Remove Capsule**.
-
-![Delete Capsule](/gitbook-assets/platform/delete-capsule.png)
-
-In the confirmation dialog, enter the Capsule's name and click **Delete**.
-
-
-:::danger
-
-You cannot reverse this action. The Capsule cannot be recovered once deleted.
-
-:::
-
-
-## Turn Off a Capsule
-
-To turn off a Capsule, toggle the switch at the top-right corner of the **Capsule Details** page.
-
-![Turn Off a Capsule](/gitbook-assets/platform/capsule-toggle-button.png)
-
-Turning a Capsule off is useful when adding or updating environment variables. You’ll need to restart the Capsule after a few seconds for the changes to take effect.
-
-You can also turn off a Capsule during periods of inactivity to reduce costs.
+</details>

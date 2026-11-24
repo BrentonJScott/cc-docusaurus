@@ -1,15 +1,30 @@
 ---
 slug: "/products/database-capsule/mongodb/deploy"
-description: "Deploy a managed MongoDB Atlas cluster on Code Capsules with a MongoDB Capsule, then connect it to your backend app using a framework guide."
 title: "How to Deploy a MongoDB Database"
-sidebar_label: "Deploy"
+description: >-
+  Deploy a managed MongoDB Atlas cluster on Code Capsules with a MongoDB Capsule, then connect it to your backend app using a framework guide.
+sidebar_label: Deploy
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Deploy Your MongoDB Database
 
 MongoDB Capsules are managed clusters on MongoDB Atlas. This is the recommended way to run MongoDB on Code Capsules. When you create a capsule in the dashboard, it is presented as **MongoDB** and provisioned with your chosen cluster type, version, and capacity.
 
 For a self-hosted MongoDB-compatible alternative, see [DocumentDB](/products/database-capsule/documentdb/deploy/). DocumentDB is intended for existing workloads — new projects should use MongoDB Capsules.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ MongoDB Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Create a MongoDB Capsule
 
@@ -21,8 +36,6 @@ For a self-hosted MongoDB-compatible alternative, see [DocumentDB](/products/dat
 4. Choose a **Plan** and configure **Storage** and **Replicas** for Dedicated clusters.
 5. Enter a **Capsule Name** and click **Create Capsule**.
 
-![MongoDB Capsule Plan & Deploy step with Cluster Type, Version, and Plan options](/gitbook-assets/products/database-capsule/deploy/mongodb-deploy-plan.png)
-
 Cluster creation can take several minutes. See the [MongoDB getting started guide](/database/mongodb/) for connection and binding instructions.
 
 ## Framework Guides
@@ -30,3 +43,11 @@ Cluster creation can take several minutes. See the [MongoDB getting started guid
 - [Django + MongoDB](/database/mongodb/django-+-mongodb/)
 - [Express + MongoDB](/database/mongodb/express-+-mongodb/)
 - [Flask + MongoDB](/database/mongodb/flask-+-mongodb/)
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule/redis/connect-locally"
-description: "Connect to a Redis Capsule from your local machine with the Code Capsules CLI proxy and redis-cli to inspect keys, run commands, and debug caching."
 title: "How to Connect to Redis Locally"
+description: >-
+  Connect to a Redis Capsule from your local machine with the Code Capsules CLI proxy and redis-cli to inspect keys, run commands, and debug caching.
 sidebar_label: "Connect Locally"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Connect to Your Redis Database From Your Machine
 
@@ -43,21 +47,6 @@ On the capsule **Details** tab, click **show** in the **Connection Details** sec
 - Password
 - Connection string
 
-:::tip
-
-Copy the connection string from the **Details** tab, not the CLI copy prompt. Replace the remote host and port with `127.0.0.1` and your proxy port.
-
-```text
-# Remote (from Details tab)
-redis://myuser:mypass@db-host.internal:6379
-
-# Local (after proxy on port 6379)
-redis://myuser:mypass@127.0.0.1:6379
-```
-
-If your password contains special characters (`@`, `#`, `/`, and so on), URL-encode them in connection strings.
-
-:::
 
 ## Install redis-cli
 
@@ -110,3 +99,11 @@ redis-cli -h 127.0.0.1 -p 6379 --user <username> -a '<password>' KEYS 'session:*
 ```
 
 Use `KEYS` sparingly on large databases. Prefer `SCAN` in production debugging.
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

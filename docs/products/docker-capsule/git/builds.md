@@ -1,15 +1,30 @@
 ---
 slug: "/products/docker-capsule/git/builds"
-description: "Build a Docker Capsule from Git on Code Capsules: manual builds, auto-deploy on push, Dockerfile path and build context, and fixing failed builds."
 title: "How to Build Docker Images From Git"
+description: >-
+  Build a Docker Capsule from Git on Code Capsules: manual builds, auto-deploy on push, Dockerfile path and build context, and fixing failed builds.
 sidebar_label: "Builds & Auto-deploy"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Build and Auto-Deploy Your Dockerfile From Git
 
 When your Docker Capsule is [deployed from Git](/products/docker-capsule/git/deploy/), Code Capsules builds a new image from your repository each time a build starts, then deploys it. This page covers how builds are triggered and configured.
 
 For build history, logs, and rollback, see [Deployments](/products/docker-capsule/deployments/).
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## How builds work
 

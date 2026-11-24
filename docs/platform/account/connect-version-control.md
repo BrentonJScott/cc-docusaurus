@@ -1,25 +1,50 @@
 ---
 slug: "/platform/account/connect-version-control"
 title: "Connect GitHub or GitLab"
-description: "To deploy applications on Code Capsules, you need to connect to a version control provider and give Code Capsules permission to read the relevant..."
+description: >-
+  Connect GitHub to Code Capsules. When you finish, your repositories appear in
+  the Git Repository dropdown when you create a Capsule.
+sidebar_label: "Connect GitHub or GitLab"
+doc_version: drift
 ---
 
-# Connect Version Control
+import DocCardList from '@theme/DocCardList';
 
-To deploy applications on Code Capsules, you need to connect to a version control provider and give Code Capsules permission to read the relevant repository.
+# Connect GitHub or GitLab
 
-To connect your Code Capsules account to your version control provider, navigate to **Repos** in the dashboard and click **Install** next to your preferred provider.
+Connect GitHub to Code Capsules. When you finish, your repositories appear in the **Git Repository** dropdown when you create a Capsule.
 
-![Version Control Providers](/gitbook-assets/platform/choose-version-control-providers.png)
+## Prerequisites
 
-Follow the prompts to give Code Capsules access to your repos.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+  ]}
+/>
 
-For example, to connect to GitHub, select your GitHub username and set the following options in the dialog:
+## Connect version control
 
-1. Enable **Only Select Repositories**.
-2. Select the GitHub repository you want to deploy from.
-3. Click **Install & Authorize**.
+1. **Open Repos**
 
-![Install & authorize github](/gitbook-assets/platform/github-integration.png)
+   In the dashboard, open **Repos**.
 
-Once version control is connected, you can [share repos with your Teams](/platform/teams/share-a-repo-with-a-team/).
+2. **Install GitHub**
+
+   Click **Install** next to **GitHub**. Sign in to GitHub if prompted.
+
+3. **Limit repository access**
+
+   On **Only select repositories**, choose the repositories you deploy from. Click **Install & Authorize**.
+
+4. **Confirm in the capsule wizard**
+
+   Start **New Capsule**. On **Configure**, open **Git Repository**. Your selected repositories are listed.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Git Repository dropdown is empty</summary>
+
+The repository is not granted to Code Capsules, or GitHub is not connected. Repeat **Install** on **Repos** and include that repository in **Only select repositories**.
+
+</details>

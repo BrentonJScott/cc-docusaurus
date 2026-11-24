@@ -1,13 +1,28 @@
 ---
 slug: "/products/agent-capsule/deploy"
-description: "Deploy a configurable Agent Capsule on Code Capsules to run AI agents in production. Set environment variables, connect a repo, and ship in minutes."
 title: "How to Deploy an AI Agent"
-sidebar_label: "Deploy"
+description: >-
+  Deploy a configurable Agent Capsule on Code Capsules to run AI agents in production. Set environment variables, connect a repo, and ship in minutes.
+sidebar_label: Deploy
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Deploy Your AI Agent
 
 Deploy a configurable Agent Capsule on Code Capsules.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/agent-capsule/deploy', label: '🛠️ Agent Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Set up
 
@@ -19,30 +34,28 @@ Before creating your Agent Capsule, you'll need a Team and a Space. You can foll
 
 If you already have a Team and Space set up, log in to your Code Capsules account. On the dashboard, click the yellow `+` on the bottom left of the screen then click "New Capsule".
 
-![Create a Capsule](/gitbook-assets/products/add-capsule.png)
-
 ## Create the Capsule
 
 A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
 To create an Agent Capsule first choose "AI Agent" as the Capsule type, as well as your Team, and Space.
 
-![Create Agent Capsule](/gitbook-assets/products/createagentcapsule-edited.png)
-
 Next choose your payment plan, or create a custom plan.
 
-![Choose Plan](/gitbook-assets/products/createagentscale-edited.png)
-
-Code Capsules provides templates (see [templates.md](/products/agent-capsule/templates/ "mention")) as a baseline for creating your AI Agent. When creating the Agent Capsule, you can select if your codebase comes from a template repo. In this case, you will be asked to enter a provider, model, and API key for a public AI provider, such as Google Gemini or Anthropic. When registering with one of these providers, they should provide an API key to access their public API's. Once the capsule is created, the templates will make use of this information via environment variables, which are automatically set up for you upon capsule creation. You can learn more about how these templates make use of these environment variables [here](/products/agent-capsule/templates/).
-
-![Template Setup](/gitbook-assets/products/createagentconfig-edited.png)
+Code Capsules provides templates (see [templates.md](/products/agent-capsule/templates/)) as a baseline for creating your AI Agent. When creating the Agent Capsule, you can select if your codebase comes from a template repo. In this case, you will be asked to enter a provider, model, and API key for a public AI provider, such as Google Gemini or Anthropic. When registering with one of these providers, they should provide an API key to access their public API's. Once the capsule is created, the templates will make use of this information via environment variables, which are automatically set up for you upon capsule creation. You can learn more about how these templates make use of these environment variables [here](/products/agent-capsule/templates/).
 
 ## Monitor Deployment
 
 Code Capsules will automatically build and deploy your Agent Capsule. You can view the build log by selecting the "Build logs" tab to monitor the deployment progress.
 
-![Build Logs](/gitbook-assets/products/agentbuildlogs-edited.png)
-
 Once the build is complete, use the Chat tab to interface with your newly running agent.
 
-![Chat Tab](/gitbook-assets/products/agentchatpage-edited.png)
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

@@ -1,10 +1,48 @@
 ---
 slug: "/products/database-capsule/mysql/monitor"
-description: "Monitor your MySQL Capsule on Code Capsules and track usage and resource metrics for your managed MySQL database from the Metrics tab."
 title: "How to Monitor a MySQL Database"
-sidebar_label: "Monitor"
+description: >-
+  Monitor your MySQL Capsule on Code Capsules and track usage and resource metrics for your managed MySQL database from the Metrics tab.
+sidebar_label: Monitor
+doc_version: drift
 ---
 
-# Monitor Your MySQL Database Metrics
+import DocCardList from '@theme/DocCardList';
 
-Each Capsule tracks its usage data and you can view this information by opening the "Metrics" tab on your Capsule's page.
+# Monitor metrics
+
+View usage metrics for your MySQL Capsule on the **Metrics** tab.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ MySQL Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
+
+## View metrics
+
+1. **Open the Capsule**
+
+   Open the Space and select the MySQL Capsule.
+
+2. **Open Metrics**
+
+   Click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
+
+3. **Confirm usage data**
+
+   Change the time range if the UI offers one. Values update for the selected period.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Metrics show no data</summary>
+
+New capsules may need a few minutes of traffic or runtime before charts populate. Confirm the capsule is on and serving requests.
+
+</details>

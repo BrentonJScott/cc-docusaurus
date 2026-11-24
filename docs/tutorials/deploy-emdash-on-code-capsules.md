@@ -2,16 +2,30 @@
 slug: "/tutorials/deploy-emdash-on-code-capsules"
 title: "Deploy an EmDash CMS Site"
 description: >-
-  Deploy an EmDash CMS-powered Astro site to Code Capsules using a Backend
-  Capsule and Persistent Storage Capsule for the database and media uploads.
+  Deploy an EmDash CMS-powered Astro site to Code Capsules using a Backend Capsule and Persistent Storage Capsule for the database and media uploads.
+sidebar_label: "Deploy an EmDash CMS Site"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Deploy an EmDash Site on Code Capsules
+
+## What you'll build
 
 EmDash is a CMS built on top of Astro. It stores your content schema in a SQLite database, serves content via live collections, and provides a full admin UI at `/_emdash/admin`. Because it uses a local SQLite file for its database and a local directory for media uploads, deploying it to Code Capsules requires a Persistent Storage Capsule to keep that data alive across deploys and restarts.
 
 In this tutorial, we'll configure an EmDash Astro project for production, push it to GitHub, create a Backend Capsule and a Persistent Storage Capsule on Code Capsules, bind them together, and access the live admin panel.
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
 ## Prerequisites
 
 Before starting, make sure you have:
@@ -24,6 +38,8 @@ Before starting, make sure you have:
 ## Configuring Your Project for Code Capsules
 
 Code Capsules injects a `PERSISTENT_STORAGE_DIR` environment variable into your capsule when a Persistent Storage Capsule is bound to it. This variable contains the absolute path to the mounted storage volume. We need to point both the EmDash SQLite database and the media uploads directory at paths inside this volume.
+
+## Part 1: Build the project
 
 ### 1. Update astro.config.mjs
 
@@ -130,7 +146,9 @@ git commit -m "Configure EmDash for Code Capsules deployment"
 git push
 ```
 
-## Deploying to Code Capsules
+
+## Part 2: Deploy on Code Capsules
+
 
 ### 5. Create a Backend Capsule
 
@@ -155,13 +173,7 @@ Navigate to your Backend Capsule and click the **Config** tab. Scroll down to th
 
 Click **Bind**.
 
-![Bind Data Capsule](/gitbook-assets/get-started/bind-persistent-1.png)
-
 Code Capsules will inject the `PERSISTENT_STORAGE_DIR` environment variable into your Backend Capsule and restart it. The restart triggers `prestart`, which runs the bootstrap script against the persistent volume for the first time — creating the database, running migrations, and seeding your schema and content.
-
-:::tip
-The Persistent Storage Capsule must be bound **before** the first successful start. If your Backend Capsule started before binding, trigger a manual restart from the **Overview** tab after binding.
-:::
 
 ### 8. Access the Admin Panel
 
@@ -184,3 +196,26 @@ When you push new code to GitHub and Code Capsules rebuilds your capsule, the se
 3. `node dist/server/entry.mjs` starts the server on the `PORT` provided by Code Capsules
 
 Your database and uploaded media persist across all deploys in the Persistent Storage volume.
+
+## Summary
+
+You followed **Deploy an EmDash CMS Site** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

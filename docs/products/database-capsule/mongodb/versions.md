@@ -1,9 +1,13 @@
 ---
 slug: "/products/database-capsule/mongodb/versions"
-description: "See which MongoDB versions Code Capsules supports on Dedicated and Shared clusters, check your current version, and plan a major version upgrade."
 title: "Supported MongoDB Versions"
-sidebar_label: "Versions"
+description: >-
+  See which MongoDB versions Code Capsules supports on Dedicated and Shared clusters, check your current version, and plan a major version upgrade.
+sidebar_label: Versions
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Choose and Upgrade Your MongoDB Version
 
@@ -68,8 +72,6 @@ After prerequisites are met (if applicable):
 2. Go to the **Config** tab.
 3. In the **MongoDB Configuration** section, click **Edit**, select the target version, and save.
 4. Confirm the upgrade when prompted.
-
-![MongoDB Capsule Config tab with version upgrade](/gitbook-assets/products/database-capsule/config/mongodb-version-upgrade.png)
 
 Wait until the capsule reports as **Running** and the new version is fully applied before making further changes.
 

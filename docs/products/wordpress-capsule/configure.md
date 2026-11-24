@@ -1,15 +1,30 @@
 ---
 slug: "/products/wordpress-capsule/configure"
-description: "Complete reference for configuring a WordPress Capsule — database connections, PHP settings, FPM workers, and all environment variables."
 title: "How to Configure a WordPress Site"
-sidebar_label: "Configure"
+description: >-
+  Complete reference for configuring a WordPress Capsule — database connections, PHP settings, FPM workers, and all environment variables.
+sidebar_label: Configure
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Configure Your WordPress Site
 
 WordPress Capsules are configured through environment variables in the **Config** tab of your Capsule's page. All configuration is applied at container start — changes take effect on the next deploy or restart.
 
 ---
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ WordPress Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Database Connection
 
@@ -225,3 +240,11 @@ See [Cron](/products/wordpress-capsule/cron/) for the full cron reference.
 | `RATE_LIMIT_API_ROUTES_RPM` | `60` | Rate limit for REST API |
 | `RATE_LIMIT_MAX_CONN_PER_IP` | `30` | Max concurrent connections per IP |
 | `NGINX_EXTRA_CONF` | — | Custom nginx directives in the server block |
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

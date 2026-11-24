@@ -1,39 +1,38 @@
 ---
-title: "Host a Production WordPress Blog"
 slug: "/tutorials/how-to-simply-host-a-production-wordpress-blog"
-description: "The Amazon Web Services (AWS) WordPress reference architecture has become a meme in DevOps circles. The 2018 best practices whitepaper recommends you..."
-cover: /gitbook-assets/tutorials/wordpress-hosting-cover-v2.jpg
+title: "Host a Production WordPress Blog"
+description: >-
+  The Amazon Web Services (AWS) WordPress reference architecture has become a meme in DevOps circles. The 2018 best practices whitepaper recommends you...
+sidebar_label: "Host a Production WordPress Blog"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # How to (Simply) Host a Production WordPress Blog
 
+## What you'll build
 
 The Amazon Web Services (AWS) WordPress reference architecture has become a meme in DevOps circles. The 2018 [best practices whitepaper](https://aws.amazon.com/blogs/architecture/wordpress-best-practices-on-aws/) recommends you use 11 services costing $500 to $1,500 monthly, and assumes you have dedicated DevOps staff. The alternative is to use a single Amazon Lightsail instance, where you handle operating system (OS) updates, security hardening, and MySQL tuning yourself.
 
-![WordPress hosting complexity versus simplicity](/gitbook-assets/tutorials/wordpress-blog/wordpress-complexity-vs-simplicity.png)
-
 WordPress production sites need infrastructure that is reliable enough to handle traffic spikes and hardware failures, yet simple enough to manage without a DevOps team.
 
-This guide demonstrates how to run a production WordPress site with:
+## Prerequisites
 
-* Separate application, database, and storage layers
-* One-click migration between staging and production environments
-* Automatic scaling for traffic spikes
-* Infrastructure-level backups
-
-You'll learn how to deploy WordPress infrastructure, configure a content review workflow, and set up production operations for backing up, scaling, and monitoring your data.
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
 ## The WordPress Production Problem
 
 In a development team, the workflow for releasing changes usually looks like this:
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/developer-workflow.png)
-
 Your developers write code locally, commit to GitHub, run automated tests, and deploy changes to staging for review. Only after stakeholder approval does anything touch production. Every change is tracked, every deployment is reversible, and nothing reaches your live site without multiple checkpoints.
 
 WordPress doesn't work this way.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-workflow.png)
 
 WordPress splits data between files and the database, breaking Git workflows:
 
@@ -60,6 +59,8 @@ Due to these WordPress limitations, here's what you need to know to host a produ
 * **Plan for Staging-to-Production Workflows:** WordPress has no built-in mechanism for migrating between environments. Either set up a plugin-based migration (which costs $99 to $299 per year with manual configuration) or use a hosting platform, like Code Capsules, that offers built-in one-click migrations. Without this, you have to recreate approved content manually or risk breaking production with direct edits.
 * **Match Infrastructure to Your Team's Capacity:** A self-hosted VPS (starting from $10 per month) requires you to handle security patches, backups, and scaling. Managed WordPress removes operational work but limits flexibility and costs more (an average of $50 per month for basic plans). Always choose based on whether you have DevOps resources.
 
+## Part 1: Build the project
+
 ### Hosting Options For WordPress Sites
 
 WordPress hosting options range from $5 single-server VPS setups to $1,500 AWS enterprise architectures:
@@ -69,10 +70,6 @@ WordPress hosting options range from $5 single-server VPS setups to $1,500 AWS e
 * Managed WordPress providers remove server management but limit customization, and cost $35 to $100 per month.
 
 For a detailed comparison of hosting costs and trade-offs, see our [WordPress Hosting Cost Comparison](https://github.com/codecapsules-io/codecapsules-docs/blob/main/tutorials/link/README.md).
-
-
-
-
 
 ### Why Code Capsules Works Well for WordPress Hosting
 
@@ -99,11 +96,7 @@ Spaces organize related Capsules.
 
 On your Code Capsules dashboard, navigate to the **Spaces** tab and click the **+** button to create a new Space.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/create-space-button.png)
-
 Fill in the Space details and select the region closest to your target users to reduce latency for your visitors.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/space-details-form.png)
 
 ## Setting Up the WordPress Staging Site
 
@@ -124,15 +117,9 @@ Follow the [WordPress Capsule deployment guide](/products/wordpress-capsule/depl
 
 After deploying the WordPress Capsule, you'll see a default URL like `wordpress-slug.ccdns.co`. You can configure a custom domain for cleaner URLs.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-default-url.png)
-
 Navigate to the **Domains** tab and click **+** to add a domain.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/add-custom-domain-button.png)
-
 On the domain configuration page, enter your staging domain, for example, `staging.blog.yourdomain.com`.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/custom-domain-entry.png)
 
 Code Capsules provides DNS instructions. Create a CNAME or ALIAS record with your DNS provider pointing to the provided hostname.
 
@@ -140,39 +127,23 @@ Code Capsules provides DNS instructions. Create a CNAME or ALIAS record with you
 
 After creating the Capsules, you need to install the WordPress staging site. Visit your WordPress URL and select your language.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-language-selection.png)
-
 Create your admin account. Use a strong password, since this account has full site access.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-admin-account-setup.png)
 
 Once WordPress has been installed, you'll receive a success notification.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-installation-success.png)
-
 Click **Log In** to verify the installation and open the WordPress admin dashboard for your staging site.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-admin-dashboard.png)
-
 Navigate to the website homepage. The WordPress Capsule sets up a default homepage similar to the following:
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-default-homepage.png)
 
 Code Capsules includes three default WordPress themes, Twenty Twenty-Five (active in the screenshot), Twenty Twenty-Four, and Twenty Twenty-Three. These blog-focused templates display posts on the homepage by default.
 
 To change themes, navigate to **Appearance** → **Themes**.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-themes-page.png)
-
 ### Create User Accounts
 
 To create user accounts, navigate to **Users** in the WordPress side panel and click **Add User**.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-add-new-user-button.png)
-
 Fill the form with the user's information and select a role.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-user-role-form.png)
 
 From the **Role** dropdown, select **Admin**, **Contributor**, **Editor**, or **Author**. These roles determine permissions for content creation and review in your staging-to-production workflow.
 
@@ -183,8 +154,6 @@ Your staging environment is ready. You can install themes, add plugins, and crea
 To demonstrate the content review workflow, create a sample blog post in your staging environment.
 
 Navigate to **Posts** → **Add Post**.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-add-new-post.png)
 
 Enter a post title and content. For this example, create a post titled `Welcome to Our Blog` with sample content about your company or services. Then, click **Publish** to make the post visible on your staging site. Visit your staging site to verify that the post appears.
 
@@ -204,8 +173,6 @@ This separates production data completely from staging. Changes in staging won't
 In your production WordPress Capsule (the target Capsule), navigate to the **Migrate** tab. Select your staging WordPress Capsule as the **Source Capsule**.
 
 Click **Start Migration**. Code Capsules copies your database content, uploaded media files, installed plugins, and theme configurations from staging to production.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-migration-source-selection.png)
 
 After migration, the production environment contains the same content as the staging environment.
 
@@ -248,16 +215,10 @@ Use the following Code Capsules capabilities to monitor your WordPress site.
 * [**Monitoring**](/products/wordpress-capsule/monitor/)**:** View real-time metrics for CPU, memory, and traffic. Identify performance trends and resource constraints.
 * [**Logs**](/products/wordpress-capsule/logs/)**:** Access application logs directly from the dashboard. Filter by severity, search for specific errors, and troubleshoot issues without server access.
 
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-capsule-logs-interface.png)
-
 * [**Access Logs**](/products/wordpress-capsule/logs/)**:** Track actions performed by WordPress users in the admin interface.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-access-logs-view.png)
 
 * [**Alerting**](/products/alerting/)**:** Configure alerts for high CPU usage, error rates, and downtime. Receive notifications via email or webhooks before users report problems.
 * [**Metrics**](/products/wordpress-capsule/monitor/)**:** Check resource usage on the machine.
-
-![Screenshot](/gitbook-assets/tutorials/wordpress-blog/wordpress-metrics-dashboard.png)
 
 ### Best Practices in WordPress
 
@@ -279,3 +240,26 @@ You now know the three keys to hosting a production WordPress blog without singl
 * Scalable site management infrastructure
 
 With separate Capsules for each layer of the site, built-in staging-to-production migration, and automatable scaling options, Code Capsules provides a simple hosting solution, so you can focus on creating content.
+
+## Summary
+
+You followed **Host a Production WordPress Blog** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

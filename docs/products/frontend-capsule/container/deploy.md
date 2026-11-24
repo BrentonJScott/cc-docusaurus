@@ -1,9 +1,13 @@
 ---
 slug: "/products/frontend-capsule/container/deploy"
-description: "Deploy a static site or SPA on Code Capsules with Container hosting. A web server runs in an always-on container with runtime logs, metrics, and scaling."
 title: "How to Deploy a Container Frontend"
-sidebar_label: "Deploy"
+description: >-
+  Deploy a static site or SPA on Code Capsules with Container hosting. A web server runs in an always-on container with runtime logs, metrics, and scaling.
+sidebar_label: Deploy
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Frontend With Container Hosting
 
@@ -67,3 +71,11 @@ The web server in your container:
 - [Configure](/products/frontend-capsule/configure/): change build settings and environment variables
 - [Custom Domains](/products/frontend-capsule/custom-domains/): serve your site from your own domain
 - [Framework Guides](/products/frontend-capsule/deploy/): React, Angular, Vue, Svelte, and static HTML
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

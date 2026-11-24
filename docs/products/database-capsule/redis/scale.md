@@ -1,14 +1,48 @@
 ---
 slug: "/products/database-capsule/redis/scale"
-description: "Scale your Redis Capsule on Code Capsules by choosing a larger plan or custom resources as traffic to your Redis database grows."
 title: "How to Scale a Redis Database"
-sidebar_label: "Scale"
+description: >-
+  Scale your Redis Capsule on Code Capsules by choosing a larger plan or custom resources as traffic to your Redis database grows.
+sidebar_label: Scale
+doc_version: drift
 ---
 
-# Scale Your Redis Database Without Downtime
+import DocCardList from '@theme/DocCardList';
 
-It is possible to allocate more resources to your Capsule depending on how much traffic your application will be getting and its computational needs. To view the different scaling options available for your Capsule, navigate to the **Scale** tab while on your Capsule's dashboard, and click the **Edit** button in the **Capsule Capacity** section.
+# Scale your Scale
 
-![Redis Capsule Scale tab Capsule Capacity plan selection](/gitbook-assets/products/database-capsule/scale/redis-scale.png)
+Change CPU, RAM, replicas, or storage for your Redis Capsule.
 
-Select a plan, or choose **Custom** to adjust resources to your requirements. Click **Save** when done.
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/redis/deploy', label: '🛠️ Redis Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
+
+## Scale the Capsule
+
+1. **Open Scale**
+
+   Open the Capsule and select the **Scale** tab.
+
+2. **Edit resources**
+
+   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+
+3. **Save**
+
+   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Save is disabled</summary>
+
+Some capsule types require the capsule to be on a paid plan or to be stopped before scaling storage. Check the message on the Scale tab.
+
+</details>

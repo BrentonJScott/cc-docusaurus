@@ -1,18 +1,32 @@
 ---
-title: "Host a Python Telegram Bot"
 slug: "/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules"
-description: "Build a Python Telegram bot that sends exchange-rate and weather data, then host it on Code Capsules. Full walkthrough from Bot API to live."
-cover: /gitbook-assets/tutorials/telegram-bot-cover-python-v2.jpg
+title: "Host a Python Telegram Bot"
+description: >-
+  Build a Python Telegram bot that sends exchange-rate and weather data, then host it on Code Capsules. Full walkthrough from Bot API to live.
+sidebar_label: "Host a Python Telegram Bot"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # How to Create and Host a Python Telegram Bot on Code Capsules
 
+## What you'll build
 
 _This guide uses Python. You can find the Node.js version_ [_here_](/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules/)_, and the Go version_ [_here_](/tutorials/create-and-host-go-ai-telegram-bot/)_._
 
 In this tutorial, we'll create a Telegram bot that will allow us to pull temperature, weather, and exchange rate data on the go by messaging our bot in the Telegram app.
 
-We'll also learn how to host this bot on [Code Capsules](https://www.codecapsules.io/) so it can be used by others. Along the way, we'll learn some key concepts about hosting bots securely and efficiently.
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Requirements
 
@@ -200,13 +214,11 @@ EXCHANGE_PARAMS = {'symbols': 'ZAR,EUR,CAD'}
 WEATHER_URL = f'http://api.weatherstack.com/current?access_key={WEATHER_API_KEY}'
 WEATHER_PARAMS = {'query': 'Cape Town'}
 
-
 def get_weather():
     """Fetch current weather from external API"""
     response = requests.get(WEATHER_URL, params=WEATHER_PARAMS)
     curr_temp = response.json()['current']['temperature']
     return f'Hello. The current temperature in Cape Town is: {curr_temp} celsius.'
-
 
 def get_exchange_rates():
     """Fetch exchange rates from external API"""
@@ -215,18 +227,14 @@ def get_exchange_rates():
     cad_rate, eur_rate, zar_rate = rates['CAD'], rates['EUR'], rates['ZAR']
     return f'Hello. Today, USD conversion rates are as follows: USD->CAD = {cad_rate}, USD->EUR = {eur_rate}, USD->ZAR = {zar_rate}'
 
-
 async def weather(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=get_weather())
-
 
 async def currency(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=get_exchange_rates())
 
-
 async def start(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text='Hi! I respond to /weather and /currency. Try them!')
-
 
 def main():
     TOKEN = os.getenv('BOT_TOKEN')
@@ -242,14 +250,11 @@ def main():
 
     application.run_polling()
 
-
 if __name__ == '__main__':
     main()
 ```
 
 Below is a conversation with a bot created using this program. Run `bot.py` and try it out yourself.
-
-![Telegram Bot Conversation](/gitbook-assets/tutorials/telegram-bot-chat.png)
 
 We won't be able to send messages to our bot if this program isn't running, so hosting it on Code Capsules will allow us to interact with the bot without having to keep this code permanently running on our development PC.
 
@@ -289,7 +294,9 @@ https://YOUR-CAPSULE-PUBLIC-URL/TOKEN
 
 If you've completed some of our other backend tutorials, you will be familiar with setting up web servers that receive `GET` and `POST` requests to different routes. You can think of a webhook as a very simple HTTP server that is intended to be used by bots and automated services rather than humans.
 
-### Preparing for Deployment
+
+## Part 2: Deploy on Code Capsules
+
 
 Before we push our code to GitHub and deploy it on Code Capsules, we need to create some files.
 
@@ -330,8 +337,6 @@ We still need to create environment variables for our bot's authorization and AP
 2. Click the **Config** tab.
 3. Add environment variables in the same form as our `.env` file. Add three environment variables: `BOT_TOKEN`, `WEATHER_API_KEY`, and `EXCHANGE_API_KEY`.
 
-![Bot API Key Environment Variable](/gitbook-assets/tutorials/bot-api-key-env.png)
-
 Once this is done, the Capsule will restart and the bot is ready. Give it a try!
 
 ### Further Reading
@@ -341,3 +346,26 @@ We've covered a lot above, from creating a Telegram bot to the differences betwe
 If you're interested in learning more about what you can do with Telegram bots, check out [Telegram's bot developer introduction](https://core.telegram.org/bots). If you have some ideas but require a deeper understanding of the `python-telegram-bot` library, browse their [GitHub repository](https://github.com/python-telegram-bot/python-telegram-bot).
 
 You can find a thorough explanation of webhooks [in this blog post](https://www.chargebee.com/blog/what-are-webhooks-explained/).
+
+## Summary
+
+You followed **Host a Python Telegram Bot** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

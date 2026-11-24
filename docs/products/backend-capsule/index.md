@@ -1,11 +1,13 @@
 ---
 slug: "/products/backend-capsule"
-description: >-
-  Deploy, configure, scale, and monitor server-side applications and APIs with
-  Code Capsules Backend Capsules.
 title: "Backend Application Hosting"
+description: >-
+  Deploy, configure, scale, and monitor server-side applications and APIs with Code Capsules Backend Capsules.
 sidebar_label: "Backend Capsule"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Everything About Hosting Your Backend Application
 

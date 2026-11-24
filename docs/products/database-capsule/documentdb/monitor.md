@@ -1,20 +1,48 @@
 ---
 slug: "/products/database-capsule/documentdb/monitor"
-description: "Monitor your DocumentDB Capsule on Code Capsules and track CPU, memory, network, and storage metrics from the Metrics tab, plus usage and billing data."
 title: "How to Monitor a DocumentDB Database"
-sidebar_label: "Monitor"
+description: >-
+  Monitor your DocumentDB Capsule on Code Capsules and track CPU, memory, network, and storage metrics from the Metrics tab, plus usage and billing data.
+sidebar_label: Monitor
+doc_version: drift
 ---
 
-# Monitor Your DocumentDB Database Metrics
+import DocCardList from '@theme/DocCardList';
 
-DocumentDB Capsules track resource usage over time.
+# Monitor metrics
 
-## Metrics
+View usage metrics for your DocumentDB Capsule on the **Metrics** tab.
 
-Open the **Metrics** tab to view performance charts for CPU, memory, network, and storage usage over selectable time ranges.
+## Prerequisites
 
-## Usage
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/documentdb/deploy', label: '🛠️ DocumentDB Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-Open the **Usage** tab to view billing and consumption data for your capsule.
 
-When you receive resource alerts, check [Logs](/products/database-capsule/documentdb/logs/) and consider adjusting capacity on the [Scale](/products/database-capsule/documentdb/scale/) tab. Configure [notification preferences](/products/alerting/) from the dashboard Overview.
+## View metrics
+
+1. **Open the Capsule**
+
+   Open the Space and select the DocumentDB Capsule.
+
+2. **Open Metrics**
+
+   Click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
+
+3. **Confirm usage data**
+
+   Change the time range if the UI offers one. Values update for the selected period.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Metrics show no data</summary>
+
+New capsules may need a few minutes of traffic or runtime before charts populate. Confirm the capsule is on and serving requests.
+
+</details>

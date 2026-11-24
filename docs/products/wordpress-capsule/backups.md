@@ -1,20 +1,47 @@
 ---
 slug: "/products/wordpress-capsule/backups"
-description: "WordPress stores content in two locations:"
 title: "How to Back Up a WordPress Site"
-sidebar_label: "Backups"
+description: "WordPress stores content in two locations:"
+sidebar_label: Backups
+doc_version: drift
 ---
 
-# Back Up and Restore Your WordPress Site
+import DocCardList from '@theme/DocCardList';
 
-WordPress stores content in two locations:
+# Back up your Backups
 
-- The MySQL database (posts, pages, users, and settings)
-- The file storage (themes, plugins, and uploaded media)
+Create and view backups for your WordPress Capsule.
 
-WordPress production sites require backups for both locations to ensure complete site restoration.
+## Prerequisites
 
-Code Capsules provides infrastructure-level backups through Database and Storage Capsules. Use our guides to set up backups for your WordPress site:
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ WordPress Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-- **[Database Capsule Backups:](/products/database-capsule/mysql/backups/)** Configure retention and test restoration.
-- **[Storage Capsule Backups:](/products/storage-capsule/backups/)** Manage file backup settings.
+
+## Run a backup
+
+1. **Open Backups**
+
+   Open the Capsule and select the **Backups** tab.
+
+2. **Start a backup**
+
+   Click **Create backup** or **Backup now** as labeled on your cluster.
+
+3. **Confirm completion**
+
+   Wait until the backup status shows **Completed**. The backup appears in the list with a timestamp.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Backup stays in progress</summary>
+
+Large databases take longer. If it fails, open **Logs** and retry when the capsule is healthy.
+
+</details>

@@ -1,15 +1,30 @@
 ---
 slug: "/products/database-capsule/mysql/schema-migrations"
-description: "This guide walks you through migrating a database using an Express app and a MySQL Capsule."
 title: "How to Run Database Migrations"
-sidebar_label: "Migrations"
+description: >-
+  This guide walks you through migrating a database using an Express app and a MySQL Capsule.
+sidebar_label: Migrations
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Run Your Database Migrations
 
 This guide walks you through migrating a database using an Express app and a MySQL Capsule.
 
 You might find our guides on [setting up a MySQL Data Capsule](/database/mysql/) and [creating an Express application with Code Capsules](/backend/node.js/express.js/) helpful.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ MySQL Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
 
 ## Step 1: Clone From Your GitHub Repository
 
@@ -45,8 +60,6 @@ Here we also add`"sql-file": true` to ensure that database migrations run using 
 
 Find the database URL for a MySQL Data Capsule in the **Config** tab of a Backend Capsule:
 
-![DATABASE URL](/gitbook-assets/products/configure-tab.png)
-
 You can also access the database URL using an environment variable as follows:
 
 `"prod": {"ENV":"DATABASE_URL"},`
@@ -58,8 +71,6 @@ Run the following command to create a folder to store migrations:
 `db-migrate create insert_unique_name --sql-file`
 
 The folder should contain three files:
-
-![SQL files](/gitbook-assets/products/sql-files.png)
 
 MySQL queries are stored in the two generated SQL files: One named with an `up` suffix and the other with a `down` suffix.
 
@@ -106,8 +117,6 @@ To run these migrations in a production environment, update the Capsule's **Run 
 
 Edit the **Run Command** in the **Config** tab of the Backend Capsule.
 
-![Run Command](/gitbook-assets/products/configure-tab-run-command.png)
-
 ## Step 7: Push the Changes
 
 Finally, commit and push your changes to your GitHub repository to update the codebase and trigger the migrations.
@@ -126,3 +135,11 @@ received data: CREATE TABLE user (
 [INFO] Processed migration 20220523135622-migration_name
 [INFO] Done
 ```
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

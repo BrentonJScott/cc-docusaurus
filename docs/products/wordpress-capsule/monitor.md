@@ -1,20 +1,48 @@
 ---
 slug: "/products/wordpress-capsule/monitor"
-description: "Monitor your WordPress Capsule using built-in Prometheus metrics for nginx, PHP-FPM, and WordPress application health."
 title: "How to Monitor a WordPress Site"
-sidebar_label: "Monitor"
+description: >-
+  Monitor your WordPress Capsule using built-in Prometheus metrics for nginx, PHP-FPM, and WordPress application health.
+sidebar_label: Monitor
+doc_version: drift
 ---
 
-# Monitor Your WordPress Site in Real Time
+import DocCardList from '@theme/DocCardList';
 
-WordPress Capsules expose metrics for Prometheus via built-in exporters running inside the container. The platform scrapes these automatically and makes them available in the **Metrics** tab of your Capsule's page.
+# Monitor metrics
 
-![Monitor Capsule Metrics](/gitbook-assets/products/wordpress-capsule/monitor/wordpress-capsule-metrics.png)
+View usage metrics for your WordPress Capsule on the **Metrics** tab.
 
----
+## Prerequisites
 
-## Viewing Metrics
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ WordPress Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-Open the **Metrics** tab on your Capsule's page to view graphs for CPU, memory, and request throughput. The platform pre-configures dashboards for the WordPress-specific metrics listed above.
 
-For custom Prometheus queries or Grafana dashboards, contact support for access to the platform's Prometheus instance.
+## View metrics
+
+1. **Open the Capsule**
+
+   Open the Space and select the WordPress Capsule.
+
+2. **Open Metrics**
+
+   Click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
+
+3. **Confirm usage data**
+
+   Change the time range if the UI offers one. Values update for the selected period.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Metrics show no data</summary>
+
+New capsules may need a few minutes of traffic or runtime before charts populate. Confirm the capsule is on and serving requests.
+
+</details>

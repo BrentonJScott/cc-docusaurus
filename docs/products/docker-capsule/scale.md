@@ -1,58 +1,48 @@
 ---
 slug: "/products/docker-capsule/scale"
-description: "Scale your Docker Capsule on Code Capsules by adding replicas or allocating more CPU, memory, and GPU as your application traffic grows."
 title: "How to Scale a Docker Container"
-sidebar_label: "Scale"
+description: >-
+  Scale your Docker Capsule on Code Capsules by adding replicas or allocating more CPU, memory, and GPU as your application traffic grows.
+sidebar_label: Scale
+doc_version: drift
 ---
 
-# Scale Your Docker Container Without Downtime
+import DocCardList from '@theme/DocCardList';
 
-Allocate more resources to a Docker Capsule as your application's traffic and computational needs change. Docker Capsules support horizontal scaling through replicas and vertical scaling through CPU, RAM, and optional GPU allocation.
+# Scale your Scale
 
-## Scale resources
+Change CPU, RAM, replicas, or storage for your Docker Capsule.
 
-View scaling options in the **Scale** tab of the capsule dashboard. Click **Edit** in the **Capsule Capacity** section to adjust resources. You can only edit capacity while the capsule is running.
+## Prerequisites
 
-Select a plan, or choose **Custom** to adjust resources to your requirements:
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-| Resource  | Description                                                  |
-| --------- | ------------------------------------------------------------ |
-| **CPU**   | Processing power allocated to each replica                   |
-| **RAM**   | Memory available to each replica                             |
-| **GPU**   | GPU devices per replica (when GPU is enabled for your Space) |
-| **Scale** | Number of replicas running simultaneously                    |
 
-Click **Save** to apply your changes. If the capsule is already running, Code Capsules updates it with the new resource limits.
+## Scale the Capsule
 
-![Docker Capsule Scale tab with plan selection and Custom option](/gitbook-assets/products/docker-capsule/scale/docker-scale.png)
+1. **Open Scale**
 
-## Horizontal scaling
+   Open the Capsule and select the **Scale** tab.
 
-Increase **Scale** (replicas) to run multiple instances of your capsule behind the same URL. Code Capsules load-balances traffic across active replicas.
+2. **Edit resources**
 
-Horizontal scaling works well for stateless applications. If your app stores state in memory or on local disk, externalize it with a [Storage Capsule](/products/storage-capsule/deploy/) or [Database Capsule](/products/database-capsule/) as appropriate, or use a single replica.
+   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
 
-## Vertical scaling
+3. **Save**
 
-Increase **CPU** or **RAM** when individual replicas need more capacity — for example, when handling larger workloads, running compute-heavy tasks, or addressing out-of-memory errors.
+   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
 
-Vertical scaling applies to each replica independently. If you run three replicas with 1 GB of RAM each, total memory usage across the capsule is 3 GB.
+## Troubleshooting
 
-## GPU scaling
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Save is disabled</summary>
 
-When GPU is enabled for your Space, you can allocate GPU devices to Docker Capsules. This is useful for machine learning inference, media processing, and other GPU-accelerated workloads.
+Some capsule types require the capsule to be on a paid plan or to be stopped before scaling storage. Check the message on the Scale tab.
 
-GPU availability depends on your region and namespace capabilities. Configure GPU allocation from the same **Scale** tab when the option is available.
-
-## Start and stop
-
-You can temporarily stop a Docker Capsule without deleting it using the toggle in the capsule header:
-
-- **Stop** — sets replicas to `0`; the capsule stops consuming compute resources but retains its configuration and build history
-- **Start** — starts the capsule with **1 replica**; use the **Scale** tab to increase replicas after starting
-
-If a bound Storage Capsule is stopped, you must start it before you can turn the Docker Capsule back on.
-
-## Scaling and Storage Capsules
-
-Before increasing replicas, consider how your application handles shared state. Bind a [Storage Capsule](/products/storage-capsule/deploy/) or [Database Capsule](/products/database-capsule/) — see [Configure](/products/docker-capsule/configure/#connect-data-capsules). Local capsule storage is not shared between replicas and is lost when the capsule restarts.
+</details>

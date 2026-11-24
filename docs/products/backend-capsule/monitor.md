@@ -1,12 +1,48 @@
 ---
 slug: "/products/backend-capsule/monitor"
-description: "Monitor your Backend Capsule on Code Capsules and track CPU, memory, and request metrics for your app from the Metrics tab."
 title: "How to Monitor a Backend Application"
-sidebar_label: "Monitor"
+description: >-
+  Monitor your Backend Capsule on Code Capsules and track CPU, memory, and request metrics for your app from the Metrics tab.
+sidebar_label: Monitor
+doc_version: drift
 ---
 
-# Monitor Your Backend Application in Real Time
+import DocCardList from '@theme/DocCardList';
 
-Each Capsule tracks its usage data. View this information by opening the **Metrics** tab on the Capsule's page. 
+# Monitor metrics
 
-![Monitor Capsule Metrics](/gitbook-assets/products/backend-capsule/monitor/backend-capsule-metrics.png)
+View usage metrics for your Backend Capsule on the **Metrics** tab.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
+
+
+## View metrics
+
+1. **Open the Capsule**
+
+   Open the Space and select the Backend Capsule.
+
+2. **Open Metrics**
+
+   Click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
+
+3. **Confirm usage data**
+
+   Change the time range if the UI offers one. Values update for the selected period.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Metrics show no data</summary>
+
+New capsules may need a few minutes of traffic or runtime before charts populate. Confirm the capsule is on and serving requests.
+
+</details>

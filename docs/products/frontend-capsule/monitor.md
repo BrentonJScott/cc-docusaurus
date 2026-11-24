@@ -1,23 +1,48 @@
 ---
 slug: "/products/frontend-capsule/monitor"
-description: "Monitor your Frontend Capsule on Code Capsules and track usage and resource metrics for your site from the Metrics and Details tabs."
 title: "How to Monitor a Frontend App"
-sidebar_label: "Monitor"
+description: >-
+  Monitor your Frontend Capsule on Code Capsules and track usage and resource metrics for your site from the Metrics and Details tabs.
+sidebar_label: Monitor
+doc_version: drift
 ---
 
-# Monitor Your Frontend App in Real Time
+import DocCardList from '@theme/DocCardList';
 
-## Container capsules
+# Monitor metrics
 
-Each container capsule tracks its usage data and you can view this information by opening the "Metrics" tab on your Capsule's page.
+View usage metrics for your Frontend Capsule on the **Metrics** tab.
 
-![Monitor Capsule Metrics](/gitbook-assets/products/frontend-capsule/monitor/frontend-capsule-metrics.png)
+## Prerequisites
 
-## Static capsules
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Frontend Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-Static capsules don't have a **Metrics** tab, because no server runs for your site. Instead, the **Details** tab shows:
 
-- **Stored**: the total size of your site's files
-- **Traffic this month** (Free plan only): how much of your [monthly traffic allowance](/products/frontend-capsule/static/plans/#monthly-traffic) your site has used since the start of the calendar month. Traffic is updated once a day.
+## View metrics
 
-To see the requests your site receives, use the [Access Logs](/products/frontend-capsule/logs/#view-access-logs) tab.
+1. **Open the Capsule**
+
+   Open the Space and select the Frontend Capsule.
+
+2. **Open Metrics**
+
+   Click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
+
+3. **Confirm usage data**
+
+   Change the time range if the UI offers one. Values update for the selected period.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Metrics show no data</summary>
+
+New capsules may need a few minutes of traffic or runtime before charts populate. Confirm the capsule is on and serving requests.
+
+</details>

@@ -1,9 +1,13 @@
 ---
 slug: "/products/frontend-capsule/static/plans"
-description: "Compare the Free and Paid plans for static Frontend Capsules on Code Capsules, including build size, monthly traffic, rate limits, and how to upgrade."
 title: "Static Frontend Free and Paid Plans"
+description: >-
+  Compare the Free and Paid plans for static Frontend Capsules on Code Capsules, including build size, monthly traffic, rate limits, and how to upgrade.
 sidebar_label: "Free and Paid Plans"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Free and Paid Plans for Static Hosting
 

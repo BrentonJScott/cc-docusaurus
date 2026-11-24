@@ -1,18 +1,48 @@
 ---
 slug: "/products/database-capsule/redis/logs"
-description: "View capsule and access logs from your Redis Capsule on Code Capsules to monitor cache activity and debug connection issues with your Redis database."
 title: "How to View Logs for a Redis Database"
-sidebar_label: "Logs"
+description: >-
+  View capsule and access logs from your Redis Capsule on Code Capsules to monitor cache activity and debug connection issues with your Redis database.
+sidebar_label: Logs
+doc_version: drift
 ---
 
-# View Your Redis Database Logs
+import DocCardList from '@theme/DocCardList';
 
-View your Capsule's logs to monitor activity and debug issues.
+# Logs logs
 
-## View Capsule Logs
+View build, runtime, and access logs for your Redis Capsule.
 
-Navigate to the "Logs" tab to view your Capsule's system logs.
+## Prerequisites
 
-## View Access Logs
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/database-capsule/redis/deploy', label: '🛠️ Redis Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-For Capsules that serve web traffic, navigate to the "Access Logs" tab to view HTTP request logs.
+
+## View logs
+
+1. **Open the Capsule**
+
+   Open the Space and select the Redis Capsule.
+
+2. **Open Logs**
+
+   Click the **Logs** tab.
+
+3. **Switch log streams**
+
+   Open **Capsule logs**, **Build logs**, or **Access logs** as listed. Scroll to the latest entries after a deploy.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Build logs are empty</summary>
+
+Trigger a new build from the **Deploy** tab or push to the connected branch, then refresh **Build logs**.
+
+</details>

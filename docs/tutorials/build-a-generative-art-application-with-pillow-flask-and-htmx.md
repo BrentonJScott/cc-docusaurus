@@ -1,22 +1,32 @@
 ---
-title: "Generative Art App with Flask"
 slug: "/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx"
-description: "Build a generative art web app with Python, Pillow, Flask and HTMX, then deploy it to Code Capsules. Generate and serve unique images live."
-cover: /gitbook-assets/tutorials/generative-art-cover-v2.jpg
+title: "Generative Art App with Flask"
+description: >-
+  Build a generative art web app with Python, Pillow, Flask and HTMX, then deploy it to Code Capsules. Generate and serve unique images live.
+sidebar_label: "Generative Art App with Flask"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Build a Generative Art Application With Pillow, Flask and HTMx
 
+## What you'll build
 
 Python’s Pillow package provides support for image manipulation that we can leverage to create random graphic images.
 
 In this tutorial, we’ll show you how to build a web application that creates images with rectangle graphics of different colors and sizes, and makes them available for download when requested by a user.
 
-Here’s an example of a graphic image that can be created by the app we’ll build:
+## Prerequisites
 
-![graphic](/gitbook-assets/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx/graphic.png)
-
-You can also add text to the generated images to create image covers and different marketing posts.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Requirements
 
@@ -59,8 +69,6 @@ Windows
 ```
 
 When you’ve activated the virtual environment, the name `env` will appear on the far left of your current line. This confirms that the activation was successful.
-
-![envactive](/gitbook-assets/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx/envactive.png)
 
 Now we can install dependencies our app needs to the environment. Run the command below from a terminal in the project root folder to install the packages we’ll need:
 
@@ -345,7 +353,9 @@ At the top of the file, we import the `create` method from the `make_squares` mo
 
 The `index` route is called when the app is started, and it calls the `create()` method to generate a Base64 image string and returns it in the `home.html` template. The `/generate-another` route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the `/tmp` folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download reference, and not the whole page, like in the case of rendering templates.
 
-### Prepare for Deployment
+
+## Part 2: Deploy on Code Capsules
+
 
 Our generate art app is now complete, and we are only left with adding the files necessary for deployment before we can publish it.
 
@@ -391,4 +401,25 @@ The final step is to deploy our app. Log into your Code Capsules account and lin
 
 That’s it! Your “Generate Art” app should be live and fully functional now.
 
-![app](/gitbook-assets/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx/app.png)
+## Summary
+
+You followed **Generative Art App with Flask** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

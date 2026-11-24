@@ -1,19 +1,34 @@
 ---
 slug: "/tutorials/use-codecapsules-with-an-agent"
 title: "Deploy with an AI Coding Agent"
-description: "Deploy applications to Code Capsules using an AI coding agent instead of the dashboard. Connect an agent to the platform and ship from your editor."
-cover: /gitbook-assets/tutorials/agent-skill-cover-v3.jpg
+description: >-
+  Deploy applications to Code Capsules using an AI coding agent instead of the dashboard. Connect an agent to the platform and ship from your editor.
+sidebar_label: "Deploy with an AI Coding Agent"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Use Code Capsules with an Agent
+
+## Part 1: Build and deploy
+
+## What you'll build
 
 AI coding agents can build entire applications in the terminal, but deploying usually means switching to a browser, clicking through a dashboard, and configuring settings manually. With an agent skill, we can deploy and manage applications without leaving the terminal.
 
 Code Capsules handles containers, domains, and TLS from a connected GitHub repo, so there is very little to configure. That makes it a good fit for agent-driven deployment: a single prompt can take an app from code to a live URL.
 
-In this guide, we'll install a Code Capsules skill for Claude Code, then deploy, update, and manage an Express.js application through natural-language prompts.
+## Prerequisites
 
-![Cc Skill Demo 3x](/gitbook-assets/tutorials/cc-skill-demo-3x.gif)
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+In this guide, we'll install a Code Capsules skill for Claude Code, then deploy, update, and manage an Express.js application through natural-language prompts.
 
 ## Setup
 
@@ -126,7 +141,9 @@ To avoid that back-and-forth, add an `AGENTS.md` file to the project root. You c
 
 Replace the Team, Space, repo, and region values with your own.
 
-## Deploy the Express Application
+
+## Part 2: Deploy on Code Capsules
+
 
 From the cloned `demo-express-js` directory, give the agent the following prompt:
 
@@ -143,19 +160,13 @@ The agent will:
 
 We can follow along as the agent makes API calls.
 
-![Creating a capsule](/gitbook-assets/tutorials/CC-skill-capsule-create.png)
-
 The agent works through each step autonomously and confirms when the deployment is live.
-
-![Deployment complete](/gitbook-assets/tutorials/CC-skill-capsule-done.png)
 
 Once the build is complete, the agent provides the URL to where the application is running. We can also ask directly:
 
 ```
 What's the URL for my demo-express-js capsule?
 ```
-
-![Live app](/gitbook-assets/tutorials/CC-skill-working-app.png)
 
 ## Check the Build Logs
 
@@ -166,8 +177,6 @@ Get the build logs for my demo-express-js capsule.
 ```
 
 The agent retrieves logs directly from the API. Common causes of build failure include missing dependencies in `package.json` and incorrect run commands.
-
-![Build logs](/gitbook-assets/tutorials/CC-skill-build-logs.png)
 
 ## Update and Redeploy
 
@@ -219,8 +228,29 @@ Beyond deploying, we can prompt the agent to manage existing Capsules. Here are 
     Show me the CPU and memory metrics for my backend over the last hour.
     ```
 
-![Managing a Capsule](/gitbook-assets/tutorials/CC-skill-manage-capsule.png)
-
 ## Further Reading
 
 For more deployment guides using the web dashboard, see the [docs](https://docs.codecapsules.io). To learn more about the capabilities the skill enables, see the [Code Capsules skill repository](https://github.com/codecapsules-io/skills).
+
+## Summary
+
+You followed **Deploy with an AI Coding Agent** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

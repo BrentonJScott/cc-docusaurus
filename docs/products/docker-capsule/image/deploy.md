@@ -1,9 +1,13 @@
 ---
 slug: "/products/docker-capsule/image/deploy"
-description: "Deploy an existing public container image from Docker Hub, GitHub Container Registry, or another public registry to a Docker Capsule on Code Capsules."
 title: "How to Deploy an Existing Docker Image"
-sidebar_label: "Deploy"
+description: >-
+  Deploy an existing public container image from Docker Hub, GitHub Container Registry, or another public registry to a Docker Capsule on Code Capsules.
+sidebar_label: Deploy
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Existing Container Image
 
@@ -30,11 +34,6 @@ Enter the image the same way you would with `docker pull`:
 | `nginx:1.27`                   | The `1.27` tag of `nginx` on Docker Hub        |
 | `ghcr.io/your-org/your-app:v1` | The `v1` tag of an image on GitHub Container Registry |
 
-:::info
-
-Only public images are supported. If you don't specify a tag, Code Capsules uses `latest`. Image names must be lowercase.
-
-:::
 
 ## Create the capsule
 
@@ -46,8 +45,6 @@ Only public images are supported. If you don't specify a tag, Code Capsules uses
 6. Enter the **Image reference**, then click **Next**.
 7. On the **Deploy** step, check the image shown, and enter a **Capsule Name**. The name defaults to the image name.
 8. Click **Create Capsule**.
-
-![Docker Capsule creation Source step with an image reference entered](/gitbook-assets/products/docker-capsule/deploy/docker-image-reference.png)
 
 Code Capsules creates the capsule and assigns a default hostname. You are taken to the capsule **Details** tab.
 
@@ -62,11 +59,6 @@ The image is not deployed until you start the first deploy:
 
 Follow progress in the **Builds** tab, where each pull appears as an **Image import** with its own log.
 
-:::tip
-
-Capsules listen on port `3000` by default. If your image serves on a different port, change the [network port](/products/docker-capsule/configure/#network-port) in the **Config** tab.
-
-:::
 
 ## Verify your capsule
 
@@ -80,3 +72,11 @@ After the first deploy, manage which version of your image is running:
 
 - [Image Updates](/products/docker-capsule/image/updates/) — deploy a newer version of your tag, change the image, and fix failed image deploys
 - [Deployments](/products/docker-capsule/deployments/) — deployment strategy, deploy history, and rollback
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Changes did not save</summary>
+
+Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+
+</details>

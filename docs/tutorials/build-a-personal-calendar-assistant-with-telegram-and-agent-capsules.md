@@ -1,20 +1,32 @@
 ---
-title: "Telegram Calendar Assistant Tutorial"
 slug: "/tutorials/build-a-personal-calendar-assistant-with-telegram-and-agent-capsules"
+title: "Telegram Calendar Assistant Tutorial"
 description: >-
-  Build an AI-powered calendar assistant that manages your Google Calendar
-  through natural Telegram conversations, deployed on Code Capsules.
-cover: /gitbook-assets/tutorials/calendar-assistant-cover-v2.jpg
+  Build an AI-powered calendar assistant that manages your Google Calendar through natural Telegram conversations, deployed on Code Capsules.
+sidebar_label: "Telegram Calendar Assistant Tutorial"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Build a Personal Calendar Assistant with Telegram and Agent Capsules
 
+## What you'll build
 
 Managing your calendar through multiple apps is tedious. You check Google Calendar on desktop, get notifications on mobile, and manually coordinate across platforms. What if you could schedule meetings, check availability, and get reminders through a single Telegram chat?
 
 In this tutorial, you'll build a personal calendar assistant that handles your Google Calendar through natural conversation on Telegram. The assistant understands requests like "Schedule a team meeting tomorrow at 2pm" or "What's on my calendar this week?" without requiring you to manage servers, databases, or scaling infrastructure.
 
-![The calendar assistant you'll build in this tutorial](/gitbook-assets/tutorials/telegram-agent-bot-add-event.png)
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Agentic Infrastructure
 
@@ -47,8 +59,6 @@ Follow the existing [guide to creating a Redis Capsule](/database/redis/).
 
 Once you've created the Redis Capsule, copy the connection string from the **Capsule Details** page.
 
-![Telegram Agent Redis Connection String](/gitbook-assets/tutorials/telegram-agent-redis-connection-string.png)
-
 ### Configure the Telegram Agent
 
 To set up the Telegram agent, go to the [Telegram calendar agent](https://github.com/codecapsules-io/ai-telegram-bot-calendar-agent-template) GitHub repository, and click **Use this template** to create a copy in your own GitHub account.
@@ -66,8 +76,6 @@ For more detailed instructions, see the [Agent Capsule deployment guide](/produc
 
 To create a Telegram Bot, open the [Telegram](https://telegram.org/) application and search for [BotFather](https://t.me/botfather). Start a conversation with BotFather and select `/newbot`. When prompted, give the bot a name, then a username. Once it is created, the bot provides you with a token. Copy this token and save it for later.
 
-![Telegram Agent Botfather Create Bot](/gitbook-assets/tutorials/telegram-agent-botfather-create-bot.png)
-
 To verify the setup, make sure you can start a conversation with the bot (it won't respond yet).
 
 Now that you have the token, go to your Agent Capsule **Config** page and add the following variables:
@@ -79,8 +87,6 @@ REDIS_URL=your_copied_connection_string
 
 Paste the Telegram bot token and the Redis connection string as new **Environment Variables**.
 
-![Telegram Agent Capsule Env Vars](/gitbook-assets/tutorials/telegram-agent-capsule-env-vars.png)
-
 The Telegram agent is now ready. Let's configure the calendar capabilities.
 
 #### Configure the Google Calendar API
@@ -89,23 +95,13 @@ To ensure the agent can access your calendar, you must configure Google Cloud to
 
 Visit the Google Calendar API [quickstart](https://developers.google.com/workspace/calendar/api/quickstart/js). Scroll down and click the **Enable the API** button.
 
-![Telegram Agent Google Calendar Enable Api](/gitbook-assets/tutorials/telegram-agent-google-calendar-enable-api.png)
-
 The button redirects you to the Google Console platform page to confirm your project and enable the API.
-
-![Telegram Agent Google Calendar Api Enabled](/gitbook-assets/tutorials/telegram-agent-google-calendar-api-enabled.png)
 
 After that, navigate to the **Configure the OAuth consent screen** section in the Google Calendar configuration doc. Click the **Go to Branding** button, and follow the steps in the Google documentation. If you can't select **Internal** for the audience, you can select **External**, but you'll have to add test users with the Google email address you're using.
 
-![Telegram Agent Google Oauth Consent Screen](/gitbook-assets/tutorials/telegram-agent-google-oauth-consent-screen.png)
-
 Then, authorize your web application credentials by clicking the **Go to Clients** button.
 
-![Telegram Agent Google Oauth Clients](/gitbook-assets/tutorials/telegram-agent-google-oauth-clients.png)
-
 When doing so, set the redirect URI to the URL of the Calendar Agent and specify the endpoint `/api/calendar/auth/callback`. To find the public URL of your Calendar Agent, open your Agent Capsule dashboard, navigate to the **Details** tab, and copy the **Public URL**.
-
-![Telegram Agent Capsule Public Uri](/gitbook-assets/tutorials/telegram-agent-capsule-public-uri.png)
 
 For example, the full URL would have the following structure:
 
@@ -122,8 +118,6 @@ GOOGLE_CALENDAR_CLIENT_SECRET=your_client_secret
 
 Your environment variables configuration should look as follows:
 
-![Telegram Agent Capsule Full Env Vars](/gitbook-assets/tutorials/telegram-agent-capsule-full-env-vars.png)
-
 Test the calendar configuration by clicking on the **Chat** tab, where you can make the following request:
 
 ```txt
@@ -132,29 +126,17 @@ Get the list of events in the calendar for February in the first 3 days.
 
 The Agent should give you a link to click to authorize access to the Calendar API.
 
-![Telegram Agent Chat Auth Link](/gitbook-assets/tutorials/telegram-agent-chat-auth-link.png)
-
 After granting access, you should see the following screen:
 
-![Telegram Agent Auth Success](/gitbook-assets/tutorials/telegram-agent-auth-success.png)
-
 After the validation, return to the **Chat** and tell the agent to proceed. You should receive a similar response to this:
-
-![Telegram Agent Chat Calendar Response](/gitbook-assets/tutorials/telegram-agent-chat-calendar-response.png)
 
 ### Test the Integration
 
 To test the integration, go to Telegram and start a conversation with the bot. Ask the bot to retrieve your calendar events for a particular period. If the bot prompts you for login or authorization, click on the link and grant it access.
 
-![Telegram Agent Bot Auth Prompt](/gitbook-assets/tutorials/telegram-agent-bot-auth-prompt.png)
-
 After granting access, remind the Agent to continue.
 
-![Telegram Agent Bot Calendar List](/gitbook-assets/tutorials/telegram-agent-bot-calendar-list.png)
-
 You can also add events to the calendar.
-
-![Telegram Agent Bot Add Event](/gitbook-assets/tutorials/telegram-agent-bot-add-event.png)
 
 ### Conclusion
 
@@ -170,3 +152,26 @@ This same pattern can enable you to build interesting integrations like:
 The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
 
 If you're interested in learning more about building with Agent Capsules, check out the [Code Capsules documentation](/products/agent-capsule/deploy/).
+
+## Summary
+
+You followed **Telegram Calendar Assistant Tutorial** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

@@ -1,17 +1,38 @@
 ---
 slug: "/platform/regions/what-regions-does-code-capsules-support"
 title: "Available Regions and Locations"
-description: "When creating a Space, you’ll be prompted to choose a deployment location. All Capsules in that Space will be deployed to the selected location."
+description: >-
+  Deployment regions you can select when creating a Space on Code Capsules.
+sidebar_label: "Regions"
+doc_version: drift
 ---
 
-# Available Deployment Locations
+import DocCardList from '@theme/DocCardList';
 
-When creating a Space, you’ll be prompted to choose a deployment location. All Capsules in that Space will be deployed to the selected location.
+# Supported Regions
 
-Code Capsules offers several physical cloud data centers. We recommend selecting the location closest to your target users:
+Deployment regions you can select when creating a Space on Code Capsules.
 
- - South Africa (Cape Town)
- - Europe (North)
- - United Kingdom (South)
+## Overview
 
-![Region Options](/gitbook-assets/platform/platform/regions/region-options.jpg)
+You choose a region once per Space. Every Capsule in that Space runs in the same data center region.
+
+## Regions
+
+| Region label | Location | Best for |
+| --- | --- | --- |
+| South Africa | Cape Town | Users in southern Africa |
+| Europe | North | Users in continental Europe |
+| United Kingdom | South | Users in the UK and Ireland |
+
+Pick the region closest to most of your users to reduce latency.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-a-space', label: '🛠️ Create a Space', description: 'Choose a region during Space setup.'},
+    {type: 'link', href: '/platform/spaces/what-is-a-space', label: '💡 What is a Space', description: 'How region choice applies to Capsules.'},
+    {type: 'link', href: '/platform/spaces/how-do-i-add-remove-a-space', label: '🛠️ Add or remove Spaces', description: 'Create a Space in a chosen region.'},
+  ]}
+/>

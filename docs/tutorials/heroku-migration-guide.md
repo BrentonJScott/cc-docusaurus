@@ -1,22 +1,31 @@
 ---
-title: "Migrate From Heroku to Code Capsules: 2026 Guide"
-sidebar_label: "Heroku Migration Guide"
 slug: "/tutorials/heroku-migration-guide"
-description: "Step-by-step 2026 guide to migrating from Heroku to Code Capsules: component mapping, database export and restore, cost comparison, and a full migration checklist."
-cover: /gitbook-assets/tutorials/heroku-migration-cover-v2.jpg
+title: "Migrate From Heroku to Code Capsules: 2026 Guide"
+description: >-
+  Step-by-step 2026 guide to migrating from Heroku to Code Capsules: component mapping, database export and restore, cost comparison, and a full migration checklist.
+sidebar_label: "Heroku Migration Guide"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Move Your Heroku Apps to Code Capsules, Step by Step
 
+## What you'll build
 
 This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules.
 
 [Code Capsules](https://www.codecapsules.io/) lets you deploy frontends, backends, and databases from a single dashboard, with built-in GitHub integration and support for most popular frameworks including Node.js, Python, and Docker.
 
-The guide walks you through the Code Capsules equivalents of Heroku components, how to change your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
+## Prerequisites
 
-Even if you don't intend to move to Code Capsules, this guide should help you create a general migration plan for most similar providers.
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
 ## Why Developers Are Migrating From Heroku in 2026
 
 **Last updated: July 2026.** Prices below are from the official [Heroku pricing page](https://www.heroku.com/pricing) and [Code Capsules pricing page](https://www.codecapsules.io/pricing/); re-check both before making decisions.
@@ -83,8 +92,6 @@ There are a lot of edge cases and reconciliation problems with dual-writing. Con
 Let's look at the most common type of application hosted on Heroku: a full-stack web application.
 
 Full-stack web apps need a system comprised of the following components:
-
-![System design](/gitbook-assets/tutorials/app.svg)
 
 - A static web server to serve the website (or a dynamic host in something like PHP or Node.js)
 - A backend web service that the website talks to
@@ -168,13 +175,9 @@ The scheduler addon is like a cron manager — it specifies when your app should
 
 You can see what that looks like below:
 
-![App emailer](/gitbook-assets/tutorials/appemailer.webp)
-
 ### Summary of the System
 
 Our example Heroku system consists of three apps, shown below, with one database addon and one scheduler addon.
-
-![App components](/gitbook-assets/tutorials/appcomponents.webp)
 
 ## Creating the App on Code Capsules
 
@@ -182,11 +185,7 @@ In this section you'll learn how to deploy the app (and data) we created in Hero
 
 First we create a Code Capsules [Space](/platform/platform/). Rather than the Heroku way of grouping applications by a globally unique name, Code Capsules allows you to group all components of an application inside a Space. We'll call our space `migrate`.
 
-![Code Capsules Space](/gitbook-assets/tutorials/ccspace.webp)
-
 Next, create a new Capsule for each component you have in Heroku. From your Space, click the yellow `+` icon at the bottom left of the screen to create a new Capsule. Select a [Capsule type](/frontend/) and follow the prompts provided. Note that a frontend Capsule can serve any JavaScript framework, not just the ones shown in the **Quickstart** tab.
-
-![Code Capsules new capsule](/gitbook-assets/tutorials/ccnewcapsule.webp)
 
 Below is a mapping of the Heroku components to Code Capsules Capsules:
 
@@ -212,13 +211,9 @@ Heroku has cheaper 'Eco dynos' at $5/mo, but they sleep after 30 minutes of inac
 
 If you don't see the appropriate Capsule type at first, search for it by name or use the hidden scrollbar to find it in the dropdown.
 
-![Code Capsules new capsule scrolled](/gitbook-assets/tutorials/ccnewcapsuledown.webp)
-
 ### The Database
 
 We'll first deploy the component with no dependencies. Unlike in Heroku, databases are their own entities in Code Capsules. We created a PostgreSQL database Capsule. You can see below the User, Space, and Capsule name.
-
-![Code Capsules database setup](/gitbook-assets/tutorials/ccdbsetup.webp)
 
 To import data, connect to the database directly using the connection details Code Capsules provides. We need to export a database backup from Heroku and import it to Code Capsules.
 
@@ -261,8 +256,6 @@ psql "postgresql://postgres:b41eb84b-6698-9@localhost:5432/app" -c 'SELECT * FRO
 
 Copy the connection URL from the Capsule website details rather than using the CLI's copy prompt.
 
-![Code Capsules CLI](/gitbook-assets/tutorials/cccli.webp)
-
 Once your database has restored, you can close the Docker container; you won't need it again unless you want to query the database.
 
 ### The Backend and Frontend
@@ -275,8 +268,6 @@ Frontend and backend Capsules look similar. There are only two differences:
 
 While choosing a Capsule size, you can set a custom size cheaper than the smallest standard size. Expand the custom radio-button at the bottom of the form to see more options.
 
-![Code Capsules Capsule size](/gitbook-assets/tutorials/cccapsulecheap.webp)
-
 Code Capsules deploys code by pushing to a Git host. Although some Code Capsules tutorials reference GitHub specifically, GitLab and BitBucket are also supported.
 
 Code Capsules also offers European and on-premises infrastructure options — contact support to configure this for your account.
@@ -285,15 +276,9 @@ For this guide, we chose GitHub to deploy to Code Capsules.
 
 After choosing a frontend static site Capsule type, we connected our GitHub Organization.
 
-![Code Capsules Install GitHub addon](/gitbook-assets/tutorials/ccinstallgithub.webp)
-
 In GitHub, choose which repositories Code Capsules should have access to. We deployed all three components in one repository, but your system probably has multiple repositories you need to enable.
 
-![Code Capsules Install GitHub addon](/gitbook-assets/tutorials/ccinstallgithubnew.webp)
-
 If someone else in your organization has already connected Code Capsules to your Git provider, they can share repository access with you directly within Code Capsules.
-
-![Code Capsules GitHub error](/gitbook-assets/tutorials/ccgithuberror.webp)
 
 Contact Code Capsules support on Slack if you need help with this.
 
@@ -301,11 +286,7 @@ Code Capsules requires linking a repository when creating a Capsule, so ensure y
 
 After choosing a repository, you can specify which folder Code Capsules should deploy. Since we had three components in different folders, we chose the `/frontend` folder. If you have one application per repository, you can just leave Code Capsules to use the `/` root folder.
 
-![Code Capsules Capsule path](/gitbook-assets/tutorials/cccapsulepath.webp)
-
 Finally, you enter a command to run when starting your Capsule. Like Heroku, you don't have to include dependency installation, like `npm install`. Code Capsules does that automatically before running your start command. For our static site, no run command is needed.
-
-![Code Capsules Capsule command](/gitbook-assets/tutorials/cccapsulecommand.webp)
 
 Nowhere in the process above did we choose which framework to run our code with. Unlike Heroku with its Procfiles, Code Capsules detects your framework automatically.
 
@@ -340,11 +321,7 @@ After redeploying, the Capsule restarted using the correct Node.js version and o
 
 Next — environment variables. Code Capsules is similar to Heroku here. Heroku has config vars and Code Capsules has a **Config** tab with a list of environment variables.
 
-![Code Capsules Capsule config](/gitbook-assets/tutorials/cccapsuleconfig.webp)
-
 To add a connection from the backend to the database, click your database Capsule at the bottom left. In the details that appear, click the plus icon to add a value as an environment variable to the current Capsule. You can edit the variable name to match whatever you have in your code already, like `DATABASE_URL`.
-
-![Code Capsules Capsule config values from another capsule](/gitbook-assets/tutorials/cccapsuleconfig2.webp)
 
 Save your variables at the top right and restart the Capsule.
 
@@ -368,8 +345,6 @@ async function emailJob() {
 
 cron.schedule("0 * * * *", emailJob);
 ```
-
-![Code Capsules emailer](/gitbook-assets/tutorials/ccemailer.webp)
 
 Here are some considerations for any application-level scheduler (these apply regardless of hosting provider):
 - **Memory persistence**: If your Capsule restarts during a task, the schedule is lost until the process starts again.
@@ -444,3 +419,12 @@ Use this as the working checklist for the whole migration. Each item links back 
 ## Next Steps
 
 Interested in trying Code Capsules? [Create a free account](https://app.codecapsules.io/) to take a look around, or ask us anything on [Slack](https://codecapsules.slack.com/join/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg#/shared-invite/email).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Environment variables differ from Heroku config vars</summary>
+
+Export Heroku config with `heroku config -s -a APP` and set the same keys on each Code Capsules capsule under **Configure → Environment variables**. Rename `DATABASE_URL` only if your framework expects a provider-specific name.
+
+</details>

@@ -1,25 +1,50 @@
 ---
 slug: "/platform/capsules/what-is-a-capsule"
-description: "A Capsule is the deployable unit on Code Capsules: a container for your app, database, or storage. Learn how Capsules work."
 title: "Hosting Environments (Containers) Explained"
+description: >-
+  A Capsule is the unit that builds, runs, and serves your app or database on Code Capsules.
 sidebar_label: "What Is a Capsule?"
+doc_version: drift
 ---
 
-# What Is a Capsule?
+import DocCardList from '@theme/DocCardList';
 
-![Teams contain Spaces and Spaces contain Capsules](/gitbook-assets/platform/teamspacecapsule.png)
+# Capsules on Code Capsules
 
-[Teams](/platform/teams/what-is-a-team/), [Spaces](/platform/spaces/what-is-a-space/), and Capsules form the foundation of [Code Capsules](https://www.codecapsules.io/).
+A Capsule is the unit that builds, runs, and serves your app or database on Code Capsules.
 
-**Capsules** provide the computational power to run your applications.
+## Overview
 
-While Teams and Spaces are organizational tools, Capsules are where the actual build and deployment happen. They connect to your GitHub repositories and host your applications. Capsules can run both frontend and backend applications.
+A **Capsule** connects to your code or image, builds when needed, and serves HTTPS traffic. Capsule types include Frontend, Backend, Docker, database, WordPress, Agent, and others.
 
-When a Capsule is created, it automatically builds and deploys. The exception is a Docker Capsule deployed from a container image, which you deploy by clicking **Pull & Deploy** on the **Deploy** tab — see [Deploy a Docker Capsule](/products/docker-capsule/image/deploy/). You can monitor the build process by:
+## Why it matters
 
-* Navigating to the **Logs** tab, or
-* Clicking **View build log** under the **Build and Deploy** tab
+Capsules are where compute and storage run. Teams and Spaces organize work; Capsules do the deployment, scaling, and billing per service.
 
-When a Capsule is deployed, an HTTPS subdomain is generated for it. Find the subdomain in the **Config** tab. Click the subdomain to open the link in a new tab.
+## How it works
 
-Turn off a Capsule by toggling the switch at the top right of the **Capsule Details** view (next to **Live Website**).
+Most Git-backed Capsules build on push and redeploy automatically. You configure build commands, environment variables, domains, and scale on each Capsule's tabs. Docker image Capsules pull and run a container instead of building from Git.
+
+Each Capsule gets a default HTTPS URL. You can add custom domains on the **Domains** tab.
+
+## When to use it
+
+| Need | Capsule type |
+| --- | --- |
+| Static or SPA frontend | Frontend Capsule (static hosting) |
+| API or server-rendered app | Backend or Docker Capsule |
+| Managed database | Database Capsule |
+| Always-on container image | Docker Capsule from image |
+
+Split frontends and backends into separate Capsules when they scale or deploy on different schedules.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/platform/capsules/how-do-i-add-remove-stop-capsules', label: '🛠️ Add or remove Capsules', description: 'Create, stop, and delete Capsules.'},
+    {type: 'link', href: '/platform/capsules/health-checks', label: '🛠️ Health checks', description: 'Keep traffic on healthy replicas.'},
+    {type: 'link', href: '/products/frontend-capsule/index', label: '📋 Frontend Capsules', description: 'Static and container frontend hosting.'},
+    {type: 'link', href: '/products/backend-capsule/index', label: '📋 Backend Capsules', description: 'Long-running server processes.'},
+  ]}
+/>

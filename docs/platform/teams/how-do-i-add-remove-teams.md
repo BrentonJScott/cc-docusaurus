@@ -1,33 +1,46 @@
 ---
 slug: "/platform/teams/how-do-i-add-remove-teams"
 title: "Add and Remove Teams"
-description: "You can create as many teams as you need on Code Capsules."
+description: >-
+  Create a Team and remove it when it has no Spaces. When you finish, the Team
+  is created and later removed.
+sidebar_label: "Add and remove a Team"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Add and Remove Teams
 
-## Add a Team
+Create a Team and remove it when it has no Spaces. When you finish, the Team is created and later removed.
 
-You can create as many teams as you need on Code Capsules.
+## Prerequisites
 
-To add a new Team, click the yellow **+** button in the bottom-left corner of the dashboard and select **New Team**.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+  ]}
+/>
 
-![Create a Team](/gitbook-assets/platform/new-team-1.png)
+## Manage your Teams
 
-Give your Team a name and click **I Like It!** to confirm.
+1. **Create a Team**
 
-![Enter Team Details](/gitbook-assets/platform/create-team-1.png)
+   Click the yellow **+** and select **New Team**. Enter a Team name and click **I Like It!**. The Team appears in the Teams list.
 
-## Remove a Team
+2. **Remove Spaces from the Team**
 
-To remove a Team, go to the **Details** tab in the Team dashboard and select **Remove Team**.
+   Open each Space in the Team and remove it. See [Add and remove a Space](/platform/spaces/how-do-i-add-remove-a-space/).
 
+3. **Remove the Team**
 
-:::warning
+   On the Team **Details** tab, click **Remove Team**. Confirm. The Team no longer appears in the list.
 
-You'll need to [remove all Spaces](/platform/spaces/how-do-i-add-remove-a-space/) from the Team before it can be deleted.
+## Troubleshooting
 
-:::
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Remove Team is disabled</summary>
 
+Remove every Space from the Team first. Personal Team cannot be deleted; create and remove only named Teams.
 
-![Remove a Team](/gitbook-assets/platform/platform/teams/remove-team.png)
+</details>

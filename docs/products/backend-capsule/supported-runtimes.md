@@ -1,21 +1,18 @@
 ---
 slug: "/products/backend-capsule/supported-runtimes"
-description: "See which language runtimes and versions Code Capsules Backend Capsules support, including Node.js, Python, Go, Java, Ruby, PHP, and .NET, and how to pin one."
 title: "Supported Backend Runtimes and Versions"
+description: >-
+  See which language runtimes and versions Code Capsules Backend Capsules support, including Node.js, Python, Go, Java, Ruby, PHP, and .NET, and how to pin one.
 sidebar_label: "Supported Runtimes"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Backend Runtimes and Versions You Can Use
 
 Backend Capsules automatically detect your application's language from project files (for example, `package.json` for Node.js or `requirements.txt` for Python), install dependencies, and build a runnable image. This page lists the language versions Code Capsules currently supports.
 
-:::info
-
-Runtime versions are resolved at **build time**, not baked into the platform image. When you pin a version line, each build uses the latest patch available on that line. When you do not pin a version, Code Capsules falls back to the platform default line for that language — again using the latest patch on that line when the build runs.
-
-Each language uses a different pin format. A line pin must use the wildcards or version pattern shown in the table below.
-
-:::
 
 ## Platform
 
@@ -47,11 +44,6 @@ The table below lists each supported version line, the platform default when you
 | [**PHP**](#php)        | 8.1.x, 8.2.x, 8.3.x, 8.4.x     | Latest patch on **8.4.x**  | `8.4.*` in `composer.json`                               |
 | [**.NET**](#net)       | 6.x, 7.x, 8.x                  | Latest patch on **8.x**    | `8.*.*` in `global.json` or env var                      |
 
-:::info
-
-If your application requires a runtime or OS package not listed above, deploy with a [Docker Capsule](/products/docker-capsule/) and your own `Dockerfile`.
-
-:::
 
 ## Pin a runtime version
 

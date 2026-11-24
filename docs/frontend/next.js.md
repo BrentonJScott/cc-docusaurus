@@ -1,61 +1,68 @@
 ---
 slug: "/frontend/next.js"
-description: "Deploy a Next.js application to Code Capsules from a GitHub repo. Host your React framework frontend in production with auto-deploys, step by step."
+description: >-
+  Deploy a server-rendered Next.js application on Code Capsules. When you
+  finish, the first build is in progress on the Deploy tab Builds section.
 title: "How to Host a Next.js App"
 sidebar_label: "Next.js"
+doc_version: drift
 ---
 
-# Host Your Next.js App in Minutes
+import DocCardList from '@theme/DocCardList';
 
-:::info[Static export or server rendering]
-A Next.js **static export** (`output: 'export'`, built with `next build` into the `out` folder) deploys on a [static Frontend Capsule](/products/frontend-capsule/static/deploy/), which is free for up to five sites. A **server-rendered** Next.js app needs a running server and deploys on a Backend Capsule, which is the setup this guide walks through.
-:::
+# Host Your Next.js Application
 
-Deploy a Next application and learn how to host backend code on Code Capsules.
+Deploy a server-rendered Next.js application on Code Capsules. When you finish, the first build is in progress on the **Deploy** tab **Builds** section.
 
-## Setup
+## Prerequisites
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-nextjs', description: 'Fork codecapsules-io/demo-nextjs on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so the fork appears in the wizard.'},
+  ]}
+/>
 
-To demonstrate how to deploy a Next application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-nextjs).
+## Deploy your Next.js app
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+1. **Open the capsule wizard**
 
-## Create an Account with Code Capsules
+   Open the Space for this app. Click the yellow **+** and select **New Capsule**.
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+2. **Choose capsule details**
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
 
-![Create a New Space](/gitbook-assets/get-started/space-name-1.png)
+3. **Choose a plan**
 
+   On **Plan**, select **Free**. Click **Next**.
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+4. **Connect the repository**
 
-## Create the Capsule
+   On **Configure**, select the **Git Repository** `codecapsules-io/demo-nextjs` and the branch `main`. Click **Next**.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+5. **Set run command**
 
-To create a new Capsule for your Space, follow the instructions below:
+   On **Deploy**, leave **Run Command** empty. Click **Build & Deploy**.
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
+6. **Check the build**
 
-Code Capsules will automatically build your application when you've finished creating the Capsule.
+   On the capsule **Deploy** tab, open **Builds**. The first build is in progress or queued.
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+## Troubleshooting
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Git Repository dropdown is empty</summary>
 
-Once the build is complete, a URL link will appear in the URL section in the **Details** tab. Click the link, and you should see your deployed application.
+You have not connected GitHub, or the fork is missing from the granted repositories. Follow [Configure Git for Code Capsules](/docs/shared/configure-git-for-code-capsules) and confirm `codecapsules-io/demo-nextjs` is listed.
 
-![Deployed Application](/gitbook-assets/get-started/next-app.png)
+</details>
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/frontend/).
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>You need a static Next.js export instead of a server</summary>
+
+A Next.js static export belongs on a Frontend Capsule with static hosting. See [Deploy a Static Frontend](/products/frontend-capsule/static/deploy/).
+
+</details>

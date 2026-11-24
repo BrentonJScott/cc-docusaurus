@@ -1,9 +1,13 @@
 ---
 slug: "/products/wordpress-capsule/security"
-description: "Built-in security features of the WordPress Capsule and how to configure them."
 title: "How to Secure a WordPress Site"
-sidebar_label: "Security"
+description: >-
+  Built-in security features of the WordPress Capsule and how to configure them.
+sidebar_label: Security
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Lock Down Your WordPress Site
 
@@ -98,11 +102,6 @@ Customize the limits with environment variables:
 | `RATE_LIMIT_API_ROUTES_RPM` | `60` | Requests per minute for the REST API |
 | `RATE_LIMIT_MAX_CONN_PER_IP` | `30` | Maximum concurrent connections per IP address |
 
-:::tip[When to adjust rate limits]
-- **Increase `RATE_LIMIT_NORMAL_ROUTES_RPM`** if you receive legitimate high-frequency requests from a single IP (e.g. an aggregator, API client, or monitoring service).
-- **Decrease `RATE_LIMIT_PROTECTED_ROUTES_RPM`** further (e.g. `10`) for an extra layer of brute-force protection on login.
-- **Increase `RATE_LIMIT_API_ROUTES_RPM`** if a headless WordPress frontend or mobile app makes frequent REST API calls.
-:::
 
 ---
 
@@ -138,9 +137,6 @@ XMLRPC_ENABLED=true
 
 When enabled, XML-RPC is still rate-limited at 30 req/min (burst of 3) to protect against XML-RPC amplification attacks.
 
-:::caution
-Only enable XML-RPC if you have a specific need for it. Most modern WordPress workflows use the REST API instead, which is always available at `/wp-json/`.
-:::
 
 ---
 

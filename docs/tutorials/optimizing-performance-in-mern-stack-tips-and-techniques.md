@@ -1,12 +1,41 @@
 ---
-title: "MERN Stack Performance Tips"
 slug: "/tutorials/optimizing-performance-in-mern-stack-tips-and-techniques"
-description: "The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a robust framework for web application development. To ensure that MERN..."
-cover: /gitbook-assets/tutorials/mern-optimization-cover-v2.jpg
+title: "MERN Stack Performance Tips"
+description: >-
+  The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a robust framework for web application development. To ensure that MERN...
+sidebar_label: "MERN Stack Performance Tips"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Optimizing Performance in MERN Stack: Tips and Techniques
 
+## Overview
+
+The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a robust framework for web application development. To ensure that MERN applications are agile and responsive, it’s essential to focus on performance optimization. In this comprehensive guide, we’ll delve into actionable insights to enhance performance.
+
+## Why it matters
+
+Following consistent structure reduces bugs when you deploy full-stack JavaScript apps on Code Capsules.
+
+## How it works
+
+The sections below describe recommended folder layout, environment configuration, and deployment practices.
+
+## When to use it
+
+Apply these practices when starting a new MEAN, MERN, or MEVN repository or before your first production deploy.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials/getting-started-with-mean-stack-a-step-by-step-tutorial', label: '🎓 MEAN stack tutorial', description: 'Walk through a MEAN deploy.'},
+    {type: 'link', href: '/tutorials/build-a-mern-job-board', label: '🎓 MERN job board', description: 'Build a MERN sample app.'},
+    {type: 'link', href: '/full-stack/mean-stack', label: '🛠️ Deploy MEAN', description: 'Deploy the MEAN stack.'},
+  ]}
+/>
 
 The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a robust framework for web application development. To ensure that MERN applications are agile and responsive, it’s essential to focus on performance optimization. In this comprehensive guide, we’ll delve into actionable insights to enhance performance.
 
@@ -15,14 +44,6 @@ The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a r
 ### a. Use Indexing Strategically
 
 **What is it?** Indexing in MongoDB is a key strategy to boost query performance. Without appropriate indexing, MongoDB would need to scan every document, which can be highly inefficient, especially for large datasets.
-
-
-:::tip
-
-**Tip:** Create indexes using:
-
-:::
-
 
 ```
 db.collection.createIndex({ fieldName: 1 });
@@ -38,14 +59,6 @@ db.collection.find(query).explain("executionStats");
 
 Fetching only the necessary data accelerates queries and reduces network overhead.
 
-
-:::info
-
-**Example:** To retrieve just the \`name\` field from a collection:
-
-:::
-
-
 ```
 db.collection.find({}, { name: 1, _id: 0 });
 ```
@@ -53,14 +66,6 @@ db.collection.find({}, { name: 1, _id: 0 });
 ### c. Avoid Blocking the Event Loop
 
 Mongoose’s model instances come with overhead. For faster operations, retrieve plain JavaScript objects.
-
-
-:::tip
-
-**Tip:** Use:
-
-:::
-
 
 ```
 Model.find().lean().exec();
@@ -72,14 +77,6 @@ Model.find().lean().exec();
 
 Compressing API responses significantly reduces data transfer times.
 
-
-:::info
-
-**Implementation:** After installing the \`compression\` middleware:
-
-:::
-
-
 ```
 const compression = require('compression');
 app.use(compression());
@@ -88,14 +85,6 @@ app.use(compression());
 ### b. Cache Middleware
 
 Implementing caching for frequently accessed routes can decrease server load and improve response times.
-
-
-:::tip
-
-**Tip:** Implement \`apicache\`:
-
-:::
-
 
 ```
 const apicache = require('apicache');
@@ -109,14 +98,6 @@ app.get('/your-route', cache('5 minutes'), (req, res) => ... );
 
 Efficiently render long lists using libraries like \`react-virtualized\`, which only display visible items.
 
-
-:::tip
-
-**Example:** Using the \`List\` component from \`react-virtualized\`:
-
-:::
-
-
 ```
 import { List } from 'react-virtualized';
 ```
@@ -124,14 +105,6 @@ import { List } from 'react-virtualized';
 ### b. Immutable Data Structures
 
 Utilize \`immutable.js\` to prevent unintended data changes, optimizing React’s rendering process.
-
-
-:::info
-
-**Example:** Using Immutable List:
-
-:::
-
 
 ```
 import { List } from 'immutable';
@@ -141,14 +114,6 @@ const myList = List([1, 2, 3]);
 ### c. Code Splitting with React Lazy and Suspense
 
 Divide your app into smaller bundles, loading only what’s necessary.
-
-
-:::info
-
-**Implementation:**
-
-:::
-
 
 ```
 const MyComponent = React.lazy(() => import('./MyComponent'));
@@ -162,14 +127,6 @@ const MyComponent = React.lazy(() => import('./MyComponent'));
 
 Embrace JavaScript’s async features to prevent blocking the main thread.
 
-
-:::info
-
-**Example:** Using async/await for database calls:
-
-:::
-
-
 ```
 app.get('/data', async (req, res) => {
   const data = await db.fetchData();
@@ -181,25 +138,9 @@ app.get('/data', async (req, res) => {
 
 Regular monitoring helps identify potential bottlenecks.
 
-
-:::tip
-
-**Tip:** Use \`node –inspect\` to debug and profile your app, visualizing results in Chrome’s DevTools.
-
-:::
-
-
 ### c. Clustering
 
 Utilize multi-core systems by running multiple Node.js instances.
-
-
-:::info
-
-**Example:** Using Node’s \`cluster\` module:
-
-:::
-
 
 ```
 const cluster = require('cluster');
@@ -220,14 +161,6 @@ if (cluster.isMaster) {
 
 Enhance user experience and efficiency by fetching only necessary data.
 
-
-:::tip
-
-**Tip:** Implement infinite scrolling in React using libraries like \`react-infinite-scroll-component\`.
-
-:::
-
-
 ### b. Use Content Delivery Networks (CDNs)
 
 CDNs like Cloudflare or AWS CloudFront serve content from a location nearest to the user, reducing load times.
@@ -237,14 +170,6 @@ CDNs like Cloudflare or AWS CloudFront serve content from a location nearest to 
 ### a. Minification and Bundling
 
 Optimize JavaScript by bundling and minifying it using Webpack.
-
-
-:::info
-
-**Example:** In your \`webpack.config.js\`:
-
-:::
-
 
 ```
 module.exports = {
@@ -257,45 +182,27 @@ module.exports = {
 
 Monitor real-time performance metrics to detect and address issues promptly.
 
-
-:::info
-
-**Tip:** Platforms like New Relic or Datadog provide invaluable insights and alerts for inefficiencies or issues.
-
-:::
-
-
 ## Enhancing App Performance with Code Capsules in MERN Stack
 
 ### Optimizing Your Code Capsules Profile for MERN Stack
 
 Initiate your journey by establishing a Code Capsules account, specifically tailored for MERN stack optimization. Carefully complete your profile setup, ensuring it aligns with performance enhancement strategies for MERN applications.
 
-![Optimizing account setup for MERN stack on Code Capsules](/gitbook-assets/tutorials/code-capsules-register-new-account.png)
-
 ### Streamlining MERN Project Management in Code Capsules
 
 Post-registration, access your Code Capsules dashboard to manage MERN stack projects. This space is optimized for performance tracking and efficient deployment of MERN applications.
-
-![Streamlined MERN project management on Code Capsules](/gitbook-assets/tutorials/code-capsules-login-existing-account.png)
 
 ### Formulating a High-Performance MERN Team in Code Capsules
 
 In Code Capsules, establish a team that specializes in MERN stack optimization. This step is crucial for collaboratively enhancing application performance and handling complex MERN projects.
 
-![Creating a MERN-focused team in Code Capsules](/gitbook-assets/tutorials/code-capsules-create-new-team.png)
-
 ### Setting Up Performance-Optimized Spaces for MERN in Code Capsules
 
 Within Code Capsules, create spaces dedicated to MERN stack projects. These spaces are designed to host and run your applications in environments that are fine-tuned for maximum performance.
 
-![Developing performance-optimized spaces for MERN in Code Capsules](/gitbook-assets/tutorials/code-capsules-create-new-space.jpg)
-
 ### Launching Performance-Focused Capsules for MERN
 
 Start a new capsule in your MERN-optimized space, conceptualizing these as individual project units. These capsules are configured to enhance the performance of each component of your MERN application, such as the front-end, back-end, or server configurations.
-
-![Initiating performance-focused capsules for MERN in Code Capsules](/gitbook-assets/tutorials/code-capsules-captule-details.png)
 
 By following these modified steps focused on MERN stack performance, you can efficiently deploy and manage your applications on Code Capsules, leveraging the platform’s capability for optimized MERN application performance and deployment.
 

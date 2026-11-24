@@ -1,16 +1,32 @@
 ---
 slug: "/tutorials/build-a-mern-job-board"
 title: "Build a MERN Job Board"
-description: "Like other full-stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the..."
-cover: /gitbook-assets/tutorials/mern-job-board-cover-v2.jpg
+description: >-
+  Like other full-stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the...
+sidebar_label: "Build a MERN Job Board"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Build a MERN Job Board
 
+## What you'll build
 
 Like other full-stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the frontend and backend of an application.
 
 In this tutorial, we’ll extend a boilerplate MERN application to make a job board where users can view and submit available jobs.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
+## Part 1: Build the project
 
 ### Getting Started
 
@@ -54,8 +70,6 @@ a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAt
 Whenever we change our application’s frontend code, we edit the files in the `src` directory and use the `npm run build` command to create the optimized code in the `build` directory, which will be executed when we load our application in a web browser.
 
 Run `node index.js` in the terminal from the project’s root folder to start the boilerplate MERN application. You can view it in your browser at `http://localhost:8080`. The app should look something like this:
-
-![mern stack](/gitbook-assets/tutorials/build-a-mern-job-board/mern-stack.png)
 
 Let’s extend this frontend to reflect the job board functionality.
 
@@ -178,8 +192,6 @@ Now you can run `npm run build` again from the client directory to build the app
 You’ll notice the page layout has changed, but the styling is a bit off. Add the contents of [this CSS file](https://github.com/ritza-co/mern-job-board/blob/main/client/src/App.css) to `src/App.css` to make our frontend prettier.
 
 When you rebuild your application and take a look at the frontend, it should look like this:
-
-![job board ui](/gitbook-assets/tutorials/build-a-mern-job-board/job-board-ui.png)
 
 ### Extending the Backend
 
@@ -378,3 +390,26 @@ git push origin main
 Code Capsules automatically deploys the new version of your application as soon as you push to the deploy branch, which is `main` in this case.
 
 That’s it, your job board should be fully functional now.
+
+## Summary
+
+You followed **Build a MERN Job Board** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>

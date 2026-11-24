@@ -1,16 +1,34 @@
 ---
 slug: "/tutorials/nuxt3-and-nitro"
 title: "Deploy a Nuxt 3 App with Nitro"
-description: "Hey there, fellow developers! Today, we’re diving deep into two exciting technologies that are changing the game in web development: Nuxt 3 and Nitro...."
-cover: /gitbook-assets/tutorials/nuxt3-nitro-cover-v2.jpg
+description: >-
+  Hey there, fellow developers! Today, we’re diving deep into two exciting technologies that are changing the game in web development: Nuxt 3 and Nitro....
+sidebar_label: "Deploy a Nuxt 3 App with Nitro"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Nuxt3 and Nitro
 
+## What you'll build
 
+Hey there, fellow developers! Today, we’re diving deep into two exciting technologies that are changing the game in web development: Nuxt 3 and Nitro....
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
+  ]}
+/>
 ## Exploring Nuxt 3, Nitro, and the Server Requirements
 
 Hey there, fellow developers! Today, we’re diving deep into two exciting technologies that are changing the game in web development: Nuxt 3 and Nitro. But that’s not all—we’ll also shed some light on the server requirements for running Nuxt 3 applications. So, let’s get started!
+
+## Part 1: Build the project
 
 ### Nuxt 3: Elevating Your Vue.js Game
 
@@ -149,16 +167,9 @@ Remember how Nuxt 3 splits code into smaller pieces? Well, you can take it up a 
 
 Now, let’s address a crucial topic: the server requirements for running Nuxt 3 applications. You see, Nuxt 3 isn’t just about writing code; it’s also about running it effectively on a server.
 
-
-
-
 **Server Environment**
 
 **Node.js:** Both Nuxt 3 and Vue.js applications require Node.js to run on the server. Ensure that you have a compatible Node.js version installed.
-
-
-
-
 
 **Routing**
 
@@ -166,35 +177,19 @@ Now, let’s address a crucial topic: the server requirements for running Nuxt 3
 
 **Nuxt 3:** Nuxt 3 introduces server-side routing as its default mode. This means that the server plays a significant role in handling routing, generating pages on the server, and serving them to the client. You need a server environment that supports Node.js and can execute server-side code.
 
-
-
-
-
 **Server Deployment**
 
 **Vue.js:** For a Vue.js application, you can deploy it as a static site by generating pre-rendered HTML files. In this case, the server mainly serves static files, and you can use simple web hosting or a Content Delivery Network (CDN) for deployment.
 
 **Nuxt 3:** Nuxt 3 is often used for server-side rendering (SSR) or static site generation (SSG). SSR requires a server capable of running Node.js, while SSG can be deployed similarly to a Vue.js application, as it generates static HTML files that can be served by a simple web server or CDN.
 
-
-
-
-
 **Server-Side Rendering (SSR)**
 
 **Nuxt 3:** If you plan to use Nuxt 3 for server-side rendering (SSR), you need a server environment that can execute Node.js code and handle SSR requests. Ensure your server supports Node.js and can handle the extra server-side processing required for SSR.
 
-
-
-
-
 **API and Backend Integration**
 
 Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend services. Ensure that your server environment allows outgoing HTTP requests to external APIs if needed.
-
-
-
-
 
 **Build and Deployment Process**
 
@@ -202,18 +197,11 @@ Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend se
 
 **Nuxt 3:** Nuxt 3 applications may have more complex build processes, especially for SSR or SSG. You may need to configure and build your application before deploying it to a server. The deployment process may involve running Node.js scripts on the server.
 
-
-
-
-
 **Hosting Providers**
 
 **Vue.js:** Vue.js applications can be hosted on a wide range of hosting providers, including static site hosting, traditional web hosting, cloud platforms, and serverless environments. Learn how to [deploy your Vue application to production](/frontend/vue/) on Code Capsules.
 
 **Nuxt 3:** Depending on your Nuxt 3 application’s configuration (SSR, SSG, or SPA), hosting requirements may vary. You may need a server environment with Node.js support for SSR, while SSG can be hosted on simpler environments.
-
-
-
 
 ## Launching Your App with Code Capsules
 
@@ -221,32 +209,45 @@ Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend se
 
 Start off by setting up a new Code Capsules account. Follow the steps to create your user profile, preparing you for app deployment.
 
-![Creating a new account on Code Capsules](/gitbook-assets/tutorials/code-capsules-register-new-account.png)
-
 ### Navigating Your Code Capsules Interface
 
 Once you’ve registered, log in to your Code Capsules profile. This interface is your command center for project management and application deployment.
-
-![Logging into your Code Capsules account](/gitbook-assets/tutorials/code-capsules-login-existing-account.png)
 
 ### Building a Collaborative Team in Code Capsules
 
 Use Code Capsules to form a development team. This is a vital step for effective project coordination and developer collaboration.
 
-![Forming a team on Code Capsules](/gitbook-assets/tutorials/code-capsules-create-new-team.png)
-
 ### Creating a New Project Environment in Code Capsules
 
 Spaces in Code Capsules offer unique environments for each project. Initiate a new space to provide a dedicated and isolated setting for your apps.
-
-![Setting up a new space in Code Capsules](/gitbook-assets/tutorials/code-capsules-create-new-space.jpg)
 
 ### Starting Your First Capsule
 
 In your newly created space, proceed to launch a new capsule. Consider these capsules as separate compartments for different parts of your application, including the front-end, back-end, or Docker setups.
 
-![code capsules captule details.png](/gitbook-assets/tutorials/code-capsules-captule-details.png)
-
 Following these steps, you can smoothly deploy your MEAN stack application on Code Capsules, taking advantage of their comprehensive and intuitive platform for efficient application management and deployment.
 
 In conclusion, Nuxt 3 and Nitro are revolutionizing web development. By understanding the server requirements for running Nuxt 3 applications and harnessing the power of Nitro, you can create high-performance, user-friendly websites that stand out in the digital landscape. So, go ahead, experiment, and build amazing web applications that push the boundaries of what’s possible!
+
+## Summary
+
+You followed **Deploy a Nuxt 3 App with Nitro** and deployed the result on Code Capsules.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend guides', description: 'Deploy another frontend.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend guides', description: 'Deploy another backend.'},
+  ]}
+/>
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The deploy fails after git push</summary>
+
+Open the capsule **Deploy** tab and read **Build logs**. Confirm the branch matches the one Code Capsules builds from and that environment variables are set.
+
+</details>
