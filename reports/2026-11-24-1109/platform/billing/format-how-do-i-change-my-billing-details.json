@@ -7,7 +7,8 @@
   "goal": "Expect to see the updated billing details saved",
   "section": "Platform Billing",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": true,
   "matchReason": "curated",
   "matchScore": 1.0,
   "checkResults": [

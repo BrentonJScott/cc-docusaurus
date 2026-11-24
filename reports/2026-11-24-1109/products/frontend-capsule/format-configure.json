@@ -7,7 +7,8 @@
   "goal": "Expect to see updated capsule parameters and environment variables saved",
   "section": "Frontend Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": true,
   "matchReason": "fuzzy match",
   "matchScore": 0.964,
   "checkResults": [

@@ -11,7 +11,8 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 - Format **pass:** 118
 - Format **fail:** 107
 - **No matching guide:** 0
-- Walkthroughs run: 0 (format gate; 0 guides passed)
+- Walkthrough **complete:** 8
+- Walkthrough **pending** (format pass): 93
 
 ## Feature table
 
@@ -26,9 +27,9 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 | Create static hosting frontend capsule | `docs/products/frontend-capsule/deploy.md` | pass | pending | **no** |
 | Create container hosting frontend capsule | `docs/products/frontend-capsule/deploy.md` | pass | pending | **no** |
 | Find a frontend framework deployment guide | `docs/frontend/index.md` | pass | not applicable | **no** |
-| Configure frontend capsule | `docs/products/frontend-capsule/configure.md` | pass | pending | **no** |
+| Configure frontend capsule | `docs/products/frontend-capsule/configure.md` | pass | complete | **yes** |
 | View frontend capsule logs | `docs/products/frontend-capsule/index.md` | fail | not run (format fail) | **no** |
-| Monitor frontend capsule | `docs/products/frontend-capsule/monitor.md` | pass | pending | **no** |
+| Monitor frontend capsule | `docs/products/frontend-capsule/monitor.md` | pass | complete | **no** |
 | Scale frontend capsule | `docs/products/frontend-capsule/scale.md` | pass | pending | **no** |
 | Add custom domain to frontend capsule | `docs/products/frontend-capsule/custom-domains.md` | pass | pending | **no** |
 | Compare static free and paid plans | `docs/products/frontend-capsule/static/plans.md` | fail | not run (format fail) | **no** |
@@ -158,14 +159,14 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 | Create Flask and Caddy file-sharing capsules | `docs/full-stack/next.js/static-file-share-with-flask-and-caddy.md` | fail | not run (format fail) | **no** |
 | View full-stack hosting index | `docs/full-stack/index.md` | fail | not applicable | **no** |
 | View Next.js full-stack index | `docs/full-stack/next.js/index.md` | fail | not applicable | **no** |
-| Connect GitHub or GitLab | `docs/platform/account/connect-version-control.md` | pass | pending | **no** |
+| Connect GitHub or GitLab | `docs/platform/account/connect-version-control.md` | pass | complete | **yes** |
 | Add a payment method | `docs/platform/account/how-do-i-add-a-payment-method.md` | pass | pending | **no** |
 | Enable two-factor authentication | `docs/platform/account/how-do-i-enable-2fa.md` | pass | pending | **no** |
 | Reset password | `docs/platform/account/how-do-i-reset-my-password.md` | pass | pending | **no** |
-| Change billing details | `docs/platform/billing/how-do-i-change-my-billing-details.md` | pass | pending | **no** |
-| View invoices | `docs/platform/billing/how-do-i-view-my-invoices.md` | pass | pending | **no** |
+| Change billing details | `docs/platform/billing/how-do-i-change-my-billing-details.md` | pass | complete | **yes** |
+| View invoices | `docs/platform/billing/how-do-i-view-my-invoices.md` | pass | complete | **yes** |
 | Understand pricing | `docs/platform/billing/how-does-the-pricing-work.md` | fail | not applicable | **no** |
-| Add and remove a team | `docs/platform/teams/how-do-i-add-remove-teams.md` | pass | pending | **no** |
+| Add and remove a team | `docs/platform/teams/how-do-i-add-remove-teams.md` | pass | complete | **yes** |
 | Add team members | `docs/platform/teams/how-do-i-add-team-members.md` | pass | pending | **no** |
 | Share a repo with a team | `docs/platform/teams/share-a-repo-with-a-team.md` | pass | pending | **no** |
 | Understand teams | `docs/platform/teams/what-is-a-team.md` | pass | not applicable | **no** |
@@ -247,7 +248,7 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 
 1. **Format gate:** 118 guides pass mechanical drift-template checks; remaining failures are legacy GitBook pages, missing sections, or broken assets.
 2. **Report layout:** Per updated `formats/FORMAT.MD`, reports are under `reports/2026-11-24-1109/<doc-folder>/format-<name>.{md,json}`.
-3. **Walkthroughs:** See exploratory-common-login.md; add/remove space walkthrough completed; other format-pass guides pending.
+3. **Walkthroughs:** Eight complete ([spaces](./platform/spaces/walkthrough-how-do-i-add-remove-a-space.md), [teams](./platform/teams/walkthrough-how-do-i-add-remove-teams.md), [billing](./platform/billing/), [connect GitHub](./platform/account/walkthrough-connect-version-control.md), [frontend configure/monitor/logs](./products/frontend-capsule/)). Frontend docs reference **Metrics**/**Logs** tabs; UI uses **Usage**, **Builds**, and **Access**.
 
 ## Login / environment
 
