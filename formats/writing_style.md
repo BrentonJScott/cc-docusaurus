@@ -28,7 +28,7 @@ Every doc type uses the same built-in Docusaurus pieces, so all pages feel the s
 
 - **Cards for lists of links.** Prerequisites, Next steps, and Related are a `DocCardList` of cards, not bullets. Import it once, directly after the frontmatter: `import DocCardList from '@theme/DocCardList';`. Each card is `{type: 'link', href: '<link>', label: '<emoji> <Title>', description: '<One line.>'}`.
   - The title is two to five words. The description is one line saying what the reader does or finds there.
-  - The emoji becomes the card icon. Use one per kind of page:
+  - The emoji picks the card's line icon. Use one from this table; any other emoji shows a page icon:
 
     | Emoji | Links to |
     |---|---|

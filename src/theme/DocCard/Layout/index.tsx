@@ -6,6 +6,8 @@ import Heading from '@theme/DocCard/Heading';
 import Description from '@theme/DocCard/Description';
 import type {Props} from '@theme/DocCard/Layout';
 
+import {cardIcon} from './icons';
+
 import styles from './styles.module.css';
 
 function Container({
@@ -17,8 +19,8 @@ function Container({
   href: string;
   children: ReactNode;
 }): ReactNode {
-  // Ejected only to drop Infima's padding--lg: it's layered with !important,
-  // so custom.css couldn't set the card padding.
+  // No padding--lg: Infima layers it with !important, so custom.css couldn't
+  // set the card padding.
   return (
     <Link
       href={href}
@@ -43,7 +45,7 @@ export default function DocCardLayout({
 }: Props): ReactNode {
   return (
     <Container href={href} className={className}>
-      <Heading item={item} icon={icon} title={title} />
+      <Heading item={item} icon={cardIcon(icon)} title={title} />
       {description && <Description item={item} description={description} />}
     </Container>
   );

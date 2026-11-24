@@ -171,7 +171,8 @@
 /* ------------------------------------------------------------------
    Cards: <DocCardList items={[...]} />
    Prerequisites, Next steps, and Related. The label's leading emoji
-   sits in a tinted square, the description wraps under the title, and
+   picks a line icon (src/theme/DocCard/Layout/icons.tsx) in a tinted
+   square, the description wraps under the title, and
    an arrow slides on hover. Uses the theme's stable class names.
    ------------------------------------------------------------------ */
 .markdown .row:has(> article > .theme-doc-card-container) {
@@ -229,8 +230,13 @@
   margin: 0;
   border-radius: 8px;
   background: var(--cc-accent-soft);
-  font-size: 1.1rem;
+  color: var(--cc-accent-ink);
   line-height: 1;
+}
+
+.markdown .theme-doc-card-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .markdown .theme-doc-card-title {
