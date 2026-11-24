@@ -57,6 +57,12 @@
 - Mismatches / issues: Every difference between the guide and the site, with the guide's wording next to what you saw. Only write "None observed" if you actually compared the whole guide.
 - Suggested fixes: How the guide should be updated to reflect the real steps.
 
+## Report files
+- Save each walkthrough report as `reports/<guide folder>/YYYY-MM-DD-walkthrough-<guide-name>.md`.
+- `<guide folder>` is the guide's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/guides/backend/go/<guide-name>.md` goes in `reports/guides/backend/go/`. Create the folders if they don't exist.
+- For a feature with no guide, use the folder where the recommended guide should live.
+- Screenshots stay with the report they belong to.
+
 ## Final summary
 - If any action failed, set `Manifest goals reached: no` in the summary
 

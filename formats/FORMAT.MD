@@ -159,7 +159,8 @@ Each ticket must have:
 - **Proposed outline**: for a failed doc, the doc rewritten as an outline that follows its template's section table: each `##` heading in order, with the bullets, step or part titles, or table columns that go under it. Don't write the full doc.
 
 ## Report files
-- Save each report as `reports/YYYY-MM-DD-format-<doc-name>.md`, with a matching `.json` file that holds the same data (header fields, content list, check results, tickets).
+- Save each report as `reports/<doc folder>/YYYY-MM-DD-format-<doc-name>.md`, with a matching `.json` file in the same folder that holds the same data (header fields, content list, check results, tickets).
+- `<doc folder>` is the doc's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/guides/backend/go/<doc-name>.md` goes in `reports/guides/backend/go/`. Create the folders if they don't exist.
 - Add a format column to the run summary report so each doc shows its type, `Format check`, and `Walkthrough` results side by side.
 
 ## Deliver
