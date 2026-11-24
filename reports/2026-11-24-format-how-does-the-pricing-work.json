@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:22:37Z",
+  "docFile": "docs/c/how-does-the-pricing-work.md",
+  "docType": "Reference",
+  "template": "reference_format.md",
+  "feature": "How does pricing work",
+  "goal": "Document reads and makes sense for a user",
+  "formatCheck": "pass",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Reference structure" },
+    { "check": "Check 1: Content", "status": "pass", "reason": "Facts only" },
+    { "check": "Check 2: Prerequisites", "status": "not applicable", "reason": "Reference type" },
+    { "check": "Check 3: Links", "status": "pass", "reason": "All Related targets exist" },
+    { "check": "Check 4: Format and style", "status": "pass", "reason": "Matches reference_format.md" }
+  ],
+  "walkthrough": "not applicable"
+}

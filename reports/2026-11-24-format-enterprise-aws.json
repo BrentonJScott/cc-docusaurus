@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:22:37Z",
+  "docFile": "docs/a/enterprise-aws.md",
+  "docType": "Explanation",
+  "template": "explanation_format.md",
+  "feature": "Enterprise AWS",
+  "goal": "Read and understand document for coherence and logic",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Explanation structure" },
+    { "check": "Check 1: Content", "status": "fail", "reason": "Placeholder notes instead of explanation in Why/How/When" },
+    { "check": "Check 2: Prerequisites", "status": "not applicable", "reason": "Explanation type" },
+    { "check": "Check 3: Links", "status": "pass", "reason": "Related targets exist" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "Required sections incomplete" }
+  ],
+  "walkthrough": "not applicable"
+}

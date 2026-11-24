@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T07:22:37Z",
+  "docFile": "docs/d/build-a-mern-job-board.md",
+  "docType": "Tutorial",
+  "template": "tutorial_format.md",
+  "feature": "Build a MERN job board",
+  "goal": "Expect to see capsule building in builds tab",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "pass", "reason": "Tutorial structure with four parts" },
+    { "check": "Check 1: Content", "status": "pass", "reason": "Build steps in parts; deploy checkpoint matches manifest goal" },
+    { "check": "Check 2: Prerequisites", "status": "fail", "reason": "Missing /docs/guides/mern-stack target" },
+    { "check": "Check 3: Links", "status": "fail", "reason": "Missing job-board-ui.png; broken prerequisite link" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "What you'll build image and prerequisite guide missing" }
+  ],
+  "walkthrough": "not run (format fail)"
+}
