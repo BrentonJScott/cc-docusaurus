@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T06:52:19Z",
+  "docFile": "docs/b/angular.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Create Angular frontend capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "formatCheck": "fail",
+  "checkResults": [
+    { "check": "Step 1: Doc type", "status": "fail", "reason": "docs/b/ vs docs/guides/" },
+    { "check": "Check 1: Content", "status": "fail", "reason": "Login step inside Steps" },
+    { "check": "Check 2: Prerequisites", "status": "pass", "reason": "Links resolve to docs/e/" },
+    { "check": "Check 3: Links", "status": "fail", "reason": "Missing screenshot files" },
+    { "check": "Check 4: Format and style", "status": "fail", "reason": "Aggregate failures" }
+  ],
+  "walkthrough": "not run (format fail)"
+}
