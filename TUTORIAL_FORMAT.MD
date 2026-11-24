@@ -4,7 +4,7 @@ A Tutorial teaches by building something. The reader follows one fixed path, see
 
 - **Use it for:** "Build a…" pages that walk through a whole project.
 - **Location:** A Tutorial can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Writing style:** follow `writing_style.md`.
+- **Writing style:** follow `WRITING_STYLE.MD`.
 
 ## Sections
 

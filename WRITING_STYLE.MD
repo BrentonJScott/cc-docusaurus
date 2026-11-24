@@ -1,6 +1,6 @@
 # Writing Style
 
-These rules apply to every doc type: How-to guides (`how_to_format.md`), Tutorials (`tutorial_format.md`), Reference pages (`reference_format.md`), and Explanations (`explanation_format.md`).
+These rules apply to every doc type: How-to guides (`HOW_TO_FORMAT.MD`), Tutorials (`TUTORIAL_FORMAT.MD`), Reference pages (`REFERENCE_FORMAT.MD`), and Explanations (`EXPLANATION_FORMAT.MD`).
 
 ## Choose the doc type
 - **How-to guide:** the reader wants to get one task done.

@@ -4,7 +4,7 @@ An Explanation helps the reader understand a topic: what it is, why it exists, h
 
 - **Use it for:** concepts and options, such as Enterprise deployment on your own cloud, what a Space is, or how persistent storage keeps state.
 - **Location:** An Explanation can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
-- **Writing style:** follow `writing_style.md`.
+- **Writing style:** follow `WRITING_STYLE.MD`.
 
 ## Sections
 
@@ -14,10 +14,11 @@ An Explanation **must** have these sections, in this order:
 |---|---|---|
 | 1 | Title and description | Frontmatter, one `#` title, and one or two sentences on what the topic is. |
 | 2 | `## Overview` | What it is, in plain words, in one short paragraph. |
-| 3 | `## Why it matters` | The problem it solves and who it's for. |
+| 3 | `## Why it matters` | The context and the problem it solves, and who it's for. |
 | 4 | `## How it works` | The parts involved and how they fit together. |
-| 5 | `## When to use it` | When to choose it, when not to, and the trade-offs. |
-| 6 | `## Related` | Links to the How-to guides, Tutorials, and Reference pages for this topic. |
+| 5 | `## <Topic section>` | Optional, any number. Further discussion the topic needs, such as design decisions, limits, or how it relates to a concept the reader already knows. |
+| 6 | `## Alternatives and trade-offs` | How it compares with the other options, when to choose it, when not to, and what it costs the reader. |
+| 7 | `## Related` | Links to the How-to guides, Tutorials, and Reference pages for this topic. |
 
 ## Overview
 - Two to four sentences a reader new to the topic can follow, such as "Enterprise on AWS runs the Code Capsules platform inside your own AWS account, so your apps and data stay in your cloud."
@@ -32,10 +33,18 @@ An Explanation **must** have these sections, in this order:
 - Use subheadings (`###`) for each part if there are more than two. A diagram is allowed.
 - No steps. Link the How-to guide in **Related** instead.
 
-## When to use it
+## Topic sections
+- Optional. Add one `##` section for each further question the reader needs answered to understand the topic, such as why it was designed this way or what its limits are.
+- Name each section for its subject, not for a generic label like "More information."
+
+## Alternatives and trade-offs
 - Compare it with the alternatives, such as Enterprise on AWS against the standard hosted platform or Enterprise on Azure.
 - A table is allowed for the comparison.
 - Include the trade-offs: cost, setup effort, and what the reader becomes responsible for.
+- Say when not to choose it.
+
+## Content that isn't confirmed
+- Don't guess. If a section needs input from the product team, mark the gap with a `:::note[Content needed]` block that says what's missing. The format check raises a ticket for each block, and a doc that still has one can't pass.
 
 ## Related
 - Two to five bullets, each a link with a few words on why to go there.
@@ -62,7 +71,7 @@ doc_version: drift
 
 ## Why it matters
 
-<The problem it solves and who it's for.>
+<The context, the problem it solves, and who it's for.>
 
 ## How it works
 
@@ -72,9 +81,13 @@ doc_version: drift
 
 <What it does.>
 
-## When to use it
+## <Topic section>
 
-<When to choose it, when not to, and the trade-offs.>
+<Further discussion the topic needs. Optional.>
+
+## Alternatives and trade-offs
+
+<How it compares, when to choose it, when not to, and the trade-offs.>
 
 | | <Option A> | <Option B> |
 |---|---|---|

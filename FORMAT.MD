@@ -1,25 +1,25 @@
 # Doc Format Check Instructions
 
-Run this check on every doc **before** the walkthrough in `WALKTHROUGH.md`. It is a read-only review of the doc file. Don't open the browser or Playwright for this check.
+Run this check on every doc **before** the walkthrough in `WALKTHROUGH.MD`. It is a read-only review of the doc file. Don't open the browser or Playwright for this check.
 
 Every doc is checked against the template for its type. A doc that fails is not walked through. Instead, you write a format report with tickets that describe how to fix it, and that report goes into the run's pull request.
 
 ## Templates
-There are four doc types. Each has its own template, and all of them share `writing_style.md`.
+There are four doc types. Each has its own template, and all of them share `WRITING_STYLE.MD`.
 
 | Doc type | Template | The reader wants to… |
 |---|---|---|
-| How-to guide | `how_to_format.md` | get one task done |
-| Tutorial | `tutorial_format.md` | learn by building something |
-| Reference | `reference_format.md` | look up a fact |
-| Explanation | `explanation_format.md` | understand a topic |
+| How-to guide | `HOW_TO_FORMAT.MD` | get one task done |
+| Tutorial | `TUTORIAL_FORMAT.MD` | learn by building something |
+| Reference | `REFERENCE_FORMAT.MD` | look up a fact |
+| Explanation | `EXPLANATION_FORMAT.MD` | understand a topic |
 
 A doc of any type can live in any folder inside `docs/`. The folder is never part of the check.
 
 ## Setup
-- Follow the Setup section of `WALKTHROUGH.md` first (git sync, then read `DOCUMENTED_FEATURES.md`).
-- Build the feature list and match each feature to its doc as `WALKTHROUGH.md` describes.
-- Read `writing_style.md` and all four templates in full before checking any doc.
+- Follow the Setup section of `WALKTHROUGH.MD` first (git sync, then read `CC_DOCUMENTED_FEATURES.MD`).
+- Build the feature list and match each feature to its doc as `WALKTHROUGH.MD` describes.
+- Read `WRITING_STYLE.MD` and all four templates in full before checking any doc.
 
 ## Ground rules
 - Don't edit docs. Every finding becomes a ticket in a report.
@@ -43,14 +43,14 @@ Decide the type from what the page does, not which folder it's in.
 | Check 1: Content | Goal steps | Build steps | Facts only | Understanding only |
 | Check 2: Prerequisites | yes | yes | no | no |
 | Check 3: Links | yes | yes | yes | yes |
-| Check 4: Format and style | `how_to_format.md` | `tutorial_format.md` | `reference_format.md` | `explanation_format.md` |
-| Walkthrough in `WALKTHROUGH.md` | yes | yes | no | no |
+| Check 4: Format and style | `HOW_TO_FORMAT.MD` | `TUTORIAL_FORMAT.MD` | `REFERENCE_FORMAT.MD` | `EXPLANATION_FORMAT.MD` |
+| Walkthrough in `WALKTHROUGH.MD` | yes | yes | no | no |
 
 ## Check 1: Content
 Read the doc top to bottom and list every instruction or statement it gives the reader, numbered in order, with the heading it sits under. Then check it for its type.
 
 ### How-to guide: goal steps
-- Write down the feature's goal from `DOCUMENTED_FEATURES.md`, for example: Create an Angular Frontend Capsule (GOAL: Expect to see capsule building in builds tab).
+- Write down the feature's goal from `CC_DOCUMENTED_FEATURES.MD`, for example: Create an Angular Frontend Capsule (GOAL: Expect to see capsule building in builds tab).
 - Label each instruction:
   - `goal`: needed to reach the goal, for a reader who already has every prerequisite. For the Angular guide, that is choosing the Frontend Capsule type, team, Space, plan, repo and branch, build settings, creating the capsule, and checking the build.
   - `prerequisite`: something the reader must have or do first that isn't part of the goal, such as signing up, forking the demo repo, or creating a Space.
@@ -59,7 +59,7 @@ Read the doc top to bottom and list every instruction or statement it gives the 
   - Any `goal` instruction is outside `## Steps`.
   - Any `prerequisite` or `remove` instruction is inside `## Steps`.
   - The steps, as written, stop before the goal, or the last step doesn't say what the reader should see when the goal is reached.
-  - `## Goal` doesn't match the feature's goal.
+  - The intro, or the last step, doesn't match the feature's goal.
   - A value the goal depends on (repo, branch, plan, build command, output directory) is missing or unclear.
 
 ### Tutorial: build steps
@@ -87,11 +87,12 @@ Read the doc top to bottom and list every instruction or statement it gives the 
 
 ### Explanation: understanding only
 - Label each statement:
-  - `explain`: says what the topic is, why it matters, how it works, or when to use it.
+  - `explain`: says what the topic is, why it matters, how it works, or how it compares with the alternatives.
   - `instruction`: something the reader is told to do. It belongs in a How-to guide.
   - `fact`: a list of values or limits. It belongs in a Reference page.
 - This check fails if any statement is labelled `instruction`, or if `fact` lists take up a whole section. Raise a **Move to another doc** ticket for each, and link the target page from `## Related`.
-- It also fails if any of `## Why it matters`, `## How it works`, or `## When to use it` has no content. A doc for a feature that isn't available yet still has to describe it, not only say "Coming soon."
+- It also fails if any of `## Why it matters`, `## How it works`, or `## Alternatives and trade-offs` has no content. A doc for a feature that isn't available yet still has to describe it, not only say "Coming soon."
+- It also fails if it still has a `:::note[Content needed]` block. Raise a **Format fix** ticket for each block that says what content is missing and who can supply it.
 
 ## Check 2: Prerequisites
 **How-to guides and Tutorials only.** Check that every `prerequisite` from Check 1 is in `## Prerequisites` and linked out, not explained.
@@ -112,23 +113,23 @@ Read the doc top to bottom and list every instruction or statement it gives the 
 - For Reference pages and Explanations, `## Related` must have at least two links, and every one must exist.
 
 ## Check 4: Format and style
-Check the doc against every rule in the template for its type from Step 1, and against `writing_style.md`.
+Check the doc against every rule in the template for its type from Step 1, and against `WRITING_STYLE.MD`.
 
 - Go through the template section by section and record each rule the doc breaks, quoting the doc's text or heading and naming the rule.
 - At minimum, confirm:
-  - The frontmatter has every field `writing_style.md` lists.
+  - The frontmatter has every field `WRITING_STYLE.MD` lists.
   - The `##` headings are exactly the ones in the template's section table, in that order. Optional sections can be missing, but not reordered.
   - Each section follows the template's rules for it, such as `### Step N: Title` in a How-to guide, a `### Checkpoint` at the end of each Tutorial part, tables with units in a Reference, and no steps in an Explanation.
-  - The rules in `writing_style.md` are followed.
+  - The rules in `WRITING_STYLE.MD` are followed.
 
 ## If the doc fails
-- Stop work on that doc. Don't run the `WALKTHROUGH.md` walkthrough for it.
+- Stop work on that doc. Don't run the `WALKTHROUGH.MD` walkthrough for it.
 - Write a format report for it (see below) with one ticket per fix.
 - In the run summary, mark the doc `Format check: fail` and, for How-to guides and Tutorials, `Walkthrough: not run (format fail)`. Link the format report.
 
 ## If the doc passes
 - Write a short format report that records the pass, the doc type, and the Check 1 list.
-- How-to guides and Tutorials continue to the `WALKTHROUGH.md` walkthrough. Reference pages and Explanations are done; mark them `Walkthrough: not applicable`.
+- How-to guides and Tutorials continue to the `WALKTHROUGH.MD` walkthrough. Reference pages and Explanations are done; mark them `Walkthrough: not applicable`.
 
 ## Tickets
 Each ticket is one piece of work someone can pick up on its own. Use these types:
@@ -147,7 +148,7 @@ Each ticket must have:
 - **Type**: one of the types above.
 - **Title**: a short imperative summary, such as "Move account sign-up to Prerequisites."
 - **Problem**: what the doc does now, quoting its text and heading.
-- **Rule**: the template file and rule, or the check, it breaks, such as "`how_to_format.md`, Steps: steps must not contain images."
+- **Rule**: the template file and rule, or the check, it breaks, such as "`HOW_TO_FORMAT.MD`, Steps: a step has at most one screenshot."
 - **Change**: exactly what to change. For a shared page, give the proposed file path, slug, and an outline of what the page should cover, taken from the content being moved out of the doc.
 - **Done when**: how a reviewer can confirm the fix.
 
