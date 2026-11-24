@@ -10,6 +10,7 @@
 
 ## Before running each test
 - Open and read the feature's guide file before launching Playwright.
+- Always run Playwright headless (`headless: true`). Never launch a visible browser window, and never set `headless: false` or use headed or debug modes.
 - Guides may be written as narrative text and don't need numbered steps or `### Step N` headings.
 
 ## Running the guide
