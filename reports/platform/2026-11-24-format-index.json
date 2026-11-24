@@ -1,0 +1,46 @@
+{
+  "runTimestamp": "2026-11-24T10:35:00+02:00",
+  "docFile": "docs/platform/index.md",
+  "docType": "index",
+  "template": "writing_style.md",
+  "feature": "View platform guides index",
+  "goal": "Expect every link on the page to open an existing page",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "No broken assets detected."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "index-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "writing_style.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter."
+  ]
+}

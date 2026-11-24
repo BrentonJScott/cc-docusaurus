@@ -1,0 +1,53 @@
+{
+  "runTimestamp": "2026-11-24T10:35:00+02:00",
+  "docFile": "docs/platform/teams/how-do-i-add-remove-teams.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Add and remove a team",
+  "goal": "Expect to see the team created and then removed",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Image missing in static/: /gitbook-assets/platform/new-team-1.png Image missing in static/: /gitbook-assets/platform/create-team-1.png Image missing in static/: /gitbook-assets/platform/platform/teams/remove-team.png Broken internal link: /platform/spaces/how-do-i-add-remove-a-space/"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Image missing in static/: /gitbook-assets/platform/new-team-1.png Image missing in static/: /gitbook-assets/platform/create-team-1.png Image missing in static/: /gitbook-assets/platform/platform/teams/remove-team.png Broken internal link: /platform/spaces/how-do-i-add-remove-a-space/ Missing `## Prerequisites`. Missing `## Troubleshooting`."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "how-do-i-add-remove-teams-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Image missing in static/: /gitbook-assets/platform/new-team-1.png",
+      "rule": "how_to_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Missing `import DocCardList from '@theme/DocCardList';`.\n- Image missing in static/: /gitbook-assets/platform/new-team-1.png\n- Image missing in static/: /gitbook-assets/platform/create-team-1.png\n- Image missing in static/: /gitbook-assets/platform/platform/teams/remove-team.png\n- Broken internal link: /platform/spaces/how-do-i-add-remove-a-space/\n- Missing `## Prerequisites`.\n- Missing `## Troubleshooting`.",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Missing `import DocCardList from '@theme/DocCardList';`.",
+    "Image missing in static/: /gitbook-assets/platform/new-team-1.png",
+    "Image missing in static/: /gitbook-assets/platform/create-team-1.png",
+    "Image missing in static/: /gitbook-assets/platform/platform/teams/remove-team.png",
+    "Broken internal link: /platform/spaces/how-do-i-add-remove-a-space/",
+    "Missing `## Prerequisites`.",
+    "Missing `## Troubleshooting`."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "runTimestamp": "2026-11-24T10:35:00+02:00",
+  "docFile": "docs/platform/platform.md",
+  "docType": "index",
+  "template": "writing_style.md",
+  "feature": "View platform overview",
+  "goal": "Expect every link on the page to open an existing page",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Image missing in static/: /gitbook-assets/platform/teamspacecapsule.png Image missing in static/: /gitbook-assets/platform/simple-and-complex-projects.png Broken internal link: /platform/teams/what-is-a-team/ Broken internal link: /platform/spaces/what-is-a-space/ Broken internal link: /platform/capsules/what-is-a-capsule/ Index has no DocCardList or link table for manifest goal."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/platform/teamspacecapsule.png Image missing in static/: /gitbook-assets/platform/simple-and-complex-projects.png Broken internal link: /platform/teams/what-is-a-team/ Broken internal link: /platform/spaces/what-is-a-space/ Broken internal link: /platform/capsules/what-is-a-capsule/ Index has no DocCardList or link table for manifest goal."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "platform-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/platform/teamspacecapsule.png",
+      "rule": "writing_style.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Links to live codecapsules.io instead of internal docs paths.\n- Image missing in static/: /gitbook-assets/platform/teamspacecapsule.png\n- Image missing in static/: /gitbook-assets/platform/simple-and-complex-projects.png\n- Broken internal link: /platform/teams/what-is-a-team/\n- Broken internal link: /platform/spaces/what-is-a-space/\n- Broken internal link: /platform/capsules/what-is-a-capsule/\n- Index has no DocCardList or link table for manifest goal.",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Links to live codecapsules.io instead of internal docs paths.",
+    "Image missing in static/: /gitbook-assets/platform/teamspacecapsule.png",
+    "Image missing in static/: /gitbook-assets/platform/simple-and-complex-projects.png",
+    "Broken internal link: /platform/teams/what-is-a-team/",
+    "Broken internal link: /platform/spaces/what-is-a-space/",
+    "Broken internal link: /platform/capsules/what-is-a-capsule/",
+    "Index has no DocCardList or link table for manifest goal."
+  ]
+}
