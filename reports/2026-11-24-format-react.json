@@ -1,0 +1,17 @@
+{
+  "runTimestamp": "2026-11-24T06:13:03Z",
+  "docFile": "docs/b/react.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Create React frontend capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "formatCheck": "fail",
+  "checkResults": [
+    {"check": "Doc type", "status": "fail"},
+    {"check": "Content", "status": "fail"},
+    {"check": "Prerequisites", "status": "pass"},
+    {"check": "Links", "status": "fail"},
+    {"check": "Format and style", "status": "fail"}
+  ],
+  "tickets": ["react-1", "react-2", "react-3", "react-4", "react-5"]
+}

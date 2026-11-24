@@ -1,0 +1,22 @@
+{
+  "runTimestamp": "2026-11-24T06:13:03Z",
+  "docFile": "docs/b/angular.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Create Angular frontend capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "formatCheck": "fail",
+  "contentList": [
+    {"n": 1, "label": "remove", "heading": "intro"},
+    {"n": 4, "label": "prerequisite", "heading": "### Step 1: Log in"},
+    {"n": 5, "label": "goal", "heading": "### Step 2: Start the Angular capsule"}
+  ],
+  "checkResults": [
+    {"check": "Doc type", "status": "fail", "reason": "docs/b/ vs docs/guides/"},
+    {"check": "Content", "status": "fail", "reason": "Login step inside Steps"},
+    {"check": "Prerequisites", "status": "pass", "reason": "Linked shared pages exist"},
+    {"check": "Links", "status": "fail", "reason": "Missing screenshot files"},
+    {"check": "Format and style", "status": "fail", "reason": "Multiple template violations"}
+  ],
+  "tickets": ["angular-1", "angular-2", "angular-3", "angular-4"]
+}
