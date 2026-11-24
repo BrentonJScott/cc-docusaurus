@@ -3,6 +3,7 @@
 A Tutorial teaches by building something. The reader follows one fixed path, sees a result at every stage, and ends with something working they built themselves. Unlike a How-to guide, it is written for a beginner and the author is responsible for every step working. It keeps explanation to a minimum and links to Explanation pages instead. `FORMAT.MD` checks Tutorials against this file. A doc that breaks any rule marked **must** fails the format check.
 
 - **Use it for:** "Build a…" pages that walk through a whole project.
+- **Location:** A Tutorial can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Example in this repo:** `docs/tutorials/build-a-mern-job-board.md` (How to build a MERN job board).
 - **Writing style:** follow `writing_style.md`.
 
@@ -55,7 +56,7 @@ A Tutorial **must** have these sections, in this order:
 
 ````md
 ---
-slug: "/tutorials/<name>"
+slug: "/<section>/<name>"
 title: "Build a <Thing>"
 description: >-
   <One or two sentences on what the reader will build.>
@@ -71,7 +72,7 @@ doc_version: drift
 
 <Short description of the finished result.>
 
-![<Alt text>](/img/tutorials/<name>/result.png)
+![<Alt text>](/img/<docs-folder>/<name>/result.png)
 
 ## Prerequisites
 

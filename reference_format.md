@@ -3,6 +3,7 @@
 A Reference page lists facts the reader looks up: values, limits, prices, options. It's for scanning, not reading top to bottom. It describes how things are and doesn't tell the reader what to do or why. `FORMAT.MD` checks Reference pages against this file. A doc that breaks any rule marked **must** fails the format check.
 
 - **Use it for:** pricing, plans and limits, supported runtimes and versions, CLI commands, environment variables, API methods.
+- **Location:** A Reference page can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Example in this repo:** `docs/references/how-does-the-pricing-work.md` (How does pricing work).
 - **Writing style:** follow `writing_style.md`.
 
