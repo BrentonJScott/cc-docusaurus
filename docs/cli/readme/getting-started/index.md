@@ -3,7 +3,11 @@ slug: "/cli/readme/getting-started"
 description: "Get started with the Code Capsules CLI: prerequisites, installation, and a quick start guide."
 title: "Getting Started With the CLI"
 sidebar_label: "Getting Started"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Get Going With the CLI
 

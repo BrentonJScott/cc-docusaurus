@@ -11,6 +11,16 @@ import DocCardList from '@theme/DocCardList';
 
 # Make Your WordPress Site Fast
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
+
 WordPress Capsules are pre-configured with sensible performance defaults. This guide explains how to tune them for your specific site size and traffic pattern.
 
 ---
@@ -242,3 +252,13 @@ Database query results can be cached in memory using a Redis object cache. See [
 - Leave `CACHE_TTL_SECONDS` unset — member content must not be cached
 - Increase `memory_limit` (membership plugins are memory-heavy)
 - Enable Redis object cache to compensate for no page cache
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

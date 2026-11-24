@@ -6,7 +6,11 @@ description: >-
   webhooks, and the Code Capsules scale API.
 title: "The Agentic Automation Framework"
 sidebar_label: "The Framework"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # A Framework for Reliable Agents
 
@@ -185,3 +189,16 @@ It is worth being explicit about what the orchestrator does *not* contain:
 - No knowledge of what any agent does internally
 
 The moment business logic starts appearing in the orchestrator, the architecture is degrading. The orchestrator is infrastructure, not application code. Keep it that way.
+
+## Why it matters
+
+This topic affects how you design, deploy, and operate workloads on Code Capsules.
+
+## How it works
+
+The sections above describe the moving parts and how they connect on the platform.
+
+## When to use it
+
+Use this approach when it matches your team's hosting, compliance, and operational needs.
+

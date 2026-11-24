@@ -19,7 +19,7 @@ To have Code Capsules build your image from a Dockerfile instead, see [Deploy fr
 
 Before creating a capsule, make sure you have:
 
-- A [Code Capsules](https://www.codecapsules.io/) account with a Team and Space
+- A [Code Capsules](/docs/shared/create-an-account) account with a Team and Space
 - A public container image, for example on Docker Hub or GitHub Container Registry
 
 Your image must meet the [container requirements](/products/docker-capsule/container-requirements/): it must listen on the capsule's network port, bind to `0.0.0.0`, and start your application.

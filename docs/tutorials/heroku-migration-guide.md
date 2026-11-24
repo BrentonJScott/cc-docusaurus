@@ -15,7 +15,7 @@ import DocCardList from '@theme/DocCardList';
 
 This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules.
 
-[Code Capsules](https://www.codecapsules.io/) lets you deploy frontends, backends, and databases from a single dashboard, with built-in GitHub integration and support for most popular frameworks including Node.js, Python, and Docker.
+[Code Capsules](/docs/shared/create-an-account) lets you deploy frontends, backends, and databases from a single dashboard, with built-in GitHub integration and support for most popular frameworks including Node.js, Python, and Docker.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This guide demonstrates how to move a suite of applications running on the Herok
 />
 ## Why Developers Are Migrating From Heroku in 2026
 
-**Last updated: July 2026.** Prices below are from the official [Heroku pricing page](https://www.heroku.com/pricing) and [Code Capsules pricing page](https://www.codecapsules.io/pricing/); re-check both before making decisions.
+**Last updated: July 2026.** Prices below are from the official [Heroku pricing page](https://www.heroku.com/pricing) and [Code Capsules pricing page](/docs/shared/create-an-account); re-check both before making decisions.
 
 A few platform changes are driving migrations:
 
@@ -196,7 +196,7 @@ migrate-backend  | Node.js Dyno | Backend Node.js Capsule
 migrate-frontend | Node.js Dyno | Frontend Node.js or static site Capsule
 migrate-emailer | Node.js worker Dyno, using Heroku Scheduler addon | Backend Node.js Capsule with internal scheduling
 
-The table below shows a rough monthly cost comparison for this example app, using the smallest always-on tier for each component. Actual costs depend on your usage and configuration. See [Code Capsules pricing](https://www.codecapsules.io/pricing/) and [Heroku pricing](https://www.heroku.com/pricing) for current details.
+The table below shows a rough monthly cost comparison for this example app, using the smallest always-on tier for each component. Actual costs depend on your usage and configuration. See [Code Capsules pricing](/docs/shared/create-an-account) and [Heroku pricing](https://www.heroku.com/pricing) for current details.
 
 Component | Heroku | Code Capsules
 ---|---|---
@@ -418,7 +418,7 @@ Use this as the working checklist for the whole migration. Each item links back 
 
 ## Next Steps
 
-Interested in trying Code Capsules? [Create a free account](https://app.codecapsules.io/) to take a look around, or ask us anything on [Slack](https://codecapsules.slack.com/join/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg#/shared-invite/email).
+Interested in trying Code Capsules? [Create a free account](/docs/shared/create-an-account) to take a look around, or ask us anything on [Slack](https://codecapsules.slack.com/join/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg#/shared-invite/email).
 
 ## Troubleshooting
 

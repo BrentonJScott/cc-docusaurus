@@ -15,7 +15,7 @@ import DocCardList from '@theme/DocCardList';
 
 _This guide uses Go. You can find the Node.js version_ [_here_](/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules/) _or the Python version_ [_here_](/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules/).
 
-In this tutorial we'll create a [Telegram bot](https://core.telegram.org/bots/) from scratch using [Go](https://go.dev/) and host it in a [new Capsule](https://app.codecapsules.io/new/capsule?capsuleType=backend). The bot will start with the basic functionality of checking the current air temperature of a given city. Then, we'll extend its functionality by adding AI capabilities using Google AI Studio.
+In this tutorial we'll create a [Telegram bot](https://core.telegram.org/bots/) from scratch using [Go](https://go.dev/) and host it in a [new Capsule](/docs/shared/create-an-account). The bot will start with the basic functionality of checking the current air temperature of a given city. Then, we'll extend its functionality by adding AI capabilities using Google AI Studio.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ For this project we will use the following tech stack:
 
 The rest of the stack will be handled by our Backend Capsule.
 
-Create a Code Capsules account [here](https://www.codecapsules.io/) if you don't already have one.
+Create a Code Capsules account [here](/docs/shared/create-an-account) if you don't already have one.
 
 We will host our code on GitHub, so make sure you have a [GitHub account](https://github.com/signup) and are familiar with [Git](https://git-scm.com/). You can find a guide to getting started with Git [here](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control).
 

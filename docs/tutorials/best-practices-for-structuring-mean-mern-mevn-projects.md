@@ -11,6 +11,16 @@ import DocCardList from '@theme/DocCardList';
 
 # Best Practices for Structuring MEAN/MERN/MEVN Projects
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
+
 ## Overview
 
 How to structure MEAN, MERN and MEVN projects: folder layout, separation of concerns, and conventions that keep full-stack JS apps maintainable.
@@ -191,3 +201,13 @@ Always use a version control system like Git to manage your source code. Adopt a
 *   **Updating and Maintenance**: For updates, push changes to your repository or re-upload the updated code.
 
     Regularly monitor the performance and logs to maintain your application.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

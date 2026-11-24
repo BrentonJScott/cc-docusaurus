@@ -3,23 +3,24 @@ title: "How to Deploy a Flask + HTMX App"
 sidebar_label: "Flask + HTMX"
 slug: "/full-stack/flask-+-htmx"
 description: "Deploy a full-stack Flask and HTMX app to Code Capsules from GitHub. Server-rendered interactivity without a JS framework, step by step."
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Deploy Your Flask + HTMX App Straight from GitHub
 
 Deploy a Flask HTMx application and learn how to host backend code on Code Capsules.
 
-## Setup
-
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
 To demonstrate how to deploy a Flask HTMx application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).
 
 Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Create an Account with Code Capsules
-
-If you don't already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+If you don't already have an account, navigate to the [Code Capsules](/docs/shared/create-an-account) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
 If you've just signed up for an account, you'll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
 
@@ -27,13 +28,11 @@ Alternatively, if you're signing in again, click on the **Spaces** tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
 
-## Create a Space for Your App
-
 Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+
 
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
@@ -66,18 +65,28 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+
 
 ## Connect the Capsules
 
 After the two capsules have been successfully built, the next step is to connect them. To do this, navigate to the **Config** tab of your Backend Capsule. Scroll down to the **Data Capsule** section and click **View** to view the environment variables from the Data Capsule. Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
 
-![Bind MERN Capsules](/gitbook-assets/get-started/bind-persistent-capsule-backend.png)
+
 
 ## View Application
 
 After restarting the capsule, the application will now be ready to be viewed. Click the **URL** link in the **Config** tab, and you should see your deployed application.
 
-![Deployed App](/gitbook-assets/get-started/flask-htmx.png)
+
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/full-stack/).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

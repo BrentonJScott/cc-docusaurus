@@ -21,14 +21,14 @@ Go apps deploy to a Backend Capsule from a branch of a GitHub repository. Each p
 
 | Guide | Deploys | Demo repository |
 |---|---|---|
-| [Go](/docs/backend/go/go) | A Go web app | `codecapsules-io/go-demo` |
-| [Go Telegram Bot](/docs/backend/go/go-telegram-bot) | A Telegram echo bot | `codecapsules-io/go-telegram-echobot` |
+| [Go](/backend/go/go) | A Go web app | `codecapsules-io/go-demo` |
+| [Go Telegram Bot](/backend/go/go-telegram-bot) | A Telegram echo bot | `codecapsules-io/go-telegram-echobot` |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/backend', label: '📋 Backend hosting', description: 'Compare the other backend languages.'},
-    {type: 'link', href: '/docs/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Go versions you can deploy.'},
+    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Compare the other backend languages.'},
+    {type: 'link', href: '/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Go versions you can deploy.'},
   ]}
 />

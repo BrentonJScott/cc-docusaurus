@@ -3,17 +3,31 @@ slug: "/database/redis"
 description: "In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in-memory data storage for your application hosted on Code Capsules."
 title: "Managed Redis Hosting"
 sidebar_label: "Redis"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
+
 # Host Your Redis Instance
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
 
 In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in-memory data storage for your application hosted on Code Capsules.
 
 ## Create a Redis Data Capsule
 
-Log in to your [Code Capsules](https://www.codecapsules.io/) account and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select **New Capsule**, then select **Redis** from the dropdown.
+Log in to your [Code Capsules](/docs/shared/create-an-account) account and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select **New Capsule**, then select **Redis** from the dropdown.
 
-![Create Data Capsule](/gitbook-assets/get-started/create-redis-capsule.jpg)
+
 
 Choose a payment option, and click **Create Capsule**.
 
@@ -25,7 +39,7 @@ Navigate to your Backend Capsule and click on the **Configure** tab. Scroll down
 
 We'll use this environment variable in our app to connect to the Redis database.
 
-![Redis Url](/gitbook-assets/get-started/redis-bind-env.png)
+
 
 ## Connecting to a Redis Data Capsule from a Python Application
 
@@ -62,3 +76,13 @@ connection.quit();
 ```
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/database/).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

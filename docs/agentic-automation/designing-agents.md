@@ -6,7 +6,11 @@ description: >-
   AI automation.
 title: "How to Design AI Agents for Business Automation"
 sidebar_label: "Designing Agents"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Design Agents That Actually Work
 

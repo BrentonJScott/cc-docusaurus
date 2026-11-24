@@ -10,7 +10,7 @@ Deploy a Node.js Slack Bot and learn how to host backend code on Code Capsules.
 
 ## Setup
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
 To demonstrate how to deploy a Node.js Slack Bot with Code Capsules, we've provided an example bot, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/slackbot).
 
@@ -22,7 +22,7 @@ Log in to your Code Capsules account and navigate to the **Spaces** tab. Once th
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+
 
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
@@ -47,7 +47,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+
 
 ## Register the Bot
 
@@ -56,19 +56,19 @@ You'll need a Slack user account and to log into a workspace before you can crea
 1. On the popup that displays, choose the **From scratch** option, give your app a name, and choose the workspace you want to add it to, then click **Create App**.
 2.  Click **OAuth & Permissions** on the left panel and scroll down to the _Scopes_ section, and click **Add an OAuth Scope** under the _Bot Token Scopes_ section.
 
-    ![Slack Scopes](/gitbook-assets/get-started/slack-scopes.png)
+    
 3. Choose **chat:write** from the options list.
 4.  Click on the **Slash Commands** menu item on the left, under Features, then click **Create a new Command**.
 
-    ![Choose Slash Command](/gitbook-assets/get-started/choose-slash-command.png)
+    
 5. Give the command the name `/stats`.
 6.  For the Request URL, head over to your Capsule **Details** tab on Code Capsules and copy the URL under the **Public URL** section.
 
-    ![Backend Url](/gitbook-assets/get-started/backend-url.png)
+    
 7. Paste your URL into the Request URL box on Slack, and add `/slack/command/stats` to the end of it.
 8.  Fill in the description with 'Returns key stats from the app'.
 
-    ![Create Command](/gitbook-assets/get-started/create-command.png)
+    
 9. Click **Save**.
 
 ## Add Environment Variables
@@ -82,7 +82,7 @@ For the first environment variable, `SLACK_BOT_TOKEN`:
 3. Actioning the preceding 2 steps should reveal a newly generated **Bot User OAuth Token**. Copy this token.
 4.  On your capsule's **Configure** tab, add a new environment variable with the name `SLACK_BOT_TOKEN` and set its value to the token you copied in the previous step.
 
-    ![Slack Bot Token](/gitbook-assets/get-started/slack-bot-token.png)
+    
 5. Confirm your changes by clicking on **Save**.
 
 For the second environment variable, `SLACK_CHANNEL_ID`:
@@ -90,12 +90,12 @@ For the second environment variable, `SLACK_CHANNEL_ID`:
 1. Open Slack and right-click on the channel name of the channel you want to send messages to.
 2.  On the context menu that appears, choose **Copy Link**.
 
-    ![Copy Channel Link](/gitbook-assets/get-started/copy-channel-link.png)
+    
 3. Paste the link in a browser tab, but don't press **enter** or **return**.
 4. The link should follow the format, `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
 5.  Add the channel ID to the environment variables with the name `SLACK_CHANNEL_ID`.
 
-    ![Slack Channel Id](/gitbook-assets/get-started/slack-channel-id.png)
+    
 6. Confirm your changes by clicking on **Save**.
 
 For the third environment variable, `SLACK_SIGNING_SECRET`:
@@ -103,17 +103,17 @@ For the third environment variable, `SLACK_SIGNING_SECRET`:
 1. Head over to your Slack app dashboard and click on **Basic Information** on the left-hand side.
 2.  Scroll down to _App Credentials_ and look for the _Signing Secret_. Click **Show** and copy the secret.
 
-    ![Slack Signing Secret](/gitbook-assets/get-started/slack-signing-secret.png)
+    
 3.  Add a new environment variable with the name `SLACK_SIGNING_SECRET` on your capsule's **Config** tab and set its value to the secret you copied in the previous step.
 
-    ![Slack Signing Secret 1](/gitbook-assets/get-started/slack-signing-secret-1.png)
+    
 4. Confirm your changes by clicking on **Save**, then restart your Capsule by toggling the radio button in the top right off and on again.
 
 ## Invite the Bot to the Channel
 
 You need to invite the bot to the chosen channel so that it'll be able to post there. To do this, send a message mentioning `@<bot-name>` the bot in the channel you added it to. Click **Invite Them** when Slack prompts you.
 
-![invite bot to channel](/gitbook-assets/get-started/invite-bot.png)
+
 
 ## Chat with the Bot
 

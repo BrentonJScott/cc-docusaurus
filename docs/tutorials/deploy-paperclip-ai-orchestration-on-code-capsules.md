@@ -30,7 +30,7 @@ In this tutorial we'll fork Paperclip, apply fixes required for cloud deployment
 />
 ## Prerequisites
 
-* A [Code Capsules](https://www.codecapsules.io/) account
+* A [Code Capsules](/docs/shared/create-an-account) account
 * A GitHub account
 * An Anthropic API key (if you plan to use Claude as an agent)
 

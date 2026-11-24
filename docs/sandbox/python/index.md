@@ -9,7 +9,7 @@ sidebar_label: "Python SDK"
 
 `codecapsules-sandbox` is the official Python client for the Sandbox API.
 
-The API is in private beta. [Join the waitlist](https://www.codecapsules.io/sandbox/waitlist/) to get an API key.
+The API is in private beta. [Join the waitlist](/docs/shared/create-an-account) to get an API key.
 
 ```bash
 pip install codecapsules-sandbox

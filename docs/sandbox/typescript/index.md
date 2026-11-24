@@ -3,13 +3,27 @@ slug: "/sandbox/typescript"
 title: "Sandbox SDK for TypeScript & Node.js"
 description: "The @codecapsules/sandbox TypeScript SDK for creating and managing Firecracker microVM sandboxes."
 sidebar_label: "TypeScript SDK"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # TypeScript SDK
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
+
 `@codecapsules/sandbox` is the official TypeScript client for the Sandbox API.
 
-The API is in private beta. [Join the waitlist](https://www.codecapsules.io/sandbox/waitlist/) to get an API key.
+The API is in private beta. [Join the waitlist](/docs/shared/create-an-account) to get an API key.
 
 ```bash
 npm install @codecapsules/sandbox
@@ -81,3 +95,13 @@ const sb = await Sandbox.create(
 
 - [npm · @codecapsules/sandbox](https://www.npmjs.com/package/@codecapsules/sandbox)
 - [GitHub · codecapsules-io/sandbox](https://github.com/codecapsules-io/sandbox)
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

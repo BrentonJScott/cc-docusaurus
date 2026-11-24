@@ -2,15 +2,18 @@
 slug: "/database/mysql/java-+-mysql"
 title: "Deploy Java with MySQL"
 description: "Deploy a Java app with a MySQL database on Code Capsules from GitHub. Connect your Java backend to a managed MySQL Data Capsule, step by step."
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Java + MySQL
 
 Deploy a Java MySQL application and learn how to host backend code on Code Capsules.
 
-## Setup
-
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
 To demonstrate how to deploy a Java MySQL application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-java-mysql).
 
@@ -41,18 +44,28 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+
 
 ## Connect the Capsules
 
 After the two capsules have been successfully built, the next step is to connect them. To do this, navigate to the **Config** tab of your Backend Capsule. Scroll down to the **Data Capsule** section and click **View** to view the environment variables from the Data Capsule. Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
 
-![Connect Data Capsule](/gitbook-assets/get-started/sql-bind-env.png)
+
 
 ## View Application
 
 You can now view the application after the two capsules have been connected. To see how it looks, click on the URL in the **Details** tab.
 
-![Deployed App](/gitbook-assets/get-started/java-mysql-app.png)
+
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/database/).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

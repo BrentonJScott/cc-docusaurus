@@ -30,7 +30,7 @@ Each page covers one prerequisite. Guides link here instead of repeating the ste
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/backend', label: '📋 Backend hosting', description: 'Find a backend deployment guide.'},
-    {type: 'link', href: '/docs/platform/spaces/what-is-a-space', label: '💡 What is a Space', description: 'Learn how Spaces group capsules.'},
+    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Find a backend deployment guide.'},
+    {type: 'link', href: '/platform/spaces/what-is-a-space', label: '💡 What is a Space', description: 'Learn how Spaces group capsules.'},
   ]}
 />

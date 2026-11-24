@@ -19,7 +19,7 @@ Container hosting serves the same static files as [Static hosting](/products/fro
 
 Before creating a capsule, make sure you have:
 
-- A [Code Capsules](https://www.codecapsules.io/) account with a Team and Space
+- A [Code Capsules](/docs/shared/create-an-account) account with a Team and Space
 - A payment method on your Team
 - A repository with a site that builds to a folder of static files, or that already contains your `index.html`
 - Your version control account linked under [Connect Version Control](/platform/account/connect-version-control/)

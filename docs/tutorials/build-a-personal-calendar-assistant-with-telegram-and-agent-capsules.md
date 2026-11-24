@@ -46,7 +46,7 @@ Code Capsules eliminates this burden. The platform handles infrastructure, datab
 To follow this tutorial, you need:
 
 * A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed
-* A [Code Capsules](https://www.codecapsules.io/) account
+* A [Code Capsules](/docs/shared/create-an-account) account
 * An LLM API key. For example: [Anthropic](https://www.anthropic.com/) or [OpenAI](https://openai.com/index/openai-api/)
 
 ### Set Up a Redis Capsule

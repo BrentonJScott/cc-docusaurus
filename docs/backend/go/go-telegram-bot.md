@@ -30,7 +30,7 @@ To confirm that your bot has been created successfully, search for the bot's use
 
 ## Setup
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
 To demonstrate how to deploy a Go Telegram Bot with Code Capsules, we've provided an example bot in the [Code Capsules GitHub repository](https://github.com/codecapsules-io/go-telegram-echobot).
 
@@ -42,7 +42,7 @@ Log in to your Code Capsules account and navigate to the **Spaces** tab. Then, c
 
 Follow the prompts to choose your region and give your Space a name, then click **Create Space**.
 
-![Create a Space](/gitbook-assets/get-started/space-name.png)
+
 
 1. Choose a Team. You can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others.
 2. The name should remind you of the project, for example, `customer-api` or `notetaking-app`.
@@ -66,7 +66,7 @@ Code Capsules automatically builds your application when you've finished creatin
 
 Once your application is live, you can view the build logs by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs.png)
+
 
 ## Add Environment Variables
 
@@ -74,7 +74,7 @@ Once the build is complete, we need to add the `BOT_TOKEN` and `URL` environment
 
 First, name the `BOT_TOKEN` variable and enter your Telegram access token (which you received from the BotFather when you registered the bot) as its **Value**.
 
-![Add a BOT\_TOKEN Environment Variable](/gitbook-assets/get-started/bot-token-env-variable.png)
+
 
 Name the `URL` variable and set your bot's domain as its **Value**.
 
@@ -82,7 +82,7 @@ Name the `URL` variable and set your bot's domain as its **Value**.
 * Paste the URL in the **Value** field.
 * Make sure the URL ends with a `/` or the webhook will not be valid.
 
-![Add a URL Environment Variable](/gitbook-assets/get-started/url-env-variable.png)
+
 
 Confirm your changes by clicking on **Save**, then restart your Capsule by toggling the radio button in the top-right corner off and on again.
 

@@ -3,9 +3,23 @@ slug: "/database/mysql"
 description: "In this tutorial, we'll create a MySQL Data Capsule to provide persistent storage for your applications hosted on Code Capsules."
 title: "Managed MySQL Hosting"
 sidebar_label: "MySQL"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
+
 # Host Your MySQL Database
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
 
 In this tutorial, we'll create a MySQL Data Capsule to provide persistent storage for your applications hosted on Code Capsules.
 
@@ -17,9 +31,9 @@ Code Capsules supports MySQL **5.7** and **8.0**. See [MySQL Versions](/products
 
 ## Create a MySQL Data Capsule
 
-Log in to your [Code Capsules](https://www.codecapsules.io/) account and navigate to the Space your MySQL Data Capsule will be contained in. Click the yellow `+` button and select the **MySQL Data Capsule** option from the dropdown.
+Log in to your [Code Capsules](/docs/shared/create-an-account) account and navigate to the Space your MySQL Data Capsule will be contained in. Click the yellow `+` button and select the **MySQL Data Capsule** option from the dropdown.
 
-![Create Data Capsule](/gitbook-assets/get-started/create-sql-capsule.jpg)
+
 
 Choose your payment option, then click the **Create Capsule** button.
 
@@ -27,7 +41,7 @@ Choose your payment option, then click the **Create Capsule** button.
 
 To use the Data Capsule with your Backend Capsule, you'll need to link the two. Navigate to the Backend Capsule and click **Config** to open the Capsule's configuration tab. Scroll down to the **Data capsules** section and you'll see your recently created Data Capsule.
 
-![Connect Data Capsule](/gitbook-assets/get-started/sql-bind-env.png)
+
 
 Click **View** to view the environment variables from the Data Capsule. Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
 
@@ -78,3 +92,13 @@ con.connect(function(err) {
 ```
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/database/).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

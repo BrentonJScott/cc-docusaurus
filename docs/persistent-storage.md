@@ -3,9 +3,23 @@ slug: "/persistent-storage"
 description: "You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial,..."
 title: "How to Use Persistent Storage"
 sidebar_label: "Persistent Storage"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
+
 # Give Your App a Hard Drive
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
 
 You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial, we'll show you how to create a persistent storage Data Capsule that you can use with your backend applications running on Code Capsules.
 
@@ -17,7 +31,7 @@ A Persistent Storage Capsule is like a virtual cloud hard drive. The key benefit
 
 Log in to your Code Capsules account and navigate to the Space your Data Capsule will be contained in. Click the yellow `+` button on the bottom left of the screen, select **New Capsule**, then select **Persistent Storage** option from the dropdown.
 
-![Create Data Capsule](/gitbook-assets/get-started/create-persistent-capsule.jpg)
+
 
 Choose your payment option, then click the **Create Capsule** button.
 
@@ -27,11 +41,11 @@ You need to bind the Data Capsule to a Backend Capsule hosted on Code Capsules b
 
 Navigate to the Backend Capsule and click **Config** to open the Capsule's config tab. Scroll down to the **Bind Data Capsule** section, where your recently created Data Capsule will show.
 
-![Bind Data Capsule](/gitbook-assets/get-started/bind-persistent-1.png)
+
 
 Click **Bind** to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two Capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable.
 
-![PERSISTENT STORAGE DIR Environment Variable](/gitbook-assets/get-started/env-variables-persistent-storage.png)
+
 
 The next step is to use this environment variable in code in order to read and write to our Data Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and paste it in your code as the value of the `db_directory` variable. Alternatively, reference it directly in your code using `os.getenv` for Python or `process.env` for Node.js.
 
@@ -86,7 +100,7 @@ To enable file browsing:
 2. Go to the **Details** tab
 3. Toggle **Public Access** to **Enabled**
 
-![Toggle Storage to Public Acess Enabled](/gitbook-assets/get-started/toggle-public-access.png)
+
 
 This doesn't mean your files are indexed on the internet - it exposes them over WebDAV protocol with authentication credentials.
 
@@ -103,7 +117,7 @@ This doesn't mean your files are indexed on the internet - it exposes them over 
 
 Here you can see the files inside a Wordpress Capsule accessed in the Mac Finder locally.
 
-![See Your Files Locally](/gitbook-assets/get-started/see-your-files.png)
+
 
 #### Windows
 
@@ -124,3 +138,13 @@ Here you can see the files inside a Wordpress Capsule accessed in the Mac Finder
    * `webdavs://@server-address` for Dolphin
 3. Enter the username and password when prompted
 4. The WebDAV server will now appear as a drive in your file manager
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

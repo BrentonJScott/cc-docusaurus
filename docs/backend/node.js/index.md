@@ -21,17 +21,17 @@ Every guide on this page deploys a Node.js app to a Backend Capsule from a forke
 
 | Guide | Deploys | Demo repository | Branch |
 |---|---|---|---|
-| [Express.js](/docs/backend/node.js/express.js) | Express.js web app | `codecapsules-io/demo-express-js` | `master` |
-| [Node.js Discord Bot](/docs/backend/node.js/node.js-discord-bot) | Discord echo bot | `codecapsules-io/nodejs-discord-echobot` | `main` |
-| [Node.js Telegram Bot](/docs/backend/node.js/node.js-telegram-bot) | Telegram echo bot | `codecapsules-io/nodejs-telegram-echobot` | `main` |
-| [Slack Bot](/docs/backend/node.js/slack-bot) | Slack bot | `codecapsules-io/slackbot` | `main` |
+| [Express.js](/backend/node.js/express.js) | Express.js web app | `codecapsules-io/demo-express-js` | `master` |
+| [Node.js Discord Bot](/backend/node.js/node.js-discord-bot) | Discord echo bot | `codecapsules-io/nodejs-discord-echobot` | `main` |
+| [Node.js Telegram Bot](/backend/node.js/node.js-telegram-bot) | Telegram echo bot | `codecapsules-io/nodejs-telegram-echobot` | `main` |
+| [Slack Bot](/backend/node.js/slack-bot) | Slack bot | `codecapsules-io/slackbot` | `main` |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/backend', label: '📋 Backend hosting', description: 'Find guides for other backend languages.'},
-    {type: 'link', href: '/docs/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Node.js versions are supported.'},
-    {type: 'link', href: '/docs/database/mongodb/express-+-mongodb', label: '🛠️ Express + MongoDB', description: 'Deploy Express.js with a MongoDB database.'},
+    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Find guides for other backend languages.'},
+    {type: 'link', href: '/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Node.js versions are supported.'},
+    {type: 'link', href: '/database/mongodb/express-+-mongodb', label: '🛠️ Express + MongoDB', description: 'Deploy Express.js with a MongoDB database.'},
   ]}
 />

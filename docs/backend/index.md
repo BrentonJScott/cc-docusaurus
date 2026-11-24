@@ -21,18 +21,18 @@ Language-based apps deploy to a Backend Capsule, which detects the runtime from 
 
 | Language | Capsule type | Guides |
 |---|---|---|
-| [Python](/docs/backend/python) | Backend Capsule | Python, Flask, Django, Discord bot, Telegram bot, WhatsApp bot |
-| [Node.js](/docs/backend/node.js) | Backend Capsule | Express.js, Discord bot, Telegram bot, Slack bot |
-| [Go](/docs/backend/go) | Backend Capsule | Go, Telegram bot |
-| [Java](/docs/backend/java) | Backend Capsule | Java |
-| [Docker](/docs/backend/docker) | Docker Capsule | Flask, PHP, Laravel, Caddy |
+| [Python](/backend/python) | Backend Capsule | Python, Flask, Django, Discord bot, Telegram bot, WhatsApp bot |
+| [Node.js](/backend/node.js) | Backend Capsule | Express.js, Discord bot, Telegram bot, Slack bot |
+| [Go](/backend/go) | Backend Capsule | Go, Telegram bot |
+| [Java](/backend/java) | Backend Capsule | Java |
+| [Docker](/backend/docker) | Docker Capsule | Flask, PHP, Laravel, Caddy |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/products/backend-capsule', label: '📋 Backend Capsule', description: 'See what a Backend Capsule offers.'},
-    {type: 'link', href: '/docs/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check the language versions you can deploy.'},
-    {type: 'link', href: '/docs/products/docker-capsule', label: '📋 Docker Capsule', description: 'Deploy from your own Dockerfile or image.'},
+    {type: 'link', href: '/products/backend-capsule', label: '📋 Backend Capsule', description: 'See what a Backend Capsule offers.'},
+    {type: 'link', href: '/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check the language versions you can deploy.'},
+    {type: 'link', href: '/products/docker-capsule', label: '📋 Docker Capsule', description: 'Deploy from your own Dockerfile or image.'},
   ]}
 />

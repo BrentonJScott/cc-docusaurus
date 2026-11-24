@@ -2,7 +2,11 @@
 slug: "/full-stack/next.js/static-file-share-with-flask-and-caddy"
 title: "Deploy a File-Sharing Site with Flask and Caddy"
 description: "Deploy a file-sharing site on Code Capsules using Flask to handle uploads and Caddy to serve static files. A step-by-step full-stack deployment guide."
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Static File Share with Flask and Caddy
 
@@ -12,11 +16,10 @@ We'll use three capsules: a Data Capsule to store the files, a Backend Capsule f
 
 After following the guide, you'll be able to upload files in the Flask application, see a file listing, and get public links to your uploaded files in the Caddy application, as shown below.
 
-![Flask upload server and Caddy file server](/gitbook-assets/get-started/upload-download.png)
 
-## Setup
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
 The code you need for this guide is in the following GitHub projects.
 
@@ -25,13 +28,11 @@ The code you need for this guide is in the following GitHub projects.
 
 Sign in to GitHub, and fork both example applications by clicking **Fork** at the top right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for Your App
-
 Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+
 
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
@@ -78,7 +79,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Log](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+
 
 ## Binding the Capsules
 
@@ -89,3 +90,13 @@ Now navigate to each of the Backend Capsule and Docker Capsule and bind them to 
 Once the build is complete, click the **URL** link in the **Config** tab, and you should see your deployed application.
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/full-stack/).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

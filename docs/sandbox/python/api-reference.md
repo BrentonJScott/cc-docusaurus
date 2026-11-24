@@ -3,7 +3,11 @@ slug: "/sandbox/python/api-reference"
 title: "Python Sandbox SDK Methods & Types"
 description: "Full API reference for the codecapsules-sandbox Python SDK: Sandbox, AsyncSandbox, types, and exceptions."
 sidebar_label: "API Reference"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Python API Reference
 

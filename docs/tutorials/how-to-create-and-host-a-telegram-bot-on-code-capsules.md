@@ -35,7 +35,7 @@ To create a Telegram bot, we'll need:
 * [Python](https://www.python.org/) 3.9+ installed.
 * A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed.
 * [Virtualenv](https://pypi.org/project/virtualenv/) installed.
-* A [Code Capsules](https://www.codecapsules.io/) account.
+* A [Code Capsules](/docs/shared/create-an-account) account.
 
 ### About Telegram Bots
 

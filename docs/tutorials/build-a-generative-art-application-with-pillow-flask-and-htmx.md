@@ -32,7 +32,7 @@ In this tutorial, we’ll show you how to build a web application that creates i
 
 You will need the following to complete the tutorial and host your application on Code Capsules:
 
-* A [Code Capsules](https://www.codecapsules.io/) account
+* A [Code Capsules](/docs/shared/create-an-account) account
 * Git set up and installed, and a registered [GitHub](https://github.com/) account
 * IDE or text editor of your choice
 * Python 3 installed
@@ -158,7 +158,7 @@ We can now start building our generative art app, and we’ll start with the fro
 <body>
 <h1>Generate Art</h1>
 
-<p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="https://docs.codecapsules.io/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx/">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
+<p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
 
 <div id="image-update-div">
     <div class="image-frame">
@@ -190,7 +190,7 @@ Next, we’ll add the code for the body of the home page. Copy and paste the sni
 <body>
   <h1>Generate Art</h1>
 
-  <p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="https://docs.codecapsules.io/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx/">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
+  <p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
 
   <div id="image-update-div">
     <div class="image-frame">

@@ -21,24 +21,24 @@ Every Python app on this page deploys to a Backend Capsule from a GitHub reposit
 
 | App | Demo repo | Branch | Guide |
 |---|---|---|---|
-| Python | `codecapsules-io/demo-python` | `master` | [Host a Python application](/docs/backend/python/python) |
-| Flask | `codecapsules-io/demo-python` | `master` | [Host a Flask application](/docs/backend/python/flask) |
-| Django | `codecapsules-io/demo-django` | `master` | [Host a Django application](/docs/backend/python/django) |
+| Python | `codecapsules-io/demo-python` | `master` | [Host a Python application](/backend/python/python) |
+| Flask | `codecapsules-io/demo-python` | `master` | [Host a Flask application](/backend/python/flask) |
+| Django | `codecapsules-io/demo-django` | `master` | [Host a Django application](/backend/python/django) |
 
 ## Bots
 
 | App | Demo repo | Branch | Guide |
 |---|---|---|---|
-| Discord bot | `codecapsules-io/python-discord-echobot` | `main` | [Host a Python Discord bot](/docs/backend/python/python-discord-bot) |
-| Telegram bot | `codecapsules-io/python-telegram-echobot` | `main` | [Host a Python Telegram bot](/docs/backend/python/python-telegram-bot) |
-| WhatsApp bot | `codecapsules-io/whatsapp-echobot` | `main` | [Host a Python WhatsApp bot](/docs/backend/python/whatsapp-bot) |
+| Discord bot | `codecapsules-io/python-discord-echobot` | `main` | [Host a Python Discord bot](/backend/python/python-discord-bot) |
+| Telegram bot | `codecapsules-io/python-telegram-echobot` | `main` | [Host a Python Telegram bot](/backend/python/python-telegram-bot) |
+| WhatsApp bot | `codecapsules-io/whatsapp-echobot` | `main` | [Host a Python WhatsApp bot](/backend/python/whatsapp-bot) |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Python versions are supported.'},
-    {type: 'link', href: '/docs/products/backend-capsule/add-procfile', label: '🛠️ Add a Procfile', description: 'Set the command your app starts with.'},
-    {type: 'link', href: '/docs/backend', label: '📋 Backend hosting', description: 'Find guides for other languages.'},
+    {type: 'link', href: '/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Python versions are supported.'},
+    {type: 'link', href: '/products/backend-capsule/add-procfile', label: '🛠️ Add a Procfile', description: 'Set the command your app starts with.'},
+    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Find guides for other languages.'},
   ]}
 />

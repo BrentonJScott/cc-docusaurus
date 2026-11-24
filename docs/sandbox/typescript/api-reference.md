@@ -3,7 +3,11 @@ slug: "/sandbox/typescript/api-reference"
 title: "TypeScript Sandbox SDK Methods & Types"
 description: "Full API reference for the @codecapsules/sandbox TypeScript SDK: Sandbox class, methods, types, and error classes."
 sidebar_label: "API Reference"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # TypeScript API Reference
 
@@ -37,7 +41,7 @@ static async create(
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `apiKey` | `string` | `CODECAPSULES_API_KEY` env var | API key |
-| `baseUrl` | `string` | `https://sandbox.codecapsules.io/v1` | API base URL |
+| `baseUrl` | `string` | `SANDBOX_BASE_URL` env var | API base URL (from your Sandbox dashboard) |
 | `timeout` | `number` | `30_000` | Request timeout in ms |
 | `maxRetries` | `number` | `2` | Retries on transient errors |
 

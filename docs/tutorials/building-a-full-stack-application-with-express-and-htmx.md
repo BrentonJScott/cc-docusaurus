@@ -33,7 +33,7 @@ This is where a new HTML extension called HTMx enters and shines. HTMx gives tra
 After building our application, you’ll want to deploy it to production, so you can show it to friends and family. You will therefore need the following to complete the tutorial:
 
 * Git set up and installed, and a registered GitHub account
-* A [Code Capsules](https://www.codecapsules.io/) account
+* A [Code Capsules](/docs/shared/create-an-account) account
 * Node.js installed
 * An IDE or text editor of your choice
 

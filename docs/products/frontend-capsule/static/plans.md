@@ -11,6 +11,16 @@ import DocCardList from '@theme/DocCardList';
 
 # Free and Paid Plans for Static Hosting
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
+
 Static Frontend Capsules come in two plans. **Free** is for personal projects, prototypes, and smaller sites. **Paid** removes the build size and traffic limits for production sites. You choose a plan on the **Plan** step when you create the capsule.
 
 ## Compare plans
@@ -81,3 +91,13 @@ You can't move a Paid capsule back to Free. To use the Free plan again, create a
 - [Deploy with Static hosting](/products/frontend-capsule/static/deploy/)
 - [Container hosting](/products/frontend-capsule/container/deploy/): if you want runtime logs, metrics, or scaling
 - [How pricing works](/platform/billing/how-does-the-pricing-work/)
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

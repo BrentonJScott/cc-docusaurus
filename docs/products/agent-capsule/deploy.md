@@ -26,9 +26,7 @@ Deploy a configurable Agent Capsule on Code Capsules.
 
 ## Set up
 
-To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account.
-
-## Create an Account with Code Capsules
+To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account.
 
 Before creating your Agent Capsule, you'll need a Team and a Space. You can follow these guides to learn how to create [Teams](/platform/teams/what-is-a-team/) and [Spaces](/platform/spaces/what-is-a-space/).
 

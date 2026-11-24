@@ -11,6 +11,16 @@ import DocCardList from '@theme/DocCardList';
 
 # Frontend Frameworks and Runtimes You Can Use
 
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
+
 Frontend Capsules host static websites over HTTPS. You can deploy a plain HTML, CSS, and JavaScript site with no build step, or use Node.js at build time to install dependencies and compile a framework project before serving the output.
 
 
@@ -113,3 +123,13 @@ Code Capsules uses **npm** for Frontend Capsule builds. Include a `package-lock.
 - [Build and Deploy](/products/frontend-capsule/deploy/) — framework deployment guides
 - [Configure](/products/frontend-capsule/configure/) — build command, output path, and environment variables
 - [Custom Domains](/products/frontend-capsule/custom-domains/) — attach your own domain
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

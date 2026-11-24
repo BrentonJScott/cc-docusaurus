@@ -30,12 +30,11 @@ Code Capsules handles containers, domains, and TLS from a connected GitHub repo,
 />
 In this guide, we'll install a Code Capsules skill for Claude Code, then deploy, update, and manage an Express.js application through natural-language prompts.
 
-## Setup
-
+## Prerequisites
 To follow this guide, you need:
 
 - [Claude Code](https://claude.ai/code) installed and configured, with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). This guide will also work with any other AI coding tool that supports skills.
-- A [Code Capsules](https://www.codecapsules.io/) account.
+- A [Code Capsules](/docs/shared/create-an-account) account.
 
 We'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application. Ask the agent to fork and clone it:
 
@@ -66,19 +65,19 @@ cp -r codecapsules-skill/skills/codecapsules ~/.amp/skills/codecapsules
 
 Ask the user to set these environment variables if not already present:
 
-* `CC_EMAIL` — their codecapsules.io login email
-* `CC_PASSWORD` — their codecapsules.io password
+* `CC_EMAIL` — their Code Capsules account email
+* `CC_PASSWORD` — their Code Capsules account password
 
 The skill includes instructions to retrieve the platform API key automatically from the web app frontend.
 
 After installing, authenticate and list spaces:
 
 ```bash
-TOKEN=$(curl -s -X POST "https://appstrax-services.codecapsules.io/api/auth/login" \
+TOKEN=$(curl -s -X POST "https://test-platform.codecapsules.io/api/auth/login" \
   -H "Content-Type: application/json" -H "x-api-key: $CC_API_KEY" \
   -d '{"email": "'"$CC_EMAIL"'", "password": "'"$CC_PASSWORD"'", "type": "[User] Login Initiated"}' | jq -r '.token')
 
-curl -s -H "Authorization: Bearer $TOKEN" "https://api-v2.codecapsules.io/api/spaces"
+curl -s -H "Authorization: Bearer $TOKEN" "https://test-platform.codecapsules.io/api/spaces"
 ```
 
 The skill provides documented curl commands for every endpoint — no SDK or MCP server needed. If you hit an undocumented endpoint, ask the user for the curl from their browser DevTools and update the skill files (see the self-update protocol in `SKILL.md`).
@@ -230,7 +229,7 @@ Beyond deploying, we can prompt the agent to manage existing Capsules. Here are 
 
 ## Further Reading
 
-For more deployment guides using the web dashboard, see the [docs](https://docs.codecapsules.io). To learn more about the capabilities the skill enables, see the [Code Capsules skill repository](https://github.com/codecapsules-io/skills).
+For more deployment guides using the web dashboard, see the [docs](/docs/shared/create-an-account). To learn more about the capabilities the skill enables, see the [Code Capsules skill repository](https://github.com/codecapsules-io/skills).
 
 ## Summary
 

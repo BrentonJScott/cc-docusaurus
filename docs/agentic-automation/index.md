@@ -3,9 +3,23 @@ slug: "/agentic-automation"
 description: "A framework for building reliable agentic automation with git, simple code and cloud infrastructure, turning unpredictable AI into dependable automation."
 title: "Agentic Automation for Business Processes"
 sidebar_label: "Agentic Automation"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
+
 # Automate Your Business With AI Agents
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
 
 Something has quietly shifted in software development. For the first time in the history of the industry, the ability to write working code is no longer the bottleneck. AI coding assistants have made it possible for a marketing analyst, a customer success manager, or a founder with no computer science background to produce a functioning Python script or TypeScript module that solves a real business problem.
 
@@ -73,3 +87,13 @@ Keeping agent logic in git and deploying through a standard CI/CD pipeline is th
 This guide is written for technical teams — developers, engineering leads, and technically minded founders — who are starting to automate meaningful business processes with AI and want to do it in a way that scales.
 
 You do not need to have built a production AI system before. You do need to be comfortable with the idea that deploying software should involve version control, that reliability comes from architecture not luck, and that the right answer to "can we move faster?" is usually "yes, if we build the foundations correctly."
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

@@ -4,23 +4,24 @@ title: "Deploy Next.js with Express.js"
 description: >-
   A walkthrough on how to deploy a Next.js and Express.js application from
   GitHub.
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Next.js + Express.js
 
 Deploy a Next.js and Express.js application and learn how to host backend code on Code Capsules.
 
-## Setup
-
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
 To demonstrate how to deploy a Next.js and Express.js application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/nextjs-expressjs-demo).
 
 Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Create an Account with Code Capsules
-
-If you don't already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+If you don't already have an account, navigate to the [Code Capsules](/docs/shared/create-an-account) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
 If you've just signed up for an account, you'll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
 
@@ -28,13 +29,11 @@ Alternatively, if you're signing in again, click on the Spaces tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
 
-## Create a Space for Your App
-
 Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+
 
 
 1. Choose a team — you can use a default **personal** team if you're the only person working on this project, or a named team if you're collaborating with others
@@ -59,12 +58,22 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+
 
 ## View Application
 
 Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application.
 
-![Deployed Application](/gitbook-assets/get-started/next-express-app.png)
+
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/full-stack/).
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

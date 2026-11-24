@@ -3,7 +3,11 @@ slug: "/cli/readme/commands"
 description: Commands available via the Code Capsules CLI
 title: "CLI Commands Reference"
 sidebar_label: "Commands"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
+
 
 # Every CLI Command at a Glance
 

@@ -3,9 +3,23 @@ slug: "/database/mongodb"
 description: "MongoDB provides reliable NoSQL storage for your apps. Learn how to create a MongoDB Capsule on Code Capsules and connect it to your applications."
 title: "Managed MongoDB Hosting"
 sidebar_label: "MongoDB"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
+
 # Host Your MongoDB Database
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+  ]}
+/>
 
 MongoDB provides reliable NoSQL persistent storage for your applications. Code Capsules provisions **MongoDB Capsules** on [MongoDB Atlas](https://www.mongodb.com/atlas), giving you a managed cluster with connection details, scaling, backups, and version management from the dashboard.
 
@@ -21,7 +35,7 @@ On the **Plan & Deploy** screen, configure your capsule:
 4. **Capsule Name** — enter a name for your capsule.
 5. Click **Create Capsule**.
 
-![MongoDB Capsule Plan & Deploy screen during creation](/gitbook-assets/get-started/mongodb-getting-started-plan-deploy.png)
+
 
 Provisioning can take a few minutes. The capsule status on the **Details** tab shows **Creating** until the cluster is ready.
 
@@ -37,7 +51,7 @@ Open your MongoDB Capsule and go to the **Details** tab. Once the capsule is rea
 
 Click **show** to reveal credential values, or use the copy icon to copy a value to the clipboard.
 
-![MongoDB Capsule Details tab with connection details and public connection string](/gitbook-assets/products/database-capsule/details/mongodb-details.png)
+
 
 Below the connection details, the **Public Connection String** is available once the capsule has been created. This is the connection string your applications should use. Click **show** to reveal it, then copy it into your application configuration.
 
@@ -52,7 +66,7 @@ To connect a MongoDB Capsule to a Backend Capsule on Code Capsules:
 3. Copy the **Public connection string** from your MongoDB Capsule **Details** tab if it is not listed in the environment variables modal.
 4. Add it as a `DATABASE_URL` environment variable on your Backend Capsule.
 
-![Backend Capsule Config tab Data capsules View modal for MongoDB](/gitbook-assets/get-started/backend-bind-mongodb-capsule.png)
+
 
 Your application can read `DATABASE_URL` to connect to MongoDB. The connection string uses the `mongodb+srv://` format and includes authentication credentials.
 
@@ -85,3 +99,13 @@ async function connect() {
 To connect from a local machine or another hosting provider, copy the **Public Connection String** from the **Details** tab of your MongoDB Capsule and set it as `DATABASE_URL` (or equivalent) in your application.
 
 Use the same Python or Node.js examples above, substituting your connection string directly if you are not using environment variables from Code Capsules.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
+
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+
+</details>
+

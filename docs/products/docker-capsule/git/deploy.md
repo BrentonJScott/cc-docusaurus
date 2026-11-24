@@ -19,7 +19,7 @@ To deploy an image you have already built and published instead, see [Deploy an 
 
 Before creating a capsule, make sure you have:
 
-- A [Code Capsules](https://www.codecapsules.io/) account with a Team and Space
+- A [Code Capsules](/docs/shared/create-an-account) account with a Team and Space
 - A repository containing a working `Dockerfile` — see [Prepare your Dockerfile](#prepare-your-dockerfile)
 - Your version control account linked under [Connect Version Control](/platform/account/connect-version-control/)
 
