@@ -1,17 +1,46 @@
 ---
 slug: "/platform/account/how-do-i-add-a-payment-method"
 title: "How to Add a Payment Method"
-description: "Code Capsules accepts Visa and Mastercard."
+description: >-
+  Add a Visa or Mastercard to your Team. When you finish, the card is listed
+  under Billing payment methods.
+sidebar_label: "Add a payment method"
+doc_version: drift
 ---
 
-# Add Payment Method
+import DocCardList from '@theme/DocCardList';
 
-Code Capsules accepts Visa and Mastercard.
+# Add a Payment Method
 
-To add a card to your account, click **Billing** in the top navigation bar, then click **Add**.
+Add a Visa or Mastercard to your Team. When you finish, the card is listed under **Billing** payment methods.
 
-![Add Payment Method](/gitbook-assets/platform/payment-methods.png)
+## Prerequisites
 
-Enter your card details and click **Confirm Payment Method**.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+  ]}
+/>
 
-![Enter Card Details](/gitbook-assets/platform/card-details.jpg)
+## Add your card
+
+1. **Open Billing**
+
+   Click **Billing** in the top navigation bar.
+
+2. **Add a payment method**
+
+   Click **Add**. Enter your Visa or Mastercard details.
+
+3. **Confirm**
+
+   Click **Confirm Payment Method**. The card appears in the payment methods list.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The card is not accepted</summary>
+
+Code Capsules accepts Visa and Mastercard. Check the card number and billing address, or try another card.
+
+</details>

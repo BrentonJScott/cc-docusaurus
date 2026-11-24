@@ -1,21 +1,49 @@
 ---
 slug: "/platform/platform"
 title: "Platform Overview"
-description: "Teams, Spaces, and Capsules are the foundation of Code Capsules."
+description: >-
+  How Teams, Spaces, and Capsules fit together on Code Capsules.
+sidebar_label: "Platform overview"
+doc_version: drift
 ---
 
-# Get to Know the Code Capsules Platform
+import DocCardList from '@theme/DocCardList';
 
-![Teams contain Spaces and Spaces contain Capsules](/gitbook-assets/platform/teamspacecapsule.png)
+# Teams, Spaces, and Capsules
 
-[Teams](/platform/teams/what-is-a-team/), [Spaces](/platform/spaces/what-is-a-space/), and [Capsules](/platform/capsules/what-is-a-capsule/) are the foundation of [Code Capsules](https://www.codecapsules.io/).
+How Teams, Spaces, and Capsules fit together on Code Capsules.
 
-**Teams** are to organize people. Multiple people can join your Team, and each member of the Team can interact with the Spaces and Capsules that the Team contains. Furthermore, Teams are associated with a payment method – you add a credit card to a Team, and Code Capsules bills this credit card when a charge incurs.
+## Overview
 
-**Spaces** are the second layer of organization. Spaces can contain any amount of Capsules and are excellent tools for larger projects. If your project involves complicated frontend and backend code, splitting your code into multiple Capsules – each within the same space – may help with organization.
+Code Capsules organizes your work in three layers: **Teams** for people and billing, **Spaces** for projects and regions, and **Capsules** for running services.
 
-**Capsules** provide the actual computational power for running your applications. While Teams and Spaces are organizational tools, Capsules connect to GitHub repositories containing your applications and hosts them on a server. Capsules can run both frontend and backend applications.
+## Why it matters
 
-For a single, simple project, you would have exactly one team, containing one space, containing one capsule. If you wanted to set up a frontend only project (e.g. a React app) backed by a REST API, you would have two capsules in your space: a frontend Capsule for the React application and a backend Capsule for the REST API.
+Clear structure keeps billing, access, and deployments predictable. A solo developer still uses the same model: Personal Team → Space → Capsule.
 
-![simple-and-complex-projects](/gitbook-assets/platform/simple-and-complex-projects.png)
+## How it works
+
+A Team owns Spaces. A Space owns Capsules in one region. Capsules connect to Git or images, build, and expose URLs.
+
+A simple app is one Team, one Space, one Capsule. A full-stack app often uses one Space with a Frontend Capsule, a Backend Capsule, and a database Capsule.
+
+## When to use it
+
+| Pattern | Structure |
+| --- | --- |
+| Single React site | 1 Team · 1 Space · 1 Frontend Capsule |
+| React + API + database | 1 Team · 1 Space · 3 Capsules |
+| Separate clients | Multiple Teams or Spaces for billing isolation |
+
+Add Teams when billing or people must split. Add Spaces when regions or projects must split. Add Capsules when a new service needs its own lifecycle.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/platform/teams/what-is-a-team', label: '💡 Teams', description: 'People, billing, and repos.'},
+    {type: 'link', href: '/platform/spaces/what-is-a-space', label: '💡 Spaces', description: 'Projects and regions.'},
+    {type: 'link', href: '/platform/capsules/what-is-a-capsule', label: '💡 Capsules', description: 'Where apps run.'},
+    {type: 'link', href: '/platform/index', label: '📋 Platform guides index', description: 'All platform how-to pages.'},
+  ]}
+/>

@@ -1,15 +1,46 @@
 ---
 slug: "/platform/account/how-do-i-enable-2fa"
-description: "To set up two-factor authentication (2FA) for your Code Capsules account:"
+description: >-
+  Turn on two-factor authentication for your account. When you finish, 2FA is
+  enabled in the Security section.
 title: "How to Enable Two-Factor Authentication (2FA)"
 sidebar_label: "Enable 2FA"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Protect Your Account With 2FA
 
-To set up two-factor authentication (2FA) for your Code Capsules account:
+Turn on two-factor authentication for your account. When you finish, **2FA** is enabled in the **Security** section. Your next login asks for a code from your authenticator app.
 
-1. Navigate to the **Account** tab in your dashboard.
-2. In the **Security** section, click **Enable 2FA**.
+## Prerequisites
 
-![Enable 2FA in Account Tab](/gitbook-assets/platform/platform/account/account-2fa.png)
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+  ]}
+/>
+
+## Enable 2FA
+
+1. **Open Account**
+
+   Open the **Account** tab in the dashboard.
+
+2. **Start 2FA setup**
+
+   In **Security**, click **Enable 2FA**.
+
+3. **Finish setup**
+
+   Scan the QR code with your authenticator app, enter the verification code, and confirm. **Security** shows 2FA as enabled.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The verification code is rejected</summary>
+
+Use the current six-digit code from your authenticator app. If the clock on your device is wrong, correct it and generate a new code.
+
+</details>

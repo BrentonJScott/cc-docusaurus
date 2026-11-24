@@ -1,20 +1,51 @@
 ---
 slug: "/platform"
-description: Everything you need to know about Code Capsules.
-cover: /gitbook-assets/platform/generic-docs-banner.jpg
-coverY: 40
+description: >-
+  How-to guides and references for accounts, billing, Teams, Spaces, and Capsules on Code Capsules.
 title: "Platform Guides — Accounts, Billing, Teams & Domains"
 sidebar_label: "Platform"
+doc_version: drift
 ---
 
-# Get the Most Out of the Platform
+import DocCardList from '@theme/DocCardList';
 
-This section contains all the information you need to understand and manage your Code Capsules environment.
+# Platform guides
 
-## Account
+How-to guides and references for accounts, billing, Teams, Spaces, and Capsules on Code Capsules.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>How Do I Reset My Password?</strong></td><td>How to reset your Code Capsules account password using the dashboard.</td><td><a href="/platform/account/how-do-i-reset-my-password/">how-do-i-reset-my-password.md</a></td></tr><tr><td><strong>How Do I Enable 2FA?</strong></td><td>How to enable two-factor authentication on your Code Capsules account.</td><td><a href="/platform/account/how-do-i-enable-2fa/">how-do-i-enable-2fa.md</a></td></tr></tbody></table>
+## Overview
 
-## Billing
+Use these pages to manage your account, collaborate in Teams, organize Spaces and Capsules, and configure security and billing.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>How Do I Change My Billing Details?</strong></td><td>How to update your billing information using the Code Capsules dashboard.</td><td><a href="/platform/billing/how-do-i-change-my-billing-details/">how-do-i-change-my-billing-details.md</a></td></tr><tr><td><strong>How Do I View My Invoices?</strong></td><td>Accessing and viewing your invoices.</td><td><a href="/platform/billing/how-do-i-view-my-invoices/">how-do-i-view-my-invoices.md</a></td></tr><tr><td><strong>How Does the Pricing Work?</strong></td><td>Overview of the Code Capsules billing model and pricing structure.</td><td><a href="/platform/billing/how-does-the-pricing-work/">how-does-the-pricing-work.md</a></td></tr></tbody></table>
+## Account and billing
+
+| Topic | Page |
+| --- | --- |
+| Connect GitHub | [/platform/account/connect-version-control](/platform/account/connect-version-control) |
+| Payment method | [/platform/account/how-do-i-add-a-payment-method](/platform/account/how-do-i-add-a-payment-method) |
+| Two-factor authentication | [/platform/account/how-do-i-enable-2fa](/platform/account/how-do-i-enable-2fa) |
+| Reset password | [/platform/account/how-do-i-reset-my-password](/platform/account/how-do-i-reset-my-password) |
+| Billing details | [/platform/billing/how-do-i-change-my-billing-details](/platform/billing/how-do-i-change-my-billing-details) |
+| Invoices | [/platform/billing/how-do-i-view-my-invoices](/platform/billing/how-do-i-view-my-invoices) |
+| Pricing | [/platform/billing/how-does-the-pricing-work](/platform/billing/how-does-the-pricing-work) |
+
+## Teams, Spaces, and Capsules
+
+| Topic | Page |
+| --- | --- |
+| Teams | [/platform/teams/what-is-a-team](/platform/teams/what-is-a-team) |
+| Spaces | [/platform/spaces/what-is-a-space](/platform/spaces/what-is-a-space) |
+| Capsules | [/platform/capsules/what-is-a-capsule](/platform/capsules/what-is-a-capsule) |
+| Regions | [/platform/regions/what-regions-does-code-capsules-support](/platform/regions/what-regions-does-code-capsules-support) |
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/platform/what-is-code-capsules', label: '💡 What is Code Capsules', description: 'Platform overview for new users.'},
+    {type: 'link', href: '/platform/platform', label: '💡 Teams, Spaces, and Capsules', description: 'How the hierarchy fits together.'},
+    {type: 'link', href: '/platform/capsules/how-do-i-add-remove-stop-capsules', label: '🛠️ Manage Capsules', description: 'Add, stop, and remove Capsules.'},
+    {type: 'link', href: '/platform/capsules/how-to-add-a-custom-domain', label: '🛠️ Custom domains', description: 'Add domains to a Capsule.'},
+    {type: 'link', href: '/platform/security/basic-auth', label: '🛠️ HTTP Basic Auth', description: 'Password-protect a Capsule URL.'},
+  ]}
+/>

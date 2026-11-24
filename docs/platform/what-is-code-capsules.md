@@ -1,49 +1,47 @@
 ---
 slug: "/platform/what-is-code-capsules"
 title: "What Is Code Capsules? PaaS Overview"
-description: "Code Capsules is a platform-as-a-service for deploying full-stack apps, containers, databases and AI agents from a git push. Here is what it does."
+description: >-
+  Code Capsules is a platform-as-a-service for deploying apps, databases, and agents from Git.
+sidebar_label: "What is Code Capsules?"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # What Is Code Capsules?
 
-Code Capsules is a comprehensive platform-as-a-service (PaaS) that streamlines software development.
+Code Capsules is a platform-as-a-service for deploying apps, databases, and agents from Git.
 
-Particularly well-suited to developers using [popular JavaScript stacks like MEAN (Angular), MERN (React), and MEVN (Vue)](https://www.codecapsules.io/blog/mean-vs-mern-vs-mevn-choosing-the-right-stack-for-your-project/), Code Capsules brings together backend, frontend, and database services in a single platform.
+## Overview
 
-Use Code Capsules to eliminate the need for separate tools like Heroku, Netlify, and Atlas and simplify your development workflow.
+Code Capsules hosts frontend and backend applications, Docker workloads, managed databases, WordPress, storage, and agent Capsules. You push to Git; the platform builds and deploys.
 
-## Key Features of Code Capsules
+## Why it matters
 
-### All-in-One Development Platform
+You avoid stitching together separate hosting, database, and CI/CD tools. Teams, Spaces, and Capsules give one place to collaborate, pay, and ship.
 
-An all-in-one solution for managing frontend, backend, and database services from a single platform, simplifying application setup and maintenance.
+## How it works
 
-### Ease of Use
+You connect GitHub, create Capsules in a Space, and configure builds, environment variables, domains, and scale in the dashboard. Static frontends can run on a free tier; paid Capsules bill hourly.
 
-Push your code to GitHub and quickly have it running in a cloud production environment – reducing deployment time and complexity.
+## When to use it
 
-### Project Collaboration and Management
+| You need | Code Capsules fits when |
+| --- | --- |
+| Fast production deploy from Git | You want build + host in one product |
+| Multiple services per product | You will use several Capsules in one Space |
+| Managed database | You choose a database Capsule instead of external DBaaS |
 
-Real-time collaboration and team management tools make it easy to coordinate efforts and maintain transparency throughout the development process.
+Use other tools when you must run entirely on your own Kubernetes or on-prem hardware without the hosted platform.
 
-### CI/CD and Automation
+## Related
 
-Automates repetitive tasks with continuous integration and deployment (CI/CD), making it easy to iterate and deploy updates without downtime​.
-
-### Scalability and Data Management
-
-Customizable resource allocation for easy scaling and built-in data-management tools make the platform suitable for everything from small projects to enterprise applications.
-
-### Language and Framework Support
-
-Supports a wide range of programming languages and frameworks, offering the flexibility to use your preferred tools, support diverse tech stacks, and scale without switching platforms.
-
-### Security and Reliability
-
-Includes performance management, built-in security, and real-time issue detection to keep your applications running smoothly and securely​.
-
-### Cost Efficiency
-
-With free hosting for up to five static frontends and simple per-capsule pricing for everything else, Code Capsules is an affordable option for startups and small businesses looking to minimize costs without compromising on functionality.
-
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/platform/platform', label: '💡 Platform hierarchy', description: 'Teams, Spaces, and Capsules.'},
+    {type: 'link', href: '/frontend/index', label: '📋 Frontend hosting', description: 'Deploy React, Vue, and more.'},
+    {type: 'link', href: '/backend/index', label: '📋 Backend hosting', description: 'Deploy APIs and workers.'},
+    {type: 'link', href: '/docs/shared/create-an-account', label: '🛠️ Create an account', description: 'Sign up to use the platform.'},
+  ]}
+/>

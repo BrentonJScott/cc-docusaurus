@@ -1,33 +1,46 @@
 ---
 slug: "/platform/spaces/how-do-i-add-remove-a-space"
 title: "Add and Remove Spaces"
-description: "To create a new Space, click the yellow + icon on the bottom-left corner of the dashboard and select New Space."
+description: >-
+  Create a Space and remove it when it is empty. When you finish, the Space is
+  created and later removed from your Team.
+sidebar_label: "Add and remove a Space"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Add and Remove Spaces
 
-## Add a Space
+Create a Space and remove it when it is empty. When you finish, the Space is created and later removed from your Team.
 
-To create a new Space, click the yellow **+** icon on the bottom-left corner of the dashboard and select **New Space**.
+## Prerequisites
 
-1. Choose the Team to add the Space to.
-2. Give the Space a name.
-3. Select your location.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+  ]}
+/>
 
-Click **Create Space** to finish.
+## Manage your Spaces
 
-![space name](/gitbook-assets/platform/space-name.png)
+1. **Create a Space**
 
-## Remove a Space
+   Click the **Spaces** tab. Click the yellow **+** and select **New Space**. Choose a Team, enter a Space name, select a region, and click **Create Space**. The new Space appears in the Spaces list.
 
-To remove a Space, go to the **Details** tab in the Space dashboard and select **Remove Space**.
+2. **Remove all Capsules from the Space**
 
+   Open the Space and remove every Capsule. See [Add, remove and stop a Capsule](/platform/capsules/how-do-i-add-remove-stop-capsules/).
 
-:::warning
+3. **Remove the Space**
 
-You'll need to [remove all Capsules](/platform/capsules/how-do-i-add-remove-stop-capsules/) from the Space before it can be deleted.
+   On the Space **Details** tab, click **Remove Space**. Confirm. The Space no longer appears on the Spaces list.
 
-:::
+## Troubleshooting
 
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Remove Space is disabled or fails</summary>
 
-![Remove a Space](/gitbook-assets/platform/platform/spaces/remove-space.png)
+A Space must have no Capsules left in it. Stop and remove each Capsule, then try **Remove Space** again.
+
+</details>
