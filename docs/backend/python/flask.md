@@ -1,64 +1,67 @@
 ---
 slug: "/backend/python/flask"
-description: "Deploy a Flask application to Code Capsules from a GitHub repo. Run your Python web app in production with managed hosting, step by step."
-title: "How to Deploy a Flask Application"
+title: "How to Host a Flask Application"
+description: >-
+  Deploy the Flask demo app to a Backend Capsule and see it building in the Builds tab.
 sidebar_label: "Flask"
+doc_version: drift
 ---
 
-# Deploy Your Flask Application in Minutes
+import DocCardList from '@theme/DocCardList';
 
-Deploy a Flask application and learn how to host backend code on Code Capsules.
+# Host Your Flask Application
 
-## Setup
+Deploy the Flask demo app to a Backend Capsule and see it building in the Builds tab.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
 
-To demonstrate how to deploy a Flask application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-python).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-python', description: 'Fork codecapsules-io/demo-python to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Give Code Capsules access to your demo-python fork.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Deploy your Flask app
 
-## Create an Account with Code Capsules
+1. **Start a Backend Capsule**
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+   In your Space, click **+** to add a new capsule.
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+2. **Choose the capsule type, Team, and Space**
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
 
+3. **Choose the plan**
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+   On **Plan**, choose **Basic**. Click **Next**.
 
-## Create the Capsule
+4. **Connect the repository**
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+   On **Source Code**, select your `demo-python` fork as the **Repository** and `master` as the **Branch**. Click **Next**.
 
-To create a new Capsule for your Space follow the instructions below:
+5. **Set the run command**
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
+   On **Build and Deploy Settings**, leave **Run Command** blank.
 
-Code Capsules will automatically build your application when you've finished creating the Capsule.
+6. **Create the capsule**
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+   Click **Create Capsule**. Open the **Builds** tab and you see the first build in progress.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+## Troubleshooting
 
-Once the build is complete, a URL link will appear in the URL section in the **Details** tab. Click the link, and you should see your deployed application.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Repository dropdown doesn't list `demo-python`</summary>
 
-![Deployed App](/gitbook-assets/get-started/cc-flask-app-1.png)
+Code Capsules doesn't have access to your fork. Add the repository to the Code Capsules GitHub app, then reopen the capsule wizard.
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
+</details>
 
-## Related guides
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The app doesn't respond after the build finishes</summary>
 
-- [Deploy Flask with MySQL](/database/mysql/flask-+-mysql/)
-- [Deploy Flask with MongoDB](/database/mongodb/flask-+-mongodb/)
-- [Build a Full-Stack App with Flask and HTMX](/full-stack/flask-+-htmx/)
-- [Deploy a Flask App with Docker](/backend/docker/flask-docker-app/)
+The capsule may still be starting. Wait for the build to finish, then open the **URL** on the **Details** tab again.
+
+</details>

@@ -1,9 +1,34 @@
 ---
 slug: "/backend/go"
-description: "Deploy Go applications and bots on Code Capsules with auto-deployments from a specified branch on your GitHub repository."
-title: "Go Application Hosting"
+title: "Go Hosting Reference"
+description: >-
+  The Go deployment guides for Code Capsules and what each one deploys.
 sidebar_label: "Go"
+doc_version: drift
 ---
 
-# Host Your Go Applications
+import DocCardList from '@theme/DocCardList';
 
+# Go Hosting
+
+The Go deployment guides for Code Capsules and what each one deploys.
+
+## Overview
+
+Go apps deploy to a Backend Capsule from a branch of a GitHub repository. Each push to that branch redeploys the capsule.
+
+## Guides
+
+| Guide | Deploys | Demo repository |
+|---|---|---|
+| [Go](/docs/backend/go/go) | A Go web app | `codecapsules-io/go-demo` |
+| [Go Telegram Bot](/docs/backend/go/go-telegram-bot) | A Telegram echo bot | `codecapsules-io/go-telegram-echobot` |
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/backend', label: '📋 Backend hosting', description: 'Compare the other backend languages.'},
+    {type: 'link', href: '/docs/products/backend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Check which Go versions you can deploy.'},
+  ]}
+/>

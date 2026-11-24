@@ -1,95 +1,67 @@
 ---
 slug: "/backend/python/python"
-description: "In this guide, we'll clone an existing Python repository and take a look at how to edit the project locally before pushing the changes to GitHub. The..."
-title: "How to Deploy a Python Application"
+title: "How to Host a Python Application"
+description: >-
+  Deploy the Python demo app to a Backend Capsule and see it building in the Builds tab.
 sidebar_label: "Python"
+doc_version: drift
 ---
 
-# Deploy Your Python Application in Minutes
+import DocCardList from '@theme/DocCardList';
 
-In this guide, we'll clone an existing Python repository and take a look at how to edit the project locally before pushing the changes to GitHub. The final step will be to deploy the application with the changes we made locally to Code Capsules.
+# Host Your Python Application
 
-## Clone Starter Project
+Deploy the Python demo app to a Backend Capsule and see it building in the Builds tab.
 
-We'll be using an example starter project provided by Code Capsules on their [GitHub repository](https://github.com/codecapsules-io/demo-python). Fork this repository by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination. Clone the forked repository to your machine by clicking the green **Code** button and copying the link that appears in the pop-up.
+## Prerequisites
 
-Open a terminal window on your machine and navigate to your preferred working directory. Run `git clone <FORKED-REPO-URL>`, replacing `<FORKED-REPO-URL>` with the link you copied from the pop-up above.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-python', description: 'Fork codecapsules-io/demo-python to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Give Code Capsules access to your demo-python fork.'},
+  ]}
+/>
 
-## Run Starter Project Locally
+## Deploy your Python app
 
-Before we can run the project locally, we need to create and activate a virtual environment where we'll install the project's dependencies. Depending on your machine, run the appropriate commands from the ones listed below:
+1. **Start a Backend Capsule**
 
-MacOS
+   In your Space, click **+** to add a new capsule.
 
-```
-python3 -m venv env
-source env/bin/activate
-```
+2. **Choose the capsule type, Team, and Space**
 
-Windows
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
 
-```
-py -m venv env
-.\env\Scripts\activate
-```
+3. **Choose the plan**
 
-Next, install the project's dependencies by running `pip install -r requirements.txt` in the same terminal window where your environment is activated.
+   On **Plan**, choose **Basic**. Click **Next**.
 
-To start the application, run the command `python3 -m flask run` in the same terminal window, and you should see the application in your browser.
+4. **Connect the repository**
 
-## Make Changes
+   On **Source Code**, select your `demo-python` fork as the **Repository** and `master` as the **Branch**. Click **Next**.
 
-Open the `app/routes.py` file in your text editor and add the code snippet below to add another route to the app:
+5. **Set the run command**
 
-```py
-@app.route('/greeting')
-def greeting():
-    return "Hello there, thank you for visiting my new route"
-```
+   On **Build and Deploy Settings**, leave **Run Command** blank.
 
-You need to stop and restart the server in order to see your changes.
+6. **Create the capsule**
 
-## Push the Changes
+   Click **Create Capsule**. Open the **Builds** tab and you see the first build in progress.
 
-Add and commit the changes you made by running the commands below in a terminal window while in the project's root folder:
+## Troubleshooting
 
-```
-git add app/routes.py
-git commit -m "Added new route"
-```
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Repository dropdown doesn't list `demo-python`</summary>
 
-Push the changes to your remote repository by running `git push` in the same terminal window.
+Code Capsules doesn't have access to your fork. Add the repository to the Code Capsules GitHub app, then reopen the capsule wizard.
 
-## Create an Account with Code Capsules
+</details>
 
-To create a new Space, log in to your Code Capsules account, click the yellow `+` icon on the bottom left of the screen, and select **New Space**.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The build fails while installing dependencies</summary>
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+The build reads `requirements.txt` from the root of the repository. Check that your fork still has `requirements.txt` on the `master` branch, then push a fix to trigger a new build.
 
-![Create a Space](/gitbook-assets/get-started/space-name.png)
-
-## Create the Capsule
-
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
-
-To create a new Capsule for your Space, follow the instructions below:
-
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
-
-Code Capsules will automatically build your application when you’ve finished creating the Capsule.
-
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
-
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
-
-Once the build is complete, a URL link will appear in the URL section in the **Details** tab. Click the link, and you should see your deployed application.
-
-![Deployed App](/gitbook-assets/get-started/cc-flask-app.png)
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
+</details>

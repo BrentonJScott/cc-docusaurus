@@ -1,92 +1,87 @@
 ---
 slug: "/backend/python/python-discord-bot"
-title: "Deploy a Python Discord Bot"
-description: "Build and deploy a Python Discord bot to Code Capsules from GitHub. Connect to the Discord API and keep your bot online in production."
+title: "How to Host a Python Discord Bot"
+description: >-
+  Deploy the Python Discord echo bot to a Backend Capsule and see it reply in Discord.
+sidebar_label: "Python Discord Bot"
+doc_version: drift
 ---
 
-# Python Discord Bot
+import DocCardList from '@theme/DocCardList';
 
-Deploy a Python Discord Bot and learn how to host backend code on Code Capsules.
+# Host Your Python Discord Bot
 
-## Setup
+Deploy the Python Discord echo bot to a Backend Capsule and see it reply in Discord.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
 
-To demonstrate how to deploy a Python Discord Bot with Code Capsules, we've provided an example bot, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/python-discord-echobot).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork python-discord-echobot', description: 'Fork codecapsules-io/python-discord-echobot to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Give Code Capsules access to your python-discord-echobot fork.'},
+    {type: 'link', href: '/docs/shared/create-a-discord-bot', label: '🤖 A Discord bot', description: 'Create a bot, copy its token, and add it to your server.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example bot repository by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Deploy your Python Discord bot
 
-## Register the Bot
+1. **Start a Backend Capsule**
 
-You'll need a Discord user account before you can create a Discord bot. Head over to Discord and create an account if you don't already have one.
+   In your Space, click **+** to add a new capsule.
 
-When you've signed in to Discord, follow the steps below:
+2. **Choose the capsule type, Team, and Space**
 
-1.  Click on the **+** icon in the left toolbar to create a server to contain your channels.
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
 
-    ![Plus Icon](/gitbook-assets/get-started/plus-icon.png)
-2. Navigate to the [Application Page](https://discord.com/developers/applications).
-3. Click on the **New Application** button.
-4. Give the application a name and click **Create**.
-5.  Go to the **Bot** tab and click **Add Bot**.
+3. **Choose the plan**
 
-    ![Add Bot](/gitbook-assets/get-started/add-bot.png)
-6.  Scroll down to **Privileged Gateway Intents** and enable **Message Content Intent**. Click **Save Changes**.
+   On **Plan**, choose **Basic**. Click **Next**.
 
-7.  Click **Reset Token**, confirm the reset, then click **Copy** to copy your bot's token.
+4. **Connect the repository**
 
-    ![Token](/gitbook-assets/get-started/token.png)
-8.  Go to the **OAuth2/URL Generator** tab and select the **bot** option under the **Scopes** section.
+   On **Source Code**, select your `python-discord-echobot` fork as the **Repository** and `main` as the **Branch**. Click **Next**.
 
-    ![Bot Option](/gitbook-assets/get-started/bot-option.jpg)
-9.  Select all the text permission options under the **Bot Permissions** section.
+5. **Set the run command**
 
-    ![Text Permissions](/gitbook-assets/get-started/text-permissions.png)
-10.  Click the **Copy** button under the **Generated URL** section.
+   On **Build and Deploy Settings**, leave **Run Command** blank.
 
-    ![Url](/gitbook-assets/get-started/url.png)
-11. Paste the URL you copied in the previous step in another browser tab and add the bot to the server you created in the first step. Click **Continue** to confirm your changes.
+6. **Create the capsule**
 
-After actioning these steps, your bot will now have access to all the channels in the server you added it to.
+   Click **Create Capsule**. Open the **Builds** tab and wait for the first build to finish.
 
-## Create a Space for Your App
+7. **Add the bot token**
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+   On the **Config** tab, under **Environment Variables**, add `TOKEN` with your Discord bot's token as the value. Click **Save**.
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+8. **Restart the capsule**
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+   Turn the capsule's toggle off and on again, and wait for it to start.
 
-## Create the Capsule
+9. **Chat with the bot**
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+   In your Discord server, send a message in any channel the bot can see. The bot replies with the same message.
 
-To create a new Capsule for your Space, follow the instructions below:
+## Troubleshooting
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Repository dropdown doesn't list `python-discord-echobot`</summary>
 
-Code Capsules will automatically build your application when you've finished creating the Capsule.
+Code Capsules doesn't have access to your fork. Add the repository to the Code Capsules GitHub app, then reopen the capsule wizard.
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+</details>
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The bot is online but doesn't reply to messages</summary>
 
-## Add a `TOKEN` Environment Variable
+The bot can't read message text. In the Discord Developer Portal, enable **Message Content Intent** on the **Bot** tab, then restart the capsule.
 
-Once the build is complete, you have to add a `TOKEN` environment variable on the **Config** tab under the **Environment Variables** section. Assign it the value of the token you copied in step 7 of the [Register the Bot](/backend/python/python-discord-bot/#register-the-bot) section above.
+</details>
 
-![Token Environment Variable](/gitbook-assets/get-started/token-env-variable-1.png)
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The bot stays offline in the member list</summary>
 
-Confirm your changes by clicking on **Save**, then restart your Capsule by toggling the radio button in the top right off and on again.
+The `TOKEN` value is wrong or was reset. Copy a new token from the **Bot** tab, update `TOKEN` on the **Config** tab, and restart the capsule.
 
-## Chat with the Bot
-
-The bot will be able to respond to messages after Code Capsules finishes building it. When this is done, you can send a message to any channel in the server you added it to, and the bot will echo it back.
-
-If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
+</details>

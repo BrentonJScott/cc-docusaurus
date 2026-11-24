@@ -1,79 +1,67 @@
 ---
 slug: "/backend/docker/docker-php-app"
-title: "Deploy a PHP App with Docker"
+title: "How to Host a PHP Application with Docker"
 description: >-
-  Deploy your application with with PHP and Docker to Production on Code
-  Capsules
+  Deploy the PHP demo app to a Docker Capsule and see it building in the Builds tab.
+sidebar_label: "Docker PHP App"
+doc_version: drift
 ---
 
-# Docker PHP App
+import DocCardList from '@theme/DocCardList';
 
-This guide will show you how to deploy your application built with PHP and Docker to Code Capsules. By the end of this guide, you'll have an application that looks like the one below which runs on the public internet, and you'll get a URL to share with your users.
+# Host Your PHP Docker Application
 
-## Setup
+Deploy the PHP demo app to a Docker Capsule and see it building in the Builds tab.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
 
-To demonstrate how to deploy a PHP and Docker application with Code Capsules, we've provided some example starting code, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-php-docker).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-php-docker', description: 'Fork codecapsules-io/demo-php-docker to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Give Code Capsules access to your demo-php-docker fork.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top right of your screen and selecting your GitHub account as the destination.
+## Deploy your PHP app
 
-## Create an Account with Code Capsules
+1. **Start a Docker Capsule**
 
-If you don't already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+   In your Space, click **+** to add a new capsule.
 
-If you've just signed up for an account, you'll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
+2. **Choose the capsule type, Team, and Space**
 
-Alternatively, if you're signing in again, click on the **Spaces** tab.
+   On **Capsule Details**, choose **Docker Capsule**, your Team, and your Space. Click **Next**.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
+3. **Choose the plan**
 
-## Create a Space for Your App
+   On **Plan**, choose **Basic**. Click **Next**.
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+4. **Connect the repository**
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+   On **Source Code**, select your `demo-php-docker` fork as the **Repository** and `main` as the **Branch**. Click **Next**.
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+5. **Set the Docker settings**
 
+   On **Build and Deploy Settings**, leave the defaults unchanged.
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+6. **Create the capsule**
 
-## Create the Capsule
+   Click **Create Capsule**. Open the **Builds** tab and you see the first build in progress.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+## Troubleshooting
 
-1. Choose **Docker Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Click **Create Capsule**.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The Repository dropdown doesn't list `demo-php-docker`</summary>
 
-Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
+Code Capsules doesn't have access to your fork. Add the repository to the Code Capsules GitHub app, then reopen the capsule wizard.
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+</details>
 
-![Build Logs](/gitbook-assets/get-started/docker-build.png)
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The app doesn't respond after the build finishes</summary>
 
-Once the build is complete, navigate to the **Config** tab and click **Edit** next to **Runtime** in the **Capsule Parameters** section. Enter **80** as the **Network Port**, click **Save**, then confirm.
+The capsule isn't listening on the app's port. On the **Config** tab, click **Edit** next to **Runtime** in **Capsule Parameters**, set **Network Port** to `80`, click **Save**, then restart the capsule. The app is served on the `/api` route.
 
-![Network Port](/gitbook-assets/get-started/docker-port-80.png)
-
-## View Application
-
-Restart your capsule by toggling the radio button in the top right off and on again.
-
-Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application. Navigate to the `/api` route to view it.
-
-![Deployed App](/gitbook-assets/get-started/docker-php.png)
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
-
-## Related guides
-
-- [Deploy a Caddy Site with Docker](/backend/docker/caddy-docker-site/)
-- [Deploy a Laravel App with Docker](/backend/docker/docker-laravel-app/)
-- [Deploy a Flask App with Docker](/backend/docker/flask-docker-app/)
+</details>

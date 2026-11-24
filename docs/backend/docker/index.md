@@ -1,32 +1,49 @@
 ---
 slug: "/backend/docker"
-description: "Deploy Docker-based applications on Code Capsules from custom Dockerfiles with auto-deployments from GitHub, or from existing container images."
-title: "How to Deploy Docker Containers"
+title: "Docker Deployment Guides Reference"
+description: >-
+  Lists the Docker Capsule deployment guides and the Docker Capsule product pages.
 sidebar_label: "Docker"
+doc_version: drift
 ---
 
-# Deploy Your Docker Containers
+import DocCardList from '@theme/DocCardList';
 
-Deploy containerized applications on Code Capsules using [Docker Capsules](/products/docker-capsule/). Docker Capsules build your application from a `Dockerfile` in your Git repository, or deploy an existing public container image, giving you full control over the runtime environment.
+# Docker Deployment Guides
 
-## Product documentation
+Lists the Docker Capsule deployment guides and the Docker Capsule product pages.
 
-For detailed information on creating, configuring, and operating Docker Capsules:
+## Overview
 
-- [Docker Capsule overview](/products/docker-capsule/)
-- [Container requirements](/products/docker-capsule/container-requirements/)
-- From Git
-  - [Deploy](/products/docker-capsule/git/deploy/)
-  - [Builds & Auto-deploy](/products/docker-capsule/git/builds/)
-- From an existing image
-  - [Deploy](/products/docker-capsule/image/deploy/)
-  - [Image Updates](/products/docker-capsule/image/updates/)
-- [Deployments](/products/docker-capsule/deployments/)
-- [Configure](/products/docker-capsule/configure/)
+Docker Capsules build from a `Dockerfile` in a Git repository, or deploy an existing public container image.
 
 ## Deployment guides
 
-- [Flask Docker App](/backend/docker/flask-docker-app/)
-- [Docker PHP App](/backend/docker/docker-php-app/)
-- [Docker Laravel App](/backend/docker/docker-laravel-app/)
-- [Caddy Docker Site](/backend/docker/caddy-docker-site/)
+| Guide | Stack | Demo repository |
+|---|---|---|
+| [Caddy Docker Site](/docs/backend/docker/caddy-docker-site) | Caddy | `codecapsules-io/hello-caddy` |
+| [Docker Laravel App](/docs/backend/docker/docker-laravel-app) | Laravel | `codecapsules-io/laravel-docker-api` |
+| [Docker PHP App](/docs/backend/docker/docker-php-app) | PHP | `codecapsules-io/demo-php-docker` |
+| [Flask Docker App](/docs/backend/docker/flask-docker-app) | Flask | `codecapsules-io/docker-flask` |
+
+## Product pages
+
+| Page | Covers |
+|---|---|
+| [Docker Capsule overview](/docs/products/docker-capsule) | What a Docker Capsule is |
+| [Container requirements](/docs/products/docker-capsule/container-requirements) | What a container needs to run |
+| [Deploy from Git](/docs/products/docker-capsule/git/deploy) | Building from a `Dockerfile` |
+| [Builds and auto-deploy](/docs/products/docker-capsule/git/builds) | Builds triggered by Git pushes |
+| [Deploy from an image](/docs/products/docker-capsule/image/deploy) | Deploying a public container image |
+| [Image updates](/docs/products/docker-capsule/image/updates) | Updating a deployed image |
+| [Deployments](/docs/products/docker-capsule/deployments) | Deployment history |
+| [Configure](/docs/products/docker-capsule/configure) | Capsule settings |
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/products/docker-capsule', label: '📋 Docker Capsule', description: 'Look up how Docker Capsules work.'},
+    {type: 'link', href: '/docs/backend', label: '📋 Backend hosting', description: 'Find guides for other backend stacks.'},
+  ]}
+/>

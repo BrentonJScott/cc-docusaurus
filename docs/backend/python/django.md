@@ -1,90 +1,83 @@
 ---
 slug: "/backend/python/django"
-description: "Deploy a Django application to Code Capsules from a GitHub repo. Run your Python web app in production with managed hosting, step by step."
-title: "How to Deploy a Django Application"
+title: "How to Host a Django Application"
+description: >-
+  Deploy the Django demo app to a Backend Capsule, bind it to a Persistent Storage capsule, and see the app load.
 sidebar_label: "Django"
+doc_version: drift
 ---
 
-# Deploy Your Django Application in Minutes
+import DocCardList from '@theme/DocCardList';
 
-Deploy a Django application and learn how to host backend code on Code Capsules.
+# Host Your Django Application
 
-## Setup
+Deploy the Django demo app to a Backend Capsule, bind it to a Persistent Storage capsule, and see the app load.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://www.codecapsules.io/) account and a [GitHub](https://github.com/) account.
+## Prerequisites
 
-To demonstrate how to deploy a Django application with Code Capsules, we’ve provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-django', description: 'Fork codecapsules-io/demo-django to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Give Code Capsules access to your demo-django fork.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Deploy your Django app
 
-## Create an Account with Code Capsules
+1. **Start a Persistent Storage capsule**
 
-If you don’t already have an account, navigate to the [Code Capsules](https://www.codecapsules.io/) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+   In your Space, click **+** to add a new capsule.
 
-If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
+2. **Choose the capsule type, Team, and Space**
 
-Alternatively, if you’re signing in again, click on the **Spaces** tab.
+   On **Capsule Details**, choose **Persistent Storage**, your Team, and your Space. Click **Next**.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
+3. **Create the storage capsule**
 
-## Create a Space for Your App
+   On **Plan**, choose **Basic**. Click **Create Capsule**.
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+4. **Start a Backend Capsule**
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+   In the same Space, click **+** to add another capsule.
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+5. **Choose the capsule type, Team, and Space**
 
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
 
-1. Choose a Team — you can use a default “personal” Team if you’re the only person working on this project, or a named Team if you’re collaborating with others
-2. This should remind you of the project, for example, “customer-api” or “notetaking-app”
-3. Choose a country close to where most of your users will be
+6. **Choose the plan**
 
-## Create the Capsule
+   On **Plan**, choose **Basic**. Click **Next**.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+7. **Connect the repository**
 
-Navigate to the **Capsules** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Capsule.
+   On **Source Code**, select your `demo-django` fork as the **Repository** and `master` as the **Branch**. Click **Next**.
 
-To create a new Data Capsule for your Space, follow the instructions below:
+8. **Create the Backend Capsule**
 
-1. Choose **Persistent Storage**, your Team, and Space.
-2. Choose your payment plan.
-3. Click **Create Capsule**.
+   On **Build and Deploy Settings**, leave **Run Command** blank. Click **Create Capsule**.
 
-Navigate to the Space containing your recently created Data Capsule and click the yellow `+` icon on the bottom left of the screen. Follow the instructions below to create a Backend Capsule:
+9. **Bind the storage capsule**
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
+   On the Backend Capsule's **Config** tab, find **Bind Data Capsule** and click **Bind** next to your Persistent Storage capsule.
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
+10. **Restart and open the app**
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+    Turn the capsule toggle off and on again to restart it. When the build finishes, click the **URL** on the **Details** tab. You see the Django app load.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+## Troubleshooting
 
-## Binding the Capsules
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Bind Data Capsule doesn't list your storage capsule</summary>
 
-Now you need to bind the two capsules together. Navigate to the **Config** tab of the Backend Capsule you've just created. Scroll to the **Bind Data Capsule** section and click on the **Bind**. This enables the capsule to use the Persistent database in the Data Capsule.
+The Persistent Storage capsule is in a different Space. Create it in the same Space as the Backend Capsule, then bind it.
 
-![Bind Capsules](/gitbook-assets/get-started/bind-persistent-capsule-backend.png)
+</details>
 
-## View Application
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The app shows an error after binding</summary>
 
-Restart your capsule by toggling the radio button in the top right off and on again.
+The capsule hasn't restarted since the bind. Turn the capsule toggle off and on again and wait for the build to finish.
 
-Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application.
-
-![Deployed App](/gitbook-assets/get-started/cc-django-app.png)
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
-
-## Related guides
-
-- [Deploy Django with MySQL](/database/mysql/django-+-mysql/)
-- [Deploy Django with MongoDB](/database/mongodb/django-+-mongodb/)
+</details>

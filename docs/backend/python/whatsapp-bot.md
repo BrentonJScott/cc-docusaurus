@@ -1,67 +1,76 @@
 ---
 slug: "/backend/python/whatsapp-bot"
-description: "Build and deploy a Python WhatsApp bot to Code Capsules from GitHub. Connect to the WhatsApp API and run your bot in production, step by step."
-title: "How to Host a WhatsApp Bot in Python"
+title: "How to Host a Python WhatsApp Bot"
+description: >-
+  Deploy the WhatsApp echo bot to a Backend Capsule, connect it to Twilio, and see the bot reply in WhatsApp.
 sidebar_label: "WhatsApp Bot"
+doc_version: drift
 ---
 
-# Build and Host Your WhatsApp Bot
+import DocCardList from '@theme/DocCardList';
 
-Deploy a WhatsApp Bot and learn how to host backend code on Code Capsules.
+# Host Your WhatsApp Bot Application
 
-## Setup
+Deploy the WhatsApp echo bot to a Backend Capsule, connect it to Twilio, and see the bot reply in WhatsApp.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://www.codecapsules.io/) account, a [GitHub](https://github.com/) account, and a [Twilio](https://www.twilio.com/try-twilio) account.
+## Prerequisites
 
-To demonstrate how to deploy a WhatsApp Bot with Code Capsules, we've provided an example bot, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/whatsapp-echobot).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork whatsapp-echobot', description: 'Fork codecapsules-io/whatsapp-echobot to your GitHub account.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Give Code Capsules access to your whatsapp-echobot fork.'},
+    {type: 'link', href: '/docs/shared/set-up-twilio-whatsapp-sandbox', label: '💻 Twilio WhatsApp sandbox', description: 'Create a Twilio account and join its WhatsApp sandbox.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example bot repository by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Deploy your WhatsApp bot
 
-## Create a Space for Your Bot
+1. **Start a Backend Capsule**
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+   In your Space, click **+** to add a new capsule.
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+2. **Choose the capsule type, Team, and Space**
 
-![Create a Space](/gitbook-assets/get-started/space-name-1.png)
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
 
-## Create the Capsule
+3. **Choose the plan**
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+   On **Plan**, choose **Basic**. Click **Next**.
 
-To create a new Capsule for your Space, follow the instructions below:
+4. **Connect the repository**
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
+   On **Source Code**, select your `whatsapp-echobot` fork as the **Repository** and `main` as the **Branch**. Click **Next**.
 
-Code Capsules will automatically build your application when you've finished creating the Capsule.
+5. **Create the capsule**
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+   On **Build and Deploy Settings**, leave **Run Command** blank. Click **Create Capsule**.
 
-![Build Logs](/gitbook-assets/get-started/backend-capsule-build-logs-1.png)
+6. **Copy the capsule URL**
 
-## Create a Twilio Sandbox
+   When the build finishes, copy the domain under **URL** on the capsule's **Details** tab.
 
-The Twilio Sandbox provides a development environment to access the WhatsApp API. Sign up for a [Twilio account](https://www.twilio.com/try-twilio) to use a sandbox that allows you to test your bot in real-time. After you've logged into your Twilio account, navigate to the [console](https://www.twilio.com/console/sms/whatsapp/sandbox) page to configure your WhatsApp sandbox settings.
+7. **Point Twilio at the bot**
 
-1.  Go to your capsule's **Details** tab and copy your bot's domain under the **URL** section.
+   In the Twilio console, open the WhatsApp sandbox settings. In **When a Message Comes In**, paste the capsule domain followed by `/bot`, set the method to `HTTP POST`, and click **Save**.
 
-    ![Backend Url](/gitbook-assets/get-started/backend-url.png)
-2.  Head back to your Twilio console and paste the domain in the **When a Message Comes In** field and append `/bot` to the end of it. Make sure the method is set to _HTTP Post_.
+8. **Message the bot**
 
-    ![Sandbox Config](/gitbook-assets/get-started/sandbox-config.png)
-3. Scroll down to the bottom of the page and click **Save**.
-4.  Under the **Sandbox Participants** section, you will find the WhatsApp number for your sandbox and a code to join it that starts with **join**. Send this code to the displayed WhatsApp number to add your personal number as a sandbox participant.
+   From the phone that joined the sandbox, send any message to the sandbox WhatsApp number. You see the bot reply with the same message.
 
-    ![Sandbox Participants](/gitbook-assets/get-started/sandbox-participants.png)
+## Troubleshooting
 
-## Chat with the Bot
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The bot doesn't reply to your messages</summary>
 
-The bot will now be able to respond to your messages after sending the join code. Try it, and the bot should echo any message you send it.
+Twilio can't reach the bot. Check that the webhook URL ends in `/bot`, the method is `HTTP POST`, and the capsule's build has finished.
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Twilio replies that you aren't a sandbox participant</summary>
+
+Your phone hasn't joined the sandbox, or the sandbox session expired. Send the join code to the sandbox number again.
+
+</details>
