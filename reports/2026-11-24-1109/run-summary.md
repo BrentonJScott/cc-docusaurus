@@ -11,8 +11,8 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 - Format **pass:** 118
 - Format **fail:** 107
 - **No matching guide:** 0
-- Walkthrough **complete:** 17
-- Walkthrough **pending** (format pass): 84
+- Walkthrough **complete:** 30
+- Walkthrough **pending** (format pass): 77
 
 ## Feature table
 
@@ -36,24 +36,24 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 | Check supported frontend frameworks and runtimes | `docs/products/frontend-capsule/supported-runtimes.md` | fail | not run (format fail) | **no** |
 | View frontend capsule overview | `docs/products/frontend-capsule/index.md` | fail | not run (format fail) | **no** |
 | Find a backend deployment guide | `docs/backend/index.md` | fail | not applicable | **no** |
-| Create Express.js backend capsule | `docs/backend/node.js/express.js.md` | pass | pending | **no** |
+| Create Express.js backend capsule | `docs/backend/node.js/express.js.md` | pass | complete | **no** |
 | Create Node.js Discord bot backend capsule | `docs/backend/node.js/node.js-discord-bot.md` | pass | pending | **no** |
 | Create Node.js Telegram bot backend capsule | `docs/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md` | pass | pending | **no** |
 | Create Node.js Slack bot backend capsule | `docs/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md` | pass | pending | **no** |
 | Create Python backend capsule | `docs/backend/python/python.md` | pass | pending | **no** |
 | Create Flask backend capsule | `docs/backend/python/flask.md` | pass | pending | **no** |
-| Create Django backend capsule | `docs/backend/python/django.md` | pass | pending | **no** |
+| Create Django backend capsule | `docs/backend/python/django.md` | pass | complete | **no** |
 | Create Python Discord bot backend capsule | `docs/backend/python/python-discord-bot.md` | pass | pending | **no** |
 | Create Python Telegram bot backend capsule | `docs/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules.md` | fail | not run (format fail) | **no** |
 | Create Python WhatsApp bot backend capsule | `docs/backend/python/whatsapp-bot.md` | pass | pending | **no** |
 | Create Go backend capsule | `docs/backend/go/go.md` | pass | pending | **no** |
 | Create Go Telegram bot backend capsule | `docs/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules.md` | fail | not run (format fail) | **no** |
-| Create Java backend capsule | `docs/backend/java.md` | pass | pending | **no** |
+| Create Java backend capsule | `docs/backend/java.md` | pass | complete | **yes** |
 | Configure backend capsule | `docs/products/backend-capsule/configure.md` | pass | pending | **no** |
 | Add a Procfile to backend capsule | `docs/products/backend-capsule/add-procfile.md` | pass | pending | **no** |
 | View backend capsule logs | `docs/products/backend-capsule/index.md` | fail | not run (format fail) | **no** |
-| Monitor backend capsule | `docs/products/backend-capsule/monitor.md` | pass | pending | **no** |
-| Scale backend capsule | `docs/products/backend-capsule/scale.md` | pass | pending | **no** |
+| Monitor backend capsule | `docs/products/backend-capsule/monitor.md` | pass | complete | **no** |
+| Scale backend capsule | `docs/products/backend-capsule/scale.md` | pass | complete | **no** |
 | Check supported backend runtimes | `docs/products/backend-capsule/supported-runtimes.md` | fail | not run (format fail) | **no** |
 | View backend capsule overview | `docs/products/backend-capsule/index.md` | fail | not run (format fail) | **no** |
 | Create Docker capsule from Git | `docs/products/docker-capsule/deploy.md` | fail | not run (format fail) | **no** |
@@ -63,14 +63,14 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 | Create PHP Docker capsule | `docs/backend/docker/docker-php-app.md` | pass | pending | **no** |
 | Create Flask Docker capsule | `docs/backend/docker/flask-docker-app.md` | pass | pending | **no** |
 | Find a Docker deployment guide | `docs/backend/docker/index.md` | fail | not applicable | **no** |
-| Configure Docker capsule | `docs/products/docker-capsule/configure.md` | pass | pending | **no** |
+| Configure Docker capsule | `docs/products/docker-capsule/configure.md` | pass | complete | **no** |
 | Meet Docker container runtime requirements | `docs/products/docker-capsule/runtime-requirements.md` | fail | not run (no guide file) | **no** |
-| Manage Docker deployments | `docs/products/docker-capsule/deployments.md` | pass | pending | **no** |
+| Manage Docker deployments | `docs/products/docker-capsule/deployments.md` | pass | complete | **no** |
 | Build Docker image from Git | `docs/products/docker-capsule/git/builds.md` | pass | pending | **no** |
 | Update deployed Docker image | `docs/products/docker-capsule/image/updates.md` | pass | pending | **no** |
-| View Docker capsule logs | `docs/products/docker-capsule/logs.md` | pass | pending | **no** |
-| Monitor Docker capsule | `docs/products/docker-capsule/monitor.md` | pass | pending | **no** |
-| Scale Docker capsule | `docs/products/docker-capsule/scale.md` | pass | pending | **no** |
+| View Docker capsule logs | `docs/products/docker-capsule/logs.md` | pass | complete | **no** |
+| Monitor Docker capsule | `docs/products/docker-capsule/monitor.md` | pass | complete | **no** |
+| Scale Docker capsule | `docs/products/docker-capsule/scale.md` | pass | complete | **no** |
 | View Docker capsule overview | `docs/products/docker-capsule/index.md` | fail | not run (format fail) | **no** |
 | Create MySQL database capsule | `docs/database/mysql/index.md` | fail | not run (format fail) | **no** |
 | Create PostgreSQL database capsule | `docs/database/postgres.md` | fail | not run (format fail) | **no** |
@@ -87,9 +87,9 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 | Create Django with MongoDB capsules | `docs/database/mongodb/django-+-mongodb.md` | fail | not run (format fail) | **no** |
 | Create Express with MongoDB capsules | `docs/database/mongodb/express-+-mongodb.md` | fail | not run (format fail) | **no** |
 | Create Flask with MongoDB capsules | `docs/database/mongodb/flask-+-mongodb.md` | fail | not run (format fail) | **no** |
-| Configure MySQL capsule | `docs/products/database-capsule/mysql/configure.md` | pass | pending | **no** |
+| Configure MySQL capsule | `docs/products/database-capsule/mysql/configure.md` | pass | complete | **no** |
 | Connect to MySQL locally | `docs/products/database-capsule/mysql/connect-locally.md` | pass | pending | **no** |
-| Back up MySQL capsule | `docs/products/database-capsule/mysql/backups.md` | pass | pending | **no** |
+| Back up MySQL capsule | `docs/products/database-capsule/mysql/backups.md` | pass | complete | **no** |
 | View MySQL capsule logs | `docs/products/database-capsule/mysql/logs.md` | pass | pending | **no** |
 | Monitor MySQL capsule | `docs/products/database-capsule/mysql/monitor.md` | pass | pending | **no** |
 | Scale MySQL capsule | `docs/products/database-capsule/mysql/scale.md` | pass | pending | **no** |
@@ -162,7 +162,7 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (225 features)
 | Connect GitHub or GitLab | `docs/platform/account/connect-version-control.md` | pass | complete | **yes** |
 | Add a payment method | `docs/platform/account/how-do-i-add-a-payment-method.md` | pass | pending | **no** |
 | Enable two-factor authentication | `docs/platform/account/how-do-i-enable-2fa.md` | pass | pending | **no** |
-| Reset password | `docs/platform/account/how-do-i-reset-my-password.md` | pass | pending | **no** |
+| Reset password | `docs/platform/account/how-do-i-reset-my-password.md` | pass | complete | **no** |
 | Change billing details | `docs/platform/billing/how-do-i-change-my-billing-details.md` | pass | complete | **yes** |
 | View invoices | `docs/platform/billing/how-do-i-view-my-invoices.md` | pass | complete | **yes** |
 | Understand pricing | `docs/platform/billing/how-does-the-pricing-work.md` | fail | not applicable | **no** |

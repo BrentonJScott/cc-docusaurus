@@ -7,7 +7,8 @@
   "goal": "Expect to see connection details and updated MySQL settings saved",
   "section": "Database Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": false,
   "matchReason": "fuzzy match",
   "matchScore": 1.012,
   "checkResults": [

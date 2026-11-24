@@ -7,7 +7,8 @@
   "goal": "Expect to see build logs in the deploy tab and roll back to a previous build",
   "section": "Docker Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": false,
   "matchReason": "fuzzy match",
   "matchScore": 0.911,
   "checkResults": [

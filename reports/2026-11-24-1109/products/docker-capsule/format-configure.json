@@ -7,7 +7,8 @@
   "goal": "Expect to see updated capsule parameters and environment variables saved and a data capsule connected",
   "section": "Docker Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": false,
   "matchReason": "fuzzy match",
   "matchScore": 0.995,
   "checkResults": [

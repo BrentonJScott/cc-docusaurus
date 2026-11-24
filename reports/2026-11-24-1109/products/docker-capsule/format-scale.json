@@ -7,7 +7,7 @@
   "goal": "Expect to see new resources saved and the capsule stop and start",
   "section": "Docker Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
   "matchReason": "fuzzy match",
   "matchScore": 0.85,
   "checkResults": [

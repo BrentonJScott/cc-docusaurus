@@ -7,7 +7,8 @@
   "goal": "Expect to see capsule logs and access logs",
   "section": "Docker Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
+  "goalReached": false,
   "matchReason": "fuzzy match",
   "matchScore": 0.736,
   "checkResults": [

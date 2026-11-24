@@ -7,7 +7,7 @@
   "goal": "Expect to see capsule building in builds tab",
   "section": "Backend Capsule Deploy",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
   "matchReason": "curated",
   "matchScore": 1.0,
   "checkResults": [

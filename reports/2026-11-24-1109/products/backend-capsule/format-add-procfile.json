@@ -7,7 +7,7 @@
   "goal": "Expect to see the capsule start with the process from the Procfile",
   "section": "Backend Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
   "matchReason": "fuzzy match",
   "matchScore": 1.089,
   "checkResults": [

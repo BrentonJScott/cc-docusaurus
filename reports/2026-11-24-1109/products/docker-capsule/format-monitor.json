@@ -7,7 +7,7 @@
   "goal": "Expect to see usage metrics in the metrics tab",
   "section": "Docker Capsule Info",
   "formatCheck": "pass",
-  "walkthrough": "pending",
+  "walkthrough": "complete",
   "matchReason": "fuzzy match",
   "matchScore": 0.933,
   "checkResults": [
