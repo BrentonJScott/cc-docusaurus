@@ -1,0 +1,79 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/capsules/how-do-i-add-remove-stop-capsules.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Add, remove and stop a capsule",
+  "goal": "Expect to see the capsule added, turned off and removed",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "contentList": [
+    {
+      "n": 1,
+      "label": "goal",
+      "heading": "## Add a Capsule",
+      "text": "Wizard through type, plan, repo, create."
+    },
+    {
+      "n": 2,
+      "label": "remove",
+      "heading": "## Add a Capsule",
+      "text": "Long repo/Docker digressions, images."
+    },
+    {
+      "n": 3,
+      "label": "goal",
+      "heading": "## Remove a Capsule",
+      "text": "Remove flow with confirmation."
+    },
+    {
+      "n": 4,
+      "label": "goal",
+      "heading": "## Turn Off a Capsule",
+      "text": "Toggle switch."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Content (goal steps)",
+      "status": "fail",
+      "reason": "Multiple ## task sections with ### sub-steps; not one numbered list; values not exact."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "Git/Space/account not in Prerequisites cards."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "/products/docker-capsule/image/deploy/ missing; seven images missing."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing doc_version, admonitions/images in steps."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "how-do-i-add-remove-stop-capsules-1",
+      "type": "Format fix",
+      "title": "Restructure to how-to template.",
+      "problem": "Legacy multi-section capsule guide.",
+      "rule": "how_to_format.md",
+      "change": "Split or simplify to one goal path with Prerequisites; separate Docker image deploy to product how-to; numbered steps for add, stop, remove.",
+      "doneWhen": "Template compliant."
+    },
+    {
+      "id": "how-do-i-add-remove-stop-capsules-2",
+      "type": "Broken link",
+      "title": "Fix product and image links.",
+      "problem": "Broken /products/docker-capsule/image/deploy/; gitbook images missing.",
+      "rule": "FORMAT.MD Check 3",
+      "change": "Link only to in-repo docs or remove until products docs exist; drop images.",
+      "doneWhen": "No broken internal links."
+    }
+  ],
+  "proposedOutline": "## Prerequisites\n## Add, stop, and remove your capsule\n## Troubleshooting"
+}

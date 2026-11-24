@@ -1,0 +1,29 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/billing/how-do-i-change-my-billing-details.md",
+  "shortName": "change-billing-details",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Change billing details",
+  "goal": "Expect to see the updated billing details saved",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "contentList": [
+    {"number": 1, "label": "goal", "heading": "(title area)", "text": "Open **Billing** tab."},
+    {"number": 2, "label": "goal", "heading": "(title area)", "text": "**Edit** billing details, **Save**."},
+    {"number": 3, "label": "remove", "heading": "(title area)", "text": "Screenshot: Edit Billing Details"}
+  ],
+  "checkResults": [
+    {"check": "Step 1: Doc type", "status": "pass", "reason": "Single-task how-to."},
+    {"check": "Check 1: Content", "status": "fail", "reason": "No saved-details end state."},
+    {"check": "Check 2: Prerequisites", "status": "fail", "reason": "No Prerequisites."},
+    {"check": "Check 3: Links", "status": "fail", "reason": "Image missing from static/."},
+    {"check": "Check 4: Format and style", "status": "fail", "reason": "Incomplete template."}
+  ],
+  "tickets": [
+    {"id": "change-billing-details-1", "type": "Format fix", "title": "Restructure change billing details as a how-to guide", "problem": "Paragraph + screenshot only.", "rule": "how_to_format.md", "change": "Full restructure.", "doneWhen": "Template sections and goal."},
+    {"id": "change-billing-details-2", "type": "Missing goal step", "title": "Confirm billing details are saved", "problem": "No post-save confirmation.", "rule": "FORMAT.MD, Check 1", "change": "Add saved state step.", "doneWhen": "Goal explicit."},
+    {"id": "change-billing-details-3", "type": "Broken link", "title": "Remove missing billing details screenshot", "problem": "Image not in static/.", "rule": "Check 3", "change": "Remove image.", "doneWhen": "No images."}
+  ],
+  "proposedOutline": "Prerequisites → Change your billing details → Troubleshooting"
+}

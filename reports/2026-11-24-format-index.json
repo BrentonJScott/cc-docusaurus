@@ -1,0 +1,67 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/index.md",
+  "docType": "Explanation (index hub; no template)",
+  "template": "explanation_format.md",
+  "feature": "View platform guides index",
+  "goal": "Expect every link on the page to open an existing page",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "contentList": [
+    {
+      "n": 1,
+      "label": "fact",
+      "heading": "## Account",
+      "text": "Card table links to two account guides."
+    },
+    {
+      "n": 2,
+      "label": "fact",
+      "heading": "## Billing",
+      "text": "Card table links to three billing guides."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Index incomplete vs platform scope; Gitbook HTML tables not DocCardList."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "cover image missing; only subset of platform links present."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing doc_version; non-standard cover frontmatter; no # description repeat pattern."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "index-1",
+      "type": "Wrong doc type",
+      "title": "Rebuild platform index with DocCardList.",
+      "problem": "Gitbook card tables; partial sections.",
+      "rule": "writing_style.md Page pieces",
+      "change": "Sections for Teams, Spaces, Capsules, Security, Regions with DocCardList items; remove cover or move to meta only.",
+      "doneWhen": "Every listed platform guide linked and resolvable."
+    },
+    {
+      "id": "index-2",
+      "type": "Broken link",
+      "title": "Remove or add cover asset.",
+      "problem": "generic-docs-banner.jpg not in static/.",
+      "rule": "Check 3",
+      "change": "Remove cover until asset exists.",
+      "doneWhen": "No missing images."
+    }
+  ],
+  "proposedOutline": "# Platform guides\n## Account (DocCardList)\n## Billing\n## Teams\n## Spaces\n## Capsules\n## Security\n## Regions"
+}

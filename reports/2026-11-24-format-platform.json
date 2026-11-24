@@ -1,0 +1,67 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/platform.md",
+  "docType": "Explanation",
+  "template": "explanation_format.md",
+  "feature": "View platform overview",
+  "goal": "Expect every link on the page to open an existing page",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "contentList": [
+    {
+      "n": 1,
+      "label": "explain",
+      "heading": "(body)",
+      "text": "Teams, Spaces, Capsules descriptions."
+    },
+    {
+      "n": 2,
+      "label": "explain",
+      "heading": "(body)",
+      "text": "Simple vs complex project example."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Content (understanding)",
+      "status": "fail",
+      "reason": "No template sections; few links for index-style goal."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Images missing; codecapsules.io homepage."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing Overview/Related/doc_version."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "platform-1",
+      "type": "Format fix",
+      "title": "Align with Explanation or index pattern.",
+      "problem": "Narrative only; goal expects link hub.",
+      "rule": "explanation_format.md",
+      "change": "Either add ## Related DocCardList to all platform concepts + how-tos, or merge with platform index.",
+      "doneWhen": "Goal and template reconciled."
+    },
+    {
+      "id": "platform-2",
+      "type": "Broken link",
+      "title": "Remove missing images.",
+      "problem": "teamspacecapsule.png, simple-and-complex-projects.png missing.",
+      "rule": "writing_style.md",
+      "change": "Remove images.",
+      "doneWhen": "Check 3 passes."
+    }
+  ],
+  "proposedOutline": "## Overview\n## Why it matters\n## How it works\n## When to use it\n## Related (all platform links)"
+}

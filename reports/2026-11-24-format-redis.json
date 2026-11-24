@@ -1,0 +1,118 @@
+{
+  "header": {
+    "run": "2026-11-24T08:21:00Z",
+    "docFile": "docs/database/redis.md",
+    "docType": "How-to guide",
+    "template": "how_to_format.md",
+    "feature": "Create Redis database capsule",
+    "goal": "Expect to see the Redis capsule running in the space",
+    "formatCheck": "fail"
+  },
+  "contentList": [
+    {
+      "n": 1,
+      "label": "instruction",
+      "heading": "## Create a Redis Data Capsule",
+      "text": "Create Redis capsule."
+    },
+    {
+      "n": 2,
+      "label": "instruction",
+      "heading": "## Connecting\u2026",
+      "text": "REDIS_URL binding and samples."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Check 1: Content",
+      "status": "fail",
+      "reason": "Instructions mixed across multiple `##` sections; includes connection code samples."
+    },
+    {
+      "check": "Check 2: Prerequisites",
+      "status": "fail",
+      "reason": "Login and Space navigation in body; not linked prerequisites."
+    },
+    {
+      "check": "Check 3: Links",
+      "status": "fail",
+      "reason": "gitbook-assets redis images not in `static/`."
+    },
+    {
+      "check": "Check 4: Format and style",
+      "status": "fail",
+      "reason": "Legacy GitBook layout; yellow `+` wording; images; no Troubleshooting template."
+    },
+    {
+      "check": "Walkthrough",
+      "status": "not run",
+      "reason": "Format check fail."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "redis-1",
+      "type": "Format fix",
+      "title": "Restructure to how_to_format.md sections",
+      "problem": "The page uses legacy headings (for example `## Goal`, `## Steps`, `## Setup`, or multiple task sections) instead of only Prerequisites, a `## <Verb> your <Thing>` steps section, and Troubleshooting.",
+      "rule": "`how_to_format.md`, Sections",
+      "change": "Remove forbidden sections; add `import DocCardList`; use `## Prerequisites` with DocCardList; rename steps section to `## Deploy your \u2026` (or equivalent verb); keep only a numbered list under it.",
+      "doneWhen": "The `##` headings match the template order and no extra sections remain."
+    },
+    {
+      "id": "redis-2",
+      "type": "Move to prerequisites",
+      "title": "Move account, fork, Space, and Git setup to Prerequisites cards",
+      "problem": "Sign-up, fork, Space, Git connection, and log-in steps appear in the body instead of linked prerequisite cards.",
+      "rule": "`FORMAT.MD`, Check 2; `how_to_format.md`, Prerequisites",
+      "change": "Replace bullet prerequisites and Setup/login steps with one `DocCardList` linking to `/docs/shared/create-an-account`, `fork-a-demo-repo`, `create-a-space`, and `configure-git-for-code-capsules` (sources in `docs/e/`).",
+      "doneWhen": "Every prerequisite from Check 1 is a card with a working `/docs/shared/\u2026` href and no step-by-step prerequisite text remains in the steps section."
+    },
+    {
+      "id": "redis-3",
+      "type": "Format fix",
+      "title": "Convert steps to numbered list with bold titles",
+      "problem": "Steps use `### Step N:` headings or nested lists outside the template steps section.",
+      "rule": "`how_to_format.md`, Steps",
+      "change": "Use one numbered list; each item starts with a bold imperative title; screen names in bold; state exact plan, repo, branch, build command, and output directory where the goal depends on them.",
+      "doneWhen": "All goal-labelled Check 1 items sit under the steps `##` heading in the numbered list format."
+    },
+    {
+      "id": "redis-4",
+      "type": "Remove content",
+      "title": "Remove screenshots and GitBook images",
+      "problem": "The page includes `## Screenshots` or inline images.",
+      "rule": "`writing_style.md`, Links and images; `how_to_format.md`, Steps",
+      "change": "Delete image markdown and the Screenshots section.",
+      "doneWhen": "No images remain on the page."
+    },
+    {
+      "id": "redis-5",
+      "type": "Format fix",
+      "title": "Wrap Troubleshooting in details blocks",
+      "problem": "Troubleshooting uses `###` headings instead of styled `<details>` blocks.",
+      "rule": "`writing_style.md`, Page pieces; `how_to_format.md`, Troubleshooting",
+      "change": "Convert each symptom to the standard `<details style={\u2026}>` block with a one-line `<summary>`.",
+      "doneWhen": "Every troubleshooting entry uses the template `<details>` opening tag."
+    },
+    {
+      "id": "redis-6",
+      "type": "Broken link",
+      "title": "Fix or remove /products/ and missing static images",
+      "problem": "gitbook-assets redis images not in `static/`.",
+      "rule": "`FORMAT.MD`, Check 3",
+      "change": "Replace `/products/\u2026` with in-repo docs paths or remove; remove or relocate images until assets exist under `static/`.",
+      "doneWhen": "All internal links resolve under `docs/`; images exist under `static/` or are removed."
+    },
+    {
+      "id": "redis-7",
+      "type": "Format fix",
+      "title": "Add doc_version and remove tutorial framing",
+      "problem": "Description says \"tutorial\"; missing `doc_version: drift`.",
+      "rule": "`writing_style.md`",
+      "change": "Set `doc_version: drift`; rewrite intro as How-to outcome (capsule running in the Space).",
+      "doneWhen": "Frontmatter complete; intro matches feature goal."
+    }
+  ],
+  "proposedOutline": "## Host Your \u2026\n## Prerequisites (DocCardList: account, Space)\n## Create your \u2026 capsule (numbered wizard steps)\n## Troubleshooting"
+}

@@ -1,0 +1,88 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/teams/how-do-i-add-team-members.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Add team members",
+  "goal": "Expect to see the invited member in the team's member list",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "contentList": [
+    {
+      "n": 1,
+      "label": "remove",
+      "heading": "# Add Team Members",
+      "text": "Intro only."
+    },
+    {
+      "n": 2,
+      "label": "goal",
+      "heading": "(body)",
+      "text": "**+ (Add Member)**, emails, **Invite Team Members**."
+    },
+    {
+      "n": 3,
+      "label": "remove",
+      "heading": "(body)",
+      "text": "Closing line and image; no confirmation of member list."
+    },
+    {
+      "n": 4,
+      "label": "prerequisite",
+      "heading": "(missing)",
+      "text": "Team must exist (not stated in Prerequisites)."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Content (goal steps)",
+      "status": "fail",
+      "reason": "No ## Steps; last step does not state member appears in list."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "Missing ## Prerequisites and DocCardList for account and existing team."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Image /gitbook-assets/platform/add-team-member.png missing from static/."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing doc_version, sidebar_label, Troubleshooting, numbered steps."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "how-do-i-add-team-members-1",
+      "type": "Format fix",
+      "title": "Restructure to how-to template.",
+      "problem": "Single prose block with one image.",
+      "rule": "how_to_format.md",
+      "change": "Full template: Prerequisites (account, team), ## Invite members to your team with numbered steps ending with member visible in list, Troubleshooting.",
+      "doneWhen": "Template sections present and Check 4 passes."
+    },
+    {
+      "id": "how-do-i-add-team-members-2",
+      "type": "Missing goal step",
+      "title": "Add step confirming member in list.",
+      "problem": "Ends with \"Your Team is now ready to collaborate\" without list verification.",
+      "rule": "FORMAT.MD Check 1 How-to",
+      "change": "Final step: open member list and see invited email/status.",
+      "doneWhen": "Last step matches DOCUMENTED_FEATURES goal."
+    },
+    {
+      "id": "how-do-i-add-team-members-3",
+      "type": "Broken link",
+      "title": "Remove missing screenshot.",
+      "problem": "/gitbook-assets/platform/add-team-member.png not in static/.",
+      "rule": "writing_style.md",
+      "change": "Remove image.",
+      "doneWhen": "Link check passes."
+    }
+  ],
+  "proposedOutline": "## Prerequisites\n## Invite members to your team\n## Troubleshooting"
+}

@@ -1,0 +1,67 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/spaces/what-is-a-space.md",
+  "docType": "Explanation",
+  "template": "explanation_format.md",
+  "feature": "Understand spaces",
+  "goal": "Expect to know how spaces relate to capsules",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "contentList": [
+    {
+      "n": 1,
+      "label": "explain",
+      "heading": "# What Is a Space?",
+      "text": "Space groups Capsules."
+    },
+    {
+      "n": 2,
+      "label": "remove",
+      "heading": "(body)",
+      "text": "Image, codecapsules.io link."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Content (understanding)",
+      "status": "fail",
+      "reason": "Required Explanation sections absent."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Missing image; external homepage link."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "No DocCardList, Related, doc_version."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "what-is-a-space-1",
+      "type": "Format fix",
+      "title": "Rewrite as Explanation template.",
+      "problem": "Two short paragraphs only.",
+      "rule": "explanation_format.md",
+      "change": "Full section set; ## How it works links Teams and Capsules; Related to space how-to.",
+      "doneWhen": "Sections complete."
+    },
+    {
+      "id": "what-is-a-space-3",
+      "type": "Broken link",
+      "title": "Remove missing image.",
+      "problem": "teamspacecapsule.png missing.",
+      "rule": "writing_style.md",
+      "change": "Remove image.",
+      "doneWhen": "Check 3 passes."
+    }
+  ],
+  "proposedOutline": "## Overview\n## Why it matters\n## How it works\n## When to use it\n## Related"
+}

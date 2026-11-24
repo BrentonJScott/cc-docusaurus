@@ -1,0 +1,73 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/regions/what-regions-does-code-capsules-support.md",
+  "docType": "Reference",
+  "template": "reference_format.md",
+  "feature": "View available regions",
+  "goal": "Expect to see each supported region",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "contentList": [
+    {
+      "n": 1,
+      "label": "fact",
+      "heading": "(body)",
+      "text": "Regions chosen at Space creation."
+    },
+    {
+      "n": 2,
+      "label": "fact",
+      "heading": "(body)",
+      "text": "SA, Europe, UK list (bullet, not table)."
+    },
+    {
+      "n": 3,
+      "label": "remove",
+      "heading": "(body)",
+      "text": "Screenshot."
+    }
+  ],
+  "checkResults": [
+    {
+      "check": "Content (facts)",
+      "status": "fail",
+      "reason": "Recommendation prose; regions not in table with consistent columns."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "region-options.jpg missing."
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "No Overview, Related DocCardList, doc_version."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "what-regions-does-code-capsules-support-1",
+      "type": "Format fix",
+      "title": "Apply Reference template.",
+      "problem": "Bullets and image only.",
+      "rule": "reference_format.md",
+      "change": "## Overview; ## Regions table (name, location); ## Related to space creation how-to.",
+      "doneWhen": "Reference template satisfied."
+    },
+    {
+      "id": "what-regions-does-code-capsules-support-2",
+      "type": "Broken link",
+      "title": "Remove missing region screenshot.",
+      "problem": "region-options.jpg not in static/.",
+      "rule": "writing_style.md",
+      "change": "Remove image.",
+      "doneWhen": "Check 3 passes."
+    }
+  ],
+  "proposedOutline": "## Overview\n## Supported regions (table)\n## Related"
+}

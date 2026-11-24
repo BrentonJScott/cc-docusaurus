@@ -1,0 +1,34 @@
+{
+  "runTimestamp": "2026-11-24T08:21:00Z",
+  "docFile": "docs/platform/billing/how-does-the-pricing-work.md",
+  "shortName": "platform-how-does-the-pricing-work",
+  "docType": "Reference",
+  "template": "reference_format.md",
+  "feature": "Understand pricing",
+  "goal": "Expect to work out a capsule's monthly price",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "contentList": [
+    {"number": 1, "label": "fact", "heading": "(title area)", "text": "Hourly billing model."},
+    {"number": 2, "label": "fact", "heading": "## Capsule Pricing", "text": "Static Frontend free plan limits."},
+    {"number": 3, "label": "instruction", "heading": "## Capsule Pricing", "text": "Link to Free and Paid Plans."},
+    {"number": 4, "label": "fact", "heading": "## Capsule Pricing", "text": "Paid pricing from $3/month Basic."},
+    {"number": 5, "label": "instruction", "heading": "## Capsule Pricing", "text": "Select Custom when creating a Capsule."},
+    {"number": 6, "label": "remove", "heading": "## Capsule Pricing", "text": "Screenshot: Custom Plan"}
+  ],
+  "checkResults": [
+    {"check": "Step 1: Doc type", "status": "pass", "reason": "Reference for Understand pricing feature."},
+    {"check": "Check 1: Content", "status": "fail", "reason": "Instructions present; insufficient tabular facts to compute monthly price."},
+    {"check": "Check 2: Prerequisites", "status": "not applicable", "reason": "Reference page."},
+    {"check": "Check 3: Links", "status": "fail", "reason": "Broken /products/frontend-capsule/static/plans/ link; image missing."},
+    {"check": "Check 4: Format and style", "status": "fail", "reason": "Not reference section layout; missing frontmatter fields and Related."}
+  ],
+  "tickets": [
+    {"id": "platform-how-does-the-pricing-work-1", "type": "Wrong doc type", "title": "Choose Reference vs Explanation and split procedural content", "problem": "Facts mixed with create-capsule instruction.", "rule": "FORMAT.MD, Step 1", "change": "Keep Reference; split instructions.", "doneWhen": "No steps on reference page."},
+    {"id": "platform-how-does-the-pricing-work-2", "type": "Format fix", "title": "Restructure as a pricing reference page", "problem": "Prose-only Capsule Pricing section.", "rule": "reference_format.md", "change": "Overview, tables, Examples, Related.", "doneWhen": "Reference template compliance."},
+    {"id": "platform-how-does-the-pricing-work-3", "type": "Move to another doc", "title": "Move Custom plan selection to capsule how-to", "problem": "Instruction to select Custom when creating.", "rule": "FORMAT.MD, Check 1 Reference", "change": "Move to how-do-i-add-remove-stop-capsules; link Related.", "doneWhen": "Instruction removed here."},
+    {"id": "platform-how-does-the-pricing-work-4", "type": "Broken link", "title": "Fix or remove Free and Paid Plans link", "problem": "Target page missing under docs/.", "rule": "Check 3", "change": "Create page or inline table.", "doneWhen": "Link resolves or removed."},
+    {"id": "platform-how-does-the-pricing-work-5", "type": "Broken link", "title": "Remove missing pricing screenshot", "problem": "Image not in static/.", "rule": "Check 3", "change": "Remove image.", "doneWhen": "No images."}
+  ],
+  "proposedOutline": "Overview → plan tables with units → Examples → Related DocCardList"
+}
