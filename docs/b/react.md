@@ -8,24 +8,30 @@ sidebar_label: "React"
 doc_version: drift
 ---
 
-import DocCardList from '@theme/DocCardList';
-
 # Host Your React Application
 
-Deploy a React application on Code Capsules and see the first build start on the capsule's **Builds** tab.
+<Description />
 
 ## Prerequisites
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and reach your Personal Team.'},
-    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-react', description: 'Fork demo-react to your GitHub account.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Let Code Capsules list your repositories.'},
-  ]}
-/>
+<LinkCards>
+  <LinkCard title="Code Capsules account" to="/docs/shared/create-an-account" icon="account">
+    Sign up and reach your Personal Team.
+  </LinkCard>
+  <LinkCard title="Fork demo-react" to="/docs/shared/fork-a-demo-repo" icon="fork">
+    Fork `demo-react` to your GitHub account.
+  </LinkCard>
+  <LinkCard title="A Space" to="/docs/shared/create-a-space" icon="space">
+    Create a Space to deploy into.
+  </LinkCard>
+  <LinkCard title="GitHub connected" to="/docs/shared/configure-git-for-code-capsules" icon="git">
+    Let Code Capsules list your repositories.
+  </LinkCard>
+</LinkCards>
 
 ## Deploy your React app
+
+<Steps>
 
 1. **Start the React capsule**
 
@@ -60,39 +66,45 @@ Deploy a React application on Code Capsules and see the first build start on the
 
    Open the capsule's **Builds** tab. The first build is in progress.
 
+</Steps>
+
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<Accordion>
+
+<details>
 <summary>The Git Repository dropdown is empty</summary>
 
 GitHub isn't connected to your Team. Click **Configure Git for Code Capsules**, give access to your fork, and reopen the dropdown.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The Branch dropdown shows "No items found"</summary>
 
 No repository is selected yet. Choose your fork under **Git Repository** first, then open **Branch**.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The wizard shows "Choose how your site is hosted to continue"</summary>
 
 **Static** isn't selected on **Hosting**. Select it and click **Next**.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>Capsule Details shows Backend instead of Frontend</summary>
 
 **Choose a Capsule** is set to **Backend**. Switch it to **Frontend** before choosing your Team.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The Free plan can't be selected</summary>
 
 You're already using all of your free capsules. Delete a free capsule you no longer need, or select **Paid**.
 
 </details>
+
+</Accordion>

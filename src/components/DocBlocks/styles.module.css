@@ -1,0 +1,297 @@
+/* Description: the lead paragraph under the page title */
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+  margin: -0.5rem 0 2.5rem;
+  max-width: 42rem;
+}
+
+/* Link cards */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: var(--cc-surface);
+  color: inherit;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.card:hover {
+  color: inherit;
+  text-decoration: none;
+  border-color: var(--cc-accent);
+  box-shadow: 0 4px 16px var(--cc-shadow);
+  transform: translateY(-1px);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--cc-accent);
+  outline-offset: 2px;
+}
+
+.cardIcon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  background: var(--cc-accent-soft);
+  color: var(--cc-accent-ink);
+}
+
+.cardIcon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ifm-heading-color);
+}
+
+.cardText {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* MDX wraps card text in a paragraph */
+.cardText > p {
+  margin: 0;
+}
+
+.cardArrow {
+  flex: none;
+  color: var(--ifm-color-emphasis-500);
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
+}
+
+.card:hover .cardArrow {
+  color: var(--cc-accent-ink);
+  transform: translateX(3px);
+}
+
+/* Steps: numbered circles joined by one line so the steps read as a flow */
+.steps {
+  --step-size: 1.75rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.steps > ol {
+  list-style: none;
+  counter-reset: step var(--steps-start, 0);
+  padding: 0;
+  margin: 0;
+}
+
+.steps > ol > li {
+  position: relative;
+  counter-increment: step;
+  padding: 0 0 1.75rem calc(var(--step-size) + 1rem);
+  margin: 0;
+}
+
+.steps > ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: var(--step-size);
+  height: var(--step-size);
+  border-radius: 50%;
+  background: var(--cc-step-bg);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.steps > ol > li::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--step-size) / 2 - 1px);
+  top: calc(var(--step-size) + 0.25rem);
+  bottom: 0.25rem;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--cc-border);
+}
+
+.steps > ol > li:last-child {
+  padding-bottom: 0;
+}
+
+.steps > ol > li:last-child::after {
+  display: none;
+}
+
+/* The last step is where the reader reaches the goal or the checkpoint */
+.steps > ol > li:last-child::before {
+  background: var(--cc-accent);
+  color: #1c1a14;
+}
+
+/* The bold first line of each item is the step title */
+.steps > ol > li > p:first-child {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: var(--step-size);
+  margin-bottom: 0.35rem;
+  color: var(--ifm-heading-color);
+}
+
+.steps > ol > li > :last-child {
+  margin-bottom: 0;
+}
+
+.steps > ol > li > ul {
+  margin-bottom: var(--ifm-paragraph-margin-bottom);
+}
+
+/* Callouts: checkpoint, example, goal */
+.callout {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: var(--cc-surface-muted);
+}
+
+.checkpoint,
+.goal {
+  border-color: var(--cc-accent);
+  background: var(--cc-accent-soft);
+}
+
+.calloutLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cc-accent-ink);
+}
+
+.example .calloutLabel {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.calloutLabel svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.calloutBody > :last-child {
+  margin-bottom: 0;
+}
+
+/* Accordion: each <details> is a gray box with a yellow border.
+   The selectors beat Infima's .alert--info that Docusaurus puts on <details>. */
+.accordion {
+  margin: 1rem 0 2rem;
+}
+
+.accordion details {
+  --ifm-alert-background-color: var(--cc-surface-muted);
+  --ifm-alert-background-color-highlight: var(--ifm-color-emphasis-200);
+  --ifm-alert-border-color: var(--cc-accent);
+  --ifm-alert-foreground-color: var(--ifm-font-color-base);
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: 1px solid var(--cc-accent);
+  border-radius: 10px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* A plain text line, so inline code in a symptom stays in the sentence */
+.accordion details > summary {
+  position: relative;
+  padding: 0.85rem 2.75rem 0.85rem 1.1rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.accordion details > summary:hover {
+  background: var(--cc-surface-hover);
+}
+
+.accordion details > summary:focus-visible {
+  outline: 2px solid var(--cc-accent);
+  outline-offset: -2px;
+}
+
+/* Replace the left-hand triangle with a chevron on the right */
+.accordion details > summary::before {
+  display: none;
+}
+
+.accordion details > summary::after {
+  content: '';
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--cc-accent-ink);
+  border-bottom: 2px solid var(--cc-accent-ink);
+  transform: translateY(-75%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.accordion details[data-collapsed='false'] > summary::after,
+.accordion details[open]:not([data-collapsed]) > summary::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.accordion details :global([class*='collapsibleContent']) {
+  margin: 0;
+  padding: 0.85rem 1.1rem 1rem;
+  border-top: 1px solid var(--cc-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardArrow,
+  .accordion details > summary,
+  .accordion details > summary::after {
+    transition: none;
+  }
+}

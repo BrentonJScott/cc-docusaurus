@@ -5,7 +5,7 @@ A Reference page lists facts the reader looks up: values, limits, prices, option
 - **Use it for:** pricing, plans and limits, supported runtimes and versions, CLI commands, environment variables, API methods.
 - **Location:** A Reference page can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Example in this repo:** `docs/c/how-does-the-pricing-work.md`.
-- **Writing style:** follow `writing_style.md`, including its [Page pieces](writing_style.md#page-pieces) for cards.
+- **Writing style:** follow `writing_style.md`, including its [Page pieces](writing_style.md#page-pieces) for `Description` and `LinkCards`.
 
 ## Sections
 
@@ -13,7 +13,7 @@ A Reference page **must** have these sections, in this order:
 
 | # | Section | What goes in it |
 |---|---|---|
-| 1 | Title and description | Frontmatter, the `DocCardList` import, one `#` title, and one or two sentences on what the page lists. |
+| 1 | Title and description | Frontmatter, one `#` title, and `<Description />`: one or two sentences on what the page lists. |
 | 2 | `## Overview` | The one or two facts that apply to everything on the page. |
 | 3 | `## <Subject>` | One section per subject. Each is mostly a table. |
 | 4 | `## Examples` | Optional. Worked examples that use the values above. |
@@ -32,10 +32,10 @@ A Reference page **must** have these sections, in this order:
 
 ## Examples
 - Optional. Use it when the values need combining, such as working out a monthly bill.
-- Each example has a one-line scenario, the working, and the result.
+- Each example **must** be one `<Callout kind="example">` with a one-line scenario, the working, and the result.
 
 ## Related
-- **Must** be one `DocCardList` of two to five cards. Each card's description says in a few words why to go there.
+- **Must** be one `<LinkCards>` block of two to five cards. Each card's description says in a few words why to go there.
 
 ## Template
 
@@ -49,11 +49,9 @@ sidebar_label: "<Subject>"
 doc_version: drift
 ---
 
-import DocCardList from '@theme/DocCardList';
-
 # <Subject>
 
-<Same one or two sentences as the description.>
+<Description />
 
 ## Overview
 
@@ -75,13 +73,17 @@ import DocCardList from '@theme/DocCardList';
 
 ## Examples
 
-**<Scenario>**: <working>. Result: <result>.
+<Callout kind="example">
+
+**<Scenario>:** <working>. Result: <result>.
+
+</Callout>
 
 ## Related
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/<path>', label: '<emoji> <Title>', description: '<Why to go there.>'},
-  ]}
-/>
+<LinkCards>
+  <LinkCard title="<Title>" to="/docs/<path>" icon="<icon>">
+    <Why to go there.>
+  </LinkCard>
+</LinkCards>
 ```

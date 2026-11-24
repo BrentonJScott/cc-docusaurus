@@ -8,11 +8,9 @@ sidebar_label: "Pricing"
 doc_version: drift
 ---
 
-import DocCardList from '@theme/DocCardList';
-
 # Pricing
 
-Prices, plans, and limits for Code Capsules capsules, static hosting, and backups.
+<Description />
 
 ## Overview
 
@@ -58,16 +56,28 @@ Limits for static Frontend Capsules on each plan.
 
 ## Examples
 
+<Callout kind="example">
+
 **A static portfolio site on Free with a 20 MB build:** within the 30 MB build and 50 GB traffic limits. Result: $0/month.
+
+</Callout>
+
+<Callout kind="example">
 
 **A React frontend on Basic plus a custom Backend Capsule:** $3/month + $7.50/month. Result: from $10.50/month.
 
+</Callout>
+
 ## Related
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/frontend/react', label: '🛠️ Host a React application', description: 'Choose a plan when you create a Frontend Capsule.'},
-    {type: 'link', href: '/docs/frontend/angular', label: '🛠️ Host an Angular application', description: 'Deploy a static frontend.'},
-    {type: 'link', href: '/docs/tutorials/build-a-mern-job-board', label: '🎓 Build a MERN job board', description: 'An app that uses a Backend and a MongoDB Capsule.'},
-  ]}
-/>
+<LinkCards>
+  <LinkCard title="Host a React application" to="/docs/frontend/react" icon="guide">
+    Choose a plan when you create a Frontend Capsule.
+  </LinkCard>
+  <LinkCard title="Host an Angular application" to="/docs/frontend/angular" icon="guide">
+    Deploy a static frontend.
+  </LinkCard>
+  <LinkCard title="Build a MERN job board" to="/docs/tutorials/build-a-mern-job-board" icon="tutorial">
+    An app that uses a Backend and a MongoDB Capsule.
+  </LinkCard>
+</LinkCards>

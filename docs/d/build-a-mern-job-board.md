@@ -8,11 +8,9 @@ sidebar_label: "MERN Job Board"
 doc_version: drift
 ---
 
-import DocCardList from '@theme/DocCardList';
-
 # Build a MERN Job Board
 
-Turn a MERN boilerplate app into a job board where people post and browse jobs, then deploy it on Code Capsules.
+<Description />
 
 ## What you'll build
 
@@ -22,19 +20,25 @@ You'll add two React components for the form and the list, then a Mongoose model
 
 ## Prerequisites
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/guides/mern-stack', label: '🛠️ Deployed MERN boilerplate', description: 'Deploy the MERN boilerplate app with a MongoDB Capsule.'},
-    {type: 'link', href: 'https://nodejs.org/', label: '💻 Node.js installed', description: 'Install Node.js on your computer.'},
-    {type: 'link', href: 'https://git-scm.com/', label: '💻 Git installed', description: 'Install Git on your computer.'},
-  ]}
-/>
+<LinkCards>
+  <LinkCard title="Deployed MERN boilerplate" to="/docs/guides/mern-stack" icon="guide">
+    Deploy the MERN boilerplate app with a MongoDB Capsule.
+  </LinkCard>
+  <LinkCard title="Node.js installed" to="https://nodejs.org/" icon="tool">
+    Install Node.js on your computer.
+  </LinkCard>
+  <LinkCard title="Git installed" to="https://git-scm.com/" icon="tool">
+    Install Git on your computer.
+  </LinkCard>
+</LinkCards>
 
 You also need basic knowledge of JavaScript and React.
 
 ## Part 1: Run the boilerplate locally
 
 In this part, you'll get the deployed boilerplate app running on your computer, connected to your MongoDB Capsule.
+
+<Steps>
 
 1. **Clone your repo and install dependencies**
 
@@ -82,15 +86,19 @@ In this part, you'll get the deployed boilerplate app running on your computer, 
    node index.js
    ```
 
-:::tip[Checkpoint]
+</Steps>
+
+<Callout kind="checkpoint">
 
 Open `http://localhost:8080`. You see the boilerplate MERN app.
 
-:::
+</Callout>
 
 ## Part 2: Build the frontend
 
 In this part, you'll add a form for posting jobs and a list that shows every job.
+
+<Steps>
 
 4. **Add the job form**
 
@@ -216,15 +224,19 @@ In this part, you'll add a form for posting jobs and a list that shows every job
    node index.js
    ```
 
-:::tip[Checkpoint]
+</Steps>
+
+<Callout kind="checkpoint">
 
 Refresh `http://localhost:8080`. You see the **Submit a Job** form and the **View Available Jobs** heading. The list is empty because the backend doesn't have a jobs API yet.
 
-:::
+</Callout>
 
 ## Part 3: Build the backend
 
 In this part, you'll add the model, controllers, and routes that store jobs in MongoDB and return them to the frontend.
+
+<Steps>
 
 8. **Add the job model**
 
@@ -336,79 +348,85 @@ In this part, you'll add the model, controllers, and routes that store jobs in M
 
 10. **Add the job routes**
 
-   Create `job.routes.js` in `app/routes`. It connects `POST` and `GET` requests on `/api/jobs` to the controllers.
+    Create `job.routes.js` in `app/routes`. It connects `POST` and `GET` requests on `/api/jobs` to the controllers.
 
-   `app/routes/job.routes.js`
+    `app/routes/job.routes.js`
 
-   ```js
-   module.exports = app => {
-       const jobs = require("../controllers/job.controller.js");
+    ```js
+    module.exports = app => {
+        const jobs = require("../controllers/job.controller.js");
 
-       var router = require("express").Router();
+        var router = require("express").Router();
 
-       // Create a new Job
-       router.post("/", jobs.create);
+        // Create a new Job
+        router.post("/", jobs.create);
 
-       // Retrieve all Jobs
-       router.get("/", jobs.findAll);
+        // Retrieve all Jobs
+        router.get("/", jobs.findAll);
 
-       app.use('/api/jobs', router);
-   };
-   ```
+        app.use('/api/jobs', router);
+    };
+    ```
 
-   Delete `app/routes/person.routes.js`.
+    Delete `app/routes/person.routes.js`.
 
 11. **Use the job routes**
 
-   In `index.js`, find this line:
+    In `index.js`, find this line:
 
-   ```js
-   require("./app/routes/person.routes")(app);
-   ```
+    ```js
+    require("./app/routes/person.routes")(app);
+    ```
 
-   Replace it with:
+    Replace it with:
 
-   ```js
-   require("./app/routes/job.routes")(app);
-   ```
+    ```js
+    require("./app/routes/job.routes")(app);
+    ```
 
-   Restart the app with `node index.js`.
+    Restart the app with `node index.js`.
 
-:::tip[Checkpoint]
+</Steps>
+
+<Callout kind="checkpoint">
 
 Open `http://localhost:8080`, fill in the form, and click **Submit**. The page reloads and your job appears under **View Available Jobs**.
 
-:::
+</Callout>
 
 ## Part 4: Deploy the job board
 
 In this part, you'll push your changes so Code Capsules builds and deploys the finished app.
 
+<Steps>
+
 12. **Stop tracking the build folder**
 
-   Code Capsules builds the frontend when it deploys, so the build folder doesn't belong in Git. Add this line to `.gitignore` in the root folder:
+    Code Capsules builds the frontend when it deploys, so the build folder doesn't belong in Git. Add this line to `.gitignore` in the root folder:
 
-   `.gitignore`
+    `.gitignore`
 
-   ```text
-   /client/build
-   ```
+    ```text
+    /client/build
+    ```
 
 13. **Commit and push**
 
-   Commit your changes and push them to the branch Code Capsules deploys from.
+    Commit your changes and push them to the branch Code Capsules deploys from.
 
-   ```bash
-   git add -A
-   git commit -m "Add job board"
-   git push origin main
-   ```
+    ```bash
+    git add -A
+    git commit -m "Add job board"
+    git push origin main
+    ```
 
-:::tip[Checkpoint]
+</Steps>
+
+<Callout kind="checkpoint">
 
 Open your capsule's **Deploy** tab. A new build starts. When it finishes, open the capsule's URL: you see the job board, and jobs you submit appear in the list.
 
-:::
+</Callout>
 
 ## Summary
 
@@ -416,25 +434,31 @@ You turned the MERN boilerplate into a job board. The React frontend has a form 
 
 ## Next steps
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/platform/billing/how-does-the-pricing-work', label: '📋 How does pricing work', description: 'See what your Backend and MongoDB Capsules cost.'},
-    {type: 'link', href: '/docs/frontend/react', label: '🛠️ Host a React application', description: 'Deploy a React frontend on its own Frontend Capsule.'},
-  ]}
-/>
+<LinkCards>
+  <LinkCard title="How does pricing work" to="/docs/platform/billing/how-does-the-pricing-work" icon="reference">
+    See what your Backend and MongoDB Capsules cost.
+  </LinkCard>
+  <LinkCard title="Host a React application" to="/docs/frontend/react" icon="guide">
+    Deploy a React frontend on its own Frontend Capsule.
+  </LinkCard>
+</LinkCards>
 
 ## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<Accordion>
+
+<details>
 <summary>The job list stays empty and the browser console shows a 500 error</summary>
 
 The app can't reach MongoDB. Check that `DATABASE_URL` in `.env` is the **Public Connection String** from your MongoDB Capsule, and that `require('dotenv').config();` is in `index.js`.
 
 </details>
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<details>
 <summary>The app won't start and shows `Cannot find module './app/routes/person.routes'`</summary>
 
 `index.js` still loads the deleted person routes. Change the line to `require("./app/routes/job.routes")(app);` as in Step 11.
 
 </details>
+
+</Accordion>

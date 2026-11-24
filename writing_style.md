@@ -11,8 +11,7 @@ These rules apply to every doc type: How-to guides (`how_to_format.md`), Tutoria
 
 ## Every doc
 - Frontmatter has `slug`, `title`, `description`, `sidebar_label`, and `doc_version: drift`.
-- The page has one `#` title. Directly under it, one or two sentences repeat the `description`.
-- Pages that use cards import `DocCardList` between the frontmatter and the title (see [Page pieces](#page-pieces)).
+- The page has one `#` title. Directly under it, `<Description />` shows the `description` as the lead.
 - Shared prerequisite pages live in `docs/shared/`. Link to them; never repeat their steps.
 
 ## Words
@@ -24,36 +23,34 @@ These rules apply to every doc type: How-to guides (`how_to_format.md`), Tutoria
 - Don't name UI frameworks. Say "dropdown," not "ng-select."
 
 ## Page pieces
-Every doc type uses the same built-in Docusaurus pieces, so all pages feel the same. Don't add custom components, CSS, or other files. Custom styling comes later.
+Every doc type uses the same page components, so all pages look the same. They live in `src/components/DocBlocks/` and are available in every doc without an import. Each one wraps plain Markdown, so headings, lists, and text stay in the doc source. Colours and spacing come from the theme in `src/css/custom.css`; don't add inline styles.
 
-- **Cards for lists of links.** Prerequisites, Next steps, and Related are a `DocCardList` of cards, not bullets. Import it once, directly after the frontmatter: `import DocCardList from '@theme/DocCardList';`. Each card is `{type: 'link', href: '<link>', label: '<emoji> <Title>', description: '<One line.>'}`.
-  - The title is two to five words. The description is one line saying what the reader does or finds there.
-  - The emoji becomes the card icon. Use one per kind of page:
+| Component | Use it for | Used by |
+|---|---|---|
+| `<Description />` | The frontmatter `description` as the lead under the `#` title. | Every doc |
+| `<LinkCards>` with `<LinkCard title to icon>` | Any list of links: Prerequisites, Next steps, Related. | Every doc |
+| `<Steps>` | Wraps a numbered list; draws each number as a circle joined by a line. The last circle is yellow. | How-to guides, Tutorials |
+| `<Callout kind="checkpoint">` | What the reader should see at the end of a part. | Tutorials |
+| `<Callout kind="example">` | One worked example. | Reference pages |
+| `<Accordion>` | Wraps `<details>` blocks; each becomes a gray box with a yellow border that expands. | How-to guides, Tutorials |
 
-    | Emoji | Links to |
-    |---|---|
-    | 👤 | Create an account |
-    | 🍴 | Fork a demo repo |
-    | 📦 | Create a Space |
-    | 🔌 | Connect GitHub |
-    | 🛠️ | How-to guide |
-    | 🎓 | Tutorial |
-    | 📋 | Reference page |
-    | 💡 | Explanation |
-    | 💻 | A tool to install, such as Node.js |
+- **Cards.** Each card is `<LinkCard title="<Title>" to="<link>" icon="<icon>">` with one line of text inside. The title is two to five words. The text says what the reader does or finds there. Use one icon per kind of page:
 
-  - A card needs a link. Something with nothing to link to, such as "basic knowledge of React," goes in one sentence under the cards.
-- **Numbered lists for steps.** Each step is a list item with a bold title, then its description and any code indented under it. No "Step N:" headings.
-- **Gray boxes with a yellow border for troubleshooting.** Each entry is a collapsed `<details>` block with this exact opening tag, so every page matches:
+  | `icon` | Links to |
+  |---|---|
+  | `account` | Create an account, or another account to sign up for |
+  | `fork` | Fork a demo repo |
+  | `space` | Create a Space |
+  | `git` | Connect GitHub |
+  | `guide` | How-to guide |
+  | `tutorial` | Tutorial |
+  | `reference` | Reference page |
+  | `explanation` | Explanation |
+  | `tool` | A tool to install, such as Node.js |
 
-  ```md
-  <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-  <summary>The symptom, as the reader sees it</summary>
-
-  The cause, then the fix.
-
-  </details>
-  ```
+  A card needs a link. Something with nothing to link to, such as "basic knowledge of React," goes in one sentence under the cards.
+- **Steps.** Each step is a list item with a bold title, then its description and any code indented under it. No "Step N:" headings. A list that starts at another number, such as `4.`, keeps its numbering. Indent everything under a step to line up with the title: 3 spaces under `1.` to `9.`, 4 spaces under `10.` and above. With less, the text drops out of the step and the numbering breaks.
+- **Blank lines.** Leave a blank line after every opening tag and before every closing tag (`<Steps>`, `<Callout>`, `<Accordion>`, `<details>` bodies). Without it, the Markdown inside isn't rendered.
 
 ## Links and images
 - Internal links use the docs path, such as `/docs/shared/create-a-space`, never a `codecapsules.io` URL.
