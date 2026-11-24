@@ -1,0 +1,10 @@
+{
+  "run": "2026-11-24T06:40:42Z",
+  "docFile": "docs/b/react.md",
+  "docType": "How-to guide",
+  "template": "how_to_format.md",
+  "feature": "Create React frontend capsule",
+  "goalManifest": "Expect to see capsule building in builds tab",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)"
+}
