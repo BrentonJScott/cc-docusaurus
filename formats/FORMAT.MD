@@ -101,7 +101,7 @@ Read the doc top to bottom and list every instruction or statement it gives the 
   - A prerequisite is missing from `## Prerequisites`.
   - A prerequisite is explained step by step on the page instead of linked.
   - A prerequisite has no link.
-- For each shared page that doesn't exist, raise a **Shared page** ticket (see below). Check `reports/` and the open pull requests first. If a ticket for that shared page already exists, reference it instead of raising a new one.
+- For each shared page that doesn't exist, raise a **Shared page** ticket (see below). Check `reports/` (every run folder) and the open pull requests first. If a ticket for that shared page already exists, reference it instead of raising a new one.
 
 ## Check 3: Links
 **All doc types.**
@@ -159,8 +159,9 @@ Each ticket must have:
 - **Proposed outline**: for a failed doc, the doc rewritten as an outline that follows its template's section table: each `##` heading in order, with the bullets, step or part titles, or table columns that go under it. Don't write the full doc.
 
 ## Report files
-- Save each report as `reports/<doc folder>/YYYY-MM-DD-format-<doc-name>.md`, with a matching `.json` file in the same folder that holds the same data (header fields, content list, check results, tickets).
-- `<doc folder>` is the doc's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/guides/backend/go/<doc-name>.md` goes in `reports/guides/backend/go/`. Create the folders if they don't exist.
+- Save each report as `reports/<datetime>/<doc folder>/format-<doc-name>.md`, with a matching `.json` file in the same folder that holds the same data (header fields, content list, check results, tickets).
+- `<datetime>` is the run's start time as `YYYY-MM-DD-HHmm`. Use the same value for every report in the run, so one run is one folder and file names don't need a date.
+- `<doc folder>` is the doc's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/cli/readme/commands/<doc-name>.md` goes in `reports/<datetime>/cli/readme/commands/`. Create the folders if they don't exist.
 - Add a format column to the run summary report so each doc shows its type, `Format check`, and `Walkthrough` results side by side.
 
 ## Deliver

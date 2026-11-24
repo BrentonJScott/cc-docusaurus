@@ -58,8 +58,9 @@
 - Suggested fixes: How the guide should be updated to reflect the real steps.
 
 ## Report files
-- Save each walkthrough report as `reports/<guide folder>/YYYY-MM-DD-walkthrough-<guide-name>.md`.
-- `<guide folder>` is the guide's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/guides/backend/go/<guide-name>.md` goes in `reports/guides/backend/go/`. Create the folders if they don't exist.
+- Save each walkthrough report as `reports/<datetime>/<guide folder>/walkthrough-<guide-name>.md`.
+- `<datetime>` is the run's start time as `YYYY-MM-DD-HHmm`, the same value used for every report in the run, so file names don't need a date.
+- `<guide folder>` is the guide's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/cli/readme/commands/<guide-name>.md` goes in `reports/<datetime>/cli/readme/commands/`. Create the folders if they don't exist.
 - For a feature with no guide, use the folder where the recommended guide should live.
 - Screenshots stay with the report they belong to.
 
