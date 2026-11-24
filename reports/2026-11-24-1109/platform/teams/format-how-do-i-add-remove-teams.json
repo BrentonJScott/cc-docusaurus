@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/platform/teams/how-do-i-add-remove-teams.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Add and remove a team",
+  "goal": "Expect to see the team created and then removed",
+  "section": "Platform Teams and Spaces",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

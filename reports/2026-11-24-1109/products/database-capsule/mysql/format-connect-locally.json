@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/products/database-capsule/mysql/connect-locally.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Connect to MySQL locally",
+  "goal": "Expect the mysql client to connect through the proxy tunnel",
+  "section": "Database Capsule Info",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "fuzzy match",
+  "matchScore": 1.168,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

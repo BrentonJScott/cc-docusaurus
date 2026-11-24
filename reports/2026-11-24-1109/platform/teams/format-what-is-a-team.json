@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/platform/teams/what-is-a-team.md",
+  "docType": "explanation",
+  "template": "explanation_format.md",
+  "feature": "Understand teams",
+  "goal": "Expect to know how teams relate to spaces",
+  "section": "Platform Teams and Spaces",
+  "formatCheck": "pass",
+  "walkthrough": "not applicable",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

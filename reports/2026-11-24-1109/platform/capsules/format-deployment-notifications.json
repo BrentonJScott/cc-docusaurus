@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/platform/capsules/deployment-notifications.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Set up deployment notifications",
+  "goal": "Expect to see notification preferences saved",
+  "section": "Platform Capsules",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

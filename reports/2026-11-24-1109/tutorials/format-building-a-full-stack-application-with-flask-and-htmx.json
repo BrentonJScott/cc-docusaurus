@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/tutorials/building-a-full-stack-application-with-flask-and-htmx.md",
+  "docType": "tutorial",
+  "template": "tutorial_format.md",
+  "feature": "Build a full stack app with Flask and HTMX",
+  "goal": "Expect to see the app load",
+  "section": "Tutorials",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "fuzzy match",
+  "matchScore": 1.916,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

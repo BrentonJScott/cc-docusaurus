@@ -1,0 +1,50 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/platform/platform.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "View platform overview",
+  "goal": "Expect every link on the page to open an existing page",
+  "section": "Platform Overview",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing `## Prerequisites`. Missing `## Troubleshooting`."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "platform-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing `## Prerequisites`.",
+      "rule": "how_to_format.md",
+      "change": "Missing `## Prerequisites`.\n- Missing `## Troubleshooting`.",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing `## Prerequisites`.",
+    "Missing `## Troubleshooting`."
+  ]
+}

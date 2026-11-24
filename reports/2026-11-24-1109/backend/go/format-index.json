@@ -1,0 +1,50 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/backend/go/index.md",
+  "docType": "reference",
+  "template": "reference_format.md",
+  "feature": "View Go hosting index",
+  "goal": "Expect every link on the page to open an existing page",
+  "section": "Platform Overview",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Broken internal link: /docs/backend/go/go Broken internal link: /docs/backend/go/go-telegram-bot"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Broken internal link: /docs/backend/go/go Broken internal link: /docs/backend/go/go-telegram-bot"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "index-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Broken internal link: /docs/backend/go/go",
+      "rule": "reference_format.md",
+      "change": "Broken internal link: /docs/backend/go/go\n- Broken internal link: /docs/backend/go/go-telegram-bot",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Broken internal link: /docs/backend/go/go",
+    "Broken internal link: /docs/backend/go/go-telegram-bot"
+  ]
+}

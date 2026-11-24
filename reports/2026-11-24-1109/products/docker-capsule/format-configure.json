@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/products/docker-capsule/configure.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Configure Docker capsule",
+  "goal": "Expect to see updated capsule parameters and environment variables saved and a data capsule connected",
+  "section": "Docker Capsule Info",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.995,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

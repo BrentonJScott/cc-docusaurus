@@ -1,0 +1,74 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/wordpress.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Secure WordPress capsule",
+  "goal": "Expect to see secure headers, blocked paths, rate limiting and login protection in place",
+  "section": "WordPress Capsule Info",
+  "formatCheck": "fail",
+  "walkthrough": "not run (format fail)",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.695,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "fail",
+      "reason": "DocCardList prerequisites required."
+    },
+    {
+      "check": "Links",
+      "status": "fail",
+      "reason": "Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/get-started/add-capsule.png Image missing in static/: /gitbook-assets/get-started/wordpress-capsule-type.jpg Image missing in static/: /gitbook-assets/get-started/wordpress-choose-plan.png Image missing in static/: /gitbook-assets/get-started/wordpress-configure-capsule.png Image missing in static/: /gitbook-assets/get-started/wordpress-version.png Image missing in static/: /gitbook-assets/get-started/wordpress-git-managed.png Image missing in static/: /gitbook-assets/get-started/wordpress-logs.png Image missing in static/: /gitbook-assets/get-started/wordpress-url.png Image missing in static/: /gitbook-assets/get-started/wordpress-setup.png Image missing in static/: /gitbook-assets/get-started/wordpress-welcome.png Broken internal link: /gitbook-assets/get-started/add-capsule.png Broken internal link: /gitbook-assets/get-started/wordpress-capsule-type.jpg Broken internal link: /gitbook-assets/get-started/wordpress-choose-plan.png Broken internal link: /gitbook-assets/get-started/wordpress-configure-capsule.png Broken internal link: /gitbook-assets/get-started/wordpress-version.png Broken internal link: /gitbook-assets/get-started/wordpress-git-managed.png Broken internal link: /gitbook-assets/get-started/wordpress-logs.png Broken internal link: /gitbook-assets/get-started/wordpress-url.png Broken internal link: /gitbook-assets/get-started/wordpress-setup.png Broken internal link: /gitbook-assets/get-started/wordpress-welcome.png"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing or incorrect `doc_version: drift` in frontmatter. Missing `import DocCardList from '@theme/DocCardList';`. Missing `## Prerequisites`. Missing `## Troubleshooting`. Legacy Setup/Create an Account sections instead of Prerequisites + steps section. Links to live codecapsules.io instead of internal docs paths. Image missing in static/: /gitbook-assets/get-started/add-capsule.png Image missing in static/: /gitbook-assets/get-started/wordpress-capsule-type.jpg Image missing in static/: /gitbook-assets/get-started/wordpress-choose-plan.png Image missing in static/: /gitbook-assets/get-started/wordpress-configure-capsule.png Image missing in static/: /gitbook-assets/get-started/wordpress-version.png Image missing in static/: /gitbook-assets/get-started/wordpress-git-managed.png Image missing in static/: /gitbook-assets/get-started/wordpress-logs.png Image missing in static/: /gitbook-assets/get-started/wordpress-url.png Image missing in static/: /gitbook-assets/get-started/wordpress-setup.png Image missing in static/: /gitbook-assets/get-started/wordpress-welcome.png Broken internal link: /gitbook-assets/get-started/add-capsule.png Broken internal link: /gitbook-assets/get-started/wordpress-capsule-type.jpg Broken internal link: /gitbook-assets/get-started/wordpress-choose-plan.png Broken internal link: /gitbook-assets/get-started/wordpress-configure-capsule.png Broken internal link: /gitbook-assets/get-started/wordpress-version.png Broken internal link: /gitbook-assets/get-started/wordpress-git-managed.png Broken internal link: /gitbook-assets/get-started/wordpress-logs.png Broken internal link: /gitbook-assets/get-started/wordpress-url.png Broken internal link: /gitbook-assets/get-started/wordpress-setup.png Broken internal link: /gitbook-assets/get-started/wordpress-welcome.png"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "wordpress-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing or incorrect `doc_version: drift` in frontmatter.",
+      "rule": "how_to_format.md",
+      "change": "Missing or incorrect `doc_version: drift` in frontmatter.\n- Missing `import DocCardList from '@theme/DocCardList';`.\n- Missing `## Prerequisites`.\n- Missing `## Troubleshooting`.\n- Legacy Setup/Create an Account sections instead of Prerequisites + steps section.\n- Links to live codecapsules.io instead of internal docs paths.\n- Image missing in static/: /gitbook-assets/get-started/add-capsule.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-capsule-type.jpg\n- Image missing in static/: /gitbook-assets/get-started/wordpress-choose-plan.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-configure-capsule.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-version.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-git-managed.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-logs.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-url.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-setup.png\n- Image missing in static/: /gitbook-assets/get-started/wordpress-welcome.png\n- Broken internal link: /gitbook-assets/get-started/add-capsule.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-capsule-type.jpg\n- Broken internal link: /gitbook-assets/get-started/wordpress-choose-plan.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-configure-capsule.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-version.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-git-managed.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-logs.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-url.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-setup.png\n- Broken internal link: /gitbook-assets/get-started/wordpress-welcome.png",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing or incorrect `doc_version: drift` in frontmatter.",
+    "Missing `import DocCardList from '@theme/DocCardList';`.",
+    "Missing `## Prerequisites`.",
+    "Missing `## Troubleshooting`.",
+    "Legacy Setup/Create an Account sections instead of Prerequisites + steps section.",
+    "Links to live codecapsules.io instead of internal docs paths.",
+    "Image missing in static/: /gitbook-assets/get-started/add-capsule.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-capsule-type.jpg",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-choose-plan.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-configure-capsule.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-version.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-git-managed.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-logs.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-url.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-setup.png",
+    "Image missing in static/: /gitbook-assets/get-started/wordpress-welcome.png",
+    "Broken internal link: /gitbook-assets/get-started/add-capsule.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-capsule-type.jpg",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-choose-plan.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-configure-capsule.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-version.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-git-managed.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-logs.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-url.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-setup.png",
+    "Broken internal link: /gitbook-assets/get-started/wordpress-welcome.png"
+  ]
+}

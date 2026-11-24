@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/platform/account/how-do-i-enable-2fa.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Enable two-factor authentication",
+  "goal": "Expect to be asked for a 2FA code at the next login",
+  "section": "Platform Account",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

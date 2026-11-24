@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/tutorials/index.md",
+  "docType": "reference",
+  "template": "reference_format.md",
+  "feature": "View tutorials index",
+  "goal": "Expect every link on the page to open an existing page",
+  "section": "Tutorials",
+  "formatCheck": "pass",
+  "walkthrough": "not applicable",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.9,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

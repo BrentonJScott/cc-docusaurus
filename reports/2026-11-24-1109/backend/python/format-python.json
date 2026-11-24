@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/backend/python/python.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Create Python backend capsule",
+  "goal": "Expect to see capsule building in builds tab",
+  "section": "Backend Capsule Deploy",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

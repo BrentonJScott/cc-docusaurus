@@ -1,0 +1,51 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/platform/billing/how-does-the-pricing-work.md",
+  "docType": "explanation",
+  "template": "explanation_format.md",
+  "feature": "Understand pricing",
+  "goal": "Expect to work out a capsule's monthly price",
+  "section": "Platform Billing",
+  "formatCheck": "fail",
+  "walkthrough": "not applicable",
+  "matchReason": "curated",
+  "matchScore": 1.0,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "fail",
+      "reason": "Legacy layout / missing goal structure."
+    },
+    {
+      "check": "Prerequisites",
+      "status": "not applicable",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "fail",
+      "reason": "Missing required section `## Why it matters`. Missing required section `## How it works`. Missing required section `## When to use it`."
+    }
+  ],
+  "tickets": [
+    {
+      "id": "how-does-the-pricing-work-1",
+      "type": "Format fix",
+      "title": "Bring page in line with its template.",
+      "problem": "Missing required section `## Why it matters`.",
+      "rule": "explanation_format.md",
+      "change": "Missing required section `## Why it matters`.\n- Missing required section `## How it works`.\n- Missing required section `## When to use it`.",
+      "doneWhen": "FORMAT.MD re-check passes for this doc type."
+    }
+  ],
+  "issues": [
+    "Missing required section `## Why it matters`.",
+    "Missing required section `## How it works`.",
+    "Missing required section `## When to use it`."
+  ]
+}

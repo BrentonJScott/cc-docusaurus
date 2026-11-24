@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/products/storage-capsule/scale.md",
+  "docType": "how-to",
+  "template": "how_to_format.md",
+  "feature": "Scale storage capsule",
+  "goal": "Expect to see new resources saved in the scale tab",
+  "section": "Storage Capsule Info",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "fuzzy match",
+  "matchScore": 0.835,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}

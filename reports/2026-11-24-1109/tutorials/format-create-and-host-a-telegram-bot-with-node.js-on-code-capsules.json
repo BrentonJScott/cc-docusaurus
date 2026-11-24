@@ -1,0 +1,37 @@
+{
+  "runTimestamp": "2026-11-24T11:09:00+02:00",
+  "docFile": "docs/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md",
+  "docType": "tutorial",
+  "template": "tutorial_format.md",
+  "feature": "Create Node.js Slack bot backend capsule",
+  "goal": "Expect to see the bot reply in Slack",
+  "section": "Backend Capsule Deploy",
+  "formatCheck": "pass",
+  "walkthrough": "pending",
+  "matchReason": "fuzzy match",
+  "matchScore": 1.06,
+  "checkResults": [
+    {
+      "check": "Content",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Prerequisites",
+      "status": "pass",
+      "reason": ""
+    },
+    {
+      "check": "Links",
+      "status": "pass",
+      "reason": "OK"
+    },
+    {
+      "check": "Format and style",
+      "status": "pass",
+      "reason": "OK"
+    }
+  ],
+  "tickets": [],
+  "issues": []
+}
