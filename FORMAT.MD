@@ -7,12 +7,14 @@ Every doc is checked against the template for its type. A doc that fails is not 
 ## Templates
 There are four doc types. Each has its own template, and all of them share `writing_style.md`.
 
-| Doc type | Template | Folder | The reader wants to… |
-|---|---|---|---|
-| How-to guide | `how_to_format.md` | `docs/guides/` | get one task done |
-| Tutorial | `tutorial_format.md` | `docs/tutorials/` | learn by building something |
-| Reference | `reference_format.md` | `docs/references/` | look up a fact |
-| Explanation | `explanation_format.md` | `docs/explanations/` | understand a topic |
+| Doc type | Template | The reader wants to… |
+|---|---|---|
+| How-to guide | `how_to_format.md` | get one task done |
+| Tutorial | `tutorial_format.md` | learn by building something |
+| Reference | `reference_format.md` | look up a fact |
+| Explanation | `explanation_format.md` | understand a topic |
+
+A doc of any type can live in any folder inside `docs/`. The folder is never part of the check.
 
 ## Setup
 - Follow the Setup section of `WALKTHROUGH.md` first (git sync, then read `DOCUMENTED_FEATURES.md`).
@@ -26,12 +28,11 @@ There are four doc types. Each has its own template, and all of them share `writ
 - A doc passes only if every check that applies to it passes.
 
 ## Step 1: Decide the doc type
-Decide the type from what the page does, not where it lives.
+Decide the type from what the page does, not which folder it's in.
 
-- Read the page and choose the type from the "reader wants to" column above. A page that walks through one task to one goal is a How-to guide, even if it's in `docs/tutorials/`.
+- Read the page and choose the type from the "reader wants to" column above. A page that walks through one task to one goal is a How-to guide, whatever folder it's in.
 - Write down the type and its template. Every later check uses that template.
 - The doc fails this step if:
-  - Its folder doesn't match its type. Raise a **Wrong doc type** ticket to move it.
   - It mixes types, such as a Reference page with deployment steps. Raise a **Wrong doc type** ticket that says how to split it and which part goes to which template.
 - If the doc fails this step, still run the remaining checks against the template for the type it **should** be, so the report covers every fix.
 
@@ -133,7 +134,7 @@ Check the doc against every rule in the template for its type from Step 1, and a
 Each ticket is one piece of work someone can pick up on its own. Use these types:
 
 - **Format fix**: change the doc to meet its template. One ticket per doc, with a checklist of every change.
-- **Wrong doc type**: move the doc to the right folder and template, or split it into one doc per type.
+- **Wrong doc type**: rewrite the doc to the right template, or split it into one doc per type.
 - **Move to prerequisites**: move a non-goal instruction out of the steps or parts into `## Prerequisites` and replace it with a link.
 - **Move to another doc**: move an instruction out of a Reference or Explanation into a How-to guide, or a list of values into a Reference page, and link it from `## Related`.
 - **Remove content**: delete content labelled `remove` in Check 1.
