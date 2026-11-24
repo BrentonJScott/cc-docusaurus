@@ -1,0 +1,51 @@
+---
+slug: "/products/database-capsule/postgresql/deploy-and-bind"
+description: >-
+  Create a PostgreSQL Database Capsule and bind it to a backend Capsule.
+title: "Deploy and bind PostgreSQL"
+sidebar_label: "Deploy and bind"
+doc_version: drift
+---
+
+import DocCardList from '@theme/DocCardList';
+
+# Deploy and bind PostgreSQL
+
+Create a PostgreSQL Database Capsule and bind it to a backend Capsule.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Have or create a backend Capsule to bind.'},
+  ]}
+/>
+
+## Deploy and bind
+
+1. **Create the database Capsule**
+
+   Click **New Capsule** and choose **PostgreSQL**. Complete **Plan & Deploy** and click **Create Capsule**. Wait until the database Capsule is running.
+
+2. **Open the backend Capsule**
+
+   Open the backend Capsule that should use this database. Go to **Configure** or **Config**.
+
+3. **Bind the database**
+
+   In **Data Capsules** or **Bind database**, select the PostgreSQL Capsule you created. Click **Save** and confirm.
+
+4. **Confirm binding**
+
+   Connection environment variables appear on the backend Capsule. The database Capsule shows as bound in the UI.
+
+## Troubleshooting
+
+<details>
+<summary>The database Capsule does not appear in the bind list</summary>
+
+Confirm both capsules are in the same Space and the database Capsule status is running. Refresh the backend **Configure** tab.
+
+</details>

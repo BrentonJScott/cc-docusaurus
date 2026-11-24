@@ -2,29 +2,493 @@
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
+ *
+ * Docs are written with built-in pieces only (Markdown, DocCardList,
+ * <details>), so every doc gets this look from the selectors below.
+ * formats/writing_style.md lists the markup each section expects.
  */
 
-/* You can override the default Infima variables here. */
+/* ------------------------------------------------------------------
+   Tokens
+   Code Capsules palette. Links use a dark gold so text stays readable
+   on white; the bright yellow (--cc-accent) is only for fills and
+   accents.
+   ------------------------------------------------------------------ */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #a18300;
+  --ifm-color-primary-dark: #927600;
+  --ifm-color-primary-darker: #886f00;
+  --ifm-color-primary-darkest: #705b00;
+  --ifm-color-primary-light: #b09000;
+  --ifm-color-primary-lighter: #bb9800;
+  --ifm-color-primary-lightest: #d0ab00;
+
+  --ifm-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-heading-color: #1d1d1d;
+  --ifm-code-font-size: 92%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-link-color: rgb(105, 105, 105);
+  --ifm-navbar-link-hover-color: #020202;
+  --ifm-menu-color-background-active: rgba(0, 0, 0, 0.07);
+  --ifm-menu-color-background-hover: rgba(0, 0, 0, 0.04);
+  --ifm-menu-link-padding-vertical: 8px;
+  --ifm-menu-link-padding-horizontal: 12px;
+  --ifm-toc-border-color: rgba(29, 29, 29, 0.08);
+
+  --cc-accent: #f5c518;
+  --cc-accent-soft: #fdf3cf;
+  --cc-accent-ink: #7a5c00;
+  --cc-border: rgba(29, 29, 29, 0.1);
+  --cc-surface: #ffffff;
+  --cc-surface-muted: #f5f5f5;
+  --cc-surface-hover: #efefef;
+  --cc-step-bg: #ecebe7;
+  --cc-step-size: 1.75rem;
+  --cc-shadow: rgba(28, 26, 20, 0.08);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #f2c94c;
+  --ifm-color-primary-dark: #f0c12f;
+  --ifm-color-primary-darker: #efbd20;
+  --ifm-color-primary-darkest: #d9a60f;
+  --ifm-color-primary-light: #f4d169;
+  --ifm-color-primary-lighter: #f5d578;
+  --ifm-color-primary-lightest: #f8e0a2;
+  --ifm-heading-color: #f1f1ef;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-link-color: rgb(190, 190, 190);
+  --ifm-navbar-link-hover-color: #ffffff;
+  --ifm-menu-color-background-active: rgba(255, 255, 255, 0.08);
+  --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.05);
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.08);
+
+  --cc-accent: #f5c518;
+  --cc-accent-soft: rgba(245, 197, 24, 0.12);
+  --cc-accent-ink: #f5c518;
+  --cc-border: rgba(255, 255, 255, 0.1);
+  --cc-surface: #1e1e1d;
+  --cc-surface-muted: #232322;
+  --cc-surface-hover: #2a2a29;
+  --cc-step-bg: #353431;
+  --cc-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ------------------------------------------------------------------
+   Site chrome
+   ------------------------------------------------------------------ */
+
+/* Navbar: flat, with a hairline under it */
+.navbar {
+  border-bottom: 1px solid var(--cc-border);
+}
+
+/* Top tabs: the active tab is underlined in yellow, not recoloured */
+.navbar__item.navbar__link {
+  position: relative;
+  font-weight: 500;
+}
+
+.navbar__item.navbar__link--active {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.navbar__item.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  left: var(--ifm-navbar-item-padding-horizontal);
+  right: var(--ifm-navbar-item-padding-horizontal);
+  bottom: calc(-1 * var(--ifm-navbar-padding-vertical));
+  height: 2px;
+  border-radius: 2px;
+  background: var(--cc-accent);
+}
+
+/* Sidebar: the current page gets a soft grey pill */
+.menu__link {
+  border-radius: 8px;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: var(--ifm-heading-color);
+  font-weight: 600;
+}
+
+.menu__link--sublist.menu__link--active,
+.menu__caret:hover {
+  color: var(--ifm-heading-color);
+}
+
+/* Breadcrumb: the current page is a yellow-tinted chip */
+.breadcrumbs__item--active .breadcrumbs__link {
+  background: var(--cc-accent-soft);
+  color: var(--cc-accent-ink);
+}
+
+/* Table of contents */
+.table-of-contents {
+  font-size: 0.9rem;
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+}
+
+/* Pagination: cards that match the link cards */
+.pagination-nav__link {
+  border-radius: 12px;
+  border-color: var(--cc-border);
+  transition: border-color 0.15s ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--cc-accent);
+}
+
+/* ------------------------------------------------------------------
+   Title and description
+   The paragraph straight after the # title repeats the description,
+   so it reads as a lead.
+   ------------------------------------------------------------------ */
+.markdown > h1:first-child,
+.markdown header > h1 {
+  letter-spacing: -0.02em;
+}
+
+.markdown > h1:first-child + p,
+.markdown > header:first-child + p {
+  max-width: 42rem;
+  margin: -0.5rem 0 2.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* ------------------------------------------------------------------
+   Cards: <DocCardList items={[...]} />
+   Prerequisites, Next steps, and Related. The label's leading emoji
+   picks a line icon (src/theme/DocCard/Layout/icons.tsx) in a tinted
+   square, the description wraps under the title, and
+   an arrow slides on hover. Uses the theme's stable class names.
+   ------------------------------------------------------------------ */
+.markdown .row:has(> article > .theme-doc-card-container) {
+  margin-bottom: 1.75rem;
+}
+
+.markdown article:has(> .theme-doc-card-container) {
+  margin-bottom: 0.75rem;
+}
+
+.markdown .theme-doc-card-container {
+  --ifm-link-hover-decoration: none;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    'icon title arrow'
+    'icon text arrow';
+  align-content: start;
+  column-gap: 0.85rem;
+  row-gap: 0.2rem;
+  padding: 1rem;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  background: var(--cc-surface);
+  box-shadow: none;
+  color: inherit;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.markdown .theme-doc-card-container:hover {
+  border-color: var(--cc-accent);
+  box-shadow: 0 4px 16px var(--cc-shadow);
+  transform: translateY(-1px);
+}
+
+.markdown .theme-doc-card-container:focus-visible {
+  outline: 2px solid var(--cc-accent);
+  outline-offset: 2px;
+}
+
+/* Lay the heading's icon and title straight into the card grid */
+.markdown .theme-doc-card-heading {
+  display: contents;
+}
+
+.markdown .theme-doc-card-icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0;
+  border-radius: 8px;
+  background: var(--cc-accent-soft);
+  color: var(--cc-accent-ink);
+  line-height: 1;
+}
+
+.markdown .theme-doc-card-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.markdown .theme-doc-card-title {
+  grid-area: title;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ifm-heading-color);
+}
+
+.markdown .theme-doc-card-description {
+  grid-area: text;
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ifm-color-emphasis-700);
+  white-space: normal;
+}
+
+.markdown .theme-doc-card-container::after {
+  content: '→';
+  grid-area: arrow;
+  align-self: center;
+  color: var(--ifm-color-emphasis-500);
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
+}
+
+.markdown .theme-doc-card-container:hover::after {
+  color: var(--cc-accent-ink);
+  transform: translateX(3px);
+}
+
+/* ------------------------------------------------------------------
+   Steps: a numbered list whose first item starts with a bold title on
+   its own line (1. **Title**, blank line, description). Numbered
+   circles are joined by one line so the steps read as a flow; the last
+   circle is yellow because that step reaches the goal.
+   ------------------------------------------------------------------ */
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) {
+  list-style: none;
+  counter-reset: step;
+  margin: 1.5rem 0 2.5rem;
+  padding: 0;
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li {
+  position: relative;
+  counter-increment: step;
+  margin: 0;
+  padding: 0 0 1.75rem calc(var(--cc-step-size) + 1rem);
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li::before {
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--cc-step-size);
+  height: var(--cc-step-size);
+  border-radius: 50%;
+  background: var(--cc-step-bg);
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--cc-step-size) + 0.25rem);
+  bottom: 0.25rem;
+  left: calc(var(--cc-step-size) / 2 - 1px);
+  width: 2px;
+  border-radius: 1px;
+  background: var(--cc-border);
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li:last-child {
+  padding-bottom: 0;
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li:last-child::after {
+  display: none;
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li:last-child::before {
+  background: var(--cc-accent);
+  color: #1c1a14;
+}
+
+/* Infima spaces paragraphs in loose lists from the top; the step title
+   sets the gap instead */
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li > p {
+  margin-top: 0;
+}
+
+/* The bold first line of each item is the step title */
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li > p:first-child {
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+  line-height: var(--cc-step-size);
+  color: var(--ifm-heading-color);
+}
+
+.markdown ol:has(> li:first-child > p:first-child > strong:only-child) > li > :last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Troubleshooting: <details><summary>…</summary>…</details>
+   A light gray box with a yellow border, and a chevron on the right.
+   The selectors beat Infima's .alert--info that Docusaurus puts on
+   <details>.
+   ------------------------------------------------------------------ */
+.markdown details.alert {
+  --ifm-alert-background-color: var(--cc-surface-muted);
+  --ifm-alert-background-color-highlight: var(--ifm-color-emphasis-200);
+  --ifm-alert-border-color: var(--cc-accent);
+  --ifm-alert-foreground-color: var(--ifm-font-color-base);
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: 1px solid var(--cc-accent);
+  border-radius: 10px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.markdown details.alert + :not(details) {
+  margin-top: 2rem;
+}
+
+/* A plain text line, so inline code in a symptom stays in the sentence */
+.markdown details.alert > summary {
+  position: relative;
+  display: block;
+  padding: 0.85rem 2.75rem 0.85rem 1.1rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.markdown details.alert > summary:hover {
+  background: var(--cc-surface-hover);
+}
+
+.markdown details.alert > summary:focus-visible {
+  outline: 2px solid var(--cc-accent);
+  outline-offset: -2px;
+}
+
+/* Replace the left-hand triangle with a chevron on the right */
+.markdown details.alert > summary::before {
+  display: none;
+}
+
+.markdown details.alert > summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--cc-accent-ink);
+  border-bottom: 2px solid var(--cc-accent-ink);
+  transform: translateY(-75%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.markdown details.alert[data-collapsed='false'] > summary::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.markdown details.alert [class*='collapsibleContent'] {
+  margin: 0;
+  padding: 0.85rem 1.1rem 1rem;
+  border-top: 1px solid var(--cc-border);
+}
+
+.markdown details.alert [class*='collapsibleContent'] > :last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------
+   Tables: full width, rounded, with a tinted header row
+   ------------------------------------------------------------------ */
+.markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.markdown table thead tr {
+  background: var(--cc-surface-muted);
+  border-bottom: none;
+}
+
+.markdown table tr,
+.markdown table tr:nth-child(2n) {
+  background: transparent;
+}
+
+.markdown table th,
+.markdown table td {
+  border: none;
+  border-bottom: 1px solid var(--cc-border);
+  padding: 0.7rem 1rem;
+  text-align: left;
+}
+
+.markdown table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown table th {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Reference pages: the Overview list is an "at a glance" panel */
+.markdown h2#overview + ul {
+  list-style: none;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--cc-border);
+  border-left: 3px solid var(--cc-accent);
+  border-radius: 12px;
+  background: var(--cc-surface-muted);
+}
+
+.markdown h2#overview + ul > li + li {
+  margin-top: 0.4rem;
+}
+
+/* Admonitions: same corner radius as the other boxes */
+.markdown .theme-admonition {
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .markdown .theme-doc-card-container,
+  .markdown .theme-doc-card-container::after,
+  .markdown details.alert > summary,
+  .markdown details.alert > summary::after {
+    transition: none;
+  }
 }
