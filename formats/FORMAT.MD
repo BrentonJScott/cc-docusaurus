@@ -127,7 +127,7 @@ Check the doc against every rule in the template for its type from Step 1, and a
 - In the run summary, mark the doc `Format check: fail` and, for How-to guides and Tutorials, `Walkthrough: not run (format fail)`. Link the format report.
 
 ## If the doc passes
-- Write a short format report that records the pass, the doc type, and the Check 1 list.
+- Don't write a format report. A doc with no failed checks and no tickets doesn't get one. Record the pass, and the doc type, only as a row in the run summary.
 - How-to guides and Tutorials continue to the `WALKTHROUGH.md` walkthrough. Reference pages and Explanations are done; mark them `Walkthrough: not applicable`.
 
 ## Tickets
@@ -159,7 +159,7 @@ Each ticket must have:
 - **Proposed outline**: for a failed doc, the doc rewritten as an outline that follows its template's section table: each `##` heading in order, with the bullets, step or part titles, or table columns that go under it. Don't write the full doc.
 
 ## Report files
-- Save each report as `reports/<datetime>/<doc folder>/format-<doc-name>.md`, with a matching `.json` file in the same folder that holds the same data (header fields, content list, check results, tickets).
+- Only write a report for a doc that failed a check or has tickets. Save each one as `reports/<datetime>/<doc folder>/format-<doc-name>.md`, with a matching `.json` file in the same folder that holds the same data (header fields, content list, check results, tickets).
 - `<datetime>` is the run's start time as `YYYY-MM-DD-HHmm`. Use the same value for every report in the run, so one run is one folder and file names don't need a date.
 - `<doc folder>` is the doc's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/cli/readme/commands/<doc-name>.md` goes in `reports/<datetime>/cli/readme/commands/`. Create the folders if they don't exist.
 - Add a format column to the run summary report so each doc shows its type, `Format check`, and `Walkthrough` results side by side.

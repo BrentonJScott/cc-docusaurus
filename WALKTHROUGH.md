@@ -58,6 +58,7 @@
 - Suggested fixes: How the guide should be updated to reflect the real steps.
 
 ## Report files
+- Only write a walkthrough report if an action is `fail` or `blocked`, or the report would have a suggested fix. If every action is `pass` or `not testable`, don't write one; record the result as a row in the run summary.
 - Save each walkthrough report as `reports/<datetime>/<guide folder>/walkthrough-<guide-name>.md`.
 - `<datetime>` is the run's start time as `YYYY-MM-DD-HHmm`, the same value used for every report in the run, so file names don't need a date.
 - `<guide folder>` is the guide's folder under `docs/`, so the reports mirror the docs structure. A report for `docs/cli/readme/commands/<guide-name>.md` goes in `reports/<datetime>/cli/readme/commands/`. Create the folders if they don't exist.
