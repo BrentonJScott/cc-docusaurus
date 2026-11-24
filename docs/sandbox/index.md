@@ -8,31 +8,22 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-
 # Sandbox SDK
 
-## Prerequisites
+Ephemeral isolated Linux environments for AI agents backed by Firecracker microVMs.
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+## Overview
 
-Run untrusted code safely. The Sandbox API gives your AI agent a real Linux environment: create it, run anything, delete it.
+Each sandbox is a hardware-isolated Linux microVM. Create it over the API or SDK, execute commands, upload files, and delete it when finished. Boot time is about 125ms. Nothing persists after deletion.
 
-Each sandbox is a Firecracker microVM: hardware-isolated, not a container. Boot time is ~125ms. Everything is deleted when you're done.
+| Topic | Page |
+| --- | --- |
+| Quick start | [/sandbox/quickstart](/sandbox/quickstart) |
+| Environments | [/sandbox/environments](/sandbox/environments) |
+| TypeScript SDK | [/sandbox/typescript](/sandbox/typescript) |
+| Python SDK | [/sandbox/python](/sandbox/python) |
 
-## What's in this section
-
-- [Quick start](/sandbox/quickstart/): install, set your API key, run your first command
-- [Environments](/sandbox/environments/): available flavors and what's preinstalled
-- [TypeScript SDK](/sandbox/typescript/): `@codecapsules/sandbox` on npm
-- [Python SDK](/sandbox/python/): `codecapsules-sandbox` on PyPI
-
-## The three-line version
+## Examples
 
 ```typescript
 import { Sandbox } from '@codecapsules/sandbox';
@@ -41,7 +32,6 @@ await Sandbox.using(async (sb) => {
   const r = await sb.exec('python -c "print(2 ** 32)"');
   console.log(r.stdout); // "4294967296\n"
 });
-// sandbox deleted automatically
 ```
 
 ```python
@@ -52,16 +42,15 @@ with Sandbox.create() as sb:
     print(result.stdout)  # "4294967296\n"
 ```
 
-## Access
+The API is in private beta. [Join the waitlist](/docs/shared/create-an-account) for an API key.
 
-The API is in private beta. [Join the waitlist](/docs/shared/create-an-account) and you'll get an API key when your spot is ready.
+## Related
 
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/sandbox/quickstart', label: '🚀 Quick start', description: 'Install an SDK and run your first command.'},
+    {type: 'link', href: '/sandbox/environments', label: '📋 Environments', description: 'Flavors, limits, and preinstalled tools.'},
+    {type: 'link', href: '/sandbox/typescript/api-reference', label: '📋 TypeScript API', description: 'Methods, types, and errors.'},
+    {type: 'link', href: '/sandbox/python/api-reference', label: '📋 Python API', description: 'Sync and async client reference.'},
+  ]}
+/>

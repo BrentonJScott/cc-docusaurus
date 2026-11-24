@@ -26,13 +26,27 @@ For deploy history, logs, and rollback, see [Deployments](/products/docker-capsu
 />
 
 
+## Update your Docker image
+
+1. **Pull a new version**
+
+   On **Deploy**, click **Pull & Deploy** to pull the configured tag again and deploy.
+
+2. **Change the image reference**
+
+   Edit **Capsule Source** when you need a different repository or tag.
+
+3. **Read the deployed digest**
+
+   On **Deploy**, compare **Deployed digest** with the registry to confirm which revision is live.
+
+4. **Roll back if needed**
+
+   Use [Deployments](/products/docker-capsule/deployments/) history to redeploy a previous import.
+
 ## How image deploys work
 
-Each time you deploy, Code Capsules:
-
-1. Pulls the image from its registry
-2. Records the exact version of the image that was pulled, shown as the **Deployed digest** on the **Deploy** tab
-3. Automatically runs your capsule on success
+Each deploy pulls the image, records **Deployed digest**, and runs the capsule on success.
 
 Each pull appears in the **Builds** tab as an **Image import**, with its own log.
 
@@ -62,16 +76,23 @@ Saving a different image starts a new deploy. To build from a Git repository ins
 
 ## Troubleshooting
 
-### Image deploy fails
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Image deploy fails</summary>
 
-- Check that the **Image reference** is spelled correctly and that the tag exists.
-- Confirm the image is public. Private images are not supported.
-- Confirm the image is hosted on a supported public registry, such as Docker Hub or GitHub Container Registry. If the registry is not supported, Code Capsules shows an error when you create the capsule or save a new image reference.
+Check that the **Image reference** is spelled correctly and that the tag exists. Confirm the image is public. Private images are not supported. Confirm the image is hosted on a supported public registry, such as Docker Hub or GitHub Container Registry.
 
-### Newer image not deployed
+</details>
 
-- Publishing a new image does not update your capsule. Click **Pull & Deploy** to pull the tag again.
-- If you reference an image by digest, the same version is deployed each time. Change the image reference to deploy a different version.
-- Check that your new image was pushed to the same tag your capsule references.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Newer image not deployed</summary>
 
-If the image deploys but your application does not respond, see [Logs](/products/docker-capsule/logs/) and [Container requirements](/products/docker-capsule/container-requirements/).
+Publishing a new image does not update your capsule. Click **Pull & Deploy** to pull the tag again. If you reference an image by digest, change the image reference to deploy a different version.
+
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The image deploys but the app does not respond</summary>
+
+See [Logs](/products/docker-capsule/logs/) and [Container requirements](/products/docker-capsule/container-requirements/).
+
+</details>

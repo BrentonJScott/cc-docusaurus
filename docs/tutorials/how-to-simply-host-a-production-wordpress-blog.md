@@ -9,7 +9,7 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# How to (Simply) Host a Production WordPress Blog
+# How to Host a Production WordPress Blog
 
 ## What you'll build
 
@@ -53,7 +53,7 @@ WordPress migration, backups, and staging workflows each require specific approa
 
 ## What You Need To Know
 
-Due to these WordPress limitations, here's what you need to know to host a production WordPress site simply:
+Due to these WordPress limitations, here's what you need to know to host a production WordPress site:
 
 * **Separate Your WordPress Layers from the Start:** WordPress, MySQL, and file storage should run independently. When one layer fails or requires scaling, the others continue to operate.
 * **Plan for Staging-to-Production Workflows:** WordPress has no built-in mechanism for migrating between environments. Either set up a plugin-based migration (which costs $99 to $299 per year with manual configuration) or use a hosting platform, like Code Capsules, that offers built-in one-click migrations. Without this, you have to recreate approved content manually or risk breaking production with direct edits.
@@ -83,20 +83,11 @@ WordPress production environments require content review workflows. Writers crea
 
 Code Capsules provides one-click migration between staging and production WordPress Capsules, automatically handling database synchronization, file transfers, and URL updates.
 
-## Prerequisites
+:::tip[Checkpoint]
 
-To follow this tutorial, you need:
+You completed the steps in Part 1. The local project matches the state described above.
 
-* A Code Capsules account
-* Some knowledge of WordPress configuration, as you will create an admin user
-
-### Create a Space for Hosting Your WordPress Blog on Code Capsules
-
-Spaces organize related Capsules.
-
-On your Code Capsules dashboard, navigate to the **Spaces** tab and click the **+** button to create a new Space.
-
-Fill in the Space details and select the region closest to your target users to reduce latency for your visitors.
+:::
 
 ## Setting Up the WordPress Staging Site
 

@@ -1,101 +1,78 @@
 ---
 slug: "/backend/go/go-telegram-bot"
-title: "Deploy a Go Telegram Bot from GitHub"
-description: "Deploy a Go Telegram bot to Code Capsules straight from GitHub. Connect the Telegram Bot API, build with Docker, and run it in production."
+title: "How to Host a Go Telegram Bot"
+description: >-
+  Deploy the Go Telegram echo bot to a Backend Capsule and see it reply in
+  Telegram.
+sidebar_label: "Go Telegram Bot"
+doc_version: drift
 ---
 
-# Go Telegram Bot
+import DocCardList from '@theme/DocCardList';
 
-Deploy a Go Telegram Bot and learn how to host backend code on Code Capsules.
+# Host Your Go Telegram Bot
 
-## Register the Bot
+Deploy the Go Telegram echo bot to a Backend Capsule and see it reply in Telegram.
 
-Before you can create a Telegram bot, you need a Telegram user account. Open Telegram and create an account if you don't already have one.
+## Prerequisites
 
-When you've signed in to Telegram, search for `BotFather` (a bot for managing all other Telegram bots) and start a new chat with it.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork go-telegram-echobot', description: 'Fork codecapsules-io/go-telegram-echobot on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so the fork appears in the wizard.'},
+    {type: 'link', href: '/docs/shared/create-a-telegram-bot', label: '🤖 A Telegram bot', description: 'Register a bot with BotFather and copy its token.'},
+  ]}
+/>
 
-Follow the steps below to register a new bot with the BotFather:
+## Deploy your Go Telegram bot
 
-1. Type `/start` and press send.
-2. Type `/newbot` and press send.
-3. Choose a name for your bot.
-4. Choose a username for your bot that ends in `bot`.
+1. **Start a Backend Capsule**
 
-The BotFather will respond with a message containing an access token for your newly created bot. This access token allows our application to:
+   In your Space, click **+** and select **New Capsule**.
 
-* Access the Telegram API.
-* Tell our bot what to do when receiving different messages from users.
+2. **Choose the capsule type, Team, and Space**
 
-To confirm that your bot has been created successfully, search for the bot's username. You should be able to see it and start a conversation with it. However, it won't respond because we haven't written the bot's logic yet.
+   On **Capsule Details**, choose **Backend Capsule**, your Team, and Space. Click **Next**.
 
-## Setup
+3. **Choose the plan**
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
+   On **Plan**, choose a payment plan. Click **Next**.
 
-To demonstrate how to deploy a Go Telegram Bot with Code Capsules, we've provided an example bot in the [Code Capsules GitHub repository](https://github.com/codecapsules-io/go-telegram-echobot).
+4. **Connect the repository**
 
-Sign in to GitHub, and fork the example bot repository by clicking **Fork** at the top right of your screen and selecting your GitHub account as the destination.
+   On **Configure**, select `codecapsules-io/go-telegram-echobot` and branch `main`. Click **Next**.
 
-## Create a Space for Your Bot
+5. **Set the run command**
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Then, click the yellow **+** icon at the bottom left of the screen to add a new Space.
+   On **Build and Deploy Settings**, leave **Run Command** blank. Click **Create Capsule**.
 
-Follow the prompts to choose your region and give your Space a name, then click **Create Space**.
+6. **Wait for the build**
 
+   On the **Deploy** tab, open **Builds**. The first build runs when the capsule is created.
 
+7. **Add environment variables**
 
-1. Choose a Team. You can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others.
-2. The name should remind you of the project, for example, `customer-api` or `notetaking-app`.
-3. Choose a country close to where most of your users reside.
+   On **Config**, under **Environment Variables**, add `BOT_TOKEN` with the token from BotFather and `URL` with the public URL from **Details** (it must end with `/`). Click **Save**.
 
-## Create the Capsule
+8. **Restart the capsule**
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+   Turn the capsule toggle off and on again.
 
-To create a new Capsule for your Space, follow the instructions below:
+9. **Set the webhook**
 
-1. Click the add Capsule **+** button in your Space.
-2. Choose **Backend** for the Capsule type, and select your Team and Space, if not already populated.
-3. Choose your payment plan and click **Next**.
-4. Click the **Configure Git for Code Capsules** button and grant access to your forked **`go-telegram-echobot`** repository.
-5. Press **Next**.
-6. Leave the **Run Command** blank.
-7. Click **Create Capsule**.
+   Open the public URL with `/setwebhook` appended. The page shows `webhook setup ok`.
 
-Code Capsules automatically builds your application when you've finished creating the Capsule.
+10. **Chat with the bot**
 
-Once your application is live, you can view the build logs by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+    In Telegram, open your bot and send `/start`, then any message. The bot echoes your message.
 
+## Troubleshooting
 
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The bot does not reply in Telegram</summary>
 
-## Add Environment Variables
+The webhook is invalid. Confirm `URL` matches the public URL and ends in `/`, then restart the capsule and open `/setwebhook` again.
 
-Once the build is complete, we need to add the `BOT_TOKEN` and `URL` environment variables on the **Config** tab, under the **Environment Variables** section.
-
-First, name the `BOT_TOKEN` variable and enter your Telegram access token (which you received from the BotFather when you registered the bot) as its **Value**.
-
-
-
-Name the `URL` variable and set your bot's domain as its **Value**.
-
-* Get the domain by clicking the Capsule's **Details** tab and copying the URL in the **Public URL** section.
-* Paste the URL in the **Value** field.
-* Make sure the URL ends with a `/` or the webhook will not be valid.
-
-
-
-Confirm your changes by clicking on **Save**, then restart your Capsule by toggling the radio button in the top-right corner off and on again.
-
-## Set Up Webhook
-
-The next step is to set up a webhook for your bot:
-
-* Click the **Public URL** link in your Capsule's **Details** tab.
-* In the new tab that opens, add `/setwebhook` to the URL and press `enter`/`return` to visit the URL.
-* If you see `webhook setup ok`, then your bot is ready to chat!
-
-## Chat with the Bot
-
-The bot can now respond to messages! Search for your bot on Telegram using the username you assigned it, and start a chat with it. The bot is programmed to respond to `/start` and echo any messages you send it.
-
-If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
+</details>

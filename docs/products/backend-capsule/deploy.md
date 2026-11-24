@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Backend Application
 
-Backend Capsules automatically detect your language, install dependencies, and build a runnable image from your repository. See [Supported Runtimes](/products/backend-capsule/supported-runtimes/) for the full list of language versions and how to pin a specific runtime.
+Deploy server-side applications and APIs on Code Capsules. Backend Capsules detect your language, install dependencies, and build a runnable image from your repository.
 
 ## Prerequisites
 
@@ -19,36 +19,32 @@ Backend Capsules automatically detect your language, install dependencies, and b
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Create the Capsule first.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
   ]}
 />
 
+## Deploy your backend app
 
-## Python
+1. **Open the capsule wizard**
 
-- [Python](/backend/python/python/)
-- [Django](/backend/python/django/)
-- [Flask](/backend/python/flask/)
+   Open your Space. Click the yellow **+** and select **New Capsule**.
 
-## Popular Languages and Frameworks
+2. **Choose Backend Capsule**
 
-- [Express.js](/backend/node.js/express.js/)
-- [Java](/backend/java/)
-- [Go](/backend/go/)
+   Select **Backend Capsule**, your Team, and Space. Click **Next**.
 
-## Docker
+3. **Connect the repository**
 
-Docker-based applications deploy as [Docker Capsules](/products/docker-capsule/), which build from your own `Dockerfile` rather than automatic language detection.
+   On **Configure**, select the **Git Repository** and **Branch** to deploy. Click **Next**.
 
-- [Docker Capsule documentation](/products/docker-capsule/)
-- [Caddy Docker Site](/backend/docker/caddy-docker-site/)
-- [Docker Laravel App](/backend/docker/docker-laravel-app/)
-- [Docker PHP App](/backend/docker/docker-php-app/)
-- [Flask Docker App](/backend/docker/flask-docker-app/)
+4. **Set plan and create**
 
-## Deployment Guides
+   On **Plan**, select or customize a plan. Enter a **Capsule Name** and click **Create Capsule**.
 
-- [All Backend Deployment Guides](/backend/)
+5. **Pick a framework guide**
+
+   Code Capsules builds from your repository. For language-specific wizard values, follow [Python](/backend/python/python/), [Django](/backend/python/django/), [Flask](/backend/python/flask/), [Express.js](/backend/node.js/express.js/), [Java](/backend/java/), or [Go](/backend/go/). For a custom `Dockerfile`, use [Docker Capsule](/products/docker-capsule/) guides such as [Flask Docker App](/backend/docker/flask-docker-app/). See [All Backend Deployment Guides](/backend/).
+
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>

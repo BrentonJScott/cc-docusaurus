@@ -1,79 +1,49 @@
 ---
 slug: "/full-stack/next.js/next.js-+-express.js"
-title: "Deploy Next.js with Express.js"
+title: "Next.js with Express.js Explained"
 description: >-
-  A walkthrough on how to deploy a Next.js and Express.js application from
-  GitHub.
+  How a combined Next.js and Express.js app fits on Code Capsules and when to
+  deploy it as one Backend Capsule.
+sidebar_label: "Next.js + Express"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
+# Next.js with Express.js on Code Capsules
 
-# Next.js + Express.js
+How a combined Next.js and Express.js app fits on Code Capsules and when to deploy it as one Backend Capsule.
 
-Deploy a Next.js and Express.js application and learn how to host backend code on Code Capsules.
+## Overview
 
-## Prerequisites
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
+The `codecapsules-io/nextjs-expressjs-demo` repository runs Next.js for UI routes and Express for API routes in a single Node process. One **Backend Capsule** builds and runs the whole app from GitHub.
 
-To demonstrate how to deploy a Next.js and Express.js application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/nextjs-expressjs-demo).
+## Why it matters
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+Splitting the API into Express while keeping Next.js for rendering lets you reuse existing Express middleware and routers without adopting Next.js API routes for every endpoint.
 
-If you don't already have an account, navigate to the [Code Capsules](/docs/shared/create-an-account) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+## How it works
 
-If you've just signed up for an account, you'll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
+Code Capsules clones your fork, installs dependencies, and runs the start script from the repository. The capsule exposes one public URL. Express listens on the same port Next.js uses in production, so the platform routes HTTPS traffic to both layers.
 
-Alternatively, if you're signing in again, click on the Spaces tab.
+Environment variables and builds follow the standard Backend Capsule flow on the **Deploy** and **Config** tabs.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
+## When to use it
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+| Factor | Next.js + Express (one capsule) | Next.js API routes only |
+| --- | --- | --- |
+| Code layout | Separate Express routers | Handlers under `pages/api` or App Router |
+| Migration | Fits teams with an existing Express API | Fits greenfield Next.js projects |
+| Capsules | One Backend Capsule | One Backend Capsule |
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+Use this pattern when you already have Express routes you want to keep. Use a [Frontend Capsule](/frontend/next.js) when you only need static or server-rendered Next.js without a custom Express server.
 
+## Related
 
-
-
-1. Choose a team — you can use a default **personal** team if you're the only person working on this project, or a named team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
-
-## Create the Capsule
-
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
-
-Navigate to the **Space** containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
-
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
-
-Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
-
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
-
-
-
-## View Application
-
-Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application.
-
-
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/full-stack/).
-
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/full-stack/next.js/next.js-+-mongodb', label: '🛠️ Next.js + MongoDB', description: 'Add a MongoDB capsule to a Next.js app.'},
+    {type: 'link', href: '/frontend/next.js', label: '🛠️ Next.js frontend', description: 'Deploy Next.js as a Backend Capsule.'},
+    {type: 'link', href: '/backend/node.js/express.js', label: '🛠️ Express.js', description: 'Deploy a standalone Express API.'},
+  ]}
+/>

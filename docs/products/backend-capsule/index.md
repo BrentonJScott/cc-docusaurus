@@ -9,37 +9,33 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Everything About Hosting Your Backend Application
+# Backend Application Hosting
 
-## Prerequisites
+Deploy, configure, scale, and monitor server-side applications and APIs with Code Capsules Backend Capsules.
+
+## Overview
+
+Backend Capsules detect your language, install dependencies, and build a runnable image from your Git repository. They support Python, Node.js, Go, Java, Ruby, PHP, and .NET. Applications with a custom `Dockerfile` deploy as [Docker Capsules](/products/docker-capsule/) instead.
+
+## Guides
+
+| Topic | What it covers |
+| --- | --- |
+| [Build and Deploy](/products/backend-capsule/deploy/) | Supported languages, frameworks, and deployment |
+| [Supported Runtimes](/products/backend-capsule/supported-runtimes/) | Language versions and runtime pinning |
+| [Configure](/products/backend-capsule/configure/) | Environment variables, build settings, runtime options |
+| [Scale](/products/backend-capsule/scale/) | CPU, memory, and replicas |
+| [Monitor](/products/backend-capsule/monitor/) | Metrics and performance data |
+| [Logs](/products/backend-capsule/logs/) | Build and runtime logs |
+| [Alerting](/products/alerting/) | Notifications for capsule events |
+| [Add a Procfile](/products/backend-capsule/add-procfile/) | Custom start command |
+
+## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Deploy backend app', description: 'Languages and framework links.'},
+    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Language-specific deployment guides.'},
+    {type: 'link', href: '/products/docker-capsule', label: '📋 Docker Capsule', description: 'Custom Dockerfile deployments.'},
   ]}
 />
-
-Host and scale server-side applications and APIs on Code Capsules. Backend Capsules support Python, Node.js, Go, Java, Ruby, PHP, and .NET with automatic language detection and builds from your Git repository.
-
-For applications with a custom `Dockerfile`, see the [Docker Capsule](/products/docker-capsule/) documentation.
-
-- [Build and Deploy](/products/backend-capsule/deploy/) — supported languages, frameworks, and deployment steps
-- [Supported Runtimes](/products/backend-capsule/supported-runtimes/) — language versions and runtime pinning
-- [Configure](/products/backend-capsule/configure/) — environment variables, build settings, and runtime options
-- [Scale](/products/backend-capsule/scale/) — allocate resources as your traffic grows
-- [Monitor](/products/backend-capsule/monitor/) — view metrics and performance data
-- [Logs](/products/backend-capsule/logs/) — access build and runtime logs
-- [Alerting](/products/alerting/) — set up notifications for capsule events
-- [Add a Procfile](/products/backend-capsule/add-procfile/) — customise the start command for your app
-
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-

@@ -11,6 +11,12 @@ import DocCardList from '@theme/DocCardList';
 
 # Optimizing Performance in MERN Stack: Tips and Techniques
 
+Apply indexing, caching, and deployment practices to keep a MERN application responsive on Code Capsules.
+
+## What you'll build
+
+You will tune each layer of a MERN stack—MongoDB queries, the Express API, the React client, and your Code Capsules deployment—using the techniques in this guide.
+
 ## Prerequisites
 
 <DocCardList
@@ -21,33 +27,9 @@ import DocCardList from '@theme/DocCardList';
   ]}
 />
 
-## Overview
+## Part 1: Optimize each MERN layer
 
-The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a robust framework for web application development. To ensure that MERN applications are agile and responsive, it’s essential to focus on performance optimization. In this comprehensive guide, we’ll delve into actionable insights to enhance performance.
-
-## Why it matters
-
-Following consistent structure reduces bugs when you deploy full-stack JavaScript apps on Code Capsules.
-
-## How it works
-
-The sections below describe recommended folder layout, environment configuration, and deployment practices.
-
-## When to use it
-
-Apply these practices when starting a new MEAN, MERN, or MEVN repository or before your first production deploy.
-
-## Related
-
-<DocCardList
-  items={[
-    {type: 'link', href: '/tutorials/getting-started-with-mean-stack-a-step-by-step-tutorial', label: '🎓 MEAN stack tutorial', description: 'Walk through a MEAN deploy.'},
-    {type: 'link', href: '/tutorials/build-a-mern-job-board', label: '🎓 MERN job board', description: 'Build a MERN sample app.'},
-    {type: 'link', href: '/full-stack/mean-stack', label: '🛠️ Deploy MEAN', description: 'Deploy the MEAN stack.'},
-  ]}
-/>
-
-The MERN stack, which stands for MongoDB, Express.js, React, and Node.js, is a robust framework for web application development. To ensure that MERN applications are agile and responsive, it’s essential to focus on performance optimization. In this comprehensive guide, we’ll delve into actionable insights to enhance performance.
+Work through database, API, client, and deployment optimizations in the order below.
 
 ## Efficient Database Operations with MongoDB
 
@@ -216,9 +198,25 @@ Start a new capsule in your MERN-optimized space, conceptualizing these as indiv
 
 By following these modified steps focused on MERN stack performance, you can efficiently deploy and manage your applications on Code Capsules, leveraging the platform’s capability for optimized MERN application performance and deployment.
 
-## Conclusion
+:::tip[Checkpoint]
 
-Perfecting performance in a MERN stack application isn’t a one-time task but a continuous process of assessment and refinement. With the right strategies, tools, and a commitment to excellence, developers can deliver blazing-fast, highly responsive applications that excel in real-world scenarios. Always remember, in the realm of web applications, speed and responsiveness aren’t just features—they’re necessities.
+You have a checklist of MongoDB, Express, React, and deployment optimizations to apply to your MERN app on Code Capsules.
+
+:::
+
+## Summary
+
+Perfecting performance in a MERN stack application is an ongoing process of assessment and refinement. With the right strategies, tools, and consistent measurement, you can keep MERN applications responsive under load. In production, speed and responsiveness are not optional—they are core requirements.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/full-stack/index', label: '🛠️ Full-stack guides', description: 'Deploy another stack.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 Create a Space', description: 'Add another deployment target.'},
+  ]}
+/>
 
 ## Troubleshooting
 

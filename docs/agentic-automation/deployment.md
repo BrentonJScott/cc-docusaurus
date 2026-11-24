@@ -6,13 +6,28 @@ description: >-
   lifecycle that keeps idle agents at zero cost.
 title: "How to Deploy Business Automation Agents"
 sidebar_label: "Deployment"
+doc_version: drift
 ---
 
+import DocCardList from '@theme/DocCardList';
+
 # Put Your Automation Agents Into Production
+
+Deploy orchestrators and agents on Code Capsules with git, Procfiles, and scale-to-zero capsules.
 
 The framework described in this guide is intentionally simple to deploy. An orchestrator is a backend service. An agent is a backend service. Both are deployed exactly like any other application on Code Capsules — push to git, the platform builds it, a Procfile tells it how to start.
 
 The infrastructure complexity is handled by the platform. The deployment complexity is handled by git. What remains — the only thing you need to think about — is the application code.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/agentic-automation/the-framework', label: '💡 The framework', description: 'Orchestrator and agent model.'},
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Account with a Team and Space.'},
+    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Deploy git-backed services.'},
+  ]}
+/>
 
 ---
 
@@ -106,21 +121,19 @@ The entire agent lifecycle — wake, run, sleep — is driven by the orchestrato
 
 ---
 
-## Deploying a new agent
+## Deploy your agents
 
-The process for adding a new agent to the system is intentionally simple. Here is the complete sequence:
+1. **Write the agent**
 
-**1. Write the agent**
+   Copy scaffolding from an existing agent. Replace job logic in `src/jobs/` and update `.env.example` with required variables.
 
-Copy the scaffolding from an existing agent. Replace the job logic in `src/jobs/` with your new task. Update `.env.example` with any new variables the job requires.
+2. **Push to git and create the Capsule**
 
-**2. Push to git and deploy on Code Capsules**
+   Create a Backend Capsule connected to the repository. Set environment variables in the dashboard. Use `AGENT_MODE=api` for the first test.
 
-Create a new Backend Capsule connected to the agent's git repository. Set all required environment variables in the capsule settings. Set `AGENT_MODE=api` for the initial test.
+3. **Test the agent in isolation**
 
-**3. Test the agent in isolation**
-
-With `AGENT_MODE=api`, the agent waits for a `POST /run`. Use the Postman collection from the API docs to send a test payload:
+   With `AGENT_MODE=api`, the agent waits for `POST /run`. Send a test payload:
 
 ```json
 {
@@ -135,11 +148,11 @@ With `AGENT_MODE=api`, the agent waits for a `POST /run`. Use the Postman collec
 }
 ```
 
-Inspect the output at your webhook.site URL. Confirm the `AgentRunResult` shape matches what you expect.
+   Inspect the output at your webhook URL. Confirm the `AgentRunResult` shape matches expectations.
 
-**4. Register with the orchestrator**
+4. **Register with the orchestrator**
 
-Add the agent to `src/registry/index.ts` in the orchestrator project:
+   Add the agent to `src/registry/index.ts` in the orchestrator project:
 
 ```typescript
 {
@@ -150,15 +163,15 @@ Add the agent to `src/registry/index.ts` in the orchestrator project:
 }
 ```
 
-Add the capsule ID and URL to the orchestrator's environment variables. Add the agent as a step in an existing workflow, or define a new workflow with a cron schedule.
+   Add the capsule ID and URL to the orchestrator environment. Add the agent as a workflow step or define a new cron workflow.
 
-**5. Set `AGENT_MODE=startup` in production**
+5. **Set production agent mode**
 
-Update the agent capsule's environment variable from `api` to `startup`. In this mode, the agent enqueues its job immediately on startup, runs it, reports back, and waits to be scaled down. The orchestrator handles everything from there.
+   Change `AGENT_MODE` from `api` to `startup` so the agent enqueues work on startup, reports results, and waits to scale down.
 
-**6. Deploy the updated orchestrator**
+6. **Deploy the orchestrator**
 
-Push the orchestrator changes to git. Code Capsules redeploys it. On startup, `registerSchedules()` picks up the new workflow definition and registers its cron schedule with BullMQ. The new workflow will run on its next scheduled tick.
+   Push orchestrator changes to git. After deploy, `registerSchedules()` registers the new workflow with BullMQ.
 
 ---
 
@@ -174,3 +187,12 @@ For a weekly SEO audit where the analysis takes roughly five minutes:
 The cost of 52 five-minute agent runs per year is negligible compared to the cost of a single always-on service. As you add more agents, each one adds only marginal cost proportional to how often it runs and how long it takes — not a baseline fixed cost.
 
 This is the practical consequence of the scale-to-zero architecture: the system can have dozens of registered agents, most of which run for minutes per week, with a total infrastructure cost approaching that of a single always-on service.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The orchestrator never receives a webhook result</summary>
+
+Confirm `ORCHESTRATOR_WEBHOOK_URL` is set on the agent Capsule and reachable from the agent at runtime. Check agent logs for HTTP errors when posting `AgentRunResult`.
+
+</details>

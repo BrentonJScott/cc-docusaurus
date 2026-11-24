@@ -11,9 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your WordPress Site
 
-WordPress Capsules are configured through environment variables in the **Config** tab of your Capsule's page. All configuration is applied at container start — changes take effect on the next deploy or restart.
-
----
+WordPress Capsules are configured through environment variables in the **Config** tab. Changes apply on the next deploy or restart.
 
 ## Prerequisites
 
@@ -25,6 +23,23 @@ WordPress Capsules are configured through environment variables in the **Config*
   ]}
 />
 
+## Configure your WordPress site
+
+1. **Bind MySQL**
+
+   On **Config**, open **WordPress Config** and select the MySQL Capsule for this site.
+
+2. **Set environment variables**
+
+   Add or edit variables in **Environment Variables** or **WordPress Config**. See the tables below for PHP, FPM, and cache settings.
+
+3. **Save and redeploy**
+
+   Click **Save**. Restart or redeploy so new values load at container start.
+
+4. **Validate behavior**
+
+   Check [Caching](/products/wordpress-capsule/caching/), [Cron](/products/wordpress-capsule/cron/), and [Performance](/products/wordpress-capsule/performance/) pages for related variables.
 
 ## Database Connection
 

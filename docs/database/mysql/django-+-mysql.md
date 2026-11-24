@@ -1,64 +1,51 @@
 ---
 slug: "/database/mysql/django-+-mysql"
-title: "Deploy Django with MySQL"
-description: "Deploy a Django app with a MySQL database on Code Capsules from GitHub. Connect Django to a managed MySQL Data Capsule, step by step."
+title: "How to Host Django with MySQL"
+description: >-
+  Deploy a Django app with a MySQL database on Code Capsules from GitHub. When
+  you finish, the demo app loads at the capsule public URL.
+sidebar_label: "Django + MySQL"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
+# Host Your Django MySQL Application
 
-# Django + MySQL
-
-Deploy a Django MySQL application and learn how to host backend code on Code Capsules.
+Deploy a Django app with a MySQL Data Capsule and a Backend Capsule from GitHub. When you finish, the demo app loads at the capsule public URL.
 
 ## Prerequisites
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Django MySQL application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork django-demo', description: 'Fork codecapsules-io/django-demo on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so the fork appears in the wizard.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination
+## Deploy your Django MySQL app
 
-## Create the Capsules
+1. **Create the MySQL capsule**
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **Data Capsule**, select **MySQL Database Cluster**, and choose your Team and Space. Click **Create Capsule**.
 
-Navigate to the Spaces tab and open the Space you'll be using.
+2. **Create the Backend capsule**
 
-Click the yellow **+** button in the bottom left of the screen, select **New Capsule**, and follow the instructions below to create a Data Capsule:
+   Click **+** again and choose **Backend Capsule**, your Team, and Space. On **Plan**, choose a plan. On **Configure**, select `codecapsules-io/django-demo` and branch `main`. Leave **Run Command** blank. Click **Create Capsule**.
 
-1. Choose **Data Capsule**.
-2. Under **Data Type**, select **MySQL Database Cluster**.
-3. Click **Create Capsule**.
+3. **Wait for the build**
 
-Navigate to the **Space** containing your recently created Data Capsule and click the **New Capsule** button. Follow the instructions below to create a Backend Capsule:
+   On the Backend Capsule **Deploy** tab, open **Builds**. The first build runs when the capsule is created.
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose a payment plan.
-3. Choose the GitHub repository you forked.
-4. Press **Next**.
-5. Leave **Run Command** blank.
-6. Click **Create Capsule**.
+4. **Connect the capsules**
 
-Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
+   On the Backend Capsule **Config** tab, under **Data capsules**, click **View**. Click **+** next to **Connection string** to add `DATABASE_URL`. Click **Save**.
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+5. **Open the application**
 
-
-
-## Connect the Capsules
-
-After the two capsules have been successfully built, the next step is to connect them. To do this, navigate to the **Config** tab of your Backend Capsule. Scroll down to the **Data Capsule** section and click **View** to view the environment variables from the Data Capsule. Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
-
-
-
-## View Application
-
-You can now view the application after the two capsules have been connected. To see how it looks, click on the URL in the **Details** tab.
-
-
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/database/).
+   On the Backend Capsule **Details** tab, open the public URL. The Django demo loads.
 
 ## Troubleshooting
 
@@ -68,4 +55,3 @@ If you’d like to deploy another application in a different language or framewo
 Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
 
 </details>
-

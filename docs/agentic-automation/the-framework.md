@@ -16,9 +16,17 @@ import DocCardList from '@theme/DocCardList';
 
 The architecture has two moving parts: an **orchestrator** and one or more **agents**. Understanding the relationship between them — and why they are separated — is the foundation of everything else.
 
----
+## Overview
 
-## The two roles
+A long-running orchestrator schedules work, wakes agent capsules on Code Capsules, passes typed jobs, and scales agents back to zero. Agents stay single-purpose and only speak the shared request/response contract.
+
+## Why it matters
+
+Probabilistic LLM calls need hard boundaries. Separating orchestration from agent logic keeps retries, auditing, and cost control in deterministic code while models handle reasoning inside each agent.
+
+## How it works
+
+### The two roles
 
 ### The orchestrator
 
@@ -51,9 +59,7 @@ An agent:
 
 The agent is entirely ignorant of the orchestrator's implementation. It receives structured input, does its work, and reports structured output to whatever URL it was given. It does not need to know about BullMQ, about other agents, or about what comes before or after it in the workflow.
 
----
-
-## The workflow lifecycle
+### The workflow lifecycle
 
 Here is the full sequence for a scheduled workflow — for example, a weekly SEO audit that runs every Monday morning.
 
@@ -100,9 +106,7 @@ Monday 09:00 UTC
 
 The agent capsule runs for only as long as the job takes. Between Monday mornings, it does not exist. It costs nothing.
 
----
-
-## The typed contract
+### The typed contract
 
 Every agent in the system speaks the same language. The `AgentRunRequest` and `AgentRunResult` types are fixed and shared. This is not a convention — it is the structural guarantee that makes the orchestrator model-agnostic.
 
@@ -135,9 +139,7 @@ The `output` field is the only part that varies between agents. Its contents are
 
 This has a useful consequence for multi-step workflows: each step's output is stored by the orchestrator and merged into the `input` field for the next step. By the time step three runs, its `input` contains the combined output of steps one and two. Agents further down the chain have access to everything that came before, without any agent needing to know about any other agent.
 
----
-
-## Multi-step workflows
+### Multi-step workflows
 
 The real power of the framework becomes visible when a workflow has more than one step. Consider an extended SEO workflow:
 
@@ -151,11 +153,9 @@ Each step is a separate agent capsule. Each runs, reports back, and is scaled to
 
 If step 2 fails, the orchestrator marks the run as failed and scales everything down. Step 3 never runs. The failure is recorded in Redis with the full error message and the output from step 1. You can inspect it, fix the analysis agent, and re-run from step 2 without re-fetching the data.
 
-This is fault isolation. Not just for the failure case — for the success case too. You can update the analysis agent without touching the fetcher or the notifier. You can test the notifier in isolation by posting a fake step 2 output to it. You can swap the notifier for a different delivery mechanism without anyone else knowing.
+This is fault isolation. Not only for the failure case — for the success case too. You can update the analysis agent without touching the fetcher or the notifier. You can test the notifier in isolation by posting a fake step 2 output to it. You can swap the notifier for a different delivery mechanism without anyone else knowing.
 
----
-
-## State management
+### State management
 
 The orchestrator uses Redis to track workflow run state. Each run is stored under a key with a seven-day TTL:
 
@@ -176,9 +176,7 @@ The orchestrator uses Redis to track workflow run state. Each run is stored unde
 
 The `GET /runs/:runId` endpoint on the orchestrator exposes this state. You can check the current status of any run, inspect the output of each step, and see exactly where a failure occurred — without tailing logs.
 
----
-
-## What the orchestrator does not do
+### What the orchestrator does not do
 
 It is worth being explicit about what the orchestrator does *not* contain:
 
@@ -190,15 +188,17 @@ It is worth being explicit about what the orchestrator does *not* contain:
 
 The moment business logic starts appearing in the orchestrator, the architecture is degrading. The orchestrator is infrastructure, not application code. Keep it that way.
 
-## Why it matters
-
-This topic affects how you design, deploy, and operate workloads on Code Capsules.
-
-## How it works
-
-The sections above describe the moving parts and how they connect on the platform.
-
 ## When to use it
 
-Use this approach when it matches your team's hosting, compliance, and operational needs.
+Use this architecture when you run recurring business workflows, need scale-to-zero agents between runs, or must swap models and integrations without rewriting the orchestrator. Skip it for one-off scripts with no audit or scheduling requirements.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/agentic-automation/designing-agents', label: '🛠️ Designing agents', description: 'Scope agents and pick models.'},
+    {type: 'link', href: '/agentic-automation/deployment', label: '🛠️ Deployment', description: 'Deploy agents with git and Procfiles.'},
+    {type: 'link', href: '/products/agent-capsule/deploy', label: '📋 Agent Capsule', description: 'Product reference for agent hosting.'},
+  ]}
+/>
 

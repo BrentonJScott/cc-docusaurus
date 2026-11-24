@@ -1,95 +1,56 @@
 ---
 slug: "/full-stack/next.js/static-file-share-with-flask-and-caddy"
-title: "Deploy a File-Sharing Site with Flask and Caddy"
-description: "Deploy a file-sharing site on Code Capsules using Flask to handle uploads and Caddy to serve static files. A step-by-step full-stack deployment guide."
+title: "How to Host a Flask and Caddy File Share"
+description: >-
+  Deploy a file-sharing site on Code Capsules using Flask for uploads and Caddy
+  to serve files. When you finish, both capsule URLs serve the demo workflow.
+sidebar_label: "Flask + Caddy file share"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
+# Host Your Flask and Caddy File Share
 
-# Static File Share with Flask and Caddy
-
-This guide will show you how to deploy a basic file-sharing site on Code Capsules. You'll use a Flask application to upload files and a Caddy file server to serve and download the uploaded files.
-
-We'll use three capsules: a Data Capsule to store the files, a Backend Capsule for the Flask upload server, and a Docker Capsule for the Caddy file server.
-
-After following the guide, you'll be able to upload files in the Flask application, see a file listing, and get public links to your uploaded files in the Caddy application, as shown below.
-
-
+Deploy a file-sharing site with Persistent Storage, a Flask Backend Capsule, and a Caddy Docker Capsule. When you finish, uploads work in Flask and downloads work through Caddy.
 
 ## Prerequisites
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
-The code you need for this guide is in the following GitHub projects.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork flask-file-uploads', description: 'Fork codecapsules-io/flask-file-uploads on GitHub.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork caddy-file-server', description: 'Fork codecapsules-io/caddy-file-server on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so both forks appear in the wizard.'},
+  ]}
+/>
 
-* [**Flask file uploads**](https://github.com/codecapsules-io/flask-file-uploads)
-* [**Caddy file server**](https://github.com/codecapsules-io/caddy-file-server)
+## Deploy your file share
 
-Sign in to GitHub, and fork both example applications by clicking **Fork** at the top right of your screen and selecting your GitHub account as the destination.
+1. **Create the Persistent Storage capsule**
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
+   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **Persistent Storage**, your Team, and Space. On **Plan**, choose a plan. Click **Create Capsule**.
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+2. **Create the Flask Backend capsule**
 
+   Click **+** and choose **Backend Capsule**, your Team, and Space. On **Plan**, choose a plan. On **Configure**, select `codecapsules-io/flask-file-uploads` and branch `main`. Leave **Run Command** blank. Click **Create Capsule**.
 
+3. **Create the Caddy Docker capsule**
 
+   Click **+** and choose **Docker Capsule**, your Team, and Space. On **Configure**, select `codecapsules-io/caddy-file-server` and branch `main`. Set **Dockerfile location** to `Dockerfile`. Click **Create Capsule**.
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+4. **Wait for builds**
 
-## Create the Capsule
+   On each capsule **Deploy** tab, open **Builds** and wait for the first build to finish.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+5. **Bind storage to both capsules**
 
-Navigate to the Capsules tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Capsule.
+   On the Flask and Caddy capsules **Config** tabs, bind each capsule to the Persistent Storage capsule under **Data capsules**.
 
-### Data Capsule
+6. **Open the applications**
 
-To create a new Data Capsule for your Space, follow the instructions below:
-
-1. Choose **Persistent Storage**, your Team, and Space.
-2. Choose your payment plan.
-3. Click **Create Capsule**.
-
-### Backend Capsule
-
-Navigate to the Space containing your recently created Data Capsule and click the yellow `+` icon on the bottom left of the screen. Follow the instructions below to create a Backend Capsule:
-
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Select the `flask-file-uploads` repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
-
-### Docker Capsule
-
-Click the **New capsule** button again.
-
-1. Choose Docker Capsule
-2. Select the caddy-file-server repository
-3. Click **Next**
-4. Enter `Dockerfile` for the Dockefile location
-5. Press **Create Capsule**
-
-Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
-
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
-
-
-
-## Binding the Capsules
-
-Now navigate to each of the Backend Capsule and Docker Capsule and bind them to the Data Capsule. This gives them access to a shared file store so that the Flask application can upload files and the Caddy server can serve them to users.
-
-## View Application
-
-Once the build is complete, click the **URL** link in the **Config** tab, and you should see your deployed application.
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/full-stack/).
+   Open the public URL on the Flask capsule to upload files. Open the Caddy capsule URL to list and download files.
 
 ## Troubleshooting
 
@@ -99,4 +60,3 @@ If you’d like to deploy another application in a different language or framewo
 Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
 
 </details>
-

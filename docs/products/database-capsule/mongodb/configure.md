@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/mongodb/configure"
 title: "How to Configure a MongoDB Database"
 description: >-
-  Configure a MongoDB Capsule on Code Capsules: view connection details, get the public connection string, rename the capsule, and set the MongoDB version.
+  View connection details and settings for a MongoDB Capsule on the Details and Config tabs.
 sidebar_label: Configure
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your MongoDB Database
 
-Configure a MongoDB Capsule from the **Details** and **Config** tabs of the Capsule dashboard.
+Manage connection details and capsule settings from the dashboard.
 
 ## Prerequisites
 
@@ -23,43 +23,27 @@ Configure a MongoDB Capsule from the **Details** and **Config** tabs of the Caps
   ]}
 />
 
+## Configure your mongodb database
 
-## View Connection Details
+1. **Open Details**
 
-The **Details** tab provides connection details once the capsule is ready.
+   Open the MongoDB Capsule and select the **Details** tab.
 
-Click **show** in the **Connection details** section to view:
+2. **View connection details**
 
-- Database name
-- Username
-- Password
+   Click **show** in **Connection Details** to reveal host, port, database name, username, password, and connection string.
 
-While the capsule is still being created, an info message explains that connection details will appear when provisioning completes.
+3. **Rename the capsule**
 
-## Public Connection String
-
-MongoDB Capsules provide a **Public Connection String** on the **Details** tab. This string is available once the capsule has been created and is the URI your applications should use to connect.
-
-Click **show** next to **Public Connection String** to reveal the value, then use the copy icon to copy it to your clipboard.
-
-The string uses the `mongodb+srv://` format and includes embedded credentials.
-
-## Edit Capsule Name
-
-To change the name of the Capsule, click **Edit** next to the Capsule name in the **Capsule Details** section on the **Details** tab.
-
-## Configure MongoDB Version
+   To change the display name, click **Edit** next to the capsule name in **Capsule Details**, then save.
 
 
-Additional MongoDB configuration is available in the **Config** tab.
 
-In the **MongoDB Configuration** section, click **Edit** to change the MongoDB server version on Dedicated clusters.
+4. **Connect from your laptop**
 
-You can upgrade to a newer supported version; downgrades are not supported.
+   
 
-If your capsule uses the **latest** version option, MongoDB is automatically upgraded to the newest available version when it is released.
 
-See [Versions](/products/database-capsule/mongodb/versions/) for supported versions and upgrade paths.
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
@@ -68,3 +52,4 @@ See [Versions](/products/database-capsule/mongodb/versions/) for supported versi
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
 
 </details>
+

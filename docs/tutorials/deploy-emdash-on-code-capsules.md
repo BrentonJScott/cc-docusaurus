@@ -26,16 +26,7 @@ In this tutorial, we'll configure an EmDash Astro project for production, push i
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
-## Prerequisites
-
-Before starting, make sure you have:
-
-* A [Code Capsules](/docs/shared/create-an-account) account
-* A GitHub account with your EmDash project repository ready to push
-* Node.js 22 or later installed locally
-* An EmDash Astro project (using the `@astrojs/node` adapter in standalone mode)
-
-## Configuring Your Project for Code Capsules
+### Configuring your project for Code Capsules
 
 Code Capsules injects a `PERSISTENT_STORAGE_DIR` environment variable into your capsule when a Persistent Storage Capsule is bound to it. This variable contains the absolute path to the mounted storage volume. We need to point both the EmDash SQLite database and the media uploads directory at paths inside this volume.
 
@@ -146,6 +137,11 @@ git commit -m "Configure EmDash for Code Capsules deployment"
 git push
 ```
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -185,7 +181,13 @@ https://your-capsule-url.codecapsules.space/_emdash/admin
 
 Log in with the credentials set in your seed file, and you're live.
 
-## What Happens on Each Deploy
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
+
+### What happens on each deploy
 
 When you push new code to GitHub and Code Capsules rebuilds your capsule, the sequence is:
 

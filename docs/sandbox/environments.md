@@ -3,82 +3,54 @@ slug: "/sandbox/environments"
 title: "Sandbox Environments & Flavors"
 description: "Available sandbox flavors and what's preinstalled in each Linux environment."
 sidebar_label: "Environments"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Environments
 
-Each sandbox is a pre-built Linux image. Pick the flavor that fits your workload.
+Pick a sandbox flavor and resource limits that match your agent workload.
 
-## Available flavors
+## Prerequisites
 
-| Flavor | Preinstalled |
-|--------|-------------|
-| `python-3.12` | Python 3.12, pip, numpy, pandas, requests, git |
-| `node-20` | Node.js 20, npm, yarn, git |
-| `browser` | Chromium, Playwright, xvfb, Python 3.12 |
-| `full` | Everything above + jq, ffmpeg, ImageMagick |
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sandbox API access (private beta waitlist).'},
+    {type: 'link', href: '/sandbox/quickstart', label: '🚀 Quick start', description: 'Install an SDK and API key.'},
+  ]}
+/>
 
-The default flavor is `python-3.12`.
+## Choose your sandbox flavor
 
-## Resource limits
+1. **Review available flavors**
 
-| Setting | Default | Maximum |
-|---------|---------|---------|
-| Memory | 512 MB | 8192 MB |
-| vCPU | 1 | 4 |
-| TTL | 60 min | 480 min |
+   | Flavor | Preinstalled |
+   |--------|-------------|
+   | `python-3.12` | Python 3.12, pip, numpy, pandas, requests, git |
+   | `node-20` | Node.js 20, npm, yarn, git |
+   | `browser` | Chromium, Playwright, xvfb, Python 3.12 |
+   | `full` | Everything above + jq, ffmpeg, ImageMagick |
 
-## Specifying a flavor
+   The default flavor is `python-3.12`.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+2. **Set memory, CPU, and TTL**
 
-<Tabs>
-<TabItem value="ts" label="TypeScript">
+   | Setting | Default | Maximum |
+   |---------|---------|---------|
+   | Memory | 512 MB | 8192 MB |
+   | vCPU | 1 | 4 |
+   | TTL | 60 min | 480 min |
 
-```typescript
-const sb = await Sandbox.create({ flavor: 'node-20' });
-const sb = await Sandbox.create({ flavor: 'browser', memory: 2048 });
+3. **Pass options when creating a sandbox**
 
-// or with using()
-await Sandbox.using(async (sb) => {
-  // ...
-}, { flavor: 'full', memory: 4096, cpu: 2 });
-```
+   Use `flavor`, `memory`, `cpu`, and `ttl` in `Sandbox.create()` (TypeScript) or `Sandbox.create("flavor", memory=…)` (Python). Install extra packages at runtime with `exec()` — they last for the lifetime of that sandbox only.
 
-</TabItem>
-<TabItem value="py" label="Python">
+## Troubleshooting
 
-```python
-sb = Sandbox.create("node-20")
-sb = Sandbox.create("browser", memory=2048)
-sb = Sandbox.create("full", memory=4096, cpu=2)
-```
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>A command fails because a package is missing</summary>
 
-</TabItem>
-</Tabs>
+Run `pip install`, `npm install`, or `apt-get install` inside the sandbox with `exec()`. Sandboxes start from a clean image on every create.
 
-## Installing additional packages
-
-You can install anything at runtime with `exec()`. The install persists for the lifetime of that sandbox.
-
-```bash
-# Python packages
-pip install scikit-learn torch transformers
-
-# Node packages
-npm install axios cheerio
-
-# System packages
-apt-get install -y curl build-essential
-```
-
-## Sandbox lifetime
-
-Sandboxes are deleted when:
-
-- You call `delete()` or exit the context manager / `using()` block
-- The TTL expires (default 60 minutes)
-- The sandbox encounters a fatal error
-
-Nothing persists between sandboxes. Each one starts from a clean image.
+</details>

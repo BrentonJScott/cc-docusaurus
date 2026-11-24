@@ -353,7 +353,7 @@ We extract the actual text string from the `Message` object and then check if it
 
 If any more text appears after the command string, we treat all of it as the city name. Since the Weatherstack API requires multi-word city names to be separated by `+`, we split the rest of the string into parts and then join them back together using `+` symbols.
 
-Now that our city name is in the correct format required by the `getTemperature(city)` helper method, we simply call it and return the result to the user.
+Now that our city name is in the correct format required by the `getTemperature(city)` helper method, we call it and return the result to the user.
 
 ```go
             temperature, err := getTemperature(city)
@@ -430,6 +430,11 @@ Open Telegram, find your bot by username, and test the commands:
 
 Check your terminal for any error logs if something doesn't work. Once you've verified that all commands work as expected, you're ready to deploy.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -524,7 +529,13 @@ The handler immediately returns an HTTP 200 OK response to Telegram. The actual 
 
 The `processUpdate()` function contains the same command handling logic as before (temperature, askGoku, etc.), but it's now called for each webhook update instead of being in a polling loop.
 
-Now you can simply push the code to your GitHub repo, and your Code Capsules instance will automatically rebuild and deploy the changes to production.
+Now you can push the code to your GitHub repo, and your Code Capsules instance will automatically rebuild and deploy the changes to production.
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

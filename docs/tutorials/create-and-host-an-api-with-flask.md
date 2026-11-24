@@ -26,16 +26,6 @@ Undoubtedly, they used an API. APIs are hosted on a server and operate as an acc
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
-## Prerequisites
-
-Before starting, we’ll need a GitHub account and knowledge of how to push code from a local repository to a remote repository.
-
-Also ensure you’ve installed the following:
-
-* Git
-* Python 3.XX+
-* Virtualenv
-
 ## Setting Up Our Environment
 
 First, let’s set up a virtual Python environment using Virtualenv. Virtualenv provides a clean Python install with no third-party libraries or packages, allowing us to work on this project without interfering with the dependencies of our other projects.
@@ -80,6 +70,12 @@ pip3 install flask gunicorn requests
 ```
 
 Note, pip will have automatically been installed when you set the virtual environment, if not, you can follow this guide to install it.
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Registering Accounts on OpenExchangeRates and weatherstack
 
@@ -202,7 +198,7 @@ if __name__ == '__main__':
     app.run() # Run the application
 ```
 
-After instantiating a Flask object, we add `@app.route(‘/’)`. The `@` symbol is known as a Python decorator – its use isn’t essential for our application. Just understand that the below creates the homepage for your API:
+After instantiating a Flask object, we add `@app.route(‘/’)`. The `@` symbol is known as a Python decorator – its use isn’t essential for our application. Note that the below creates the homepage for your API:
 
 ```python
 @app.route(`/`)
@@ -216,7 +212,7 @@ Next, we’ll implement the ability to “get” (using `requests.get()`) our da
 
 ### Combining the APIs
 
-We’ve already written code to retrieve our data – now we just need to combine it and create an endpoint to fetch it. We’ll do this by creating a new endpoint called /get that returns our selected data.
+We’ve already written code to retrieve our data – now we need to combine it and create an endpoint to fetch it. We’ll do this by creating a new endpoint called /get that returns our selected data.
 
 ```python
 @app.route('/get',methods=['GET']) # Add an endpoint to access our API
@@ -268,7 +264,7 @@ The API is now ready to host on Code Capsules. Follow these steps to get it onli
 3. Link the repository to your Code Capsules account following this guide.
 4. Create a new Team and Space (as necessary).
 
-With the repository linked to Code Capsules, we just need to store the API on a Capsule:
+With the repository linked to Code Capsules, we need to store the API on a Capsule:
 
 1. Create a new Capsule.
 2. Choose Backend Capsule and continue.

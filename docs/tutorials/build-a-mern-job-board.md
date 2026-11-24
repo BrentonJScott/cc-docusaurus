@@ -51,7 +51,7 @@ DATABASE_URL=mongodb+srv://username:password@cluster.example.mongodb.net/databas
 npm install dotenv
 ```
 
-* Open the `index.js` file in the root folder and add the following line just below the other require statements.
+* Open the `index.js` file in the root folder and add the following line immediately below the other require statements.
 
 ```
 require('dotenv').config();
@@ -159,7 +159,7 @@ The `ViewJobs` component uses the `useEffect` hook to fetch available jobs as so
 
 #### Viewing the Frontend
 
-We need to import the two components we have just created in `src/App.js` before we can see the changes we just made. Open `App.js` and replace its contents with this code:
+Import the two components you created in `src/App.js` before you verify the changes. Open `App.js` and replace its contents with this code:
 
 ```
 import logo from './logo.svg';
@@ -241,7 +241,7 @@ module.exports = mongoose => {
 };
 ```
 
-By default, Mongoose adds an `_id` property to `ObjectId` fields. The `schema.method()` function makes sure the name of the `ObjectId` field is just `id`, which is the name our frontend expects.
+By default, Mongoose adds an `_id` property to `ObjectId` fields. The `schema.method()` function makes sure the name of the `ObjectId` field is `id`, which is the name our frontend expects.
 
 Delete the `person.model.js` file that came with the boilerplate project, as we won’t be needing it.
 
@@ -373,7 +373,7 @@ git add -A
 
 #### Git Commit
 
-Next, we need to commit the files we just added to our repository. To do this, run this command:
+Commit the files you added to your repository. To do this, run this command:
 
 ```
 git commit -m "Added job board files"
@@ -381,7 +381,7 @@ git commit -m "Added job board files"
 
 #### Git Push
 
-The final step is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push the changes we just made:
+The final step is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push your committed changes:
 
 ```
 git push origin main
@@ -390,6 +390,12 @@ git push origin main
 Code Capsules automatically deploys the new version of your application as soon as you push to the deploy branch, which is `main` in this case.
 
 That’s it, your job board should be fully functional now.
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Summary
 

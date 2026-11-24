@@ -11,7 +11,6 @@ import DocCardList from '@theme/DocCardList';
 
 # Use Code Capsules with an Agent
 
-## Part 1: Build and deploy
 
 ## What you'll build
 
@@ -28,21 +27,9 @@ Code Capsules handles containers, domains, and TLS from a connected GitHub repo,
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
+
+## Part 1: Build and deploy
 In this guide, we'll install a Code Capsules skill for Claude Code, then deploy, update, and manage an Express.js application through natural-language prompts.
-
-## Prerequisites
-To follow this guide, you need:
-
-- [Claude Code](https://claude.ai/code) installed and configured, with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). This guide will also work with any other AI coding tool that supports skills.
-- A [Code Capsules](/docs/shared/create-an-account) account.
-
-We'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application. Ask the agent to fork and clone it:
-
-```
-Fork codecapsules-io/demo-express-js to my GitHub account and clone it.
-```
-
-Then connect Code Capsules to GitHub and authorize access to the forked repository by following [Connect Version Control](/platform/account/connect-version-control/).
 
 ## Install the Code Capsules Skill
 
@@ -140,6 +127,11 @@ To avoid that back-and-forth, add an `AGENTS.md` file to the project root. You c
 
 Replace the Team, Space, repo, and region values with your own.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -166,6 +158,12 @@ Once the build is complete, the agent provides the URL to where the application 
 ```
 What's the URL for my demo-express-js capsule?
 ```
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Check the Build Logs
 

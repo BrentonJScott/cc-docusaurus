@@ -143,6 +143,11 @@ mongodb
 
 3\. Create MongoDB models and routes to handle data storage and retrieval in your Express.js application.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -158,6 +163,12 @@ mongodb
 Congratulations! You’ve now built and deployed a production-ready MEAN stack application. This tutorial provides a solid foundation for creating web applications using the MEAN stack, but there is still much more to explore and learn. As you gain experience, you can enhance your application with features like user authentication, data validation, and more.
 
 Happy coding, and best of luck with your MEAN stack journey!
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

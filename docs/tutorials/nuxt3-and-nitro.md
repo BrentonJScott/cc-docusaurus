@@ -112,6 +112,12 @@ By using the Composition API, you can encapsulate the logic for your component m
 
 Now, let’s shift our focus to Nitro—a PHP engine designed for blazing speed and performance. If you’re a PHP enthusiast, this one’s for you!
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
+
 ## Nitro vs. Node.js
 
 Before we dive into Nitro, let’s clarify something: Nitro is all about PHP, while Node.js is a runtime environment for JavaScript. They serve different purposes, but both are essential in the web development world.
@@ -128,9 +134,9 @@ Before we dive into Nitro, let’s clarify something: Nitro is all about PHP, wh
 * Designed for maximum performance in PHP-based web applications.
 * Can be used alongside Node.js to enhance server-side performance.
 
-### Just-in-Time (JIT) Compilation Magic
+### JIT compilation
 
-Now, here’s where Nitro shines: just-in-time (JIT) compilation. Think of it as a magician who optimizes your PHP code on the fly. No need to wait for a show; it happens right when you need it.
+Now, here’s where Nitro shines: JIT compilation. Think of it as a magician who optimizes your PHP code on the fly. No need to wait for a show; it happens right when you need it.
 
 So, why is JIT compilation so exciting? It makes your PHP code run faster. When your code runs faster, your website loads faster and we all know that faster websites are the best websites!
 
@@ -147,7 +153,7 @@ The ability to dynamically optimize your PHP code at runtime can be a game-chang
 
 Nitro comes equipped with tools for profiling and debugging. This is like having a detective kit for your code. It helps you find bottlenecks, figure out what’s slowing your site down, and make it faster. If you’re a stickler for best practices, this is your best friend.
 
-### Easy Integration into Your PHP Projects
+### Integrate Nitro into your PHP projects
 
 If you’re worried about fitting Nitro into your existing PHP projects, don’t be. Nitro plays well with others. Whether you’re working on a brand-new project or adding Nitro to an old one, it’s designed to be a smooth ride.
 
@@ -165,7 +171,7 @@ Remember how Nuxt 3 splits code into smaller pieces? Well, you can take it up a 
 
 ### Server Requirements for Running Nuxt 3
 
-Now, let’s address a crucial topic: the server requirements for running Nuxt 3 applications. You see, Nuxt 3 isn’t just about writing code; it’s also about running it effectively on a server.
+Now, let’s address a crucial topic: the server requirements for running Nuxt 3 applications. You see, Nuxt 3 is not only about writing code; it is also about running it effectively on a server.
 
 **Server Environment**
 

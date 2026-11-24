@@ -11,17 +11,11 @@ import DocCardList from '@theme/DocCardList';
 
 # Free and Paid Plans for Static Hosting
 
-## Prerequisites
+Compare the Free and Paid plans for static Frontend Capsules, including limits and how to upgrade.
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+## Overview
 
-Static Frontend Capsules come in two plans. **Free** is for personal projects, prototypes, and smaller sites. **Paid** removes the build size and traffic limits for production sites. You choose a plan on the **Plan** step when you create the capsule.
+Static Frontend Capsules come in **Free** and **Paid** plans. You choose the plan on the **Plan** step when you create the capsule. Free suits personal projects and prototypes; Paid removes build size and traffic caps for production sites.
 
 ## Compare plans
 
@@ -88,16 +82,10 @@ You can't move a Paid capsule back to Free. To use the Free plan again, create a
 
 ## Related
 
-- [Deploy with Static hosting](/products/frontend-capsule/static/deploy/)
-- [Container hosting](/products/frontend-capsule/container/deploy/): if you want runtime logs, metrics, or scaling
-- [How pricing works](/platform/billing/how-does-the-pricing-work/)
-
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Deploy static frontend', description: 'Create a Static Frontend Capsule.'},
+    {type: 'link', href: '/products/frontend-capsule/container/deploy', label: '🛠️ Container hosting', description: 'Logs, metrics, and scaling.'},
+    {type: 'link', href: '/platform/billing/how-does-the-pricing-work', label: '📋 How pricing works', description: 'Hourly billing and plans.'},
+  ]}
+/>

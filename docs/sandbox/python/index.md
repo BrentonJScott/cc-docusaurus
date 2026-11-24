@@ -3,21 +3,28 @@ slug: "/sandbox/python"
 title: "Sandbox SDK for Python"
 description: "The codecapsules-sandbox Python SDK for creating and managing Firecracker microVM sandboxes."
 sidebar_label: "Python SDK"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # Python SDK
 
-`codecapsules-sandbox` is the official Python client for the Sandbox API.
+The `codecapsules-sandbox` package is the official Python client for the Sandbox API.
 
-The API is in private beta. [Join the waitlist](/docs/shared/create-an-account) to get an API key.
+## Overview
+
+Install `codecapsules-sandbox` on Python 3.9+, set `CODECAPSULES_API_KEY`, and use `Sandbox` or `AsyncSandbox` to create microVMs, run commands, and upload or download files.
+
+## Why it matters
+
+Python agents and notebooks can run untrusted code in isolation without managing Firecracker directly.
+
+## How it works
 
 ```bash
 pip install codecapsules-sandbox
 ```
-
-Requires Python 3.9+.
-
-## Basic usage
 
 ```python
 from codecapsules_sandbox import Sandbox
@@ -27,64 +34,20 @@ with Sandbox.create() as sb:
     print(result.stdout)  # "Python 3.12.3\n"
 ```
 
-## Lifecycle patterns
+Use a context manager so the sandbox deletes on exit, or call `Sandbox.create()` and `delete()` manually. `AsyncSandbox` exposes the same API with `async`/`await`. Pass `api_key`, `timeout`, and `max_retries` to `create()` when you do not rely on environment variables alone.
 
-### Context manager (recommended for most cases)
+The API is in private beta. [Join the waitlist](/docs/shared/create-an-account) for an API key.
 
-```python
-from codecapsules_sandbox import Sandbox
+## When to use it
 
-with Sandbox.create(flavor="python-3.12") as sb:
-    result = sb.exec('python -c "print(1+1)"')
-    print(result.stdout)  # "2\n"
-# sandbox deleted when the block exits, even on exception
-```
+Choose the Python SDK when your agent or automation already runs on Python. Use the TypeScript SDK for Node-based tools.
 
-### Manual lifecycle
+## Related
 
-```python
-sb = Sandbox.create(flavor="node-20")
-try:
-    result = sb.exec("node --version")
-    print(result.stdout)
-finally:
-    sb.delete()
-```
-
-### Async with `AsyncSandbox`
-
-For asyncio-based code, use `AsyncSandbox`. All methods are coroutines.
-
-```python
-import asyncio
-from codecapsules_sandbox import AsyncSandbox
-
-async def main():
-    async with AsyncSandbox.create() as sb:
-        result = await sb.exec("python --version")
-        print(result.stdout)
-
-asyncio.run(main())
-```
-
-## Configuration
-
-Set `CODECAPSULES_API_KEY` in your environment, or pass it explicitly:
-
-```python
-sb = Sandbox.create(
-    "python-3.12",
-    api_key="your_api_key",
-    timeout=60.0,
-    max_retries=3,
-)
-```
-
-## SDK reference
-
-- [API Reference](/sandbox/python/api-reference/): `Sandbox`, `AsyncSandbox`, types, and exceptions
-
-## Links
-
-- [PyPI · codecapsules-sandbox](https://pypi.org/project/codecapsules-sandbox/)
-- [GitHub · codecapsules-io/sandbox-python](https://github.com/codecapsules-io/sandbox-python)
+<DocCardList
+  items={[
+    {type: 'link', href: '/sandbox/python/api-reference', label: '📋 API reference', description: 'Sandbox, AsyncSandbox, and exceptions.'},
+    {type: 'link', href: '/sandbox/quickstart', label: '🚀 Quick start', description: 'First command in a sandbox.'},
+    {type: 'link', href: '/sandbox/typescript', label: '📋 TypeScript SDK', description: 'Node client for the same API.'},
+  ]}
+/>

@@ -1,15 +1,18 @@
 ---
 slug: "/database/redis"
-description: "In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in-memory data storage for your application hosted on Code Capsules."
-title: "Managed Redis Hosting"
+description: >-
+  Create a Redis Data Capsule on Code Capsules and bind it to a Backend Capsule.
+  When you finish, the capsule shows a build in progress on the Deploy tab.
+title: "How to Host a Redis Instance"
 sidebar_label: "Redis"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-
 # Host Your Redis Instance
+
+Create a Redis Data Capsule on Code Capsules and bind it to a Backend Capsule. When you finish, the first build or provision step completes on the capsule **Deploy** tab.
 
 ## Prerequisites
 
@@ -17,65 +20,34 @@ import DocCardList from '@theme/DocCardList';
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
   ]}
 />
 
-In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in-memory data storage for your application hosted on Code Capsules.
+## Create your Redis capsule
 
-## Create a Redis Data Capsule
+1. **Open the capsule wizard**
 
-Log in to your [Code Capsules](/docs/shared/create-an-account) account and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select **New Capsule**, then select **Redis** from the dropdown.
+   Open the Space for the Redis instance. Click the yellow **+** and select **New Capsule**.
 
+2. **Choose Redis**
 
+   On **Capsule Details**, choose **Redis**, your Team, and Space. Click **Next**.
 
-Choose a payment option, and click **Create Capsule**.
+3. **Choose a plan**
 
-## Connecting a Data Capsule to a Backend Capsule
+   On **Plan**, select a payment option. Click **Create Capsule**.
 
-Now we need to connect our Data Capsule to a Backend Capsule using a database connection URL.
+4. **Wait for provisioning**
 
-Navigate to your Backend Capsule and click on the **Configure** tab. Scroll down to the **Data capsules** section and click **View**. Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
+   On the capsule **Deploy** tab, confirm the capsule status leaves **Creating** when provisioning finishes.
 
-We'll use this environment variable in our app to connect to the Redis database.
+5. **Bind the Redis capsule to a Backend Capsule**
 
+   Open the Backend Capsule **Config** tab. Under **Data capsules**, click **View** next to the Redis capsule.
 
+6. **Add the connection URL**
 
-## Connecting to a Redis Data Capsule from a Python Application
-
-If your Backend Capsule is a Python application, use the following code to connect to your Redis database:
-
-```python
-import os
-import redis
-
-redis_url = os.getenv('REDIS_URL')
-
-connection = redis.from_url(redis_url)
-
-# Do something here
-```
-
-## Connecting to a Redis Data Capsule from a Node.js Application
-
-If your Backend Capsule is a Node.js application, use the following code to connect to your Redis database:
-
-```js
-let redis = require('redis');
-let redis_url = process.env.REDIS_URL
-
-let connection = redis.createClient({
-  url: redis_url
-});
-
-connection.connect();
-
-// Do something here 
-
-connection.quit();
-```
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/database/).
+   Click **+** next to **Connection string** to create a `REDIS_URL` environment variable on the Backend Capsule. Click **Save**.
 
 ## Troubleshooting
 
@@ -85,4 +57,3 @@ If you’d like to deploy another application in a different language or framewo
 Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
 
 </details>
-

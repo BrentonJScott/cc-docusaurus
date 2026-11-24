@@ -23,6 +23,19 @@ import DocCardList from '@theme/DocCardList';
 
 Code Capsules MySQL Capsules run one of two supported major versions. This guide covers which versions are available, how to check your current version, and how to plan a major version upgrade.
 
+## Manage your MySQL version
+
+1. **Check supported majors**
+
+   New capsules use **5.7** or **8.0** (see table below) unless you choose otherwise at create time.
+
+2. **Read the running version**
+
+   Connect with [Connect Locally](/products/database-capsule/mysql/connect-locally/) or your app binding, then run `SELECT VERSION();`.
+
+3. **Plan upgrades**
+
+   Major upgrades run one step at a time. Open [Upgrade paths](/products/database-capsule/mysql/versions/upgrades/) for the guide that matches your target version.
 
 ## Supported Versions
 

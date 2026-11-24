@@ -11,21 +11,17 @@ import DocCardList from '@theme/DocCardList';
 
 # Make Your WordPress Site Fast
 
-## Prerequisites
+## Overview
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+WordPress Capsules ship with tuned PHP, OPcache, and PHP-FPM defaults. This page explains how requests are processed and how to adjust workers, memory, and caching-related PHP settings.
 
-WordPress Capsules are pre-configured with sensible performance defaults. This guide explains how to tune them for your specific site size and traffic pattern.
+## Why it matters
 
----
+Tuning and understanding this behavior keeps production sites reliable under real traffic.
 
-## How Requests Are Processed
+## How it works
+
+### How Requests Are Processed
 
 Understanding the request path helps you know where bottlenecks occur:
 
@@ -40,9 +36,9 @@ Browser → HTTPS → Platform load balancer → Nginx → PHP-FPM → WordPress
 
 For most sites, the bottleneck is either **PHP worker count** (FPM pool exhausted) or **database queries** (slow or too many queries per page load).
 
----
 
-## OPcache
+
+### OPcache
 
 OPcache is enabled by default. It compiles PHP files to bytecode once and stores them in memory, eliminating the file parsing overhead on subsequent requests. This typically reduces PHP processing time by 30–50% for WordPress.
 
@@ -77,9 +73,9 @@ opcache.jit_buffer_size = 64M
 
 JIT provides the most benefit on sites with heavy PHP computation. For typical content sites with mostly database-driven pages, the gain is modest (0–10%).
 
----
 
-## PHP-FPM Worker Pool
+
+### PHP-FPM Worker Pool
 
 PHP-FPM maintains a pool of worker processes that handle incoming PHP requests. If all workers are busy, new requests queue up. If the queue is full, requests are rejected.
 
@@ -152,9 +148,9 @@ Signs that you need more workers:
 
 If worker exhaustion is the bottleneck, **scale your capsule RAM first**, then increase `pm.max_children` proportionally.
 
----
 
-## Memory Limit
+
+### Memory Limit
 
 PHP's `memory_limit` controls how much memory a single PHP request can use. The default is `256M`, which is sufficient for most WordPress sites.
 
@@ -169,9 +165,9 @@ WORDPRESS_CUSTOM_INI=memory_limit = 512M
 ```
 
 
----
 
-## Execution Time
+
+### Execution Time
 
 The default `max_execution_time = 60` seconds is sufficient for most requests. Increase it for long-running operations:
 
@@ -185,9 +181,9 @@ Common reasons to increase it:
 - Plugin update operations
 - Large image regeneration batches
 
----
 
-## Static File Performance
+
+### Static File Performance
 
 Nginx serves static files (CSS, JS, fonts, images) directly without involving PHP. Static files are cached in the visitor's browser for 30 days with an `immutable` cache directive — after the first load, they are never re-requested until the filename changes.
 
@@ -195,9 +191,9 @@ This means **plugin and theme updates automatically bust the browser cache** bec
 
 XML and text files (sitemaps, `robots.txt`) are cached for 1 hour to allow frequent regeneration by SEO plugins.
 
----
 
-## Database Performance
+
+### Database Performance
 
 WordPress makes many small database queries per page. Common performance issues:
 
@@ -227,9 +223,9 @@ WORDPRESS_CONFIG_EXTRA=define('WP_POST_REVISIONS', 5);
 
 Database query results can be cached in memory using a Redis object cache. See [Configure](/products/wordpress-capsule/configure/) for setup instructions.
 
----
 
-## Checklist — Performance by Site Type
+
+## When to use it
 
 ### Blog / Brochure site
 - `CACHE_TTL_SECONDS=60` — protects against traffic spikes, content stays fresh ✓
@@ -253,12 +249,13 @@ Database query results can be cached in memory using a Redis object cache. See [
 - Increase `memory_limit` (membership plugins are memory-heavy)
 - Enable Redis object cache to compensate for no page cache
 
-## Troubleshooting
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
+## Related
 
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/wordpress-capsule/caching', label: '⚙️ Caching', description: 'Page cache for anonymous traffic.'},
+    {type: 'link', href: '/products/wordpress-capsule/configure', label: '⚙️ Configure', description: 'Environment variables.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ Deploy WordPress', description: 'Create a WordPress Capsule.'},
+  ]}
+/>

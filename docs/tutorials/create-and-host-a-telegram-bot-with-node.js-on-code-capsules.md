@@ -109,7 +109,7 @@ Using the `bot.launch()` command isn't efficient from a bandwidth perspective, a
 
 ### Add Bot Commands
 
-Now it's time to add the logic for the commands that tell our bot how to respond to different messages. Add the code below to `index.js` just above the `bot.launch()` line:
+Now it's time to add the logic for the commands that tell our bot how to respond to different messages. Add the code below to `index.js` immediately above the `bot.launch()` line:
 
 ```js
 bot.command('start', ctx => {
@@ -158,8 +158,13 @@ bot.telegram.setWebhook('<YOUR_CAPSULE_URL>/secret-path')
 expressApp.listen(port, () => console.log(`Listening on ${port}`));
 ```
 
-Navigate to the capsule you deployed at the start of this tutorial and copy its domain from the "Details" tab. In the code snippet above, replace `<YOUR_CAPSULE_URL>` with the domain you just copied.
+Navigate to the capsule you deployed at the start of this tutorial and copy its domain from the "Details" tab. In the code snippet above, replace `<YOUR_CAPSULE_URL>` with the domain you copied.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -167,6 +172,12 @@ Navigate to the capsule you deployed at the start of this tutorial and copy its 
 On Code Capsules, navigate to the "Config" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token.
 
 Now, head over to your local development environment and commit your changes if you haven't already. Run `git push` in a terminal window while in the project's root folder, to deploy your bot to production!
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

@@ -156,7 +156,7 @@ Next, create an `index.html` file inside the `templates` folder, and populate it
 </html>
 ```
 
-There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our `index.html` page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
+There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our `index.html` page. This gives you the power to build an interactive page by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
 
 The code in between the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let's add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the \</head> tag:
 
@@ -440,6 +440,12 @@ git push origin
 We’ve shown you how to build a full-stack Flask HTMx application from scratch, and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
 
 You can find the complete code shown above in [this GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Summary
 

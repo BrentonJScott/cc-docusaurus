@@ -9,30 +9,28 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Upgrade Your MongoDB Major Version
+# MongoDB Major Version Upgrades
 
-## Prerequisites
+Upgrade a Dedicated MongoDB Capsule one major version at a time. Pick the guide that matches your current and target MongoDB version.
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+## Overview
 
-Major version upgrades must be done one step at a time on **Dedicated** clusters. Select the guide that matches your current and target versions:
+Major version upgrades on **Dedicated** MongoDB clusters must run in sequence—you cannot skip a major version in one step.
 
-- [7.0 to 8.0](/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0/) — upgrade from MongoDB 7.0 to 8.0
+## Upgrade paths
+
+| From → To | Guide |
+| --- | --- |
+| 7.0 → 8.0 | [7.0 to 8.0](/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0/) |
 
 See [MongoDB Versions](/products/database-capsule/mongodb/versions/) for supported versions and general upgrade requirements.
 
-## Troubleshooting
+## Related
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/database-capsule/mongodb/versions', label: '📋 MongoDB versions', description: 'Supported versions and policies.'},
+    {type: 'link', href: '/products/database-capsule/mongodb/configure', label: '⚙️ Configure MongoDB', description: 'Connection and version settings.'},
+    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ Deploy MongoDB', description: 'Create a MongoDB Capsule.'},
+  ]}
+/>

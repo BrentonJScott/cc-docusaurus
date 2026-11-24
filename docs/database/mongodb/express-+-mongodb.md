@@ -1,64 +1,51 @@
 ---
 slug: "/database/mongodb/express-+-mongodb"
-title: "Deploy Express with MongoDB"
-description: "Deploy an Express.js app with a MongoDB database on Code Capsules from GitHub. Connect Express to a managed Mongo Data Capsule, step by step."
+title: "How to Host Express with MongoDB"
+description: >-
+  Deploy an Express.js app with a MongoDB database on Code Capsules from
+  GitHub. When you finish, the demo app loads at the capsule public URL.
+sidebar_label: "Express + MongoDB"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
+# Host Your Express MongoDB Application
 
-# Express + MongoDB
-
-Deploy an Express.js and Mongo application and learn how to host backend code on Code Capsules.
+Deploy an Express.js app with a MongoDB Capsule and a Backend Capsule from GitHub. When you finish, the demo app loads at the capsule public URL.
 
 ## Prerequisites
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy an Express.js MongoDB application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-express-mongodb).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-express-mongodb', description: 'Fork codecapsules-io/demo-express-mongodb on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so the fork appears in the wizard.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Deploy your Express MongoDB app
 
-## Create the Capsules
+1. **Create the MongoDB capsule**
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **MongoDB**, your Team, and Space. On **Plan & Deploy**, choose cluster type, version, and plan. Click **Create Capsule**.
 
-Navigate to the Spaces tab and open the Space you'll be using.
+2. **Create the Backend capsule**
 
-Click the yellow **+** button in the bottom left of the screen, select **New Capsule**, and follow the instructions below to create a MongoDB Capsule:
+   Click **+** again and choose **Backend Capsule**, your Team, and Space. On **Plan**, choose a plan. On **Configure**, select `codecapsules-io/demo-express-mongodb` and branch `main`. Leave **Run Command** blank. Click **Create Capsule**.
 
-1. Choose **MongoDB**, your Team, and Space.
-2. On **Plan & Deploy**, choose a cluster type, version, and plan.
-3. Click **Create Capsule**.
+3. **Wait for the build**
 
-Navigate to the Space containing your recently created Data Capsule. Click the yellow **+** button in the bottom left of the screen, select **New Capsule**, and follow the instructions below to create a Backend Capsule:
+   On the Backend Capsule **Deploy** tab, open **Builds**. The first build runs when the capsule is created.
 
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose a payment plan.
-3. Choose the GitHub repository you forked.
-4. Press **Next**.
-5. Leave **Run Command** blank.
-6. Click **Create Capsule**.
+4. **Connect the capsules**
 
-Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
+   Copy the **Public Connection String** from the MongoDB capsule **Details** tab. On the Backend Capsule **Config** tab, under **Data capsules**, click **View** and set `DATABASE_URL` to that string. Click **Save**.
 
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
+5. **Open the application**
 
-
-
-## Connect the Capsules
-
-After the two capsules have been successfully built, the next step is to connect them. Copy the **Public Connection String** from the **Details** tab of your MongoDB Capsule, then navigate to the **Config** tab of your Backend Capsule. Scroll down to the **Data capsules** section, click **View** next to your MongoDB Capsule, and add the connection string as a `DATABASE_URL` environment variable.
-
-
-
-## View Application
-
-You can now view the application after the two capsules have been connected. To see how it looks, click on the URL in the **Details** tab.
-
-
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/database/).
+   On the Backend Capsule **Details** tab, open the public URL. The Express demo loads.
 
 ## Troubleshooting
 
@@ -68,4 +55,3 @@ If you’d like to deploy another application in a different language or framewo
 Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
 
 </details>
-

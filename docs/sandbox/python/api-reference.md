@@ -11,6 +11,12 @@ import DocCardList from '@theme/DocCardList';
 
 # Python API Reference
 
+Full API reference for the `codecapsules-sandbox` Python SDK: `Sandbox`, `AsyncSandbox`, types, and exceptions.
+
+## Overview
+
+The synchronous `Sandbox` client supports context managers and explicit `delete()`. `AsyncSandbox` mirrors the same surface with coroutines. Errors inherit from `SandboxError`.
+
 ## `Sandbox`
 
 Synchronous sandbox client. Use as a context manager or manage the lifecycle manually.
@@ -384,3 +390,13 @@ try:
 except SandboxExecTimeoutError:
     print("Command timed out")
 ```
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/sandbox/python', label: '📋 Python SDK', description: 'Install and usage overview.'},
+    {type: 'link', href: '/sandbox/typescript/api-reference', label: '📋 TypeScript API', description: 'Node client reference.'},
+    {type: 'link', href: '/sandbox/environments', label: '📋 Environments', description: 'Flavors and limits.'},
+  ]}
+/>

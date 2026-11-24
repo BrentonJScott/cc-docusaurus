@@ -58,6 +58,11 @@ In the next section, we will walk through:
 * Hosting two different versions of the app on Code Capsules.
 * Exploring the customization options you might consider when creating your own white-label app.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -264,7 +269,7 @@ Now that our application is easily customizable, we can deploy different version
 
 ### Deploying the App on Code Capsules
 
-Now that our application is ready to be customized and deployed, we can use Code Capsules to make this process easy and intuitive.
+Now that our application is ready to be customized and deployed, we can use Code Capsules to streamline deployment and configuration.
 
 To get started, create a repository on GitHub and push your app’s code to this new repository.
 
@@ -302,7 +307,7 @@ Once your application is live, you can view the build log by selecting the “De
 
 #### Bind the Capsules
 
-Next, you need to bind the Backend Capsule to its database. Navigate to the “Config” tab of the Backend Capsule you’ve just created. Scroll to the “Bind Data Capsule” section and click on the “Bind” option on the appropriate Data Capsule. This enables the Capsule to use persistent storage in the Data Capsule.
+Next, you need to bind the Backend Capsule to its database. Navigate to the **Config** tab of the Backend Capsule you created. Scroll to the “Bind Data Capsule” section and click on the “Bind” option on the appropriate Data Capsule. This enables the Capsule to use persistent storage in the Data Capsule.
 
 #### Configure Environment Variables
 
@@ -354,9 +359,15 @@ Stylistic changes can be made by changing colors, font types, text, and logos, b
 
 ### Takeaway
 
-In this tutorial, two very different-looking applications were deployed from the same codebase simply by changing a couple of variables in the Code Capsules UI. This is a powerful way to get your app solution to more people, more quickly, and at a lower price.
+In this tutorial, two very different-looking applications were deployed from the same codebase by changing a couple of variables in the Code Capsules UI. This is a powerful way to get your app solution to more people, more quickly, and at a lower price.
 
 Getting some new app ideas after reading this? Test your application out or deploy it to production by signing up with [Code Capsules](/docs/shared/create-an-account).
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

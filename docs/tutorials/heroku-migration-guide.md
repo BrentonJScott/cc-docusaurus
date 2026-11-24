@@ -26,7 +26,9 @@ This guide demonstrates how to move a suite of applications running on the Herok
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
-## Why Developers Are Migrating From Heroku in 2026
+## Part 1: Plan your migration
+
+### Why developers are migrating from Heroku in 2026
 
 **Last updated: July 2026.** Prices below are from the official [Heroku pricing page](https://www.heroku.com/pricing) and [Code Capsules pricing page](/docs/shared/create-an-account); re-check both before making decisions.
 
@@ -66,7 +68,7 @@ Here is how the two platforms compare on the things that matter for a migration:
   - [Your Migration Checklist](#your-migration-checklist)
   - [Next Steps](#next-steps)
 
-## Document Your Heroku System
+### Document Your Heroku System
 
 Before moving your app, you first need to document all of its components and settings:
 
@@ -87,7 +89,7 @@ If you don't want to take your app offline, you need to use the dual-write metho
 
 There are a lot of edge cases and reconciliation problems with dual-writing. Consult a dedicated guide for more details.
 
-## An Example Full-Stack Application
+### An Example Full-Stack Application
 
 Let's look at the most common type of application hosted on Heroku: a full-stack web application.
 
@@ -107,7 +109,7 @@ Other common components include:
 - A message queue, like RabbitMQ
 - An in-memory cache, like Redis
 
-## Reviewing the App on Heroku
+### Reviewing the App on Heroku
 
 Let's work through moving our example app from Heroku to Code Capsules. We'll first discuss the components on Heroku, so you'll understand the specifics when planning your migration to another provider.
 
@@ -121,7 +123,7 @@ Heroku doesn't support static websites. This was previously possible using a cus
 
 Heroku has multiple ways to deploy code to a dyno. Identify which method your app uses:
 
-- **[API (HTTP calls)](https://devcenter.heroku.com/articles/build-and-release-using-the-api):** The simplest solution. Just zip your code and use `curl` to send the file to Heroku.
+- **[API (HTTP calls)](https://devcenter.heroku.com/articles/build-and-release-using-the-api):** The simplest solution. Zip your code and use `curl` to send the file to Heroku.
 - **CLI:** By downloading and running the Heroku CLI in your terminal, you can deploy your app to Heroku in three ways:
   1. By zipping and pushing a build (same as the API)
   2. By using the CLI to add Heroku as a Git remote server to your app's local Git repository, you can `git push` to that remote and Heroku will deploy it.
@@ -179,13 +181,21 @@ You can see what that looks like below:
 
 Our example Heroku system consists of three apps, shown below, with one database addon and one scheduler addon.
 
-## Creating the App on Code Capsules
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
+
+## Part 2: Build on Code Capsules
+
+### Creating the app on Code Capsules
 
 In this section you'll learn how to deploy the app (and data) we created in Heroku on Code Capsules.
 
 First we create a Code Capsules [Space](/platform/platform/). Rather than the Heroku way of grouping applications by a globally unique name, Code Capsules allows you to group all components of an application inside a Space. We'll call our space `migrate`.
 
-Next, create a new Capsule for each component you have in Heroku. From your Space, click the yellow `+` icon at the bottom left of the screen to create a new Capsule. Select a [Capsule type](/frontend/) and follow the prompts provided. Note that a frontend Capsule can serve any JavaScript framework, not just the ones shown in the **Quickstart** tab.
+Next, create a new Capsule for each component you have in Heroku. From your Space, click the yellow `+` icon at the bottom left of the screen to create a new Capsule. Select a [Capsule type](/frontend/) and follow the prompts provided. Note that a frontend Capsule can serve any JavaScript framework, not only the ones shown in the **Quickstart** tab.
 
 Below is a mapping of the Heroku components to Code Capsules Capsules:
 
@@ -284,7 +294,7 @@ Contact Code Capsules support on Slack if you need help with this.
 
 Code Capsules requires linking a repository when creating a Capsule, so ensure your code is ready to deploy before setting up your infrastructure.
 
-After choosing a repository, you can specify which folder Code Capsules should deploy. Since we had three components in different folders, we chose the `/frontend` folder. If you have one application per repository, you can just leave Code Capsules to use the `/` root folder.
+After choosing a repository, you can specify which folder Code Capsules should deploy. Since we had three components in different folders, we chose the `/frontend` folder. If you have one application per repository, you can leave Code Capsules to use the `/` root folder.
 
 Finally, you enter a command to run when starting your Capsule. Like Heroku, you don't have to include dependency installation, like `npm install`. Code Capsules does that automatically before running your start command. For our static site, no run command is needed.
 
@@ -353,11 +363,11 @@ Here are some considerations for any application-level scheduler (these apply re
 
 Another scheduling option is to use an external cron service (like [cron-job.org](https://cron-job.org)), and have it call an HTTP endpoint you add to your emailer (or backend).
 
-## Other Components and Cross-Cutting Concerns in Code Capsules
+### Other Components and Cross-Cutting Concerns in Code Capsules
 
 We've discussed how to move common system components to Code Capsules, but you might have a few more:
 
-- **Object storage (file storage)**: Object storage, like AWS S3, is used for storing binary files like photos, for which databases are not suitable. Code Capsules has a file storage Capsule type. Like the database Capsule, the storage Capsule exposes an environment variable for other backend Capsules to use to access it. The variable is just a file path, like `/mnt/storage`, which other Capsules can write to like a normal file system.
+- **Object storage (file storage)**: Object storage, like AWS S3, is used for storing binary files like photos, for which databases are not suitable. Code Capsules has a file storage Capsule type. Like the database Capsule, the storage Capsule exposes an environment variable for other backend Capsules to use to access it. The variable is a file path, like `/mnt/storage`, which other Capsules can write to like a normal file system.
 - **SSL/TLS**: All Capsules are served over HTTPS automatically with managed TLS certificates. If you use a custom domain, Code Capsules provisions and renews certificates for it automatically once you've created the CNAME record. This is equivalent to Heroku's Automated Certificate Management (ACM).
 - **Domains**: Each Capsule exposes a URL in the **Domains** tab you can use to create a CNAME record with your DNS provider, so you can use your company's domain name.
 - **QA environments**: Code Capsules uses Git branches for environment management — point a separate Capsule at your QA branch to create a test environment. This keeps your deployment configuration in Git rather than in a platform-specific pipeline tool.
@@ -385,7 +395,15 @@ We've discussed how to move common system components to Code Capsules, but you m
   Code Capsules builds Docker images from your Dockerfile in your repository. If you have a complex build, you can prebuild an image, publish it to a public registry such as Docker Hub, and [deploy the image directly](/products/docker-capsule/image/deploy/).
 - **Running multiple applications in a Capsule**: If you want to run two different services in one Capsule, like a PHP and Ruby server, you need to use a custom Dockerfile that includes both frameworks.
 
-## Your Migration Checklist
+:::tip[Checkpoint]
+
+You completed the steps in Part 2. The local project matches the state described above.
+
+:::
+
+## Part 3: Cut over and verify
+
+### Your migration checklist
 
 Use this as the working checklist for the whole migration. Each item links back to the section that covers it.
 
@@ -416,9 +434,25 @@ Use this as the working checklist for the whole migration. Each item links back 
 - [ ] Watch logs and resource graphs for a full traffic cycle before decommissioning
 - [ ] Downgrade, then delete, the old Heroku resources once you're confident
 
-## Next Steps
+:::tip[Checkpoint]
 
-Interested in trying Code Capsules? [Create a free account](/docs/shared/create-an-account) to take a look around, or ask us anything on [Slack](https://codecapsules.slack.com/join/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg#/shared-invite/email).
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
+
+## Summary
+
+You migrated your Heroku apps to Code Capsules using the plan, build, and cutover steps in this guide.
+
+## Next steps
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/tutorials', label: '🎓 More tutorials', description: 'Browse other step-by-step guides.'},
+    {type: 'link', href: '/full-stack/index', label: '🛠️ Full-stack guides', description: 'Deploy another stack.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 Create a Space', description: 'Add another deployment target.'},
+  ]}
+/>
 
 ## Troubleshooting
 

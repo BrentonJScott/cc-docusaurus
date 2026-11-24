@@ -1,122 +1,49 @@
 ---
 slug: "/backend/node.js/slack-bot"
-title: "Deploy a Node.js Slack Bot"
-description: "Build and deploy a Node.js Slack bot to Code Capsules from GitHub. Connect to the Slack API and run your bot in production, step by step."
+title: "Node.js Slack Bots on Code Capsules Explained"
+description: >-
+  How a Node.js Slack bot on Code Capsules uses slash commands, OAuth tokens,
+  and environment variables to post to a workspace.
+sidebar_label: "Slack Bot"
+doc_version: drift
 ---
 
-# Node.js Slack Bot
+import DocCardList from '@theme/DocCardList';
 
-Deploy a Node.js Slack Bot and learn how to host backend code on Code Capsules.
+# Node.js Slack bots on Code Capsules
 
-## Setup
+How a Node.js Slack bot on Code Capsules uses slash commands, OAuth tokens, and environment variables to post to a workspace.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
+## Overview
 
-To demonstrate how to deploy a Node.js Slack Bot with Code Capsules, we've provided an example bot, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/slackbot).
+The `codecapsules-io/slackbot` demo is a Backend Capsule that receives Slack slash commands over HTTPS and posts responses to a channel. Slack signs each request so the bot can verify it came from your workspace.
 
-Sign in to GitHub, and fork the example bot repository by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Why it matters
 
-## Create a Space for Your Bot
+Slack bots need a always-on HTTPS endpoint for slash commands and event subscriptions. A Backend Capsule provides that URL without running your own server or managing TLS certificates.
 
-Log in to your Code Capsules account and navigate to the **Spaces** tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
+## How it works
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+You register a Slack app with a slash command whose **Request URL** points at your capsule public URL plus the bot route (for example `/slack/command/stats`). The bot reads `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID`, and `SLACK_SIGNING_SECRET` from **Config** environment variables to authenticate and post messages.
 
+When the capsule starts, the demo can announce itself in the channel. Restarting the capsule triggers another message, and `/stats` returns runtime information from the app.
 
+## When to use it
 
+| Factor | Backend Capsule Slack bot | Serverless function |
+| --- | --- | --- |
+| Always on | Capsule runs continuously | Invoked per request |
+| Secrets | **Config** environment variables | Platform secret store |
+| Best for | Long-lived bots and cron-style posts | Sparse command traffic |
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+Use a Backend Capsule when the bot must stay online for slash commands or scheduled posts. For deployment steps, fork `codecapsules-io/slackbot` and follow the same Backend Capsule flow as the [Express.js](/backend/node.js/express.js) guide, then add the Slack app credentials on **Config**.
 
-## Create the Capsule
+## Related
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
-
-To create a new Capsule for your Space, follow the instructions below:
-
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
-
-Code Capsules will automatically build your application when you've finished creating the Capsule.
-
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
-
-
-
-## Register the Bot
-
-You'll need a Slack user account and to log into a workspace before you can create a Slack bot. After you have logged into a workspace, head over to the [Slack API](https://api.slack.com/) page and click on **Create an app**.
-
-1. On the popup that displays, choose the **From scratch** option, give your app a name, and choose the workspace you want to add it to, then click **Create App**.
-2.  Click **OAuth & Permissions** on the left panel and scroll down to the _Scopes_ section, and click **Add an OAuth Scope** under the _Bot Token Scopes_ section.
-
-    
-3. Choose **chat:write** from the options list.
-4.  Click on the **Slash Commands** menu item on the left, under Features, then click **Create a new Command**.
-
-    
-5. Give the command the name `/stats`.
-6.  For the Request URL, head over to your Capsule **Details** tab on Code Capsules and copy the URL under the **Public URL** section.
-
-    
-7. Paste your URL into the Request URL box on Slack, and add `/slack/command/stats` to the end of it.
-8.  Fill in the description with 'Returns key stats from the app'.
-
-    
-9. Click **Save**.
-
-## Add Environment Variables
-
-Our bot's logic makes use of environment variables to function securely. You'll need to add the variables to your capsule's **Configure** tab before the bot can send/receive messages from your workspace.
-
-For the first environment variable, `SLACK_BOT_TOKEN`:
-
-1. Head over to your app dashboard on Slack, and click on the **OAuth & Permissions** menu item on the left-hand side.
-2. Click the **Install to Workspace** button, followed by the **Allow** button.
-3. Actioning the preceding 2 steps should reveal a newly generated **Bot User OAuth Token**. Copy this token.
-4.  On your capsule's **Configure** tab, add a new environment variable with the name `SLACK_BOT_TOKEN` and set its value to the token you copied in the previous step.
-
-    
-5. Confirm your changes by clicking on **Save**.
-
-For the second environment variable, `SLACK_CHANNEL_ID`:
-
-1. Open Slack and right-click on the channel name of the channel you want to send messages to.
-2.  On the context menu that appears, choose **Copy Link**.
-
-    
-3. Paste the link in a browser tab, but don't press **enter** or **return**.
-4. The link should follow the format, `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
-5.  Add the channel ID to the environment variables with the name `SLACK_CHANNEL_ID`.
-
-    
-6. Confirm your changes by clicking on **Save**.
-
-For the third environment variable, `SLACK_SIGNING_SECRET`:
-
-1. Head over to your Slack app dashboard and click on **Basic Information** on the left-hand side.
-2.  Scroll down to _App Credentials_ and look for the _Signing Secret_. Click **Show** and copy the secret.
-
-    
-3.  Add a new environment variable with the name `SLACK_SIGNING_SECRET` on your capsule's **Config** tab and set its value to the secret you copied in the previous step.
-
-    
-4. Confirm your changes by clicking on **Save**, then restart your Capsule by toggling the radio button in the top right off and on again.
-
-## Invite the Bot to the Channel
-
-You need to invite the bot to the chosen channel so that it'll be able to post there. To do this, send a message mentioning `@<bot-name>` the bot in the channel you added it to. Click **Invite Them** when Slack prompts you.
-
-
-
-## Chat with the Bot
-
-The bot can now send messages to the channel every time it starts. You can restart the capsule to see this functionality in action, or alternatively, send a `/stats` message in the channel to get a report about the bot's status on Code Capsules.
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/backend/).
+<DocCardList
+  items={[
+    {type: 'link', href: '/backend/node.js/express.js', label: '🛠️ Express.js', description: 'Deploy the Node.js Backend Capsule baseline.'},
+    {type: 'link', href: '/backend/node.js', label: '📋 Node.js hosting', description: 'Other Node.js deployment guides.'},
+    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Compare backend languages on Code Capsules.'},
+  ]}
+/>

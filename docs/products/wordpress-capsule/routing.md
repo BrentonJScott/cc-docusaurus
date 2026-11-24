@@ -13,9 +13,17 @@ import DocCardList from '@theme/DocCardList';
 
 This page explains how HTTP traffic flows through a WordPress Capsule and how to customise routing for advanced use cases.
 
----
+## Overview
 
-## Request Flow
+This page explains how HTTP traffic flows through a WordPress Capsule and how to customise routing for advanced use cases.
+
+## Why it matters
+
+Tuning and understanding this behavior keeps production sites reliable under real traffic.
+
+## How it works
+
+### Request Flow
 
 Every HTTP request to your WordPress site follows this path:
 
@@ -43,9 +51,9 @@ Code Capsules ingress controller handles:
 - All `.php` file execution
 - WordPress routing (the `index.php` catch-all)
 
----
 
-## WordPress URL Routing
+
+### WordPress URL Routing
 
 WordPress uses a catch-all rewrite rule: any URL that does not match a real file or directory on disk is routed to `index.php`, which WordPress uses to dispatch the request to the appropriate template.
 
@@ -59,9 +67,9 @@ location / {
 
 No special configuration is needed for WordPress permalinks, custom post types, or plugin-defined routes — they all work through this mechanism.
 
----
 
-## Static Files
+
+### Static Files
 
 Nginx serves files with these extensions directly without involving PHP:
 
@@ -74,9 +82,9 @@ Static files are served with a 30-day browser cache (`Cache-Control: public, max
 
 XML and text files (`sitemap.xml`, `robots.txt`) are served with a 1-hour cache to allow frequent regeneration by SEO plugins.
 
----
 
-## Domain and Subdomain Routing
+
+### Domain and Subdomain Routing
 
 WordPress Capsules support custom domains and subdomains. To configure a custom domain, see [How to Add a Custom Domain](/platform/capsules/how-to-add-a-custom-domain/).
 
@@ -88,9 +96,9 @@ If you change your domain, update `APP_URL` and run a search-replace on the data
 wp search-replace 'https://old-domain.com' 'https://new-domain.com' --all-tables
 ```
 
----
 
-## Real Client IP
+
+### Real Client IP
 
 Because all traffic passes through Traefik before reaching nginx, the raw TCP source address inside the capsule is the Traefik IP, not the visitor's IP. Nginx resolves the real client IP automatically from the `X-Forwarded-For` header before passing the request to PHP.
 
@@ -140,17 +148,17 @@ if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
 
 Many CDN providers also offer a WordPress plugin that handles this automatically.
 
----
 
-## REST API
+
+### REST API
 
 The WordPress REST API is available at `/wp-json/` and is always accessible. It is rate-limited at 60 req/min per IP by default (configurable via `RATE_LIMIT_API_ROUTES_RPM`).
 
 REST API responses are excluded from the full-page cache, so they always reflect live data.
 
----
 
-## Custom Nginx Routing
+
+### Custom Nginx Routing
 
 For advanced use cases, inject custom nginx `location` blocks using the `NGINX_EXTRA_CONF` environment variable. The content is placed inside the `server {}` block before the PHP handler.
 
@@ -190,17 +198,17 @@ NGINX_EXTRA_CONF=location = /old-page/ {
 ```
 
 
----
 
-## Health Check
+
+### Health Check
 
 The capsule exposes a health check endpoint at `/healthz` that returns `200 OK` when nginx is running. This is used by the platform to determine if the capsule is healthy and ready to receive traffic.
 
 The endpoint does not execute PHP — it is handled entirely by nginx.
 
----
 
-## wp-admin and Protected Routes
+
+### wp-admin and Protected Routes
 
 WordPress admin routes (`/wp-admin/`, `/wp-login.php`) are handled separately:
 
@@ -209,3 +217,17 @@ WordPress admin routes (`/wp-admin/`, `/wp-login.php`) are handled separately:
 - Admin PHP files are passed directly to PHP-FPM with no cache layer.
 
 See [Security](/products/wordpress-capsule/security/) for configuring IP restrictions on wp-admin.
+
+## When to use it
+
+Use these settings when traffic or workload patterns match the recommendations in the sections above.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/wordpress-capsule/performance', label: '⚙️ Performance', description: 'Page cache for anonymous traffic.'},
+    {type: 'link', href: '/products/wordpress-capsule/configure', label: '⚙️ Configure', description: 'Environment variables.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ Deploy WordPress', description: 'Create a WordPress Capsule.'},
+  ]}
+/>

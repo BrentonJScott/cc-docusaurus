@@ -92,7 +92,7 @@ COPY . .
 EXPOSE 80
 ```
 
-This pulls an official Docker container which already has the PHP language installed and integrated with Apache, a web server. It copies all files from the local directory (in our case, just `index.php` for now), and exposes port 80, which is the port that Apache is set to serve files on.
+This pulls an official Docker container which already has the PHP language installed and integrated with Apache, a web server. It copies all files from the local directory (in our case, only `index.php` for now), and exposes port 80, which is the port that Apache is set to serve files on.
 
 Now run the following command in your terminal.
 
@@ -169,7 +169,7 @@ include "app.php";
 
 This imports all the code into `index.php`, as if you had written in that file. We keep most of the PHP code in a separate file to make our codebase better organized.
 
-You can run the application again now, and you’ll see that you’re able to insert books using the form. However, we aren’t ever reading the books from the database again, so they’ll just disappear. Let’s add some more logic to retrieve any saved books from the database and display them to the user.
+You can run the application again now, and you’ll see that you’re able to insert books using the form. However, we aren’t reading the books from the database again, so they will not appear in the list. Let’s add some more logic to retrieve any saved books from the database and display them to the user.
 
 ### Retrieving the Books from the Database
 
@@ -276,6 +276,11 @@ if ($_POST) {
 
 This now handles the update and delete forms we built, calling `UPDATE` or `DELETE` statements on our database as required. Note that we are still using prepared statements to protect against SQL injection.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -318,6 +323,12 @@ Now create a new Data Capsule and a Docker Capsule in a single Space in Code Cap
 For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set “Network Port” to “80” to match what Apache is running on, and bind the Docker Capsule to the Data Capsule.
 
 Deploy and build the application, and you should see it running on a custom URL that you can share with the world.
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

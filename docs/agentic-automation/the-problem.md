@@ -5,7 +5,11 @@ description: >-
   Why no-code automation tools, monolithic scripts, and naive LLM integrations
   break under the weight of real business complexity — and what the failure
   modes look like.
+sidebar_label: "The Problem"
+doc_version: drift
 ---
+
+import DocCardList from '@theme/DocCardList';
 
 # The Problem with Business Automation at Scale
 
@@ -15,9 +19,17 @@ Then the business grows. The workflows get more complex. The edge cases multiply
 
 This is not a criticism of any particular tool. It is a description of a structural problem that shows up regardless of what tool you use — unless you design around it from the start.
 
----
+## Overview
 
-## The no-code ceiling
+Automation that works for a single Zap often breaks under changing requirements, silent partial failures, and unreviewed changes. The failure is architectural: components work in isolation while the system lacks contracts, state, and deployment discipline.
+
+## Why it matters
+
+Businesses depend on predictable schedules, auditable changes, and recoverable failures. When automation lives only in a SaaS UI or a growing script, outages hide until revenue or compliance is affected.
+
+## How it works
+
+### The no-code ceiling
 
 No-code automation tools are genuinely excellent for what they are designed to do: connect well-defined SaaS APIs with minimal engineering effort. The problem is not the tools. It is what happens as requirements evolve.
 
@@ -29,9 +41,7 @@ No-code automation tools are genuinely excellent for what they are designed to d
 
 **Cost unpredictability at volume.** Per-task pricing models work fine at low volume. At the scale where automation is providing real business value — thousands or tens of thousands of runs per month — the pricing often becomes the argument for building something custom.
 
----
-
-## The monolith problem
+### The monolith problem
 
 The next phase is usually a custom script. A developer writes a Python or Node.js file that does everything: fetches the data, transforms it, calls the API, sends the notification. It runs on a cron job somewhere. It works.
 
@@ -43,9 +53,7 @@ The deeper problem is that as the script grows — and it always grows — it be
 
 This is the monolith problem that microservice architecture was invented to solve. The same problem exists in automation, and the same solution applies.
 
----
-
-## The naive LLM integration
+### The naive LLM integration
 
 When developers first add LLM calls to automation workflows, the usual pattern is to drop an API call into the existing code. The script fetches some data, passes it to an LLM, gets a response back as a string, and proceeds.
 
@@ -61,9 +69,7 @@ This works in demos. In production, several things break.
 
 **No separation of concerns.** When data fetching, LLM reasoning, and output delivery are all tangled together in one function, none of them can be tested, replaced, or scaled independently.
 
----
-
-## What the failure actually looks like
+### What the failure actually looks like
 
 These are not theoretical problems. Here is what they look like in practice:
 
@@ -77,9 +83,7 @@ A junior developer updates the prompt in a data classification agent without rea
 
 These failures share a common thread: **they are not failures of the individual tools or models. They are failures of architecture.** The components work. The system does not, because there was no system — only components.
 
----
-
-## What a solution looks like
+### What a solution looks like
 
 A robust agentic automation system needs to provide:
 
@@ -90,3 +94,17 @@ A robust agentic automation system needs to provide:
 - **Cost-efficient infrastructure** that does not charge for idle agents between runs
 
 The rest of this guide describes exactly that system.
+
+## When to use it
+
+Read this section when you outgrow ad hoc Zaps or one-file cron jobs, before you add LLM steps to production workflows, or when you need to explain why agent boundaries and git-based deploys matter to stakeholders.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/agentic-automation/the-framework', label: '💡 The framework', description: 'Orchestrator and agent architecture.'},
+    {type: 'link', href: '/agentic-automation/designing-agents', label: '🛠️ Designing agents', description: 'Scope agents and contracts.'},
+    {type: 'link', href: '/agentic-automation', label: '📋 Agentic automation', description: 'Guide index.'},
+  ]}
+/>

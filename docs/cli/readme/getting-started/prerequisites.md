@@ -1,6 +1,7 @@
 ---
 slug: "/cli/readme/getting-started/prerequisites"
-description: "To access services provided via the Code Capsules CLI, you are required to have a registered account on Code Capsules."
+description: >-
+  Account and platform setup you need before installing and using the Code Capsules CLI.
 title: "CLI Prerequisites & Requirements"
 sidebar_label: "Prerequisites"
 doc_version: drift
@@ -8,35 +9,39 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-
 # What You Need Before Installing the CLI
+
+Meet these requirements before you install the Code Capsules CLI.
 
 ## Prerequisites
 
 <DocCardList
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+    {type: 'link', href: '/platform/spaces/what-is-a-space', label: '📦 A Space', description: 'Create a Space for your Capsules.'},
+    {type: 'link', href: '/platform/capsules/what-is-a-capsule', label: '💊 A Capsule', description: 'Know what a Capsule is before you proxy one.'},
   ]}
 />
 
-To access services provided via the Code Capsules CLI, you are required to have a registered account on [Code Capsules](/docs/shared/create-an-account).
+## Confirm platform readiness
 
-If you have not used Code Capsules before, we recommend reading our documentation [introducing the platform](/platform/what-is-code-capsules/), and setting up your first [Team](/platform/teams/what-is-a-team/), [Space](/platform/spaces/what-is-a-space/) and [Capsule](/platform/capsules/what-is-a-capsule/) before using the CLI.
+1. **Create your account**
 
+   Register at Code Capsules and sign in to your Personal Team.
 
+2. **Create a Team and Space**
 
-## Next Steps
+   Follow [What is a Team](/platform/teams/what-is-a-team/) and [What is a Space](/platform/spaces/what-is-a-space/) if you have not created them yet.
 
-Once you are set up and comfortable with the Code Capsules platform, you are ready to [install the CLI](/cli/readme/getting-started/installation-and-usage/).
+3. **Create or open a Capsule**
+
+   Proxy and other CLI commands target an existing Capsule. Read [What is a Capsule](/platform/capsules/what-is-a-capsule/) for the platform model.
 
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
+<summary>You are unsure where to start on the platform</summary>
 
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+Read [What is Code Capsules](/platform/what-is-code-capsules/) for Teams, Spaces, and Capsules, then return to [Install and use the CLI](/cli/readme/getting-started/installation-and-usage/).
 
 </details>
-

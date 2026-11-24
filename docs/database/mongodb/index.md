@@ -1,111 +1,37 @@
 ---
 slug: "/database/mongodb"
-description: "MongoDB provides reliable NoSQL storage for your apps. Learn how to create a MongoDB Capsule on Code Capsules and connect it to your applications."
-title: "Managed MongoDB Hosting"
+description: >-
+  MongoDB deployment and framework guides for managed MongoDB Capsules on Code
+  Capsules.
+title: "MongoDB Hosting Reference"
 sidebar_label: "MongoDB"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
+# MongoDB hosting
 
-# Host Your MongoDB Database
+MongoDB deployment and framework guides for managed MongoDB Capsules on Code Capsules.
 
-## Prerequisites
+## Overview
+
+MongoDB Capsules are managed clusters on MongoDB Atlas. Connection details appear on the capsule **Details** tab as a public connection string in `mongodb+srv://` format.
+
+## Guides
+
+| Guide | Deploys | Demo repository |
+| --- | --- | --- |
+| [Django + MongoDB](/database/mongodb/django-+-mongodb/) | Django with MongoDB | `codecapsules-io/demo-django-mongodb` |
+| [Express + MongoDB](/database/mongodb/express-+-mongodb/) | Express.js with MongoDB | `codecapsules-io/demo-express-mongodb` |
+| [Flask + MongoDB](/database/mongodb/flask-+-mongodb/) | Flask with MongoDB | `codecapsules-io/demo-flask-mongo` |
+
+## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ Deploy MongoDB', description: 'Create a MongoDB Capsule in the dashboard.'},
+    {type: 'link', href: '/database', label: '📋 Database hosting', description: 'Compare MySQL, PostgreSQL, and Redis options.'},
+    {type: 'link', href: '/products/database-capsule/mongodb/configure', label: '📋 MongoDB configuration', description: 'Connection strings and environment variables.'},
   ]}
 />
-
-MongoDB provides reliable NoSQL persistent storage for your applications. Code Capsules provisions **MongoDB Capsules** on [MongoDB Atlas](https://www.mongodb.com/atlas), giving you a managed cluster with connection details, scaling, backups, and version management from the dashboard.
-
-## Create a MongoDB Capsule
-
-Log in to your Code Capsules account and open the Space that will contain your MongoDB Capsule. Click the yellow **+** button in the bottom left, select **New Capsule**, then choose **MongoDB**, your Team, and Space.
-
-On the **Plan & Deploy** screen, configure your capsule:
-
-1. **Cluster Type** — choose **Dedicated** for dedicated CPU and RAM on an instance size you select, or **Shared** for lower-cost shared resources. A Shared cluster can be upgraded to Dedicated later from the **Scale** tab.
-2. **Version** — select a MongoDB major version. Dedicated clusters support **7.0**, **8.0**, and **latest** (automatic upgrades when new versions are released). Shared clusters run **8.0**.
-3. **Plan** — choose an instance size. For Dedicated clusters, adjust **Storage** and **Replicas** (3, 5, or 7). Shared clusters use 5 GB storage and 3 replicas, which cannot be changed until you upgrade to Dedicated.
-4. **Capsule Name** — enter a name for your capsule.
-5. Click **Create Capsule**.
-
-
-
-Provisioning can take a few minutes. The capsule status on the **Details** tab shows **Creating** until the cluster is ready.
-
-See [Deploy](/products/database-capsule/mongodb/deploy/) for product documentation and framework guides.
-
-## View Connection Details
-
-Open your MongoDB Capsule and go to the **Details** tab. Once the capsule is ready, the **Connection details** section shows:
-
-- Database name
-- Username
-- Password
-
-Click **show** to reveal credential values, or use the copy icon to copy a value to the clipboard.
-
-
-
-Below the connection details, the **Public Connection String** is available once the capsule has been created. This is the connection string your applications should use. Click **show** to reveal it, then copy it into your application configuration.
-
-Unlike older self-hosted database capsules, MongoDB Capsules do not require you to enable a public access toggle—the public connection string is provided automatically when the cluster is ready.
-
-## Connect a MongoDB Capsule to a Backend Capsule
-
-To connect a MongoDB Capsule to a Backend Capsule on Code Capsules:
-
-1. Open your Backend Capsule and go to the **Config** tab.
-2. Scroll to the **Data capsules** section and click **View** next to your MongoDB Capsule.
-3. Copy the **Public connection string** from your MongoDB Capsule **Details** tab if it is not listed in the environment variables modal.
-4. Add it as a `DATABASE_URL` environment variable on your Backend Capsule.
-
-
-
-Your application can read `DATABASE_URL` to connect to MongoDB. The connection string uses the `mongodb+srv://` format and includes authentication credentials.
-
-### Python example
-
-```python
-import os
-from pymongo import MongoClient
-
-client = MongoClient(os.getenv("DATABASE_URL"))
-db = client.get_default_database()
-```
-
-### Node.js example
-
-```js
-const { MongoClient } = require('mongodb');
-
-const client = new MongoClient(process.env.DATABASE_URL);
-
-async function connect() {
-  await client.connect();
-  const db = client.db();
-  // Use db here
-}
-```
-
-## Connect from Outside Code Capsules
-
-To connect from a local machine or another hosting provider, copy the **Public Connection String** from the **Details** tab of your MongoDB Capsule and set it as `DATABASE_URL` (or equivalent) in your application.
-
-Use the same Python or Node.js examples above, substituting your connection string directly if you are not using environment variables from Code Capsules.
-
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-

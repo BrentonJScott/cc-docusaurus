@@ -9,78 +9,58 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Everything About Hosting Your Docker Container
+# Docker Container Hosting
 
-## Prerequisites
+Run containerized apps on Code Capsules with a Dockerfile in Git or a public container image.
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+## Overview
 
-Deploy applications on Code Capsules using your own Dockerfile or an existing container image. Docker Capsules give you full control over how your capsule is built and run, while Code Capsules handles hosting, networking, scaling, and operations.
-
-## When to use a Docker Capsule
-
-A Docker Capsule is a good fit when:
-
-- You maintain a `Dockerfile` in your repository
-- You already publish a public container image, for example to Docker Hub or GitHub Container Registry
-- You need a specific base image or system packages
-- Your application has a multi-stage or non-standard build
-- You want full control over how your capsule is built and run
+Docker Capsules host applications you package as containers. Code Capsules handles networking, scaling, and operations. You choose **Git repository** builds or a **Container image** source when you create the capsule—you cannot switch later without creating a new capsule.
 
 ## Choose how to deploy
 
-You can deploy a Docker Capsule in one of two ways:
+| | [From Git](/products/docker-capsule/git/deploy/) | [From an existing image](/products/docker-capsule/image/deploy/) |
+| --- | --- | --- |
+| **You provide** | A Git repository with a `Dockerfile` | A public container image |
+| **Who builds it** | Code Capsules builds the image | You build and publish the image |
+| **First deploy** | Starts automatically when the capsule is created | Click **Pull & Deploy** after create |
+| **Updates** | Auto-deploy on push to your branch | **Pull & Deploy** for a newer tag |
+| **Best for** | Apps built from source | CI-built or published images |
 
-|                   | [From Git](/products/docker-capsule/git/deploy/) | [From an existing image](/products/docker-capsule/image/deploy/) |
-| ----------------- | ------------------------------------------------ | ---------------------------------------------------------------- |
-| **You provide**   | A Git repository with a `Dockerfile`             | A public container image                                         |
-| **Who builds it** | Code Capsules builds the image                   | You build and publish the image                                  |
-| **First deploy**  | Starts automatically when the capsule is created | Click **Pull & Deploy** after the capsule is created             |
-| **Updates**       | Auto-deploy on every push to your branch         | Click **Pull & Deploy** to deploy a newer image                  |
-| **Best for**      | Apps you build from source                       | Images built in your own CI, or published software               |
-
-To start, click the yellow **+** button in your Space, select **New Capsule**, and choose **Docker Capsule**. On the **Source** step, choose **Git repository** or **Container image**.
-
-You can't switch between the two after the capsule is created. To use the other source, create a new Docker Capsule.
+On the **Source** step of the wizard, select **Git repository** or **Container image**.
 
 ## Documentation
 
-- [Container requirements](/products/docker-capsule/container-requirements/) — what every container needs to run on Code Capsules
-- **From Git**
-  - [Deploy](/products/docker-capsule/git/deploy/) — prepare a Dockerfile and create a capsule from your Git repository
-  - [Builds & Auto-deploy](/products/docker-capsule/git/builds/) — trigger builds, auto-deploy on push, and set the Dockerfile path and build context
-- **From an existing image**
-  - [Deploy](/products/docker-capsule/image/deploy/) — create a capsule from a public container image
-  - [Image Updates](/products/docker-capsule/image/updates/) — deploy a newer version of your image or change the image
-- [Deployments](/products/docker-capsule/deployments/) — change the source, set the deployment strategy, view build logs, and roll back
-- [Configure](/products/docker-capsule/configure/) — network port, environment variables, data capsules, and (for Git deployments) the Dockerfile path and build context
-- [Scale](/products/docker-capsule/scale/) — allocate CPU, memory, and replicas as traffic grows
-- [Monitor](/products/docker-capsule/monitor/) — view metrics and performance data
-- [Logs](/products/docker-capsule/logs/) — view runtime and access logs
-- [Notifications](/products/alerting/) — set up notifications for capsule events
+| Topic | What it covers |
+| --- | --- |
+| [Container requirements](/products/docker-capsule/container-requirements/) | Port binding and process model |
+| [Deploy from Git](/products/docker-capsule/git/deploy/) | Dockerfile and create flow |
+| [Builds & Auto-deploy](/products/docker-capsule/git/builds/) | Builds, Dockerfile path, context |
+| [Deploy from image](/products/docker-capsule/image/deploy/) | Public image deploy |
+| [Image updates](/products/docker-capsule/image/updates/) | Change image or tag |
+| [Deployments](/products/docker-capsule/deployments/) | Strategy, history, rollback |
+| [Configure](/products/docker-capsule/configure/) | Port, env vars, data capsules |
+| [Scale](/products/docker-capsule/scale/) | CPU, memory, replicas |
+| [Monitor](/products/docker-capsule/monitor/) | Metrics |
+| [Logs](/products/docker-capsule/logs/) | Runtime and access logs |
+| [Alerting](/products/alerting/) | Notifications |
 
 ## Guides
 
-Step-by-step tutorials for deploying Docker Capsules from Git:
+| Guide | What it deploys |
+| --- | --- |
+| [Flask Docker App](/backend/docker/flask-docker-app/) | Flask in Docker |
+| [Docker PHP App](/backend/docker/docker-php-app/) | PHP in Docker |
+| [Docker Laravel App](/backend/docker/docker-laravel-app/) | Laravel in Docker |
+| [Caddy Docker Site](/backend/docker/caddy-docker-site/) | Caddy site |
+| [All Docker deployment guides](/backend/docker/) | Full list |
 
-- [Flask Docker App](/backend/docker/flask-docker-app/)
-- [Docker PHP App](/backend/docker/docker-php-app/)
-- [Docker Laravel App](/backend/docker/docker-laravel-app/)
-- [Caddy Docker Site](/backend/docker/caddy-docker-site/)
-- [All Docker deployment guides](/backend/docker/)
+## Related
 
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Deploy from Git', description: 'Build from a Dockerfile.'},
+    {type: 'link', href: '/products/backend-capsule', label: '📋 Backend Capsule', description: 'Non-Docker language deploys.'},
+    {type: 'link', href: '/backend/docker', label: '📋 Docker tutorials', description: 'Step-by-step app guides.'},
+  ]}
+/>

@@ -23,7 +23,19 @@ import DocCardList from '@theme/DocCardList';
 
 Frontend Capsules host static websites over HTTPS. You can deploy a plain HTML, CSS, and JavaScript site with no build step, or use Node.js at build time to install dependencies and compile a framework project before serving the output.
 
+## Set your frontend build runtime
 
+1. **Pick hosting mode**
+
+   Use [Static deploy](/products/frontend-capsule/static/deploy/) when you need no runtime container, or [Container deploy](/products/frontend-capsule/container/deploy/) for metrics and scaling.
+
+2. **Match build settings**
+
+   Set **Build Command** and **Path to static content** using the framework table below.
+
+3. **Pin Node.js when needed**
+
+   Use `engines.node` in `package.json` or the pin format in the Node.js table for Container builds.
 
 ## Node.js at build time
 

@@ -11,103 +11,40 @@ import DocCardList from '@theme/DocCardList';
 
 # Connect to Your MySQL Database From Your Machine
 
-MySQL Capsules are private to your Space. To run queries, inspect data, or check your server version from your laptop, open a secure tunnel with the [Code Capsules CLI](/cli/) and connect with the `mysql` client.
-
-## When to Use This
-
-Use a local connection when you need to:
-
-- Run ad-hoc SQL or inspect tables
-- Check your MySQL version before an upgrade
-- Import or export data with `mysqldump`
-- Debug application issues against the live database
+Connect to a private MySQL Capsule from your laptop with the Code Capsules CLI and the `mysql` client.
 
 ## Prerequisites
 
-1. Install and log in to the [Code Capsules CLI](/cli/readme/getting-started/installation-and-usage/) (`codecaps login`).
-2. Install the `mysql` client on your machine (see [Install the mysql client](#install-the-mysql-client) below).
+<DocCardList
+  items={[
+    {type: 'link', href: '/cli/readme/getting-started/installation-and-usage', label: '🛠️ Code Capsules CLI', description: 'Install and run codecaps login.'},
+    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ MySQL Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-## Open a Proxy Tunnel
+## Connect to your MySQL database locally
 
-1. Open your MySQL Capsule **Details** tab and copy the pre-built proxy command.
-2. Run the command in a terminal. For example:
+1. **Install the mysql client**
 
-```bash
-codecaps proxy capsule -s <space-slug> -c <capsule-id> -P 50001
-```
+   On macOS: `brew install mysql-client`. On Ubuntu/Debian: `sudo apt install mysql-client`. See [MySQL Downloads](https://dev.mysql.com/downloads/mysql/) for other platforms.
 
-3. Leave this terminal open. The tunnel stays active until you stop the process.
+2. **Open a proxy tunnel**
 
-See the [proxy command reference](/cli/readme/commands/proxy/) for full options.
+   On the capsule **Details** tab, copy the proxy command and run it in a terminal, for example `codecaps proxy capsule -s <space-slug> -c <capsule-id> -P 50001`. Leave the terminal open. See the [proxy command reference](/cli/readme/commands/proxy/).
 
-## Get Credentials
+3. **Copy credentials**
 
-On the capsule **Details** tab, click **show** in the **Connection Details** section to reveal:
+   On **Details**, click **show** in **Connection Details** and copy **Username**, **Password**, and **Database name**.
 
-- **Username**
-- **Password**
-- **Database name**
+4. **Connect with mysql**
 
-Copy these values from the **Details** tab. The `mysql` client does not accept a `mysql://` connection string the way `psql` accepts a PostgreSQL URI — pass each value as a separate flag instead.
+   Run `mysql -h 127.0.0.1 -P 50001 -u <username> -p <database>` using your proxy port. Use `SELECT VERSION();` to confirm the server version, or `mysqldump` / file import for backups.
 
-
-## Install the mysql Client
-
-The `mysql` command-line client is distributed under the [GPL-2.0 license](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
-
-| Platform        | Install                                                             |
-| --------------- | ------------------------------------------------------------------- |
-| macOS           | `brew install mysql-client`                                         |
-| Ubuntu / Debian | `sudo apt install mysql-client`                                     |
-| Windows         | [MySQL Community Downloads](https://dev.mysql.com/downloads/mysql/) |
-
-Official installation guides: [MySQL Downloads](https://dev.mysql.com/downloads/mysql/)
-
-## Connect
-
-With the proxy running, connect using the credentials from the **Details** tab and your local proxy port:
-
-```bash
-mysql -h 127.0.0.1 -P 50001 -u <username> -p <database>
-```
-
-Replace `50001` with the port you passed to `-P` when starting the proxy. The `-p` flag prompts for your password interactively.
-
-To pass the password on the command line (less secure, but useful in scripts):
-
-```bash
-mysql -h 127.0.0.1 -P 50001 -u <username> -p'<password>' <database>
-```
-
-This matches the [proxy command example](/cli/readme/commands/proxy/): host and port point at the tunnel on your machine; username, password, and database come from Connection Details.
-
-
-## Common Tasks
-
-### Check your MySQL version
-
-```sql
-SELECT VERSION();
-```
-
-See [MySQL Versions](/products/database-capsule/mysql/versions/) for supported versions and upgrade paths.
-
-### Export a database
-
-```bash
-mysqldump -h 127.0.0.1 -P 50001 -u <username> -p'<password>' <database> > backup.sql
-```
-
-### Import a SQL file
-
-```bash
-mysql -h 127.0.0.1 -P 50001 -u <username> -p'<password>' <database> < backup.sql
-```
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>Changes did not save</summary>
+<summary>Connection refused on 127.0.0.1</summary>
 
-Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+Confirm the `codecaps proxy` process is still running and the `-P` port matches your `mysql -P` flag.
 
 </details>

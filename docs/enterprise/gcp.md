@@ -8,20 +8,32 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-
 # Run Code Capsules on Your GCP
 
-## Coming Soon
+Enterprise on Google Cloud runs the Code Capsules platform inside your GCP projects.
+
+## Overview
+
+Enterprise on GCP is coming soon. Clusters will deploy into VPC networks and projects you designate.
 
 ## Why it matters
 
-This topic affects how you design, deploy, and operate workloads on Code Capsules.
+GCP enterprise deployment suits teams invested in Google Cloud, BigQuery adjacent workloads, or GKE-adjacent networking that must stay inside customer projects.
 
 ## How it works
 
-The sections above describe the moving parts and how they connect on the platform.
+Runtime and control components land in your GCP project. You retain ownership of networks, service accounts, and data stores; Code Capsules operates the PaaS experience on top.
 
 ## When to use it
 
-Use this approach when it matches your team's hosting, compliance, and operational needs.
+Choose GCP enterprise when regulatory or architectural rules require customer-owned GCP projects. Evaluate hosted Code Capsules when shared infrastructure is acceptable.
 
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/enterprise', label: '💡 Enterprise overview', description: 'Compare cloud deployment options.'},
+    {type: 'link', href: '/enterprise/aws', label: '☁️ Enterprise on AWS', description: 'AWS alternative.'},
+    {type: 'link', href: '/products/enterprise-clusters/overview', label: '📋 Enterprise clusters', description: 'Dedicated cluster reference.'},
+  ]}
+/>

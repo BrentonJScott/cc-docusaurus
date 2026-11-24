@@ -14,7 +14,16 @@ import DocCardList from '@theme/DocCardList';
 
 # Design Agents That Actually Work
 
-The most common mistake when building agentic automation systems is making agents too large. An agent that fetches data, cleans it, analyses it, formats it, and sends it is not an agent — it is a monolith with an AI API call in the middle. It has all the problems described in [The Problem](../the-problem) section, just with a more modern technology stack.
+The most common mistake when building agentic automation systems is making agents too large. An agent that fetches data, cleans it, analyses it, formats it, and sends it is not an agent — it is a monolith with an AI API call in the middle. It has all the problems described in [The Problem](/agentic-automation/the-problem), with a more modern technology stack.
+
+## Prerequisites
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/agentic-automation/the-framework', label: '💡 The framework', description: 'Orchestrator and agent roles.'},
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up to deploy agents.'},
+  ]}
+/>
 
 This page describes how to think about agent design: how to draw boundaries, how to choose models, and how to build agents that are genuinely reusable across workflows.
 
@@ -109,7 +118,7 @@ The contract is the interface. The language is an internal detail of the impleme
 
 ## The agent contract as a design discipline
 
-The fixed input/output contract (`AgentRunRequest` / `AgentRunResult`) is not just a technical requirement — it is a design discipline that forces clarity.
+The fixed input/output contract (`AgentRunRequest` / `AgentRunResult`) is not only a technical requirement — it is a design discipline that forces clarity.
 
 Before writing a single line of code for a new agent, you should be able to answer:
 
@@ -118,7 +127,7 @@ Before writing a single line of code for a new agent, you should be able to answ
 3. **What are the failure modes?** What errors can this agent produce? How should the orchestrator respond to them?
 4. **What does this agent *not* do?** What is explicitly out of scope?
 
-If you cannot answer all four questions clearly, the agent is not well-designed yet. The contract forces you to think about the agent as a component in a system, not just as a script that solves an immediate problem.
+If you cannot answer all four questions clearly, the agent is not well-designed yet. The contract forces you to think about the agent as a component in a system, not only as a script that solves an immediate problem.
 
 ---
 
@@ -170,3 +179,12 @@ Three agents: `gsc-fetcher`, `seo-analyser`, `slack-notifier`
 - `slack-notifier`: no LLM, format the report and call the Slack API
 
 **Result:** three focused agents, each replaceable independently, each testable in isolation, total scaffolding shared across all three.
+
+## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>An agent's output breaks the next step</summary>
+
+Define the `AgentRunRequest` and `AgentRunResult` fields explicitly before implementation. Validate output in the agent before POSTing the webhook so the orchestrator never forwards malformed data.
+
+</details>

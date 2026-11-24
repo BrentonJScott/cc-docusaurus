@@ -1,57 +1,49 @@
 ---
 slug: "/cli/readme/getting-started/installation-and-usage"
 title: "Install and Use the CLI"
-description: "The Code Capsules CLI is registered as an NPM package. To install the CLI globally, simply run:"
+description: >-
+  Install the Code Capsules CLI from npm and confirm the `codecaps` command runs in your terminal.
+sidebar_label: "Installation"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-
 # Installation and Usage
+
+Install the Code Capsules CLI from npm and confirm the `codecaps` command runs in your terminal.
 
 ## Prerequisites
 
 <DocCardList
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
   ]}
 />
 
-## Installation
+## Install the CLI
 
-The Code Capsules CLI is registered as an NPM package. To install the CLI globally, simply run:
+1. **Install the npm package**
 
-```bash
-npm i -g @codecapsules/cli
-```
+   The CLI is published as `@codecapsules/cli`. Install it globally:
 
-## Usage
+   ```bash
+   npm i -g @codecapsules/cli
+   ```
 
-Once installed, the Code Capsules CLI follows the same standard format as most CLI applications:
+2. **Confirm the binary**
 
-The CLI can be called by using `codecaps`. The first argument to the CLI should be the desired command you want to call (for example, `login`, `logout`, or `proxy`). Each command has a list of arguments and options that can be passed in, respective to the command. You can view the list of all commands and their requirements [here](/cli/readme/commands/).
+   Run `codecaps` with no arguments. Help output lists available commands.
 
-### Command Layout
+3. **Learn the command layout**
 
-Here is a visualized layout for using the Code Capsules CLI
-
-```bash
-codecaps <command> <arguments> [options]
-```
-
-## Next Steps
-
-Now that you're ready to use the CLI, head over to the [quick start](/cli/readme/getting-started/quick-start/) section.
+   Commands follow `codecaps <command> <arguments> [options]`. Global options sit before the command name. See the [commands reference](/cli/readme/commands/) for each subcommand.
 
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
+<summary>The codecaps command is not found</summary>
 
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+Confirm Node.js and npm are on your PATH, then reinstall with `npm i -g @codecapsules/cli`.
 
 </details>
-

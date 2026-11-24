@@ -1,6 +1,6 @@
 ---
 slug: "/cli/readme/commands/login"
-description: "Authenticate the CLI with your Code Capsules account. This is required before running commands with the Code Capsules CLI."
+description: "Authenticate the CLI with your Code Capsules account. Required before other CLI commands."
 title: "Log In With the CLI (login command)"
 sidebar_label: "login"
 doc_version: drift
@@ -8,50 +8,43 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-
 # Log In From Your Terminal
 
-## Prerequisites
+Authenticate the CLI with your Code Capsules account. Required before other CLI commands.
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+## Overview
 
-## Description
+The `login` command stores a local session after you prove ownership of a Code Capsules account.
 
-Authenticate the CLI with your Code Capsules account. This is required before running commands with the Code Capsules CLI.
-
-## Usage
+## Syntax
 
 ```bash
-codecaps login -e <email> -p <password>
-```
-
-## Example usage
-
-```bash
-# without password
-codecaps login -e my.cc.email@gmail.com
-
-# or you can provide your password inline as an option (not recommended)
-codecaps login -e my.cc.email@gmail.com -p MySecurePassword1234
+codecaps login -e <email> [-p <password>]
 ```
 
 ## Options
 
-* `-e, --email` (Required) The email of your Code Capsules account
-* `-p, --password` (Optional) The password for your Code Capsules account. If not given, you will be prompted for your password.
+| Option | Required | Description |
+| --- | --- | --- |
+| `-e`, `--email` | Yes | Email for your Code Capsules account |
+| `-p`, `--password` | No | Password inline; omit to get an interactive prompt |
 
-## Troubleshooting
+## Examples
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
+```bash
+codecaps login -e my.cc.email@gmail.com
+```
 
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+```bash
+codecaps login -e my.cc.email@gmail.com -p MySecurePassword1234
+```
 
-</details>
+## Related
 
+<DocCardList
+  items={[
+    {type: 'link', href: '/cli/readme/commands/whoami', label: '🔎 whoami', description: 'Confirm which account is logged in.'},
+    {type: 'link', href: '/cli/readme/commands/logout', label: '🚪 logout', description: 'Clear the local session.'},
+    {type: 'link', href: '/cli/readme/getting-started/quick-start', label: '🛠️ Quick start', description: 'Install the CLI and run your first command.'},
+  ]}
+/>

@@ -1,83 +1,58 @@
 ---
 slug: "/full-stack/mean-stack"
-description: "Deploy a full-stack MEAN (MongoDB, Express, Angular, Node) app to Code Capsules from GitHub. Ship your JavaScript stack in production."
+description: >-
+  Deploy a full-stack MEAN (MongoDB, Express, Angular, Node) app to Code
+  Capsules from GitHub. When you finish, the demo app loads at the capsule
+  public URL.
 title: "How to Deploy a MEAN Stack Application"
 sidebar_label: "MEAN Stack"
+doc_version: drift
 ---
 
-# Deploy Your MEAN Stack App
+import DocCardList from '@theme/DocCardList';
 
-Deploy a MEAN stack application and learn how to host backend code on Code Capsules.
+# Host Your MEAN Stack Application
 
-## Setup
+Deploy a MEAN stack application from GitHub with a MongoDB Capsule and a Backend Capsule. When you finish, the demo app loads at the capsule public URL.
 
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](/docs/shared/create-an-account) account and a [GitHub](https://github.com/) account.
+## Prerequisites
 
-To demonstrate how to deploy a MEAN stack application with Code Capsules, we've provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/mean-stack).
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork mean-stack', description: 'Fork codecapsules-io/mean-stack on GitHub.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so the fork appears in the wizard.'},
+  ]}
+/>
 
-Sign in to GitHub, and fork the example application by clicking **Fork** at the top-right of your screen and selecting your GitHub account as the destination.
+## Deploy your MEAN stack app
 
-## Create an Account with Code Capsules
+1. **Create the MongoDB capsule**
 
-If you don't already have an account, navigate to the [Code Capsules](/docs/shared/create-an-account) site and click the **Sign Up** button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **MongoDB**, your Team, and Space. On **Plan & Deploy**, choose cluster type, version, and plan. Click **Create Capsule**.
 
-If you've just signed up for an account, you'll be directed to a welcome page on your first login. Click on the **Go To Personal Team** button.
+2. **Create the Backend capsule**
 
-Alternatively, if you're signing in again, click on the Spaces tab.
+   Click **+** again and choose **Backend Capsule**, your Team, and Space. On **Plan**, choose a plan. On **Configure**, select `codecapsules-io/mean-stack` and branch `main`. Leave **Run Command** blank. Click **Create Capsule**.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](/platform/platform/).
+3. **Wait for the build**
 
-## Create a Space for Your App
+   On the Backend Capsule **Deploy** tab, open **Builds**. The first build runs when the capsule is created.
 
-Log in to your Code Capsules account and navigate to the Spaces tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
+4. **Connect the capsules**
 
-Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
+   Copy the **Public Connection String** from the MongoDB capsule **Details** tab. On the Backend Capsule **Config** tab, under **Data capsules**, click **View** and set `DATABASE_URL` to that string. Click **Save**.
 
+5. **Restart and open the application**
 
+   Restart the Backend Capsule. On **Details**, open the public URL. The MEAN demo loads.
 
+## Troubleshooting
 
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The UI does not match these steps</summary>
 
-## Create the Capsule
+Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
 
-A [Capsule](/platform/capsules/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
-
-Navigate to the **Capsules** tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Capsule.
-
-To create a new MongoDB Capsule for your Space, follow the instructions below:
-
-1. Choose **MongoDB**, your Team, and Space.
-2. On **Plan & Deploy**, choose a cluster type, version, and plan.
-3. Click **Create Capsule**.
-
-Navigate to the **Space** containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
-
-1. Choose **Backend Capsule**, your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
-5. Press **Next**.
-6. Leave **Run Command** blank.
-7. Click **Create Capsule**.
-
-Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
-
-Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
-
-
-
-## Connect the Capsules
-
-After the two capsules have been successfully built, the next step is to connect them. Copy the **Public Connection String** from the **Details** tab of your MongoDB Capsule, then navigate to the **Config** tab of your Backend Capsule. Scroll down to the **Data capsules** section, click **View** next to your MongoDB Capsule, and add the connection string as a `DATABASE_URL` environment variable.
-
-
-
-## View Application
-
-After restarting the Capsule, the application will now be ready to be viewed. Click the **URL** link in the **Details** tab, and you should see your deployed application.
-
-
-
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/full-stack/).
+</details>

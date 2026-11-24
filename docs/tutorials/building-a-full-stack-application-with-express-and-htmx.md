@@ -15,7 +15,7 @@ import DocCardList from '@theme/DocCardList';
 
 Single page frameworks like Angular, React, and Vue have become the go-to solution for frontend development recently. This shift from traditional multipage websites is mainly due to the lack of interactivity offered by HTML. It’s worth noting, however, that single page applications (SPAs) aren’t a perfect solution, as they introduce an added layer of complexity by installing a host of other dependencies that need to be linked together before deploying your site to production.
 
-This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
+This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not only `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ Next, create an `index.pug` file inside the `/views` folder, and populate it wit
   </head>
 ```
 
-There’s not much going on in the code snippet above, except for lines 5 and 6, which are responsible for loading Bootstrap and HTMx into our index page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
+There’s not much going on in the code snippet above, except for lines 5 and 6, which are responsible for loading Bootstrap and HTMx into our index page. This gives you the power to build an interactive page by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
 
 The code underneath the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below with the same level of indentation as the `</head>` tag:
 
@@ -388,6 +388,11 @@ git push -u origin main
 
 Your remote repository will now be up-to-date with your local one.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -395,6 +400,12 @@ Your remote repository will now be up-to-date with your local one.
 The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a persistent storage Data Capsule and a Backend Capsule and bind the two together to deploy the app. You can follow this [reference guide](/persistent-storage/) to see how to do so in greater detail.
 
 That’s it! Your “Book Recommendations” app should be live and fully functional now.\\
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

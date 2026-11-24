@@ -198,7 +198,7 @@ To use this package, we need to add it into the [middleware](http://expressjs.co
 const fileUpload = require('express-fileupload');
 ```
 
-Now insert the package into the Express middleware pipeline by adding the following line just under the `var app = express();` statement:
+Now insert the package into the Express middleware pipeline by adding the following line directly under the `var app = express();` statement:
 
 ```
 app.use(fileUpload());
@@ -269,7 +269,7 @@ Commit these changes, and wait for Code Capsules to redeploy the site. If you na
 
 Now that we can upload and download files, we’ll probably also need to remove files. We can use the [HTTP `DELETE` verb](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) on a route for this.
 
-Since the data capsule appears just like a regular file system to our code, we can use the built-in Node.js [`fs`](https://nodejs.org/api/fs.html#fs_file_system) module here again. It has a method called [`unlink`](https://nodejs.org/api/fs.html#fs_fs_unlinksync_path) which deletes a file from a file system. We supply it with a path to the file, and a callback function to let us know the result of the delete file request. If we get an error, we’ll send an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) status back to the browser, to let the browser know that an error occurred. If the delete action is successful, we’ll send a status code [`200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which lets the browser know that the operation was a success. Add this code to the `index.js` file to implement the `DELETE` route:
+Since the data capsule appears like a regular file system to our code, we can use the built-in Node.js [`fs`](https://nodejs.org/api/fs.html#fs_file_system) module here again. It has a method called [`unlink`](https://nodejs.org/api/fs.html#fs_fs_unlinksync_path) which deletes a file from a file system. We supply it with a path to the file, and a callback function to let us know the result of the delete file request. If we get an error, we’ll send an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) status back to the browser, to let the browser know that an error occurred. If the delete action is successful, we’ll send a status code [`200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which lets the browser know that the operation was a success. Add this code to the `index.js` file to implement the `DELETE` route:
 
 ```
 router.delete('/:filename', function(req, res){
@@ -307,7 +307,7 @@ Next, we’ll create some front-end JavaScript code for the button to call when 
 </script>
 ```
 
-This adds a new function `deleteFile` to the front-end index page. It has one argument: the name of the file to delete. First, we make use of the built-in [`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm) function which exists in all browsers. This brings up a dialog box with the message _Do you really want to delete the file?_, just to make sure the user didn’t click the delete button accidentally. If the user clicks “Yes”, the dialog box returns a `true` value. Then we call our `DELETE` route using [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). We need to pass in the route to call, and we also send an [init](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#parameters) object which specifies that the `DELETE` HTTP verb must be used to call this route.
+This adds a new function `deleteFile` to the front-end index page. It has one argument: the name of the file to delete. First, we make use of the built-in [`confirm`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm) function which exists in all browsers. This brings up a dialog box with the message _Do you really want to delete the file?_, to confirm the user didn’t click the delete button accidentally. If the user clicks “Yes”, the dialog box returns a `true` value. Then we call our `DELETE` route using [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). We need to pass in the route to call, and we also send an [init](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#parameters) object which specifies that the `DELETE` HTTP verb must be used to call this route.
 
 The [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function returns a `promise`. This is an alternative to callbacks. If the call was successful, the code in the `.then()` handler is called. This reloads the page, so that the file listing is updated to show that the file is now deleted. If the call fails, the code in the `catch` handler is called. This uses another standard browser dialog, an [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), to let the user know that something went wrong.
 
@@ -371,9 +371,9 @@ passport.deserializeUser(function(user, done) {
 });
 ```
 
-In our case, since we are implementing a super-simple authentication scheme with just one user, we don’t need to call out to a database or other store to get user information. In fact, since there is no real user information that is of use to our app currently, we just return the `user` object that Passport sends to us straight back, as we don’t really have a use for it. Even though we are doing nothing with the information, we need to register these functions with Passport, as it calls them, regardless.
+In our case, since we are implementing a super-single-user authentication scheme with one user, we don’t need to call out to a database or other store to get user information. In fact, since there is no real user information that is of use to our app currently, return the `user` object that Passport sends to us straight back, as we don’t really have a use for it. Even though we are doing nothing with the information, we need to register these functions with Passport, as it calls them, regardless.
 
-Now we can set up the rest of the logic for Passport. Add this code just above the serialization code:
+Now we can set up the rest of the logic for Passport. Add this code immediately above the serialization code:
 
 ```
 passport.use(new LocalStrategy(
@@ -402,7 +402,7 @@ Passport offers many other [authentication strategies](https://www.passportjs.or
 
 Now that we have set the username and password for our app, we can add the login page routes to render the login page and send the form `POST` with user credentials to Passport.
 
-Add these 2 routes just above the index routes (`app.use('/', indexRouter);`) in `app.js`:
+Add these 2 routes immediately above the index routes (`app.use('/', indexRouter);`) in `app.js`:
 
 ```
 app.get('/login', function(req, res){
@@ -414,7 +414,7 @@ app.post('/login',
 
 The first `GET` route adds a `/login` URL to our app. The route handler function calls the [`res.render`](http://expressjs.com/en/4x/api.html#res.render) Express method to serve up the login template, which we’ll add shortly. The second `POST` route handles a form submission from the `/login` route, and passes it through to Passport. We supply a parameter to tell Passport to use our `local` strategy to process this authentication request. We also supply the redirects: to the main file list if authentication is successful, or back to the login page if not.
 
-There’s one more bit of code to include before we add the front-end login form. We need to check if a user is successfully authenticated before they can access the file list and other functionality. To do this, we’ll insert a call to an authentication check function in our app middleware. Add this code just above the `app.use('/', indexRouter);` line, so it’s called before the routes above are served:
+There’s one more bit of code to include before we add the front-end login form. We need to check if a user is successfully authenticated before they can access the file list and other functionality. To do this, we’ll insert a call to an authentication check function in our app middleware. Add this code immediately above the `app.use('/', indexRouter);` line, so it’s called before the routes above are served:
 
 ```
 app.use(isAuthenticated); 
@@ -466,6 +466,12 @@ This project has some decent basic functionality, but there are many things you 
 * Add support for multi-file upload
 * Add logout functionality, using the [Passport logout function](http://www.passportjs.org/docs/logout/)
 * Add better authentication, and perhaps separate user accounts for a multi-user drive
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Summary
 

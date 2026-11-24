@@ -23,6 +23,19 @@ import DocCardList from '@theme/DocCardList';
 
 Backend Capsules automatically detect your application's language from project files (for example, `package.json` for Node.js or `requirements.txt` for Python), install dependencies, and build a runnable image. This page lists the language versions Code Capsules currently supports.
 
+## Pin your backend runtime
+
+1. **Let detection run**
+
+   Push your repository with standard project files (`package.json`, `requirements.txt`, `go.mod`, and similar). The build log shows which runtime was selected.
+
+2. **Pin a version line**
+
+   Add the pin format for your language from the tables below (for example `engines.node` in `package.json` or `.python-version`).
+
+3. **Redeploy**
+
+   Push to the deploy branch or trigger a rebuild. The pinned line is used on the next build.
 
 ## Platform
 

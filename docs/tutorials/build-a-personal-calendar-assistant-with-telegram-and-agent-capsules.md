@@ -67,7 +67,7 @@ Then, deploy the Agent Capsule:
 
 1. In your Code Capsules dashboard, click **New Capsule** and select **Agent Capsule**.
 2. Choose your Team and Space.
-3. Connect your GitHub account and select the repository you just created.
+3. Connect your GitHub account and select the repository you created.
 4. Click **Create Capsule**.
 
 For more detailed instructions, see the [Agent Capsule deployment guide](/products/agent-capsule/deploy/).
@@ -149,9 +149,15 @@ This same pattern can enable you to build interesting integrations like:
 * **Customer Support Bots:** Integrate with CRM systems and knowledge bases to handle support queries.
 * **Data Analysis Tools:** Query databases or analytics platforms using natural language.
 
-The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
+The Agent Capsule architecture lets you add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
 
 If you're interested in learning more about building with Agent Capsules, check out the [Code Capsules documentation](/products/agent-capsule/deploy/).
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Summary
 

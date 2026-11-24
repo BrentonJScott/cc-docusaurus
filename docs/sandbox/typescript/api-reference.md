@@ -11,6 +11,12 @@ import DocCardList from '@theme/DocCardList';
 
 # TypeScript API Reference
 
+Full API reference for the `@codecapsules/sandbox` TypeScript SDK: `Sandbox` class, methods, types, and error classes.
+
+## Overview
+
+All methods are async. Configuration defaults come from `CODECAPSULES_API_KEY` and optional `SANDBOX_BASE_URL`. Sandboxes support `exec`, file upload and download, logs, metrics, and explicit `delete()`.
+
 ## `Sandbox` class
 
 ### Static methods
@@ -347,3 +353,13 @@ try {
   }
 }
 ```
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/sandbox/typescript', label: '📋 TypeScript SDK', description: 'Install and lifecycle overview.'},
+    {type: 'link', href: '/sandbox/environments', label: '📋 Environments', description: 'Flavors and resource limits.'},
+    {type: 'link', href: '/sandbox/python/api-reference', label: '📋 Python API', description: 'Python client reference.'},
+  ]}
+/>

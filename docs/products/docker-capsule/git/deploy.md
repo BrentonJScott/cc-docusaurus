@@ -2,7 +2,7 @@
 slug: "/products/docker-capsule/git/deploy"
 title: "How to Deploy a Dockerfile From Git"
 description: >-
-  Deploy a Docker Capsule on Code Capsules from a Dockerfile in your Git repository, with automatic builds and auto-deploy on every push to your branch.
+  Deploy a Docker Capsule from a Dockerfile in Git. When you finish, the first build is running on the Deploy tab Builds section.
 sidebar_label: Deploy
 doc_version: drift
 ---
@@ -11,94 +11,61 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Dockerfile From a Git Repository
 
-Deploy from a Git repository when you want Code Capsules to build your image for you. Code Capsules builds an image from the `Dockerfile` in your repository, runs it, and can rebuild automatically each time you push to your branch.
-
-To deploy an image you have already built and published instead, see [Deploy an existing image](/products/docker-capsule/image/deploy/).
+Deploy from Git when Code Capsules should build your image from the repository `Dockerfile`. For a pre-built image, see [Deploy an existing image](/products/docker-capsule/image/deploy/).
 
 ## Prerequisites
 
-Before creating a capsule, make sure you have:
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+    {type: 'link', href: '/products/docker-capsule/container-requirements', label: '📋 Container requirements', description: 'Port, 0.0.0.0, and CMD.'},
+  ]}
+/>
 
-- A [Code Capsules](/docs/shared/create-an-account) account with a Team and Space
-- A repository containing a working `Dockerfile` — see [Prepare your Dockerfile](#prepare-your-dockerfile)
-- Your version control account linked under [Connect Version Control](/platform/account/connect-version-control/)
+## Deploy your Docker capsule from Git
 
-## Prepare your Dockerfile
+1. **Open the capsule wizard**
 
-Code Capsules builds your image from the `Dockerfile` in your repository. The resulting container must meet the [container requirements](/products/docker-capsule/container-requirements/): it must listen on `0.0.0.0` on the capsule's network port and start your application with `CMD` or `ENTRYPOINT`.
+   Open your Space. Click **+** and select **New Capsule**.
 
-This Dockerfile works for a Node.js application:
+2. **Choose Docker Capsule**
 
-```dockerfile
-FROM node:20-alpine
+   Select **Docker Capsule**, your Team, and Space. Click **Next**.
 
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
+3. **Choose plan**
 
-ENV HOST=0.0.0.0
-ENV PORT=3000
-EXPOSE ${PORT}
+   On **Plan**, select a plan. Click **Next**.
 
-CMD ["node", "server.js"]
-```
+4. **Select Git source**
 
-In your application code, read the port from the `PORT` environment variable. See [Use the PORT environment variable](/products/docker-capsule/container-requirements/#use-the-port-environment-variable) for examples in other languages.
+   On **Source**, select **Git repository**, **Git Repository**, and **Branch**. Click **Next**.
 
-```javascript
-const port = process.env.PORT || 3000;
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Listening on port ${port}`);
-});
-```
+5. **Set build paths**
 
-Everything your app needs must be declared in the Dockerfile. Unlike [Backend Capsules](/products/backend-capsule/), Docker Capsules do not detect your language or install dependencies for you.
+   On **Deploy**, set **Dockerfile location** and **Docker build context** if the Dockerfile is not at the repository root, then enter **Capsule Name**.
 
+6. **Create and build**
 
-By default, Code Capsules uses `/Dockerfile` at the repository root and `/` as the build context. If your Dockerfile is somewhere else, set the **Dockerfile location** when you create the capsule, or see [Configure](/products/docker-capsule/configure/#docker-file) for monorepo layouts.
+   Click **Create Capsule**. Code Capsules links the repo, assigns a hostname, and starts the first build on **Builds**.
 
-## Create the capsule
+7. **Verify and continue**
 
-1. Log in to Code Capsules and open the Space where you want to run your application.
-2. Click the yellow **+** button and select **New Capsule**.
-3. Choose **Docker Capsule**, your Team, and Space, then click **Next**.
-4. On the **Plan** step, select or customize a payment plan, then click **Next**.
-5. On the **Source** step, select **Git repository**.
-6. Select a repository from the **Git Repository** list, or click **Configure Git for Code Capsules** to link a new one.
-7. Select the **Branch** to deploy from, then click **Next**.
-8. On the **Deploy** step, set your build options:
-   - **Dockerfile location** — the subfolder containing your `Dockerfile`. Leave empty if the Dockerfile is at the repository root (uses `/Dockerfile`).
-   - **Docker build context** — the directory used as the Docker build context. Leave empty for the repository root.
-   - **Capsule Name** — a display name for your capsule.
-9. Click **Create Capsule**.
+   Open the capsule URL on **Details**. Tune [Builds & Auto-deploy](/products/docker-capsule/git/builds/) and [Deployments](/products/docker-capsule/deployments/). Example tutorials: [Flask Docker App](/backend/docker/flask-docker-app/), [Docker PHP App](/backend/docker/docker-php-app/), [Docker Laravel App](/backend/docker/docker-laravel-app/), [Caddy Docker Site](/backend/docker/caddy-docker-site/).
 
-Code Capsules creates the capsule, links it to your repository, assigns a default hostname, and **automatically starts the first build**. You are taken to the capsule **Details** tab.
-
-## Verify your capsule
-
-1. Open the **Details** tab and click the capsule URL.
-2. If the page does not load, check the [network port](/products/docker-capsule/configure/#network-port) and the [container requirements](/products/docker-capsule/container-requirements/).
-3. If the build fails, read the build log in the **Builds** tab — see [Troubleshooting builds](/products/docker-capsule/git/builds/#troubleshooting-builds).
-
-## Next steps
-
-After the first build, manage how your capsule is rebuilt and updated:
-
-- [Builds & Auto-deploy](/products/docker-capsule/git/builds/) — manual builds, auto-deploy on push, and changing the repository, branch, or Dockerfile path
-- [Deployments](/products/docker-capsule/deployments/) — deployment strategy, build history, and rollback
-
-## Example guides
-
-- [Flask Docker App](/backend/docker/flask-docker-app/)
-- [Docker PHP App](/backend/docker/docker-php-app/)
-- [Docker Laravel App](/backend/docker/docker-laravel-app/)
-- [Caddy Docker Site](/backend/docker/caddy-docker-site/)
 ## Troubleshooting
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The build fails immediately</summary>
+
+Open **Builds** and read the log. Confirm the Dockerfile path and [container requirements](/products/docker-capsule/container-requirements/).
+
+</details>
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
 <summary>Changes did not save</summary>
 
-Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+Refresh the Capsule page and confirm you clicked **Save** on the correct section.
 
 </details>

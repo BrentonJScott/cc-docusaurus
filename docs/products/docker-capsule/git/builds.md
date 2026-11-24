@@ -26,14 +26,23 @@ For build history, logs, and rollback, see [Deployments](/products/docker-capsul
 />
 
 
-## How builds work
+## Manage your Docker builds
 
-When a build starts, Code Capsules:
+1. **Understand the pipeline**
 
-1. Clones your linked Git repository at the configured branch
-2. Runs `docker build` using your **Docker File** path and **Docker Build Context** — see [Dockerfile path and build context](#dockerfile-path-and-build-context)
-3. Stores the completed build
-4. Automatically runs your capsule on success
+   Each build clones your branch, runs `docker build` with your Dockerfile path and context, stores the image, and deploys on success.
+
+2. **Trigger a manual build**
+
+   Open **Deploy** and start a build from the dashboard when you need a rebuild without a Git push.
+
+3. **Enable auto-deploy**
+
+   Turn on auto-deploy so pushes to the linked branch start a new build.
+
+4. **Fix Dockerfile paths**
+
+   Set **Docker File** and **Docker Build Context** on **Config** when the Dockerfile is not at the repository root.
 
 A Git repository must be linked before you can build. Private repositories are supported when your version control account has been connected to Code Capsules.
 
@@ -72,27 +81,39 @@ To deploy an existing image instead, create a new Docker Capsule with **Containe
 
 Set the **Docker File** path and **Docker Build Context** in the **Build** part of the **Capsule Parameters** section in the **Config** tab. Changing either one starts a new build. See [Docker File](/products/docker-capsule/configure/#docker-file) and [Docker Build Context](/products/docker-capsule/configure/#docker-build-context) for examples, including monorepo layouts.
 
-## Troubleshooting builds
+## Troubleshooting
 
-### Build fails immediately
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Build fails immediately</summary>
 
-- Confirm a repository is linked to the capsule.
-- Check that the linked branch exists and contains your Dockerfile.
+Confirm a repository is linked to the capsule. Check that the linked branch exists and contains your Dockerfile.
 
-### Docker build errors
+</details>
 
-- Read the full build log in the **Builds** tab.
-- Verify the [Docker File](/products/docker-capsule/configure/#docker-file) path and [Docker Build Context](/products/docker-capsule/configure/#docker-build-context) in the **Config** tab.
-- Test locally: `docker build -f <dockerfile-path> <context-path>`
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Docker build errors</summary>
 
-### Missing files in build context
+Read the full build log in the **Builds** tab. Verify the [Docker File](/products/docker-capsule/configure/#docker-file) path and [Docker Build Context](/products/docker-capsule/configure/#docker-build-context) in the **Config** tab. Test locally: `docker build -f <dockerfile-path> <context-path>`.
+
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Missing files in build context</summary>
 
 If your Dockerfile references files outside the configured build context, the build fails. Check the [Docker Build Context](/products/docker-capsule/configure/#docker-build-context) in the **Config** tab, or move the files inside the context.
 
-### Auto-deploy not triggering
+</details>
 
-- Verify [auto-deploy](#auto-deploy) has not been turned off.
-- Confirm you pushed to the branch linked to the capsule, not a different branch.
-- Check that no other build is already running.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Auto-deploy not triggering</summary>
 
-If the build succeeds but your application does not work at runtime, see [Logs](/products/docker-capsule/logs/) and [Container requirements](/products/docker-capsule/container-requirements/).
+Verify [auto-deploy](#auto-deploy) has not been turned off. Confirm you pushed to the branch linked to the capsule, not a different branch. Check that no other build is already running.
+
+</details>
+
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>The build succeeds but the app fails at runtime</summary>
+
+See [Logs](/products/docker-capsule/logs/) and [Container requirements](/products/docker-capsule/container-requirements/).
+
+</details>

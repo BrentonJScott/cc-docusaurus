@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/mongodb/deploy"
 title: "How to Deploy a MongoDB Database"
 description: >-
-  Deploy a managed MongoDB Atlas cluster on Code Capsules with a MongoDB Capsule, then connect it to your backend app using a framework guide.
+  Deploy a managed MongoDB Atlas cluster on Code Capsules with a MongoDB Capsule.
 sidebar_label: Deploy
 doc_version: drift
 ---
@@ -11,9 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Your MongoDB Database
 
-MongoDB Capsules are managed clusters on MongoDB Atlas. This is the recommended way to run MongoDB on Code Capsules. When you create a capsule in the dashboard, it is presented as **MongoDB** and provisioned with your chosen cluster type, version, and capacity.
-
-For a self-hosted MongoDB-compatible alternative, see [DocumentDB](/products/database-capsule/documentdb/deploy/). DocumentDB is intended for existing workloads — new projects should use MongoDB Capsules.
+MongoDB Capsules are managed clusters on MongoDB Atlas—the recommended MongoDB option on Code Capsules.
 
 ## Prerequisites
 
@@ -21,28 +19,32 @@ For a self-hosted MongoDB-compatible alternative, see [DocumentDB](/products/dat
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ MongoDB Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
+## Deploy your MongoDB database
 
-## Create a MongoDB Capsule
+1. **Start the capsule wizard**
 
-1. Click **New Capsule** and select **MongoDB**, your Team, and Space.
-2. On **Plan & Deploy**, choose a **Cluster Type**:
-   - **Dedicated** — dedicated CPU and RAM based on the instance size you select.
-   - **Shared** — shared CPU and RAM at a lower cost. Can be upgraded to Dedicated later.
-3. Select a **Version**. See [Versions](/products/database-capsule/mongodb/versions/) for supported options.
-4. Choose a **Plan** and configure **Storage** and **Replicas** for Dedicated clusters.
-5. Enter a **Capsule Name** and click **Create Capsule**.
+   Open your Space. Click the yellow **+** and select **New Capsule**.
 
-Cluster creation can take several minutes. See the [MongoDB getting started guide](/database/mongodb/) for connection and binding instructions.
+2. **Choose MongoDB**
 
-## Framework Guides
+   Select **MongoDB**, your Team, and Space. Click **Next**.
 
-- [Django + MongoDB](/database/mongodb/django-+-mongodb/)
-- [Express + MongoDB](/database/mongodb/express-+-mongodb/)
-- [Flask + MongoDB](/database/mongodb/flask-+-mongodb/)
+3. **Choose cluster options**
+
+   On **Plan & Deploy**, choose **Cluster Type** (**Dedicated** or **Shared**), a **Version**, **Plan**, **Storage**, and **Replicas** for Dedicated clusters.
+
+4. **Create the capsule**
+
+   Enter a **Capsule Name** and click **Create Capsule**. Cluster creation can take several minutes.
+
+5. **Connect your application**
+
+   Follow [Django + MongoDB](/database/mongodb/django-+-mongodb/), [Express + MongoDB](/database/mongodb/express-+-mongodb/), or [Flask + MongoDB](/database/mongodb/flask-+-mongodb/). See [MongoDB getting started](/database/mongodb/).
+
+
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
@@ -51,3 +53,4 @@ Cluster creation can take several minutes. See the [MongoDB getting started guid
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
 
 </details>
+

@@ -31,6 +31,23 @@ Each template comes with a tutorial on how to successfully deploy the template, 
   ]}
 />
 
+## Use your agent template
+
+1. **Choose a template**
+
+   Pick a repo from the table above and fork it on GitHub.
+
+2. **Deploy the Agent Capsule**
+
+   Create an Agent Capsule from the fork. Follow the template README and [Deploy](/products/agent-capsule/deploy/) for wizard steps.
+
+3. **Adjust provider settings**
+
+   On **Config**, edit **Agent Config** to change the AI provider or model. The capsule restarts with the new configuration. See [Configure](/products/agent-capsule/configure/).
+
+4. **Add tools**
+
+   Extend the template tool layout to register new tools, such as a `getWeather` tool, using the examples below.
 
 ## Architecture
 
@@ -155,7 +172,7 @@ If you've followed the above steps to create an Agent Capsule, you're probably n
 
 ### Changing the Provider and Model
 
-Changing the public AI provider and model through the Code Capsules site is easy. You can do this by navigating to the Config page for the Agent Capsule. Here, you can edit the `Agent Config` to change these details to cater your needs. After the changes are applied, the Agent Capsule will restart and use your newly provided configuration. See more [here](/products/agent-capsule/configure/).
+Changing the public AI provider and model through the Code Capsules site starts on the **Config** page for the Agent Capsule. Here, you can edit the `Agent Config` to change these details to cater your needs. After the changes are applied, the Agent Capsule will restart and use your newly provided configuration. See more [here](/products/agent-capsule/configure/).
 
 ### Changing the System Prompt
 
@@ -165,7 +182,7 @@ It is important to note that changing this prompt will require you to push your 
 
 ### Adding New Tools
 
-Adding a new tool to your agent has been made easy with the simple layout structure built into the agent templates. Follow these simple steps to add a new tool, with a side-by-side example of creating a new `getWeather` tool.
+Adding a new tool to your agent uses the layout structure built into the agent templates. Follow these steps to add a new tool, with a side-by-side example of creating a new `getWeather` tool.
 
 1. Navigate to the /src/modules/agent/tools/implementations folder.
 2. Create a new file to describe your new tool.
@@ -326,7 +343,7 @@ this.tools.push(new GetWeatherTool());
 ```
 You are a helpful assistant with access to the following tool:
 newTool - a new tool which retrieves an inut string and returns the same string.
-This is a very basic tool which is just for testing Agent functionality, so ensure to just fire off this tool as necessary without being concerned about input or output. 
+This is a very basic tool for testing Agent functionality, so fire off this tool as necessary without being concerned about input or output. 
 An example of a user wanting to fire this would be "Please use my newTool with the input 'Hello, friend!'"
 ```
 {% endcode %}
@@ -340,7 +357,7 @@ An example of a user wanting to fire this would be "Please use my newTool with t
 ```
 You are a helpful assistant with access to the following tool:
 getWeather - a tool used to get the weather of a specific location.
-This is a very basic tool which is just for testing Agent functionality, so ensure to just fire off this tool as necessary without being concerned about input or output. It only returns that the weather is sunny in the provided location, and this is what is expected.
+This is a very basic tool for testing Agent functionality, so fire off this tool as necessary without being concerned about input or output. It only returns that the weather is sunny in the provided location, and this is what is expected.
 An example of a user wanting to fire this would be "What is the weather in Tokyo today?", which should return "The weather in Tokyo is sunny and 20 degrees". This can then be formatted into a nice, unique sentence for the user.
 ```
 {% endcode %}

@@ -13,9 +13,17 @@ import DocCardList from '@theme/DocCardList';
 
 WordPress Capsules include a layered security configuration that protects sites against common WordPress attacks without requiring any plugin installation. This page explains what is enabled by default and which settings you can tune.
 
----
+## Overview
 
-## HTTPS and Secure Headers
+WordPress Capsules include a layered security configuration that protects sites against common WordPress attacks without requiring any plugin installation. This page explains what is enabled by default and which settings you can tune.
+
+## Why it matters
+
+Tuning and understanding this behavior keeps production sites reliable under real traffic.
+
+## How it works
+
+### HTTPS and Secure Headers
 
 All Code Capsules deployments terminate TLS at the platform load balancer. Traffic between the internet and your site is always HTTPS.
 
@@ -53,9 +61,9 @@ To disable the CSP header entirely (not recommended):
 CSP_HEADER=
 ```
 
----
 
-## Blocked Files and Paths
+
+### Blocked Files and Paths
 
 The following paths are blocked at the web server level and return a `403 Forbidden` response regardless of whether the files exist:
 
@@ -77,9 +85,9 @@ The following paths are blocked at the web server level and return a `403 Forbid
 
 These rules are applied before any WordPress code runs, so they protect even misconfigured sites.
 
----
 
-## Rate Limiting
+
+### Rate Limiting
 
 All incoming requests are rate-limited by client IP address to protect against brute-force attacks and abusive bots.
 
@@ -103,9 +111,9 @@ Customize the limits with environment variables:
 | `RATE_LIMIT_MAX_CONN_PER_IP` | `30` | Maximum concurrent connections per IP address |
 
 
----
 
-## Login Page (`wp-login.php`)
+
+### Login Page (`wp-login.php`)
 
 WordPress login is rate-limited at 30 req/min (via the `protected_routes` zone, burst of 5). The full-page cache is always bypassed for the login page — it never serves a cached response.
 
@@ -118,9 +126,9 @@ NGINX_EXTRA_CONF=location = /wp-login.php {
 }
 ```
 
----
 
-## XML-RPC
+
+### XML-RPC
 
 XML-RPC (`xmlrpc.php`) is **disabled by default**. It returns `403 Forbidden` for all requests.
 
@@ -138,9 +146,9 @@ XMLRPC_ENABLED=true
 When enabled, XML-RPC is still rate-limited at 30 req/min (burst of 3) to protect against XML-RPC amplification attacks.
 
 
----
 
-## WordPress Cron
+
+### WordPress Cron
 
 By default, `wp-cron.php` is **restricted to internal access only** (127.0.0.1). External requests to `/wp-cron.php` receive a `403 Forbidden` response.
 
@@ -160,9 +168,9 @@ DISABLE_PUBLIC_WP_CRON=false
 
 See the [Cron guide](/products/wordpress-capsule/cron/) for the full setup.
 
----
 
-## PHP Security Settings
+
+### PHP Security Settings
 
 The following PHP settings are applied by default for security:
 
@@ -178,9 +186,9 @@ The following PHP settings are applied by default for security:
 
 These defaults follow OWASP recommendations. You can override any of them via `WORDPRESS_CUSTOM_INI` if a specific plugin requires a different value, though changing security settings is generally not recommended.
 
----
 
-## Custom Nginx Config
+
+### Custom Nginx Config
 
 For advanced security rules (IP allowlists, custom deny paths, bot blocks), inject raw nginx config using:
 
@@ -202,9 +210,9 @@ NGINX_EXTRA_CONF=location /wp-admin/ {
 }
 ```
 
----
 
-## Environment Variables Reference
+
+### Environment Variables Reference
 
 | Variable | Default | Description |
 |---|---|---|
@@ -217,3 +225,17 @@ NGINX_EXTRA_CONF=location /wp-admin/ {
 | `RATE_LIMIT_API_ROUTES_RPM` | `60` | Req/min for REST API |
 | `RATE_LIMIT_MAX_CONN_PER_IP` | `30` | Max concurrent connections per IP |
 | `NGINX_EXTRA_CONF` | — | Raw nginx config injected into the server block |
+
+## When to use it
+
+Use these settings when traffic or workload patterns match the recommendations in the sections above.
+
+## Related
+
+<DocCardList
+  items={[
+    {type: 'link', href: '/products/wordpress-capsule/caching', label: '⚙️ Caching', description: 'Page cache for anonymous traffic.'},
+    {type: 'link', href: '/products/wordpress-capsule/configure', label: '⚙️ Configure', description: 'Environment variables.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ Deploy WordPress', description: 'Create a WordPress Capsule.'},
+  ]}
+/>

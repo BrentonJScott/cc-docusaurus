@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Your PostgreSQL Database
 
-PostgreSQL Capsules provide a managed PostgreSQL database for your applications on Code Capsules. When you create a capsule in the dashboard, it is presented as **PostgreSQL**.
+PostgreSQL Capsules provide a managed PostgreSQL database for your applications on Code Capsules.
 
 ## Prerequisites
 
@@ -19,22 +19,31 @@ PostgreSQL Capsules provide a managed PostgreSQL database for your applications 
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/postgresql/deploy', label: '🛠️ PostgreSQL Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
+## Deploy your PostgreSQL database
 
-## Create a PostgreSQL Capsule
+1. **Start the capsule wizard**
 
-1. Click **New Capsule** and select **PostgreSQL**, your Team, and Space.
-2. On **Plan & Deploy**, choose a **Plan** and configure **CPU**, **RAM**, **Storage**, and **Replicas** as needed.
-3. Enter a **Capsule Name** and click **Create Capsule**.
+   Open your Space. Click the yellow **+** and select **New Capsule**.
 
-Capsule creation can take several minutes. See the [PostgreSQL getting started guide](/database/postgres/) for connection and binding instructions.
+2. **Choose PostgreSQL**
 
-## Framework Guides
+   Select **PostgreSQL**, your Team, and Space. Click **Next**.
 
-- [PostgreSQL](/database/postgres/)
+3. **Choose plan and resources**
+
+   On **Plan & Deploy**, choose a **Plan** and configure **CPU**, **RAM**, **Storage**, and **Replicas** as needed.
+
+4. **Create the capsule**
+
+   Enter a **Capsule Name** and click **Create Capsule**. Creation can take several minutes.
+
+5. **Connect your application**
+
+   See the [PostgreSQL getting started guide](/database/postgres/) for connection and binding instructions.
+
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>

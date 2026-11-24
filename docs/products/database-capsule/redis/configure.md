@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/redis/configure"
 title: "How to Configure a Redis Database"
 description: >-
-  Configure a Redis Capsule on Code Capsules: view connection details, connect from your local machine, and rename the capsule from the Details tab.
+  View connection details and settings for a Redis Capsule on the Details and Config tabs.
 sidebar_label: Configure
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your Redis Database
 
-Configure a Database Capsule in the **Details** tab of the Capsule dashboard.
+Manage connection details and capsule settings from the dashboard.
 
 ## Prerequisites
 
@@ -23,27 +23,27 @@ Configure a Database Capsule in the **Details** tab of the Capsule dashboard.
   ]}
 />
 
+## Configure your redis database
 
-## View Connection Details
+1. **Open Details**
 
-The **Details** tab provides connection details for a Database Capsule.
+   Open the Redis Capsule and select the **Details** tab.
 
-Click **show** in the **Connection Details** section to view database credentials:
+2. **View connection details**
 
-- Host
-- Port
-- Database name
-- Username
-- Password
-- Connection string
+   Click **show** in **Connection Details** to reveal host, port, database name, username, password, and connection string.
 
-## Connect from Your Local Machine
+3. **Rename the capsule**
 
-Redis Capsules are not publicly accessible. To connect from your laptop—for example, to inspect keys or run Redis commands—open a secure tunnel with the Code Capsules CLI and connect with `redis-cli`. See [Connect Locally](/products/database-capsule/redis/connect-locally/) for the full workflow, client installation, and examples.
+   To change the display name, click **Edit** next to the capsule name in **Capsule Details**, then save.
 
-## Edit Capsule Name
 
-To change the name of the Capsule, click **Edit** next to the Capsule name in the **Capsule Details** section.
+
+4. **Connect from your laptop**
+
+   See [Connect Locally](/products/database-capsule/redis/connect-locally/) when you need CLI access.
+
+
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
@@ -52,3 +52,4 @@ To change the name of the Capsule, click **Edit** next to the Capsule name in th
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
 
 </details>
+

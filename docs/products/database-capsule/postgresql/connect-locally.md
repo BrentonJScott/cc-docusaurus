@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/postgresql/connect-locally"
 title: "How to Connect to PostgreSQL Locally"
 description: >-
-  Connect to a PostgreSQL Capsule from your local machine with the Code Capsules CLI proxy and psql to run queries, restore backups, and export data.
+  Connect to a PostgreSQL Capsule from your local machine using the Code Capsules CLI proxy and psql.
 sidebar_label: "Connect Locally"
 doc_version: drift
 ---
@@ -11,98 +11,40 @@ import DocCardList from '@theme/DocCardList';
 
 # Connect to Your PostgreSQL Database From Your Machine
 
-PostgreSQL Capsules are private to your Space. To run queries, restore backups, or inspect data from your laptop, open a secure tunnel with the [Code Capsules CLI](/cli/) and connect with `psql` or other PostgreSQL client tools.
-
-## When to Use This
-
-Use a local connection when you need to:
-
-- Run ad-hoc SQL or inspect tables
-- Restore a backup with `pg_restore`
-- Export data with `pg_dump`
-- Debug application issues against the live database
+Connect to a private PostgreSQL Capsule with the CLI proxy and `psql`.
 
 ## Prerequisites
 
-1. Install and log in to the [Code Capsules CLI](/cli/readme/getting-started/installation-and-usage/) (`codecaps login`).
-2. Install PostgreSQL client tools on your machine (see [Install PostgreSQL client tools](#install-postgresql-client-tools) below).
+<DocCardList
+  items={[
+    {type: 'link', href: '/cli/readme/getting-started/installation-and-usage', label: '🛠️ Code Capsules CLI', description: 'Install and run codecaps login.'},
+    {type: 'link', href: '/products/database-capsule/postgresql/deploy', label: '🛠️ PostgreSQL Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-## Open a Proxy Tunnel
+## Connect to your PostgreSQL database locally
 
-1. Open your PostgreSQL Capsule **Details** tab and copy the pre-built proxy command.
-2. Run the command in a terminal. For example:
+1. **Install client tools**
 
-```bash
-codecaps proxy capsule -s <space-slug> -c <capsule-id> -P 5432
-```
+   Install `psql` (PostgreSQL client). On macOS: `brew install libpq`.
 
-3. Leave this terminal open. The tunnel stays active until you stop the process.
+2. **Open a proxy tunnel**
 
-See the [proxy command reference](/cli/readme/commands/proxy/) for full options.
+   Copy the proxy command from **Details** and run it, for example `codecaps proxy capsule -s <space> -c <id> -P 5432`.
 
-## Get Credentials
+3. **Copy credentials**
 
-On the capsule **Details** tab, click **show** in the **Connection Details** section to reveal your credentials.
+   On **Details**, reveal **Connection Details** and copy username, password, and database name.
 
+4. **Connect with psql**
 
-## Install PostgreSQL Client Tools
+   Run `psql "postgresql://<username>:<password>@127.0.0.1:5432/<database>"` or use `-h`, `-p`, `-U`, and `-d` flags. Run `SELECT version();` to confirm the server version.
 
-`psql`, `pg_dump`, and `pg_restore` are distributed under the [PostgreSQL License](https://www.postgresql.org/about/licence/), a permissive open-source license.
-
-| Platform | Install |
-| -------- | ------- |
-| macOS | `brew install libpq` (add `$(brew --prefix libpq)/bin` to your `PATH`) |
-| Ubuntu / Debian | `sudo apt install postgresql-client` |
-| Windows | [PostgreSQL Downloads](https://www.postgresql.org/download/windows/) |
-
-Official installation guides: [PostgreSQL Downloads](https://www.postgresql.org/download/)
-
-## Connect
-
-With the proxy running, connect using a connection string adapted for localhost:
-
-```bash
-psql "postgresql://<username>:<password>@127.0.0.1:5432/<database>"
-```
-
-Replace `5432` with the port you passed to `-P` when starting the proxy.
-
-You can also pass connection parameters individually:
-
-```bash
-psql -h 127.0.0.1 -p 5432 -U <username> -d <database>
-```
-
-You will be prompted for your password.
-
-## Common Tasks
-
-### Run a query
-
-```bash
-psql "postgresql://<username>:<password>@127.0.0.1:5432/<database>" -c 'SELECT version();'
-```
-
-### Restore a backup
-
-```bash
-pg_restore --no-acl --no-owner -d "postgresql://<username>:<password>@127.0.0.1:5432/<database>" backup.dump
-```
-
-The `--no-acl` and `--no-owner` flags avoid permission errors when restoring dumps created on a different host.
-
-### Export a database
-
-```bash
-pg_dump "postgresql://<username>:<password>@127.0.0.1:5432/<database>" -Fc -f backup.dump
-```
-
-The `-Fc` flag writes a custom-format archive suitable for `pg_restore`.
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>Changes did not save</summary>
+<summary>Connection refused</summary>
 
-Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+Confirm the proxy process is running and the local port matches your `psql` connection.
 
 </details>

@@ -26,6 +26,24 @@ The capsule source and deployment strategy are managed in the **Deploy** tab —
 />
 
 
+## Configure your Docker capsule
+
+1. **Edit build settings (Git only)**
+
+   In **Capsule Parameters**, click **Edit** next to **Build**. Set **Docker File** and **Docker Build Context**. Save to trigger a rebuild.
+
+2. **Edit runtime settings**
+
+   Click **Edit** next to **Runtime**. Set **Network port** and **Health Check**. Save to redeploy.
+
+3. **Set environment variables**
+
+   Add or edit variables under **Environment Variables** and click **Save**.
+
+4. **Bind data capsules**
+
+   Bind Database or Storage capsules from **Data capsules** on **Config**.
+
 ## Capsule parameters
 
 The **Capsule Parameters** section is split into **Build** and **Runtime**, each with its own **Edit** link:

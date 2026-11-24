@@ -176,7 +176,7 @@ At the top of our new `main` method, which will be called when this file is run,
 
 Next, we create three different `CommandHandler` classes, one for each command that can be sent to our bot: `/start`, `/weather`, and `/currency`. We pass two arguments into each instantiation: the command text (without the preceding `/`) and a function to call. For example, when a user enters the command `/weather`, the `weather()` function will be called.
 
-Let's define these functions. Just above `def main()`, enter the following three function definitions:
+Let's define these functions. immediately above `def main()`, enter the following three function definitions:
 
 ```python
 async def weather(update, context):
@@ -294,6 +294,11 @@ https://YOUR-CAPSULE-PUBLIC-URL/TOKEN
 
 If you've completed some of our other backend tutorials, you will be familiar with setting up web servers that receive `GET` and `POST` requests to different routes. You can think of a webhook as a very simple HTTP server that is intended to be used by bots and automated services rather than humans.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -346,6 +351,12 @@ We've covered a lot above, from creating a Telegram bot to the differences betwe
 If you're interested in learning more about what you can do with Telegram bots, check out [Telegram's bot developer introduction](https://core.telegram.org/bots). If you have some ideas but require a deeper understanding of the `python-telegram-bot` library, browse their [GitHub repository](https://github.com/python-telegram-bot/python-telegram-bot).
 
 You can find a thorough explanation of webhooks [in this blog post](https://www.chargebee.com/blog/what-are-webhooks-explained/).
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

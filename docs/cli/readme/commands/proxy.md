@@ -1,6 +1,6 @@
 ---
 slug: "/cli/readme/commands/proxy"
-description: "Proxy a Capsule to your local machine with the Code Capsules CLI. Set up a secure TCP tunnel to a MySQL or other Capsule and connect local tools."
+description: "Proxy a Capsule to your local machine with the Code Capsules CLI. Open a secure TCP tunnel to a database or other Capsule."
 title: "Proxy a Database Connection With the CLI"
 sidebar_label: "proxy"
 doc_version: drift
@@ -8,55 +8,50 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-
 # Reach Your Database From Localhost
 
-## Prerequisites
+Proxy a Capsule to your local machine over a secure TCP tunnel.
 
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
+## Overview
 
-## Description
+The `proxy` command forwards traffic from a local port to a Capsule that is not reachable on a public URL, such as Redis or MySQL.
 
-Proxy a capsule to your local machine. For example, if you have a MySQL Capsule running on Code Capsules, this command will set up a secure TCP tunnel to give you access to the MySQL instance via a local port.
-
-## Usage
+## Syntax
 
 ```bash
-codecaps proxy capsule -s <space slug> -c <capsule id> -P <local port>
-```
-
-## Example Usage
-
-```bash
-# proxy a mysql capsule to local port 50001
-codecaps proxy capsule -s my-space-slug-123 -c 12345678 -P 50001
-
-# connect to the MySQL instance via the proxy tunnel
-mysql -u root -p'MyPass' -h 127.0.0.1 -P 50001 app
+codecaps proxy capsule -s <space slug> -c <capsule id> [-P <local port>]
 ```
 
 ## Arguments
 
-* `<target>` (Required) The target to create a proxy to. Currently, the only available value for this argument is  "`capsule`"
+| Argument | Required | Description |
+| --- | --- | --- |
+| `capsule` | Yes | Target to proxy; currently the only value is `capsule` |
 
 ## Options
 
-* `-s, --space` (Required) The slug of the Space in which the desired Capsule resides
-* `-c, --capsule` (Required) The ID of the desired Capsule to proxy
-* `-P, --port` (Optional) The local port to set up the tunnel on. If not provided, a random port will be used
+| Option | Required | Description |
+| --- | --- | --- |
+| `-s`, `--space` | Yes | Space slug that contains the Capsule |
+| `-c`, `--capsule` | Yes | Capsule ID to proxy |
+| `-P`, `--port` | No | Local port for the tunnel; a random port is chosen when omitted |
 
-## Troubleshooting
+## Examples
 
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>The UI does not match these steps</summary>
+```bash
+codecaps proxy capsule -s my-space-slug-123 -c 12345678 -P 50001
+```
 
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
+```bash
+mysql -u root -p'MyPass' -h 127.0.0.1 -P 50001 app
+```
 
-</details>
+## Related
 
+<DocCardList
+  items={[
+    {type: 'link', href: '/cli/readme/getting-started/quick-start', label: '🛠️ Quick start', description: 'Copy a proxy command from the Capsule details page.'},
+    {type: 'link', href: '/products/database-capsule/mysql/connect-locally', label: '📋 MySQL locally', description: 'Connect to a MySQL Capsule after proxying.'},
+    {type: 'link', href: '/cli/readme/commands', label: '📋 Commands', description: 'Full command list.'},
+  ]}
+/>

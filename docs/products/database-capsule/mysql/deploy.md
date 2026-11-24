@@ -19,25 +19,31 @@ MySQL Capsules provide a managed MySQL database for your applications on Code Ca
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ MySQL Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
+## Deploy your MySQL database
 
-## Create a MySQL Capsule
+1. **Start the capsule wizard**
 
-1. Click **New Capsule** and select **MySQL**, your Team, and Space.
-2. On **Plan & Deploy**, select a **Version**. See [Versions](/products/database-capsule/mysql/versions/) for supported options.
-3. Choose a **Plan** and configure **CPU**, **RAM**, **Storage**, and **Replicas** as needed.
-4. Enter a **Capsule Name** and click **Create Capsule**.
+   Open your Space. Click the yellow **+** and select **New Capsule**.
 
-Capsule creation can take several minutes. See the [MySQL getting started guide](/database/mysql/) for connection and binding instructions.
+2. **Choose MySQL**
 
-## Framework Guides
+   Select **MySQL**, your Team, and Space. Click **Next**.
 
-- [Django + MySQL](/database/mysql/django-+-mysql/)
-- [Flask + MySQL](/database/mysql/flask-+-mysql/)
-- [Java + MySQL](/database/mysql/java-+-mysql/)
+3. **Choose version and plan**
+
+   On **Plan & Deploy**, select a **Version**. See [Versions](/products/database-capsule/mysql/versions/) for supported options. Choose a **Plan** and configure **CPU**, **RAM**, **Storage**, and **Replicas** as needed.
+
+4. **Create the capsule**
+
+   Enter a **Capsule Name** and click **Create Capsule**. Creation can take several minutes.
+
+5. **Connect your application**
+
+   When the capsule is ready, use a framework guide to bind your app: [Django + MySQL](/database/mysql/django-+-mysql/), [Flask + MySQL](/database/mysql/flask-+-mysql/), or [Java + MySQL](/database/mysql/java-+-mysql/). See the [MySQL getting started guide](/database/mysql/) for connection steps.
+
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>

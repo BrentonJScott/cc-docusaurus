@@ -15,7 +15,7 @@ import DocCardList from '@theme/DocCardList';
 
 APIs are a common way to expose data and information on the internet. Many web services and apps run off multiple APIs in the background. Because APIs are so ubiquitous, it is very useful to learn the basics of how to build one.
 
-In this tutorial, we’ll build a simple [HTTP REST API](https://www.restapitutorial.com/) to provide Create, Read, Update and Delete (CRUD for short) functions for a personal game catalog. We’ll secure it with [HTTP Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication), while allowing for an easy upgrade to a more secure scheme.
+In this tutorial, we’ll build a simple [HTTP REST API](https://www.restapitutorial.com/) to provide Create, Read, Update and Delete (CRUD for short) functions for a personal game catalog. We’ll secure it with [HTTP Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication), while allowing for an straightforward upgrade to a more secure scheme.
 
 ## Prerequisites
 
@@ -146,7 +146,7 @@ connection.execute(`
 }); 
 ```
 
-This code imports the `mysql2` driver package. We write a boot message to the console, just so we can see when the code runs in the logs. Then we can create a new connection to the database, using the connection string that was automatically added to the `DATABASE_URL` environment variable when we bound the capsules. Then we use the `execute` function to send a SQL command to the database. The SQL command creates a new table with the columns defined above. It has a callback to let us know if the operation is a success or if it has an error. In both cases, we write the output to the console, so we’ll be able to see what happened when we read the logs.
+This code imports the `mysql2` driver package. We write a boot message to the console, so you can see when the code runs in the logs. Then we can create a new connection to the database, using the connection string that was automatically added to the `DATABASE_URL` environment variable when we bound the capsules. Then we use the `execute` function to send a SQL command to the database. The SQL command creates a new table with the columns defined above. It has a callback to let us know if the operation is a success or if it has an error. In both cases, we write the output to the console, so we’ll be able to see what happened when we read the logs.
 
 Now, we need a way for the Backend Capsule to run this setup script. We can use the `package.json` file to register a new command that `npm` will be able to run. Open the `package.json` file and add in the following line to the `scripts` object:
 
@@ -263,7 +263,7 @@ var gamesRouter = require('./routes/games');
 
 This adds a reference to the router we defined in the `game.js` file.
 
-Now, let’s use this reference to add the router to the Express app. Add the following line just above the `module.exports = app;`:
+Now, let’s use this reference to add the router to the Express app. Add the following line immediately above the `module.exports = app;`:
 
 ```
 app.use('/games', [ gamesRouter ]); 
@@ -400,7 +400,7 @@ Commit and push this code to deploy it to Code Capsules. Now, you can test this 
 
 The last route we need to add is a delete route to remove a game entry. Luckily, HTTP has a [`DELETE` method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) as part of its standard.
 
-The delete route will work similarly to our other routes. However, since we are removing a record, we don’t need to return any data. We can just return the usual status code to signal everything worked OK.
+The delete route will work similarly to our other routes. However, since we are removing a record, we don’t need to return any data. return the usual status code to signal everything worked OK.
 
 ```
 router.delete('/:id', function(req, res, next){
@@ -420,7 +420,7 @@ router.delete('/:id', function(req, res, next){
 
 As in the update route, we expect the `id` of the record to delete to be provided by the client in the URL path. Then we run the SQL `DELETE` command, with the `id` from the path in `req.params.id` passed in to replace the single `?` placeholder.
 
-Because we don’t have any record to return (we deleted it!), we just return a [status code `200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which means everything worked OK.
+Because we don’t have any record to return (we deleted it!), return a [status code `200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which means everything worked OK.
 
 Great, it’s time to commit this code, push it up and test it. You should be able to select the “DELETE” verb in Postman, and add in a game `id` to the route. Click “Send”, and you should see a blank reply, with the status code as `200 OK`.
 
@@ -436,7 +436,7 @@ Let’s start by installing the two packages required. The first is the base Pas
 npm install passport passport-http
 ```
 
-Now we add this as middleware, to check credentials before our `games` routes are called. In the `app.js` file, add the following near the top of the file, just under the other package `require` statements:
+Now we add this as middleware, to check credentials before our `games` routes are called. In the `app.js` file, add the following near the top of the file, directly under the other package `require` statements:
 
 ```
 const passport = require('passport');  
@@ -447,7 +447,7 @@ We’ll need a place to store the user credentials, so we can check them against
 
 Head over to the “Config” page on your Backend Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, and click `Update Capsule` when you are done.
 
-Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the `var gamesRouter = require('./routes/games');` line in `app.js`:
+Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code immediately above the `var gamesRouter = require('./routes/games');` line in `app.js`:
 
 ```
 passport.use(new BasicStrategy(
@@ -493,6 +493,12 @@ Now that you’ve built an HTTP REST CRUD API, here are several more things to t
 * Add more routes. For example, you could add a review for each game.
 * Try different authentication schemes. There are a lot on Passport to choose from. It could be interesting to implement an OAuth 2.0 scheme, as these are often used in production.
 * Try adding validation to the routes, to ensure that the incoming data is in the correct format and has all the necessary fields.
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Summary
 

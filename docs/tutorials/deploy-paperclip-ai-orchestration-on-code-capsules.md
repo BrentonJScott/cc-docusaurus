@@ -11,7 +11,6 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Paperclip AI Orchestration on Code Capsules
 
-## Part 1: Build and deploy
 
 ## What you'll build
 
@@ -28,11 +27,14 @@ In this tutorial we'll fork Paperclip, apply fixes required for cloud deployment
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
-## Prerequisites
 
-* A [Code Capsules](/docs/shared/create-an-account) account
-* A GitHub account
-* An Anthropic API key (if you plan to use Claude as an agent)
+## Part 1: Build and deploy
+
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Step 1 — Fork the Paperclip Repository
 

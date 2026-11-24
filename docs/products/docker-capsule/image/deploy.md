@@ -2,7 +2,7 @@
 slug: "/products/docker-capsule/image/deploy"
 title: "How to Deploy an Existing Docker Image"
 description: >-
-  Deploy an existing public container image from Docker Hub, GitHub Container Registry, or another public registry to a Docker Capsule on Code Capsules.
+  Deploy a public container image to a Docker Capsule. When you finish, Pull & Deploy has started the first image import on the Deploy tab.
 sidebar_label: Deploy
 doc_version: drift
 ---
@@ -11,72 +11,53 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Your Existing Container Image
 
-Deploy an existing image when you already build and publish your application as a container image. Code Capsules pulls the image and runs it. There is no Dockerfile build on Code Capsules.
-
-To have Code Capsules build your image from a Dockerfile instead, see [Deploy from Git](/products/docker-capsule/git/deploy/).
+Run a public image from Docker Hub, GitHub Container Registry, or another public registry. When you finish, **Pull & Deploy** has started on the **Deploy** tab.
 
 ## Prerequisites
 
-Before creating a capsule, make sure you have:
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/docker-capsule/container-requirements', label: '📋 Container requirements', description: 'Port and listen address.'},
+  ]}
+/>
 
-- A [Code Capsules](/docs/shared/create-an-account) account with a Team and Space
-- A public container image, for example on Docker Hub or GitHub Container Registry
+## Deploy your Docker image
 
-Your image must meet the [container requirements](/products/docker-capsule/container-requirements/): it must listen on the capsule's network port, bind to `0.0.0.0`, and start your application.
+1. **Open the capsule wizard**
 
-## Image references
+   Open your Space. Click **+** and select **New Capsule**.
 
-Enter the image the same way you would with `docker pull`:
+2. **Choose Docker Capsule**
 
-| Image reference                | What is deployed                               |
-| ------------------------------ | ---------------------------------------------- |
-| `nginx`                        | The `latest` tag of `nginx` on Docker Hub      |
-| `nginx:1.27`                   | The `1.27` tag of `nginx` on Docker Hub        |
-| `ghcr.io/your-org/your-app:v1` | The `v1` tag of an image on GitHub Container Registry |
+   Select **Docker Capsule**, your Team, and Space. Click **Next**.
 
+3. **Choose plan**
 
-## Create the capsule
+   On **Plan**, select a plan. Click **Next**.
 
-1. Log in to Code Capsules and open the Space where you want to run your application.
-2. Click the yellow **+** button and select **New Capsule**.
-3. Choose **Docker Capsule**, your Team, and Space, then click **Next**.
-4. On the **Plan** step, select or customize a payment plan, then click **Next**.
-5. On the **Source** step, select **Container image**.
-6. Enter the **Image reference**, then click **Next**.
-7. On the **Deploy** step, check the image shown, and enter a **Capsule Name**. The name defaults to the image name.
-8. Click **Create Capsule**.
+4. **Select container image source**
 
-Code Capsules creates the capsule and assigns a default hostname. You are taken to the capsule **Details** tab.
+   On **Source**, select **Container image**. Enter the image reference (for example `nginx:1.27` or `ghcr.io/org/app:v1`). Click **Next**.
 
-If the image's registry is not supported, Code Capsules shows an error when you click **Create Capsule**.
+5. **Name the capsule**
 
-## Deploy the image
+   On **Deploy**, confirm the image and enter **Capsule Name**. Click **Create Capsule**.
 
-The image is not deployed until you start the first deploy:
+6. **Pull and deploy**
 
-1. Open the **Deploy** tab.
-2. Click **Pull & Deploy**, then confirm.
+   Open **Deploy** and click **Pull & Deploy**, then confirm. Track progress on **Builds** as **Image import**.
 
-Follow progress in the **Builds** tab, where each pull appears as an **Image import** with its own log.
+7. **Verify and manage updates**
 
+   Open the capsule URL on **Details**. Set [Network port](/products/docker-capsule/configure/#network-port) to match the image. Use [Image Updates](/products/docker-capsule/image/updates/) and [Deployments](/products/docker-capsule/deployments/) for later changes.
 
-## Verify your capsule
-
-1. Open the **Details** tab and click the capsule URL.
-2. If the page does not load, check that the [network port](/products/docker-capsule/configure/#network-port) matches the port your image serves on.
-3. If the deploy fails, see [Image deploy fails](/products/docker-capsule/image/updates/#image-deploy-fails).
-
-## Next steps
-
-After the first deploy, manage which version of your image is running:
-
-- [Image Updates](/products/docker-capsule/image/updates/) — deploy a newer version of your tag, change the image, and fix failed image deploys
-- [Deployments](/products/docker-capsule/deployments/) — deployment strategy, deploy history, and rollback
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>Changes did not save</summary>
+<summary>Image deploy fails</summary>
 
-Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+Confirm the registry is public and the tag exists. See [Image deploy fails](/products/docker-capsule/image/updates/#image-deploy-fails).
 
 </details>

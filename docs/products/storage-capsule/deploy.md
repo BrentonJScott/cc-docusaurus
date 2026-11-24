@@ -1,154 +1,48 @@
 ---
 slug: "/products/storage-capsule/deploy"
-title: "How to Deploy a Persistent Storage"
+title: "Persistent Storage Explained"
 description: >-
-  You need persistent storage for your application, but you don't want a full-blown database.
+  Persistent Storage Capsules provide shared file storage you can bind to Backend and Docker Capsules on Code Capsules.
 sidebar_label: Deploy
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Deploy Your Persistent Storage
+# Persistent Storage Capsules
 
-You need persistent storage for your application, but you don't want a full-blown database.
+Persistent Storage Capsules provide shared file storage you can bind to Backend and Docker Capsules on Code Capsules.
 
-This guide will show you how to create a persistent storage Data Capsule that you can use with backend applications running on Code Capsules.
+## Overview
 
-## Prerequisites
+A Persistent Storage Capsule acts like a virtual disk in your Space. Multiple Backend or Docker Capsules can bind to the same volume so they share files and scale together—without running a full database Capsule.
+
+## Why it matters
+
+Applications that need durable files (uploads, shared assets, WordPress content) need storage that survives redeploys. Binding a Storage Capsule exposes a `PERSISTENT_STORAGE_DIR` path your code reads and writes.
+
+## How it works
+
+You create a **Persistent Storage** Capsule in a Space, then bind it from a Backend or Docker Capsule on the **Config** tab. Code Capsules sets `PERSISTENT_STORAGE_DIR` on the app Capsule after binding. Optional **Public Access** on the Storage Capsule enables authenticated [WebDAV](https://en.wikipedia.org/wiki/WebDAV) browsing from macOS, Windows, or Linux—not public internet file listing.
+
+Application examples use `os.getenv('PERSISTENT_STORAGE_DIR')` in Python or `process.env.PERSISTENT_STORAGE_DIR` in Node.js. See [Configure](/products/storage-capsule/configure/) for binding details and [persistent storage overview](/persistent-storage/) for platform concepts.
+
+## When to use it
+
+| Need | Storage Capsule fits when |
+| --- | --- |
+| Shared files across app replicas | Several capsules must read/write the same directory |
+| Uploads or generated files | Data should survive container restarts |
+| Light file share | You do not need relational queries or a DB engine |
+
+Use a [Database Capsule](/products/database-capsule/) when you need structured queries. Use object storage patterns inside your app when you only need a single mount point.
+
+## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/storage-capsule/deploy', label: '🛠️ Storage Capsule', description: 'Create the Capsule first.'},
+    {type: 'link', href: '/products/storage-capsule/configure', label: '⚙️ Configure storage', description: 'Bind capsules and WebDAV.'},
+    {type: 'link', href: '/persistent-storage', label: '💡 Persistent storage', description: 'Platform overview.'},
+    {type: 'link', href: '/products/backend-capsule/configure', label: '⚙️ Configure backend', description: 'Environment variables on apps.'},
   ]}
 />
-
-
-## What is a Persistent Storage Capsule?
-
-A Persistent Storage Capsule works like a virtual hard drive in the cloud. The key benefit is that you can attach multiple Backend or Docker Capsules to the same Persistent Storage Capsule, enabling them to share data and scale horizontally or vertically.
-
-## How To Set Up Persistent File Storage
-
-To set up persistent file storage, you'll first create a Persistent Storage Capsule, then bind it to a Backend Capsule.
-
-### Create a File Storage Capsule
-
-Log in to your Code Capsules account and navigate to the Space where you want to create a Data Capsule.
-
-Click the yellow **+** button on the bottom-left corner of the dashboard. Select **New Capsule** and then **Persistent Storage** from the dropdown.
-
-Select your payment method, then click **Create Capsule**.
-
-### Bind the Storage Capsule to a Backend or Docker Capsule
-
-You need to bind the Storage Capsule to a [Backend](/products/backend-capsule/) or [Docker Capsule](/products/docker-capsule/) hosted on Code Capsules before you can connect to and use it.
-
-Navigate to the Backend or Docker Capsule and open the **Config** tab. Scroll down to the **Bind Data Capsule** section, where your recently created Storage Capsule is listed.
-
-Click **Bind** to bind the Capsules.
-
-During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable that your Backend Capsule will use to access the Storage Capsule.
-
-When the two Capsules are bound, scroll to the top of the **Config** tab to view the value of the variable.
-
-Now you can use this environment variable in your code to read and write to the Storage Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and assign it to the `db_directory` variable. Alternatively, reference it directly using `os.getenv` in Python or `process.env` in Node.js.
-
-#### Connect to a Storage Capsule From a Python Application
-
-If you're using Python in your Backend Capsule, use the following code to connect to the Storage Capsule:
-
-```python
-import os
-
-db_directory = os.getenv('PERSISTENT_STORAGE_DIR')
-
-### Do something with the db_directory variable here
-file_to_write = os.path.join(db_directory, "test.txt")
-
-file1 = open(file_to_write, "w")
-file1.write("File writing test")
-file1.close()
-
-```
-
-#### Connect to a File Data Capsule From a Node.js Application
-
-If you're using Node.js in your Backend Capsule, use the following code to connect to the Storage Capsule:
-
-```js
-
-db_directory = process.env.PERSISTENT_STORAGE_DIR
-const fs = require('fs')
-
-const content = 'Some content!'
-
-// Do something with the db_directory variable here
-
-fs.writeFile(db_directory + '/test.txt', content, err => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  //file written successfully
-})
-
-```
-
-## Access Files Using WebDAV
-
-By default, you can't browse files and folders in your Persistent Storage Capsule without building your own file browser. To solve this, Code Capsules provides native WebDAV access.
-
-To enable file browsing:
-
-1. Navigate to your Persistent Storage Capsule
-2. Go to the **Details** tab
-3. Toggle **Public Access** to **Enabled**
-
-Enabling this setting doesn't make your files publicly accessible on the internet. They are served over the WebDAV protocol and require authentication credentials to access.
-
-### Connect to the WebDAV Server
-
-#### macOS
-
-1. Open **Finder**
-2. Click on **Go** in the menu bar and select **Connect to Server**
-3. Enter the WebDAV server URL in the following format: `https://server-address`
-4. Click **Connect**
-5. Enter the username and password when prompted
-
-The WebDAV server will now appear as a mounted drive in **Finder**.
-
-Here you can see the files inside a WordPress Capsule accessed locally through **Finder** in macOS.
-
-#### Windows
-
-1. Open **File Explorer**
-2. Right click on **This PC** in the sidebar
-3. Click **Add a network location**
-4. Click **Next** in the wizard until prompted to enter the **Internet or network address**
-5. Enter the WebDAV server URL in the following format: `https://server-address`
-6. Enter the username and password when prompted
-7. Complete the setup wizard
-
-The WebDAV server will now appear as a mapped drive in **File Explorer**.
-
-#### Linux
-
-1. Open your file manager (for example, Nautilus, Dolphin, or Thunar)
-2. In your address bar, enter the WebDAV server URL in the following format:
-   * `davs://server-address` for Nautilus and Thunar
-   * `webdavs://@server-address` for Dolphin
-3. Enter the username and password when prompted
-
-The WebDAV server will now appear as a drive in your file manager.
-## Troubleshooting
-
-<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>Changes did not save</summary>
-
-Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
-
-</details>

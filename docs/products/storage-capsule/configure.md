@@ -2,7 +2,7 @@
 slug: "/products/storage-capsule/configure"
 title: "How to Configure a Persistent Storage"
 description: >-
-  To configure your Persistent Storage Capsule, navigate to the \"Details\" tab.
+  Rename a Storage Capsule, enable WebDAV public access, and bind the volume to application capsules.
 sidebar_label: Configure
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your Persistent Storage
 
-To configure your Persistent Storage Capsule, navigate to the "Details" tab.
+Manage Storage Capsule settings on the **Details** and **Config** tabs.
 
 ## Prerequisites
 
@@ -23,61 +23,29 @@ To configure your Persistent Storage Capsule, navigate to the "Details" tab.
   ]}
 />
 
+## Configure your Storage Capsule
 
-## Edit Capsule Name
+1. **Rename the capsule**
 
-Click "Edit" in the "Capsule Details" section to rename your Persistent Storage Capsule.
+   On **Details**, click **Edit** in **Capsule Details** and save a new name.
 
-## Enable Public Access
+2. **Enable WebDAV access**
 
-Toggle "Public Access" in the "Public Access" section to allow connections from outside your Space.
+   Toggle **Public Access** when you need authenticated WebDAV browsing. This does not make files publicly readable without credentials.
 
-This is disabled by default for security.
+3. **View WebDAV credentials**
 
-## Connect to WebDAV
+   Click **show** in **WebDAV Connection Information** for server URL, username, and password.
 
-When Public Access is enabled, you can connect to your storage using WebDAV.
+4. **Bind to an application**
 
-### View Connection Information
+   From a Backend or Docker Capsule **Config** tab, click **Bind** on the Storage Capsule. Use `PERSISTENT_STORAGE_DIR` in your code.
 
-Click "show" in the "WebDAV Connection Information" section to view:
-- WebDAV Server URL
-- Username
-- Password
-
-### Connect from Mac
-
-1. Open Finder
-2. Click on "Go" in the menu bar and select "Connect to Server"
-3. Enter the WebDAV server URL in the following format: `https://server-address`
-4. Click "Connect"
-5. Enter the username and password when prompted
-6. The WebDAV server will now appear as a mounted drive in Finder
-
-### Connect from Windows
-
-1. Open File Explorer
-2. Right click on "This PC" in the sidebar
-3. Click on "Add a network location"
-4. Click "Next" in the wizard until prompted to enter the "Internet or network address"
-5. Enter the WebDAV server URL in the following format: `https://server-address`
-6. Enter the username and password when prompted
-7. Complete the setup wizard
-8. The WebDAV server will now appear as a mapped drive in File Explorer
-
-### Connect from Linux
-
-1. Open your file manager (e.g., Nautilus, Dolphin, Thunar)
-2. In your address bar enter the WebDAV server URL in the following format:
-   - `davs://server-address` for Nautilus and Thunar
-   - `webdavs://@server-address` for Dolphin
-3. Enter the username and password when prompted
-4. The WebDAV server will now appear as a mounted drive in your file manager
 ## Troubleshooting
 
 <details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
-<summary>Changes did not save</summary>
+<summary>Bind does not appear</summary>
 
-Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
+Confirm the Storage Capsule is in the same Space as the application capsule.
 
 </details>

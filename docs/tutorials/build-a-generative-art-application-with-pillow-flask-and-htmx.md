@@ -158,7 +158,7 @@ We can now start building our generative art app, and we’ll start with the fro
 <body>
 <h1>Generate Art</h1>
 
-<p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
+<p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: a short Python script. Read our tutorial <a href="/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
 
 <div id="image-update-div">
     <div class="image-frame">
@@ -190,7 +190,7 @@ Next, we’ll add the code for the body of the home page. Copy and paste the sni
 <body>
   <h1>Generate Art</h1>
 
-  <p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
+  <p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: a short Python script. Read our tutorial <a href="/tutorials/build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
 
   <div id="image-update-div">
     <div class="image-frame">
@@ -353,6 +353,11 @@ At the top of the file, we import the `create` method from the `make_squares` mo
 
 The `index` route is called when the app is started, and it calls the `create()` method to generate a Base64 image string and returns it in the `home.html` template. The `/generate-another` route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the `/tmp` folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download reference, and not the whole page, like in the case of rendering templates.
 
+:::tip[Checkpoint]
+
+You completed the steps in Part 1. The local project matches the state described above.
+
+:::
 
 ## Part 2: Deploy on Code Capsules
 
@@ -400,6 +405,12 @@ Your remote repository will now be up-to-date with your local one.
 The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Backend Capsule and deploy the app there. You can follow this [deployment guide](/backend/python/flask/) to see how to do this in greater detail.
 
 That’s it! Your “Generate Art” app should be live and fully functional now.
+
+:::tip[Checkpoint]
+
+Open your capsule URL in a browser. The deployed app responds without errors.
+
+:::
 
 ## Summary
 

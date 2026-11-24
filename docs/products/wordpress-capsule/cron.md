@@ -11,80 +11,41 @@ import DocCardList from '@theme/DocCardList';
 
 # Schedule Your WordPress Cron Jobs
 
-WordPress uses a built-in scheduler (WP-Cron) to run scheduled tasks: publishing scheduled posts, sending emails, running plugin maintenance, checking for updates, and more.
+WordPress Capsules replace HTTP-triggered WP-Cron with a platform job that runs every five minutes.
 
-By default, WP-Cron fires when a visitor loads a page. This has two problems on a production PaaS:
+## Prerequisites
 
-- **Low-traffic sites**: If nobody visits for hours, scheduled tasks don't run.
-- **High-traffic sites**: Every page load attempts to run pending cron jobs, wasting PHP worker time.
+<DocCardList
+  items={[
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ WordPress Capsule', description: 'Create the Capsule first.'},
+  ]}
+/>
 
-Code Capsules solves both by **disabling the HTTP-triggered cron and replacing it with a platform-level scheduled job** that calls cron every 5 minutes regardless of traffic.
+## Configure your WordPress cron
 
----
+1. **Disable on-page cron**
 
-## Default Behaviour
+   Add `define('DISABLE_WP_CRON', true);` through `WORDPRESS_CONFIG_EXTRA` on **Config**.
 
-By default, WordPress Capsules:
+2. **Apply platform defaults**
 
-1. **Restrict public access to `wp-cron.php`** — external HTTP requests to `/wp-cron.php` return `403 Forbidden`. This prevents external parties from triggering cron unexpectedly.
-2. **The platform calls `wp-cron.php` internally every 5 minutes** — a scheduled job inside the platform network triggers cron via the internal network.
+   Leave `DISABLE_PUBLIC_WP_CRON=true` so `/wp-cron.php` is not reachable from the public internet. The platform calls cron on the internal network every five minutes.
 
-This means scheduled tasks (publishing posts, sending WooCommerce emails, running plugin maintenance) run reliably every 5 minutes without visitor traffic.
+3. **Use recommended variables**
 
----
+   Set `DISABLE_PUBLIC_WP_CRON=true` and `WORDPRESS_CONFIG_EXTRA=define('DISABLE_WP_CRON', true);` for production sites.
 
-## Recommended Configuration
+4. **Allow public cron only when required**
 
-Tell WordPress not to fire cron on page load by adding this to `WORDPRESS_CONFIG_EXTRA`:
+   If a third-party service must hit `/wp-cron.php`, set `DISABLE_PUBLIC_WP_CRON=false`. The endpoint remains rate-limited.
 
-```php
-define('DISABLE_WP_CRON', true);
-```
+## Troubleshooting
 
-This is the correct setup for all production sites. Without it, WordPress may still attempt to trigger cron on page loads even though the platform is already handling it.
+<details style={{'--ifm-alert-background-color': 'var(--ifm-color-emphasis-100)', '--ifm-alert-background-color-highlight': 'var(--ifm-color-emphasis-200)', '--ifm-alert-border-color': 'var(--ifm-color-warning)', '--ifm-alert-foreground-color': 'var(--ifm-font-color-base)'}}>
+<summary>Scheduled posts are late</summary>
 
-Full recommended configuration:
+Confirm `DISABLE_WP_CRON` is set and allow up to five minutes for the platform cron interval.
 
-```
-DISABLE_PUBLIC_WP_CRON=true
-WORDPRESS_CONFIG_EXTRA=define('DISABLE_WP_CRON', true);
-```
-
----
-
-## Plugin Cron Jobs
-
-Most plugins that use WP-Cron work correctly with this setup. The 5-minute trigger interval means:
-
-- Scheduled posts publish within 5 minutes of their scheduled time.
-- WooCommerce emails send within 5 minutes of an order.
-- Plugin cleanup and maintenance tasks run on their configured schedule.
-
-Some plugins allow configuring a custom cron interval. The minimum reliable interval on Code Capsules is **5 minutes**.
-
----
-
-## Allowing Public Cron Access
-
-If you have a specific reason to allow external HTTP access to `wp-cron.php` (for example, a third-party cron trigger service), you can enable it:
-
-```
-DISABLE_PUBLIC_WP_CRON=false
-```
-
-Even when public access is enabled, the endpoint is still rate-limited to protect against abuse.
-
-
----
-
-## Environment Variables Reference
-
-| Variable | Default | Description |
-|---|---|---|
-| `DISABLE_PUBLIC_WP_CRON` | `true` | Restrict `/wp-cron.php` to internal access only |
-
-Also set via `WORDPRESS_CONFIG_EXTRA`:
-
-```php
-define('DISABLE_WP_CRON', true);  // Tell WordPress not to trigger cron on page load
-```
+</details>
