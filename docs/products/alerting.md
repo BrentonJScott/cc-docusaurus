@@ -1,8 +1,7 @@
 ---
 slug: "/products/alerting"
 description: >-
-  Save alert and notification preferences. When you finish, choices persist
-  after Save Preferences.
+  Enable deployment-completion alerts. When you finish, you receive a notification when a deployment completes.
 title: "How to Set Up Deployment Notifications"
 sidebar_label: "Notifications"
 doc_version: drift
@@ -10,9 +9,9 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Set Up Notification Preferences
+# Set Up Deployment Notifications
 
-Save alert and notification preferences. When you finish, choices persist after **Save Preferences**.
+Enable deployment-completion alerts. When you finish, you receive a notification when a deployment completes.
 
 ## Prerequisites
 
@@ -22,19 +21,23 @@ Save alert and notification preferences. When you finish, choices persist after 
   ]}
 />
 
-## Save preferences
+## Set up your deployment notifications
 
 1. **Open notifications**
 
    Open **Alerting** or **Notifications** in the dashboard menu.
 
-2. **Toggle events**
+2. **Enable deployment notifications**
 
-   Enable or disable in-app and email alerts for events such as **Capsule Not Running**, **High CPU Usage**, and **High Memory Usage**.
+   Turn on in-app alerts, email alerts, or both for the deployment-completion event. You can also enable alerts for **Capsule Not Running**, **High CPU Usage**, and **High Memory Usage**.
 
-3. **Save**
+3. **Save preferences**
 
    Click **Save Preferences**. Reload the page; your toggles match what you saved.
+
+4. **Verify a deployment notification**
+
+   Run a deployment, or wait for one to finish. You receive a notification in the channel you chose, in the app, by email, or both.
 
 ## Troubleshooting
 

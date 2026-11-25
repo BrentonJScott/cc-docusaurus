@@ -1,17 +1,17 @@
 ---
 slug: "/products/storage-capsule/logs"
-title: "How to View Logs for a Persistent Storage"
+title: "How to View Logs for a Persistent Storage Capsule"
 description: >-
-  View logs from your Persistent Storage Capsule on Code Capsules to monitor file activity and debug storage issues.
+  View Capsule logs, Build logs, and Access logs for your Persistent Storage Capsule on Code Capsules.
 sidebar_label: Logs
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Logs logs
+# View Your Persistent Storage Logs
 
-View build, runtime, and access logs for your Storage Capsule.
+View **Capsule logs**, **Build logs**, and **Access logs** for your Persistent Storage Capsule on Code Capsules.
 
 ## Prerequisites
 
@@ -19,24 +19,23 @@ View build, runtime, and access logs for your Storage Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/storage-capsule/deploy', label: '🛠️ Storage Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
 
-## View logs
+## View your Persistent Storage logs
 
 1. **Open the Capsule**
 
-   Open the Space and select the Storage Capsule.
+   On your Space dashboard, select the Persistent Storage Capsule.
 
 2. **Open Logs**
 
-   Click the **Logs** tab.
+   On the Capsule page, click the **Logs** tab.
 
-3. **Switch log streams**
+3. **Read a log stream**
 
-   Open **Capsule logs**, **Build logs**, or **Access logs** as listed. Scroll to the latest entries after a deploy.
+   On **Logs**, open **Capsule logs**, **Build logs**, or **Access logs**. The latest entries for that stream are visible in the list.
 
 ## Troubleshooting
 

@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/redis/configure"
 title: "How to Configure a Redis Database"
 description: >-
-  View connection details and settings for a Redis Capsule on the Details and Config tabs.
+  Update connection details and database settings for a Redis Capsule on the Details and Config tabs. When you finish, your saved settings are visible on the capsule.
 sidebar_label: Configure
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your Redis Database
 
-Manage connection details and capsule settings from the dashboard.
+Update connection details and database settings for a Redis Capsule on the Details and Config tabs. When you finish, your saved settings are visible on the capsule.
 
 ## Prerequisites
 
@@ -19,30 +19,34 @@ Manage connection details and capsule settings from the dashboard.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/redis/deploy', label: '🛠️ Redis Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
-## Configure your redis database
+## Configure your Redis database
 
 1. **Open Details**
 
-   Open the Redis Capsule and select the **Details** tab.
+   In your Space, open the Redis Capsule and click the **Details** tab.
 
 2. **View connection details**
 
-   Click **show** in **Connection Details** to reveal host, port, database name, username, password, and connection string.
+   In **Connection Details**, click **Show**. The host, port, database name, username, password, and connection string appear.
 
 3. **Rename the capsule**
 
-   To change the display name, click **Edit** next to the capsule name in **Capsule Details**, then save.
+   In **Capsule Details**, click **Edit** next to the capsule name, enter the new name, and click **Save**.
 
+4. **Open Config**
 
+   Click the **Config** tab.
 
-4. **Connect from your laptop**
+5. **Edit the database settings**
 
-   See [Connect Locally](/products/database-capsule/redis/connect-locally/) when you need CLI access.
+   On **Config**, click **Edit**, change the settings you need, and click **Save**.
 
+6. **Confirm the saved settings**
+
+   Return to **Config**. The updated database settings you saved are shown.
 
 ## Troubleshooting
 

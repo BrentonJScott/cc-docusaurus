@@ -2,7 +2,7 @@
 slug: "/backend/python/python-discord-bot"
 title: "How to Host a Python Discord Bot"
 description: >-
-  Deploy the Python Discord echo bot to a Backend Capsule and see it reply in Discord.
+  Deploy the Python Discord echo bot to a Backend Capsule and see the bot come online in Discord.
 sidebar_label: "Python Discord Bot"
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Host Your Python Discord Bot
 
-Deploy the Python Discord echo bot to a Backend Capsule and see it reply in Discord.
+Deploy the Python Discord echo bot to a Backend Capsule and see the bot come online in Discord.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Deploy the Python Discord echo bot to a Backend Capsule and see it reply in Disc
 
 1. **Start a Backend Capsule**
 
-   In your Space, click **+** to add a new capsule.
+   In your Space, click **+** and select **New Capsule**.
 
 2. **Choose the capsule type, Team, and Space**
 
@@ -59,9 +59,9 @@ Deploy the Python Discord echo bot to a Backend Capsule and see it reply in Disc
 
    Turn the capsule's toggle off and on again, and wait for it to start.
 
-9. **Chat with the bot**
+9. **Check that the bot is online**
 
-   In your Discord server, send a message in any channel the bot can see. The bot replies with the same message.
+   In your Discord server, open the member list. The bot shows as online. Send a message in any channel the bot can see and it replies with the same message.
 
 ## Troubleshooting
 

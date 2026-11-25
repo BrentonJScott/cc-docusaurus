@@ -28,7 +28,7 @@ Deploy the Express.js demo app to a Backend Capsule and see it building in the B
 
 1. **Start a Backend Capsule**
 
-   In your Space, click **+** to add a new capsule.
+   In your Space, click **+** and select **New Capsule**.
 
 2. **Choose the capsule type, Team, and Space**
 

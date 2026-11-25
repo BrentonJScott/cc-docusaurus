@@ -12,7 +12,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Host Your Django MySQL Application
 
-Deploy a Django app with a MySQL Data Capsule and a Backend Capsule from GitHub. When you finish, the demo app loads at the capsule public URL.
+Deploy a Django app with a MySQL database on Code Capsules from GitHub. When you finish, the demo app loads at the capsule public URL.
 
 ## Prerequisites
 
@@ -27,23 +27,39 @@ Deploy a Django app with a MySQL Data Capsule and a Backend Capsule from GitHub.
 
 ## Deploy your Django MySQL app
 
-1. **Create the MySQL capsule**
+1. **Start the MySQL capsule**
 
-   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **Data Capsule**, select **MySQL Database Cluster**, and choose your Team and Space. Click **Create Capsule**.
+   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **Data Capsule**, select **MySQL Database Cluster**, and choose your Team and Space.
 
-2. **Create the Backend capsule**
+2. **Create the MySQL capsule**
 
-   Click **+** again and choose **Backend Capsule**, your Team, and Space. On **Plan**, choose a plan. On **Configure**, select `codecapsules-io/django-demo` and branch `main`. Leave **Run Command** blank. Click **Create Capsule**.
+   Click **Create Capsule**.
 
-3. **Wait for the build**
+3. **Start the Backend capsule**
+
+   In your Space, click **+** and select **New Capsule**. On **Capsule Details**, choose **Backend Capsule**, your Team, and your Space. Click **Next**.
+
+4. **Choose the plan**
+
+   On **Plan**, choose **Basic**. Click **Next**.
+
+5. **Configure the repository**
+
+   On **Configure**, select `codecapsules-io/django-demo` as the repository and `main` as the branch. Leave **Run Command** blank.
+
+6. **Create the Backend capsule**
+
+   Click **Create Capsule**.
+
+7. **Wait for the build**
 
    On the Backend Capsule **Deploy** tab, open **Builds**. The first build runs when the capsule is created.
 
-4. **Connect the capsules**
+8. **Connect the capsules**
 
    On the Backend Capsule **Config** tab, under **Data capsules**, click **View**. Click **+** next to **Connection string** to add `DATABASE_URL`. Click **Save**.
 
-5. **Open the application**
+9. **Open the application**
 
    On the Backend Capsule **Details** tab, open the public URL. The Django demo loads.
 

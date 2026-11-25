@@ -2,7 +2,7 @@
 slug: "/products/agent-capsule/configure"
 title: "How to Configure an AI Agent"
 description: >-
-  Configure build settings, runtime, environment variables, and agent model settings on the Config tab.
+  Configure build settings, runtime, environment variables, and agent model settings on the Config tab. When you finish, the updated capsule parameters and environment variables are saved.
 sidebar_label: Configure
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your AI Agent
 
-Change agent build settings, runtime, and provider configuration on the **Config** tab.
+Change agent build settings, runtime, environment variables, and provider configuration on the **Config** tab. When you finish, the updated capsule parameters and environment variables are saved.
 
 ## Prerequisites
 
@@ -19,7 +19,6 @@ Change agent build settings, runtime, and provider configuration on the **Config
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/agent-capsule/deploy', label: '🛠️ Agent Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
@@ -40,6 +39,10 @@ Change agent build settings, runtime, and provider configuration on the **Config
 4. **Update Agent Config**
 
    Edit **Agent Config** to change the public AI provider, model, or API-related settings. The capsule restarts with the new configuration.
+
+5. **Confirm the saved settings**
+
+   Reload the **Config** tab. **Capsule Parameters** and **Environment Variables** show the values you saved.
 
 ## Troubleshooting
 

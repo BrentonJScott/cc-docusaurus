@@ -2,16 +2,16 @@
 slug: "/products/database-capsule/postgresql/logs"
 title: "How to View Logs for a PostgreSQL Database"
 description: >-
-  View capsule and access logs from your PostgreSQL Capsule on Code Capsules to monitor database activity and debug connection or query issues.
+  View Capsule logs, Build logs, and Access logs for your PostgreSQL Capsule on Code Capsules.
 sidebar_label: Logs
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Logs logs
+# View Your PostgreSQL Logs
 
-View build, runtime, and access logs for your PostgreSQL Capsule.
+View **Capsule logs**, **Build logs**, and **Access logs** for your PostgreSQL Capsule on Code Capsules.
 
 ## Prerequisites
 
@@ -19,24 +19,22 @@ View build, runtime, and access logs for your PostgreSQL Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/postgresql/deploy', label: '🛠️ PostgreSQL Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
-
-## View logs
+## View your PostgreSQL logs
 
 1. **Open the Capsule**
 
-   Open the Space and select the PostgreSQL Capsule.
+   In your Space, select the PostgreSQL Capsule.
 
 2. **Open Logs**
 
-   Click the **Logs** tab.
+   On the Capsule, click the **Logs** tab.
 
-3. **Switch log streams**
+3. **Choose a log stream**
 
-   Open **Capsule logs**, **Build logs**, or **Access logs** as listed. Scroll to the latest entries after a deploy.
+   On **Logs**, open **Capsule logs**, **Build logs**, or **Access logs**. The latest entries for the stream you selected appear on **Logs**.
 
 ## Troubleshooting
 

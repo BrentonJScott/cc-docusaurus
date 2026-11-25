@@ -9,9 +9,9 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Scale your Scale
+# Scale Your Docker Container
 
-Change CPU, RAM, replicas, or storage for your Docker Capsule.
+Scale your Docker Capsule on Code Capsules by adding replicas or allocating more CPU, memory, and GPU as your application traffic grows.
 
 ## Prerequisites
 
@@ -19,24 +19,23 @@ Change CPU, RAM, replicas, or storage for your Docker Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
+    {type: 'link', href: '/docs/products/docker-capsule/git/deploy', label: '🛠️ Docker Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
-
-## Scale the Capsule
+## Scale your Docker Capsule
 
 1. **Open Scale**
 
-   Open the Capsule and select the **Scale** tab.
+   Open your Docker Capsule and select the **Scale** tab.
 
 2. **Edit resources**
 
-   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+   On **Scale**, click **Edit**. Adjust **CPU**, **RAM**, **Storage**, **Replicas**, and **GPU** (when shown).
 
 3. **Save**
 
-   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+   On **Scale**, click **Save** and confirm. The new resources are saved and show on **Scale**.
 
 ## Troubleshooting
 

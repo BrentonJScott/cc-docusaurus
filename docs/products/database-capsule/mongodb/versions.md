@@ -2,103 +2,59 @@
 slug: "/products/database-capsule/mongodb/versions"
 title: "Supported MongoDB Versions"
 description: >-
-  See which MongoDB versions Code Capsules supports on Dedicated and Shared clusters, check your current version, and plan a major version upgrade.
+  Supported MongoDB major versions on Dedicated and Shared MongoDB Capsules, default provisioning, and allowed upgrade paths on Code Capsules.
 sidebar_label: Versions
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Choose and Upgrade Your MongoDB Version
+# MongoDB Versions
 
-## Prerequisites
+Supported MongoDB major versions on Dedicated and Shared MongoDB Capsules, default provisioning, and allowed upgrade paths on Code Capsules.
+
+## Overview
+
+MongoDB Capsules run on MongoDB Atlas. Major-version rules differ for **Dedicated** and **Shared** clusters. The current MongoDB server version is shown on the **Config** tab under **MongoDB Configuration**.
+
+## Dedicated clusters
+
+| Version | Status |
+| --- | --- |
+| **7.0** | Supported |
+| **8.0** | Supported |
+| **latest** | Supported. Automatically upgraded when new versions are released. |
+
+- New Dedicated capsules are provisioned on the latest supported version unless another version is selected during setup.
+
+## Shared clusters
+
+| Version | Status |
+| --- | --- |
+| **8.0** | Supported |
+
+- Shared cluster versions cannot be changed from the dashboard.
+
+## Upgrade paths
+
+| From | To | Allowed | Guide |
+| --- | --- | --- | --- |
+| 7.0 | 8.0 | Yes | [7.0 to 8.0](/docs/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0/) |
+| 8.0 | latest | Yes | None |
+| latest | None | Automatic when new versions are released | None |
+| Any | Earlier | No. Downgrades are not supported. | None |
+
+- Major upgrades happen one step at a time.
+- Manual major upgrades are available only on **Dedicated** clusters.
+- Major upgrades are difficult to reverse, so take a manual backup first.
+- The capsule status shows **Updating** while the new version is applied. Applications may see short connection interruptions.
+- Patch releases within a major version are applied by MongoDB Atlas without any action from you.
+
+## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0', label: '🛠️ Upgrade 7.0 to 8.0', description: 'Change the version on a Dedicated capsule.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/monitor', label: '🛠️ Monitor MongoDB', description: 'View usage metrics for your capsule.'},
   ]}
 />
-
-Code Capsules MongoDB Capsules run on MongoDB Atlas. Supported versions depend on whether you use a **Dedicated** or **Shared** cluster. This guide covers which versions are available, how to check your current version, and how to plan a major version upgrade.
-
-## Supported Versions
-
-### Dedicated clusters
-
-| Version    | Status                                                            |
-| ---------- | ----------------------------------------------------------------- |
-| **7.0**    | Supported                                                         |
-| **8.0**    | Supported                                                         |
-| **latest** | Supported — automatically upgraded when new versions are released |
-
-New Dedicated MongoDB Capsules are provisioned on the latest supported version unless you choose otherwise during setup.
-
-### Shared clusters
-
-| Version | Status    |
-| ------- | --------- |
-| **8.0** | Supported |
-
-Shared cluster versions cannot be changed from the dashboard. Upgrade to a Dedicated cluster from the [Scale](/products/database-capsule/mongodb/scale/) tab if you need version management.
-
-Patch releases within a major version are applied by MongoDB Atlas and do not require any action on your part.
-
-## Check Your Version
-
-The current MongoDB server version is shown in the **Config** tab under **MongoDB Configuration**.
-
-You can also verify the version by connecting to your database and running:
-
-```js
-db.version();
-```
-
-If you connect from your local machine, connect with `mongosh` using the **Public Connection String** from your capsule **Details** tab. See [Connect from Outside Code Capsules](/database/mongodb/#connect-from-outside-code-capsules) for details.
-
-## Upgrade Paths
-
-Major version upgrades must follow a single step at a time. You cannot downgrade. Upgrades are only available for **Dedicated** clusters.
-
-| From   | To      | Allowed                                      | Guide                                                                          |
-| ------ | ------- | -------------------------------------------- | ------------------------------------------------------------------------------ |
-| 7.0    | 8.0     | Yes                                          | [7.0 to 8.0](/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0/) |
-| 8.0    | latest  | Yes                                          | —                                                                              |
-| latest | —       | Auto-upgraded when new versions are released | —                                                                              |
-| Any    | Earlier | No — downgrades are not supported            | —                                                                              |
-
-## Before Any Major Upgrade
-
-1. **Take a backup.** Create a [manual backup](/products/database-capsule/mongodb/backups/) before changing the MongoDB version. Major upgrades are difficult to reverse.
-2. **Plan for brief disruption.** Code Capsules applies the new version on MongoDB Atlas while your capsule status shows **Updating**. Your applications may experience short connection interruptions during the rollout.
-3. **Follow the upgrade guide for your target version.** See [7.0 to 8.0](/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0/) when upgrading from MongoDB 7.0.
-
-## Change the MongoDB Version
-
-After prerequisites are met (if applicable):
-
-1. Open your MongoDB Capsule dashboard.
-2. Go to the **Config** tab.
-3. In the **MongoDB Configuration** section, click **Edit**, select the target version, and save.
-4. Confirm the upgrade when prompted.
-
-Wait until the capsule reports as **Running** and the new version is fully applied before making further changes.
-
-Selecting **latest** enables automatic upgrades to the newest supported version when one is released.
-
-## After Upgrading
-
-- Verify application connectivity against the new version.
-- Re-run `db.version()` to confirm the expected version is active.
-- Review application logs for driver compatibility or query errors.
-
-## Troubleshooting
-
-<details>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-

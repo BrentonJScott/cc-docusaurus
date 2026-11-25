@@ -22,7 +22,7 @@ Update billing contact details on your Team. When you finish, the saved details 
   ]}
 />
 
-## Update billing details
+## Update your billing details
 
 1. **Open Billing**
 

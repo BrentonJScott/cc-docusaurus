@@ -9,9 +9,9 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Deploy Your Dockerfile From a Git Repository
+# Host Your Dockerfile From Git
 
-Deploy from Git when Code Capsules should build your image from the repository `Dockerfile`. For a pre-built image, see [Deploy an existing image](/products/docker-capsule/image/deploy/).
+Deploy a Docker Capsule from a Dockerfile in Git. When you finish, the first build is running on the Deploy tab Builds section.
 
 ## Prerequisites
 
@@ -20,7 +20,6 @@ Deploy from Git when Code Capsules should build your image from the repository `
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
     {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-    {type: 'link', href: '/products/docker-capsule/container-requirements', label: '📋 Container requirements', description: 'Port, 0.0.0.0, and CMD.'},
   ]}
 />
 
@@ -32,7 +31,7 @@ Deploy from Git when Code Capsules should build your image from the repository `
 
 2. **Choose Docker Capsule**
 
-   Select **Docker Capsule**, your Team, and Space. Click **Next**.
+   On **Capsule Details**, select **Docker Capsule**, your Team, and Space. Click **Next**.
 
 3. **Choose plan**
 
@@ -46,20 +45,20 @@ Deploy from Git when Code Capsules should build your image from the repository `
 
    On **Deploy**, set **Dockerfile location** and **Docker build context** if the Dockerfile is not at the repository root, then enter **Capsule Name**.
 
-6. **Create and build**
+6. **Create the capsule**
 
-   Click **Create Capsule**. Code Capsules links the repo, assigns a hostname, and starts the first build on **Builds**.
+   Click **Create Capsule**. Code Capsules links the repo and assigns a hostname.
 
-7. **Verify and continue**
+7. **Confirm the first build**
 
-   Open the capsule URL on **Details**. Tune [Builds & Auto-deploy](/products/docker-capsule/git/builds/) and [Deployments](/products/docker-capsule/deployments/). Example tutorials: [Flask Docker App](/backend/docker/flask-docker-app/), [Docker PHP App](/backend/docker/docker-php-app/), [Docker Laravel App](/backend/docker/docker-laravel-app/), [Caddy Docker Site](/backend/docker/caddy-docker-site/).
+   Open the **Builds** section of the **Deploy** tab. The first build for the new capsule is in progress.
 
 ## Troubleshooting
 
 <details>
 <summary>The build fails immediately</summary>
 
-Open **Builds** and read the log. Confirm the Dockerfile path and [container requirements](/products/docker-capsule/container-requirements/).
+Open **Builds** and read the log. Confirm the Dockerfile path and container requirements.
 
 </details>
 

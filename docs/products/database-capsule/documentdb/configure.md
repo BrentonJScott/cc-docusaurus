@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/documentdb/configure"
 title: "How to Configure a DocumentDB Database"
 description: >-
-  View connection details and settings for a DocumentDB Capsule on the Details and Config tabs.
+  Update connection details and database settings for a DocumentDB Capsule on the Details and Config tabs. When you finish, your updated settings are saved.
 sidebar_label: Configure
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your DocumentDB Database
 
-Manage connection details and capsule settings from the dashboard.
+Update connection details and database settings for a DocumentDB Capsule on the Details and Config tabs. When you finish, your updated settings are saved.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ Manage connection details and capsule settings from the dashboard.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/documentdb/deploy', label: '🛠️ DocumentDB Capsule', description: 'Create the Capsule first.'},
+    {type: 'link', href: '/docs/products/database-capsule/documentdb/deploy', label: '🛠️ DocumentDB Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
@@ -35,14 +35,19 @@ Manage connection details and capsule settings from the dashboard.
 
 3. **Rename the capsule**
 
-   To change the display name, click **Edit** next to the capsule name in **Capsule Details**, then save.
+   To change the display name, click **Edit** next to the capsule name in **Capsule Details**, then click **Save**.
 
+4. **Open Config**
 
+   Select the **Config** tab.
 
-4. **Connect from your laptop**
+5. **Edit database settings**
 
-   See [Connect Locally](/products/database-capsule/documentdb/connect-locally/) when you need CLI access.
+   Click **Edit**, change the database settings you need, and click **Save**.
 
+6. **Confirm the saved settings**
+
+   Reload the page and return to **Config**. The updated database settings are saved.
 
 ## Troubleshooting
 

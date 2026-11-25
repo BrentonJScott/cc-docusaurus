@@ -2,16 +2,16 @@
 slug: "/products/database-capsule/postgresql/backups"
 title: "How to Back Up a PostgreSQL Database"
 description: >-
-  Protect your PostgreSQL Capsule on Code Capsules with manual backups and daily, weekly, or monthly automatic backup schedules, then restore when needed.
+  Create a manual backup for your PostgreSQL Capsule on Code Capsules. When you finish, a completed backup is listed on Backups and is available to restore.
 sidebar_label: Backups
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Back up your Backups
+# Back Up Your PostgreSQL Database
 
-Create and view backups for your PostgreSQL Capsule.
+Create a manual backup for your PostgreSQL Capsule on Code Capsules. When you finish, a completed backup is listed on **Backups** and is available to restore.
 
 ## Prerequisites
 
@@ -19,24 +19,26 @@ Create and view backups for your PostgreSQL Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/database-capsule/postgresql/deploy', label: '🛠️ PostgreSQL Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
+## Back up your PostgreSQL database
 
-## Run a backup
+1. **Open the Capsule**
 
-1. **Open Backups**
+   In your Space, open the PostgreSQL Capsule.
 
-   Open the Capsule and select the **Backups** tab.
+2. **Open Backups**
 
-2. **Start a backup**
+   On the Capsule, click the **Backups** tab.
 
-   Click **Create backup** or **Backup now** as labeled on your cluster.
+3. **Create a backup**
 
-3. **Confirm completion**
+   On **Backups**, click **Create backup**. Wait until the backup status shows **Completed**.
 
-   Wait until the backup status shows **Completed**. The backup appears in the list with a timestamp.
+4. **Confirm the backup**
+
+   On **Backups**, the new backup appears in the list with a timestamp and is available to restore.
 
 ## Troubleshooting
 

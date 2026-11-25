@@ -9,9 +9,9 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Scale your Scale
+# Scale Your WordPress Site
 
-Change CPU, RAM, replicas, or storage for your WordPress Capsule.
+Scale your WordPress Capsule on Code Capsules by allocating more CPU and memory as traffic to your WordPress site grows.
 
 ## Prerequisites
 
@@ -19,24 +19,23 @@ Change CPU, RAM, replicas, or storage for your WordPress Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ WordPress Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
 
-## Scale the Capsule
+## Scale your WordPress site
 
 1. **Open Scale**
 
-   Open the Capsule and select the **Scale** tab.
+   On your Space dashboard, open the WordPress Capsule and select the **Scale** tab.
 
 2. **Edit resources**
 
-   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+   On **Scale**, click **Edit**. Adjust **CPU**, **RAM**, **Storage**, and **Replicas**.
 
 3. **Save**
 
-   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+   On **Scale**, click **Save** and confirm. The new resources are saved and show on **Scale**.
 
 ## Troubleshooting
 

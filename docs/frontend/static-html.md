@@ -29,7 +29,7 @@ Deploy a static HTML site on Code Capsules. When you finish, the first build is 
 
 1. **Open the capsule wizard**
 
-   Open the Space for this app. Click the yellow **+** and select **New Capsule**.
+   Open the Space for this app and select **New Capsule**.
 
 2. **Choose capsule details**
 

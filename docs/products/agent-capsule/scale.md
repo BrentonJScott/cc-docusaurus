@@ -9,9 +9,9 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Scale your Scale
+# Scale Your AI Agent
 
-Change CPU, RAM, replicas, or storage for your Agent Capsule.
+Scale your Agent Capsule on Code Capsules by allocating more CPU and memory as your AI agent workload grows.
 
 ## Prerequisites
 
@@ -19,24 +19,23 @@ Change CPU, RAM, replicas, or storage for your Agent Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/agent-capsule/deploy', label: '🛠️ Agent Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
 
-## Scale the Capsule
+## Scale your Agent capsule
 
-1. **Open Scale**
+1. **Open the Scale tab**
 
-   Open the Capsule and select the **Scale** tab.
+   Open your Agent Capsule and select the **Scale** tab.
 
 2. **Edit resources**
 
-   Click **Edit**. Adjust **CPU**, **RAM**, **Storage**, or **Replicas** as offered for this capsule type.
+   On **Scale**, click **Edit**. Set **CPU**, **RAM**, **Storage**, and **Replicas**.
 
 3. **Save**
 
-   Click **Save** and confirm. The capsule redeploys or resizes with the new resources showing on **Scale**.
+   On **Edit**, click **Save** and confirm. The new resources are saved and show on **Scale**.
 
 ## Troubleshooting
 

@@ -2,7 +2,7 @@
 slug: "/products/database-capsule/documentdb/deploy"
 title: "How to Deploy a DocumentDB Database"
 description: >-
-  Deploy a self-hosted, MongoDB-compatible DocumentDB database on Code Capsules.
+  Create a MongoDB-compatible DocumentDB Capsule on Code Capsules. When you finish, the capsule build is in progress on **Builds**.
 sidebar_label: Deploy
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Deploy Your DocumentDB Database
 
-DocumentDB is a self-hosted MongoDB API–compatible database. For new projects, prefer [MongoDB Capsules](/products/database-capsule/mongodb/deploy/).
+Create a MongoDB-compatible DocumentDB Capsule on Code Capsules. When you finish, the capsule build is in progress on **Builds**.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ DocumentDB is a self-hosted MongoDB API–compatible database. For new projects,
 
 1. **Start the capsule wizard**
 
-   Open your Space. Click the yellow **+** and select **New Capsule**.
+   Open your Space. Click **+** and select **New Capsule**.
 
 2. **Choose MongoDB Compatible**
 
@@ -40,10 +40,9 @@ DocumentDB is a self-hosted MongoDB API–compatible database. For new projects,
 
    Enter a **Capsule Name** and click **Create Capsule**.
 
-5. **Connect your application**
+5. **Check the build**
 
-   Use MongoDB framework guides with DocumentDB connection details. See [Configure](/products/database-capsule/documentdb/configure/).
-
+   Open the capsule and select the **Deploy** tab, then open **Builds**. The database capsule build is in progress.
 
 ## Troubleshooting
 

@@ -2,7 +2,7 @@
 slug: "/products/frontend-capsule/container/deploy"
 title: "How to Deploy a Container Frontend"
 description: >-
-  Deploy a static site or SPA on Code Capsules with Container hosting. When you finish, the container is running and the first build appears on the Deploy tab.
+  Deploy a static site or SPA on Code Capsules with Container hosting. When you finish, the first build is in progress on the Deploy tab Builds section.
 sidebar_label: Deploy
 doc_version: drift
 ---
@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Host Your Frontend With Container Hosting
 
-Deploy with Container hosting when you want an always-on web server, runtime logs, metrics, and scaling. When you finish, the container is running and the first build appears on the **Deploy** tab.
+Deploy a static site or SPA on Code Capsules with Container hosting. When you finish, the first build is in progress on the **Deploy** tab **Builds** section.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Deploy with Container hosting when you want an always-on web server, runtime log
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
     {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-    {type: 'link', href: '/products/frontend-capsule/supported-runtimes', label: '📋 Build settings', description: 'Build command and output folder.'},
+    {type: 'link', href: '/docs/products/frontend-capsule/deploy', label: '📋 Build settings', description: 'Build command and output folder.'},
   ]}
 />
 
@@ -28,11 +28,11 @@ Deploy with Container hosting when you want an always-on web server, runtime log
 
 1. **Open the capsule wizard**
 
-   Open your Space. Click the yellow **+** and select **New Capsule**.
+   Open your Space. Select **New Capsule**.
 
 2. **Choose capsule details**
 
-   Choose **Frontend Capsule**, your Team, and Space. Click **Next**.
+   On **Capsule Details**, choose **Frontend Capsule**, your Team, and Space. Click **Next**.
 
 3. **Choose container hosting**
 
@@ -44,22 +44,22 @@ Deploy with Container hosting when you want an always-on web server, runtime log
 
 5. **Connect the repository**
 
-   On **Configure**, select **Git Repository**, **Branch**, and **Repo subpath** if needed. Click **Next**.
+   On **Configure**, select a **Git Repository** and **Branch**. Enter **Repo subpath** if the site is not at the repository root. Click **Next**.
 
 6. **Set build settings**
 
-   On **Deploy**, set **Build Command**, **Path to static content** (folder with `index.html`), and **Capsule Name**. Click **Build & Deploy**.
+   On **Deploy**, set **Build Command**, **Path to static content** (the folder that contains `index.html`, for example `dist`), and **Capsule Name**. Click **Build & Deploy**.
 
-7. **Confirm the site**
+7. **Check the build**
 
-   When the build finishes, open **Details** and load the capsule URL. The container serves HTTPS, SPA routing, and compression. See [Scale](/products/frontend-capsule/scale/), [Monitor](/products/frontend-capsule/monitor/), [Logs](/products/frontend-capsule/logs/), [Configure](/products/frontend-capsule/configure/), and [Framework Guides](/products/frontend-capsule/deploy/).
+   On **Builds**, confirm the first build is queued or in progress.
 
 ## Troubleshooting
 
 <details>
 <summary>The page is blank after a successful build</summary>
 
-Confirm **Path to static content** matches the build output folder. See [Configure](/products/frontend-capsule/configure/) and runtime [Logs](/products/frontend-capsule/logs/).
+Confirm **Path to static content** matches the build output folder.
 
 </details>
 

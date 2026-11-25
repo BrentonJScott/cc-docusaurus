@@ -2,8 +2,8 @@
 slug: "/platform/capsules/health-checks"
 title: "How to Configure Health Checks"
 description: >-
-  Turn on an HTTP health check for a Capsule. When you finish, the Capsule
-  reports healthy on the dashboard.
+  Turn on an HTTP health check for a Capsule. When you finish, the health check
+  settings are saved on the Capsule.
 sidebar_label: "Health checks"
 doc_version: drift
 ---
@@ -12,18 +12,18 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Health Checks
 
-Turn on an HTTP health check for a Capsule. When you finish, the Capsule reports healthy on the dashboard.
+Turn on an HTTP health check for a Capsule. When you finish, the health check settings are saved on the Capsule.
 
 ## Prerequisites
 
 <DocCardList
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/platform/capsules/how-do-i-add-remove-stop-capsules', label: '🛠️ A Backend or Docker Capsule', description: 'Health checks apply to server Capsules.'},
+    {type: 'link', href: '/docs/products/docker-capsule/git/deploy', label: '🛠️ A Docker Capsule', description: 'Deploy a server Capsule first.'},
   ]}
 />
 
-## Enable a health check
+## Configure your health check
 
 1. **Open Configure**
 
@@ -37,15 +37,15 @@ Turn on an HTTP health check for a Capsule. When you finish, the Capsule reports
 
    Save or redeploy if prompted. Changing the health check redeploys the Capsule without a new build.
 
-4. **Confirm healthy status**
+4. **Confirm the saved settings**
 
-   After replicas pass checks, the dashboard shows the Capsule as healthy and routes traffic only to passing replicas.
+   Reopen the **Configure** tab (or **Config**). **Health Check** shows **Automatic** and **Endpoint** shows `/health`.
 
 ## Troubleshooting
 
 <details>
 <summary>Replicas never become healthy</summary>
 
-Add a `GET /health` route that returns `200` quickly. Do not protect `/health` with application login. See [Configure a Backend Capsule](/products/backend-capsule/configure/) for Manual timeout settings if startup takes longer than 10 seconds.
+Add a `GET /health` route that returns `200` quickly. Do not protect `/health` with application login. See [Configure a Docker Capsule](/docs/products/docker-capsule/configure) for Manual timeout settings if startup takes longer than 10 seconds.
 
 </details>
