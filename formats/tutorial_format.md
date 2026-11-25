@@ -5,7 +5,6 @@ A Tutorial teaches by building something. The reader follows one fixed path, see
 - **Use it for:** "Build a…" pages that walk through a whole project.
 - **Location:** A Tutorial can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Example in this repo:** `docs/d/build-a-mern-job-board.md`.
-- **Writing style:** follow `writing_style.md`, including its [Page pieces](writing_style.md#page-pieces): cards, numbered steps, and troubleshooting boxes.
 
 ## Layout
 
@@ -84,7 +83,6 @@ A Tutorial **must** have these sections, in this order:
 
 ## Troubleshooting
 - Optional. Include it when a step is likely to fail for a reason the reader can't see, such as a missing environment variable.
-- Each entry **must** be one `<details>` box as `writing_style.md` shows. The `<summary>` is the symptom as the reader sees it, and the body is the cause and then the fix.
 
 ## Template
 

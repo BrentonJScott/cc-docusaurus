@@ -5,7 +5,7 @@ Run this check on every doc **before** the walkthrough in `WALKTHROUGH.md`. It i
 Every doc is checked against the template for its type. A doc that fails is not walked through. Instead, you write a format report with tickets that describe how to fix it, and that report goes into the run's pull request.
 
 ## Templates
-There are four doc types. Each has its own template, and all of them share `writing_style.md`.
+There are four doc types. Each has its own template.
 
 | Doc type | Template | The reader wants to… |
 |---|---|---|
@@ -19,7 +19,7 @@ A doc of any type can live in any folder inside `docs/`. The folder is never par
 ## Setup
 - Follow the Setup section of `WALKTHROUGH.md` first (git sync, then read `DOCUMENTED_FEATURES.md`).
 - Build the feature list and match each feature to its doc as `WALKTHROUGH.md` describes.
-- Read `writing_style.md` and all four templates in full before checking any doc.
+- Read all four templates in full before checking any doc.
 
 ## Ground rules
 - Don't edit docs. Every finding becomes a ticket in a report.
@@ -112,14 +112,12 @@ Read the doc top to bottom and list every instruction or statement it gives the 
 - For Reference pages and Explanations, `## Related` must have at least two links, and every one must exist.
 
 ## Check 4: Format and style
-Check the doc against every rule in the template for its type from Step 1, and against `writing_style.md`.
+Check the doc against every rule in the template for its type from Step 1.
 
 - Go through the template section by section and record each rule the doc breaks, quoting the doc's text or heading and naming the rule.
 - At minimum, confirm:
-  - The frontmatter has every field `writing_style.md` lists.
   - The `##` headings are exactly the ones in the template's section table, in that order. Optional sections can be missing, but not reordered.
   - Each section follows the template's rules for it, such as `### Step N: Title` in a How-to guide, a `### Checkpoint` at the end of each Tutorial part, tables with units in a Reference, and no steps in an Explanation.
-  - The rules in `writing_style.md` are followed.
 
 ## If the doc fails
 - Stop work on that doc. Don't run the `WALKTHROUGH.md` walkthrough for it.

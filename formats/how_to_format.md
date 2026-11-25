@@ -5,7 +5,6 @@ A How-to guide takes a reader who already knows what they want to do to one goal
 - **Use it for:** deployment guides and other single-task pages.
 - **Location:** a How-to guide can live in any folder inside `docs/`. The format check identifies it by its structure, not by the folder it's in.
 - **Examples in this repo:** `docs/b/angular.md` and `docs/b/react.md`.
-- **Writing style:** follow `writing_style.md`.
 - **Built-in pieces only:** use Markdown and what Docusaurus provides out of the box: the `DocCardList` theme component for prerequisites and `<details>` for troubleshooting. Don't add custom components, CSS, inline `style` props, or other files. `src/css/custom.css` styles these pieces on every page.
 
 ## Layout
@@ -67,7 +66,6 @@ Older guides are laid out as a run of task sections, such as **Setup**, **Create
 
 ## Title and description
 
-- Frontmatter **must** have every field `writing_style.md` lists.
 - Directly after the frontmatter, import the card list: `import DocCardList from '@theme/DocCardList';`
 - The page **must** have one `#` title, in the form "Host Your <Framework> Application". Don't add phrases like "in Minutes".
 - Directly under the title, one or two sentences repeat the `description`. They say what the reader will see at the end, and **must** match the feature's goal in the documented features list.
