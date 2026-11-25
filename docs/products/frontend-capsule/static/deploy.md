@@ -18,9 +18,9 @@ Deploy a static site or SPA on Code Capsules with Static hosting. When you finis
 <DocCardList
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-html', description: 'Fork codecapsules-io/demo-html on GitHub.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
     {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-    {type: 'link', href: '/docs/products/frontend-capsule/deploy', label: '📋 Build settings', description: 'Build command and output folder for your framework.'},
   ]}
 />
 
@@ -28,7 +28,7 @@ Deploy a static site or SPA on Code Capsules with Static hosting. When you finis
 
 1. **Open the capsule wizard**
 
-   Open the Space for this site. Select **New Capsule**.
+   Open your Space. Select **New Capsule**.
 
 2. **Choose capsule details**
 
@@ -40,15 +40,15 @@ Deploy a static site or SPA on Code Capsules with Static hosting. When you finis
 
 4. **Choose a plan**
 
-   On **Plan**, select **Free** or **Paid**.
+   On **Plan**, select **Free**. Click **Next**.
 
 5. **Connect the repository**
 
-   On **Configure**, select a **Git Repository** and **Branch**. Enter **Repo subpath** if the site is not at the repository root. Click **Next**.
+   On **Configure**, select the **Git Repository** `codecapsules-io/demo-html` and the branch `main`. Click **Next**.
 
 6. **Set build settings**
 
-   On **Deploy**, set **Build Command** (for example `npm run build`, or leave empty when files are pre-built), **Path to static content** (the folder that contains `index.html`, for example `dist`), and **Capsule Name**. Click **Build & Deploy**.
+   On **Deploy**, leave **Build Command** empty and set **Path to static content** to `/`. Click **Build & Deploy**.
 
 7. **Check the build**
 

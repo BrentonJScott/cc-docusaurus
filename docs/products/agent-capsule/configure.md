@@ -11,7 +11,7 @@ import DocCardList from '@theme/DocCardList';
 
 # Configure Your AI Agent
 
-Change agent build settings, runtime, environment variables, and provider configuration on the **Config** tab. When you finish, the updated capsule parameters and environment variables are saved.
+Configure build settings, runtime, environment variables, and agent model settings on the Config tab. When you finish, the updated capsule parameters and environment variables are saved.
 
 ## Prerequisites
 
@@ -19,30 +19,31 @@ Change agent build settings, runtime, environment variables, and provider config
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/products/agent-capsule/deploy', label: '🛠️ Agent Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
 ## Configure your Agent Capsule
 
-1. **Edit build settings**
+1. **Open Config**
 
-   In **Capsule Parameters**, click **Edit** next to **Build**. Set **Project Path** and **Run Command**. Click **Save** and confirm.
+   On your **Space** dashboard, open the Agent Capsule. Click the **Config** tab.
 
-2. **Edit runtime settings**
+2. **Edit build settings**
 
-   Click **Edit** next to **Runtime**. Set **Network Port** and **Health Check**. Click **Save** and confirm.
+   On **Config**, in **Capsule Parameters**, click **Edit** next to **Build**. Set **Project Path** to `/` and **Run Command** to `npm start`. Click **Save** and confirm.
 
-3. **Set environment variables**
+3. **Edit runtime settings**
 
-   Add or edit variables in **Environment Variables** and click **Save**.
+   On **Config**, click **Edit** next to **Runtime**. Set **Network Port** to `8000` and **Health Check** to **Automatic**. Click **Save** and confirm.
 
-4. **Update Agent Config**
+4. **Set environment variables**
 
-   Edit **Agent Config** to change the public AI provider, model, or API-related settings. The capsule restarts with the new configuration.
+   On **Config**, add `OPENAI_API_KEY` in **Environment Variables** with your provider key as the value. Click **Save**.
 
 5. **Confirm the saved settings**
 
-   Reload the **Config** tab. **Capsule Parameters** and **Environment Variables** show the values you saved.
+   On **Config**, reload the tab. **Capsule Parameters** and **Environment Variables** show the values you saved.
 
 ## Troubleshooting
 

@@ -18,9 +18,9 @@ Deploy a static site or SPA on Code Capsules with Container hosting. When you fi
 <DocCardList
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork demo-react', description: 'Fork codecapsules-io/demo-react on GitHub.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
     {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-    {type: 'link', href: '/docs/products/frontend-capsule/deploy', label: '📋 Build settings', description: 'Build command and output folder.'},
   ]}
 />
 
@@ -40,15 +40,15 @@ Deploy a static site or SPA on Code Capsules with Container hosting. When you fi
 
 4. **Choose a plan**
 
-   On **Plan**, select a plan or **Custom** CPU, memory, and replicas. Click **Next**.
+   On **Plan**, select **Free**. Click **Next**.
 
 5. **Connect the repository**
 
-   On **Configure**, select a **Git Repository** and **Branch**. Enter **Repo subpath** if the site is not at the repository root. Click **Next**.
+   On **Configure**, select the **Git Repository** `codecapsules-io/demo-react` and the branch `main`. Click **Next**.
 
 6. **Set build settings**
 
-   On **Deploy**, set **Build Command**, **Path to static content** (the folder that contains `index.html`, for example `dist`), and **Capsule Name**. Click **Build & Deploy**.
+   On **Deploy**, set **Build Command** to `npm run build`, **Path to static content** to `build`, and **Capsule Name**. Click **Build & Deploy**.
 
 7. **Check the build**
 

@@ -27,9 +27,9 @@ Deploy the Node.js Discord echo bot to a Backend Capsule and see the bot come on
 
 ## Deploy your Node.js Discord bot
 
-1. **Start a Backend Capsule**
+1. **Open the capsule wizard**
 
-   In your Space, click **+** and select **New Capsule**.
+   Open your Space and select **New Capsule**.
 
 2. **Choose the capsule type, Team, and Space**
 
@@ -49,19 +49,19 @@ Deploy the Node.js Discord echo bot to a Backend Capsule and see the bot come on
 
 6. **Create the capsule**
 
-   Click **Create Capsule**. Open the **Builds** tab and wait for the first build to finish.
+   On **Build and Deploy Settings**, click **Create Capsule**. On **Builds**, wait for the first build to finish.
 
 7. **Add the bot token**
 
-   On the **Config** tab, under **Environment Variables**, add `TOKEN` with your Discord bot's token as the value. Click **Save**.
+   On **Config**, under **Environment Variables**, add `TOKEN` with your Discord bot's token as the value. Click **Save**.
 
 8. **Restart the capsule**
 
-   Turn the capsule's toggle off and on again, and wait for it to start.
+   On **Config**, turn the capsule run toggle off and on again, and wait for it to start.
 
 9. **Check that the bot is online**
 
-   In your Discord server, open the member list. The bot shows as online. Send a message in any channel the bot can see and it replies with the same message.
+   In your Discord server, open the member list. The bot shows as online.
 
 ## Troubleshooting
 

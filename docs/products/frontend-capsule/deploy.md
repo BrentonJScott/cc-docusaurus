@@ -15,7 +15,7 @@ Step-by-step guides for deploying React, Angular, Vue, Next.js, Svelte, and stat
 
 ## Overview
 
-Frontend Capsules build static sites and SPAs from your Git repository. Each framework guide walks through the capsule wizard with the correct build command and output path for that stack. The same guides apply to [Static](/docs/products/frontend-capsule/static/deploy/) and [Container](/docs/products/frontend-capsule/container/deploy/) hosting.
+Frontend Capsules build static sites and SPAs from your Git repository. Each linked framework guide walks through the capsule wizard with the correct build command and output path for that stack. The same build settings apply to [Static](/docs/products/frontend-capsule/static/deploy/) and [Container](/docs/products/frontend-capsule/container/deploy/) hosting.
 
 ## Why it matters
 
@@ -31,9 +31,9 @@ Each framework guide sets those two values for a demo repository you can fork, s
 
 | Situation | What to expect |
 | --- | --- |
-| New framework deploy | A framework guide matches the wizard to your stack |
-| Static vs container | You choose the hosting mode first; the same framework guide applies to both |
-| Custom stack | No guide exists yet, so build settings are set directly on a Frontend Capsule (see [Static deploy](/docs/products/frontend-capsule/static/deploy/)) |
+| New framework deploy | Open the framework guide for React, Angular, Vue, Next.js, Svelte, or static HTML |
+| Static vs container | You choose the hosting mode first in the static or container deploy how-to |
+| Custom stack | No framework guide matches; use [Deploy a Static Frontend](/docs/products/frontend-capsule/static/deploy/) for custom build settings |
 
 Choose a [Docker Capsule](/docs/products/docker-capsule/git/deploy/) instead when you need a custom image rather than platform builds.
 
@@ -41,8 +41,12 @@ Choose a [Docker Capsule](/docs/products/docker-capsule/git/deploy/) instead whe
 
 <DocCardList
   items={[
-    {type: 'link', href: '/docs/products/frontend-capsule/static/deploy', label: '🛠️ Deploy static frontend', description: 'Create a Static Frontend Capsule.'},
-    {type: 'link', href: '/docs/products/frontend-capsule/container/deploy', label: '🛠️ Deploy container frontend', description: 'Create a Container Frontend Capsule.'},
-    {type: 'link', href: '/docs/frontend/static-html', label: '🛠️ Host static HTML', description: 'Deploy a plain HTML site.'},
+    {type: 'link', href: '/docs/frontend/react', label: '🛠️ Host React', description: 'Deploy the React demo repository.'},
+    {type: 'link', href: '/docs/frontend/angular', label: '🛠️ Host Angular', description: 'Deploy the Angular demo repository.'},
+    {type: 'link', href: '/docs/frontend/vue', label: '🛠️ Host Vue', description: 'Deploy the Vue demo repository.'},
+    {type: 'link', href: '/docs/frontend/next.js', label: '🛠️ Host Next.js', description: 'Deploy the Next.js demo repository.'},
+    {type: 'link', href: '/docs/frontend/svelte', label: '🛠️ Host Svelte', description: 'Deploy the Svelte demo repository.'},
   ]}
 />
+
+For static HTML, see [Host a Static HTML Website](/docs/frontend/static-html). For hosting mode, see [Deploy a Static Frontend](/docs/products/frontend-capsule/static/deploy/) and [Deploy a Container Frontend](/docs/products/frontend-capsule/container/deploy/).

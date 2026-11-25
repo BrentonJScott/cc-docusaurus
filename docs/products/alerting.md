@@ -25,19 +25,19 @@ Enable deployment-completion alerts. When you finish, you receive a notification
 
 1. **Open notifications**
 
-   Open **Alerting** or **Notifications** in the dashboard menu.
+   On the dashboard menu, open **Alerting** or **Notifications**.
 
 2. **Enable deployment notifications**
 
-   Turn on in-app alerts, email alerts, or both for the deployment-completion event. You can also enable alerts for **Capsule Not Running**, **High CPU Usage**, and **High Memory Usage**.
+   On **Alerting**, turn on **In-app** and/or **Email** for **Deployment complete**.
 
 3. **Save preferences**
 
-   Click **Save Preferences**. Reload the page; your toggles match what you saved.
+   On **Notifications**, click **Save Preferences**. Reload the page; your toggles match what you saved.
 
 4. **Verify a deployment notification**
 
-   Run a deployment, or wait for one to finish. You receive a notification in the channel you chose, in the app, by email, or both.
+   On **Alerting**, run a deployment or wait for one to finish. You receive a notification in the channel you chose, in the app, by email, or both.
 
 ## Troubleshooting
 

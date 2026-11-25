@@ -19,6 +19,7 @@ Create a manual backup for your PostgreSQL Capsule on Code Capsules. When you fi
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/products/database-capsule/postgresql/deploy', label: '🛠️ PostgreSQL Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
@@ -26,11 +27,11 @@ Create a manual backup for your PostgreSQL Capsule on Code Capsules. When you fi
 
 1. **Open the Capsule**
 
-   In your Space, open the PostgreSQL Capsule.
+   On your **Space** dashboard, open the PostgreSQL Capsule.
 
 2. **Open Backups**
 
-   On the Capsule, click the **Backups** tab.
+   On the **Capsule** page, click the **Backups** tab.
 
 3. **Create a backup**
 

@@ -19,6 +19,7 @@ Update connection details and database settings for a Redis Capsule on the Detai
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/products/database-capsule/redis/deploy', label: '🛠️ Redis Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
@@ -26,27 +27,23 @@ Update connection details and database settings for a Redis Capsule on the Detai
 
 1. **Open Details**
 
-   In your Space, open the Redis Capsule and click the **Details** tab.
+   On your **Space** dashboard, open the Redis Capsule. Click the **Details** tab.
 
 2. **View connection details**
 
-   In **Connection Details**, click **Show**. The host, port, database name, username, password, and connection string appear.
+   On **Details**, in **Connection Details**, click **Show**. The host, port, database name, username, password, and connection string appear.
 
-3. **Rename the capsule**
+3. **Open Config**
 
-   In **Capsule Details**, click **Edit** next to the capsule name, enter the new name, and click **Save**.
+   On the **Capsule** page, click the **Config** tab.
 
-4. **Open Config**
+4. **Edit the database settings**
 
-   Click the **Config** tab.
+   On **Config**, click **Edit**. Set **Max Memory** to `256`. Click **Save**.
 
-5. **Edit the database settings**
+5. **Confirm the saved settings**
 
-   On **Config**, click **Edit**, change the settings you need, and click **Save**.
-
-6. **Confirm the saved settings**
-
-   Return to **Config**. The updated database settings you saved are shown.
+   On **Config**, the updated database settings you saved are shown.
 
 ## Troubleshooting
 
@@ -56,4 +53,3 @@ Update connection details and database settings for a Redis Capsule on the Detai
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
 
 </details>
-

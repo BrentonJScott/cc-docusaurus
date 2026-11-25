@@ -24,8 +24,9 @@ A job board where users can submit jobs and browse the available listings. You'l
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
     {type: 'link', href: '/docs/shared/connect-github', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
-    {type: 'link', href: '/docs/full-stack', label: '🛠️ Deployed MERN boilerplate', description: 'Deploy the MERN stack boilerplate from your forked repository.'},
-    {type: 'link', href: '/docs/products/database-capsule/mongodb/monitor', label: '🍃 MongoDB Capsule', description: 'The database your job board stores jobs in.'},
+    {type: 'link', href: '/docs/shared/fork-a-demo-repo', label: '🍴 Fork mern-stack', description: 'Fork codecapsules-io/mern-stack on GitHub.'},
+    {type: 'link', href: '/docs/full-stack/mern-stack', label: '🛠️ Deployed MERN boilerplate', description: 'Deploy the MERN stack boilerplate from your forked repository.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/deploy', label: '🍃 MongoDB Capsule', description: 'The database your job board stores jobs in.'},
     {type: 'link', href: 'https://nodejs.org', label: '💻 Node.js installed', description: 'Run the app on your computer.'},
   ]}
 />
@@ -38,11 +39,11 @@ In this part, you'll clone your forked boilerplate repository and run it on your
 
 1. **Clone and install**
 
-   Clone your forked repository to your computer. In a terminal in the project's root folder, run `npm install`.
+   Clone your forked repository and run `npm install` in the project root.
 
 2. **Set the database connection**
 
-   On your MongoDB Capsule **Details** tab, copy the **Public Connection String**. Create a `.env` file in the root folder and add the line below, replacing the connection string with your own.
+   Copy the **Public Connection String** from your MongoDB Capsule **Details** tab into a root `.env` file using the line below.
 
    `.env`
 
@@ -68,7 +69,7 @@ In this part, you'll clone your forked boilerplate repository and run it on your
 
 4. **Build and start the app**
 
-   In the `client` folder, run `npm install`, then `npm run build`. The frontend source is in `client/src`, and `npm run build` creates the optimized `client/build` folder that the Express backend serves. Back in the root folder, run `node index.js`.
+   In `client`, run `npm install` and `npm run build`, then run `node index.js` from the project root.
 
 :::tip[Checkpoint]
 
@@ -82,7 +83,7 @@ In this part, you'll add the components that submit and list jobs.
 
 5. **Add the SubmitJob component**
 
-   Create a `components` folder in `client/src`. This component keeps the job fields in state and posts them to `/api/jobs/`, a relative URL because the frontend is hosted at the same URL as the backend.
+   Create `client/src/components/submitJob.js` with a form that posts new jobs to `/api/jobs/`.
 
    `client/src/components/submitJob.js`
 
@@ -214,7 +215,7 @@ In this part, you'll add the job model, controller, and routes that save and ret
 
 10. **Add the job database**
 
-    Open `app/models/index.js` and replace its contents with this code. It uses the [Mongoose library](https://mongoosejs.com/) to talk to MongoDB.
+    Replace `app/models/index.js` with the Mongoose setup below.
 
     `app/models/index.js`
 

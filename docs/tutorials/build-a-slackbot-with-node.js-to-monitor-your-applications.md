@@ -88,7 +88,7 @@ In this part, you'll create the Code Capsules capsule and register the Slack app
 
 6. **Create a Backend Capsule**
 
-   In your Space, create a **Backend Capsule**. Choose your payment plan, give Code Capsules access to the _slackbot_ repository on GitHub, choose it, and press **Next**. Leave **Run Command** blank and click **Create Capsule**.
+   In your Space, create a **Backend Capsule**. On **Plan**, select **Basic**. Give Code Capsules access to the _slackbot_ repository on GitHub, choose it, select branch `main`, and press **Next**. Leave **Run Command** blank and click **Create Capsule**.
 
 7. **Create the Slack app**
 

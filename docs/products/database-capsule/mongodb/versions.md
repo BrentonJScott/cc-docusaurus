@@ -46,7 +46,7 @@ MongoDB Capsules run on MongoDB Atlas. Major-version rules differ for **Dedicate
 
 - Major upgrades happen one step at a time.
 - Manual major upgrades are available only on **Dedicated** clusters.
-- Major upgrades are difficult to reverse, so take a manual backup first.
+- Major upgrades are difficult to reverse; plan a manual backup before you upgrade ([Back Up a PostgreSQL Database](/docs/products/database-capsule/postgresql/backups) uses the same **Backups** tab pattern).
 - The capsule status shows **Updating** while the new version is applied. Applications may see short connection interruptions.
 - Patch releases within a major version are applied by MongoDB Atlas without any action from you.
 

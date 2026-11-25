@@ -19,23 +19,23 @@ View usage metrics for your MongoDB Capsule on Code Capsules. When you finish, C
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/deploy', label: '🛠️ MongoDB Capsule', description: 'Create the Capsule first.'},
   ]}
 />
-
 
 ## Monitor your MongoDB database
 
 1. **Open the Capsule**
 
-   On your Space, select the MongoDB Capsule.
+   On your **Space** dashboard, select the MongoDB Capsule.
 
 2. **Open Metrics**
 
-   Click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
+   On the **Capsule** page, click the **Metrics** tab. CPU, memory, and request charts load for the capsule.
 
 3. **Confirm usage metrics**
 
-   Change the time range if the UI offers one. The CPU, memory, and request usage charts on **Metrics** are visible for the selected period.
+   On **Metrics**, change the time range if the UI offers one. The CPU, memory, and request usage charts are visible for the selected period.
 
 ## Troubleshooting
 

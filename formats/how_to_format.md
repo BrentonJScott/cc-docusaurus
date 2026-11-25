@@ -66,6 +66,7 @@ Older guides are laid out as a run of task sections, such as **Setup**, **Create
 
 ## Title and description
 
+- Frontmatter **must** have `slug`, `title`, `description`, `sidebar_label`, and `doc_version: drift`.
 - Directly after the frontmatter, import the card list: `import DocCardList from '@theme/DocCardList';`
 - The page **must** have one `#` title, in the form "Host Your <Framework> Application". Don't add phrases like "in Minutes".
 - Directly under the title, one or two sentences repeat the `description`. They say what the reader will see at the end, and **must** match the feature's goal in the documented features list.

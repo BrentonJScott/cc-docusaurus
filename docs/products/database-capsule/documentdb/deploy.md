@@ -1,6 +1,6 @@
 ---
 slug: "/products/database-capsule/documentdb/deploy"
-title: "How to Deploy a DocumentDB Database"
+title: "How to Host a DocumentDB Database"
 description: >-
   Create a MongoDB-compatible DocumentDB Capsule on Code Capsules. When you finish, the capsule build is in progress on **Builds**.
 sidebar_label: Deploy
@@ -9,7 +9,7 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Deploy Your DocumentDB Database
+# Host Your DocumentDB Database
 
 Create a MongoDB-compatible DocumentDB Capsule on Code Capsules. When you finish, the capsule build is in progress on **Builds**.
 
@@ -24,25 +24,25 @@ Create a MongoDB-compatible DocumentDB Capsule on Code Capsules. When you finish
 
 ## Deploy your DocumentDB database
 
-1. **Start the capsule wizard**
+1. **Open the capsule wizard**
 
-   Open your Space. Click **+** and select **New Capsule**.
+   Open your Space. Select **New Capsule**.
 
 2. **Choose MongoDB Compatible**
 
-   Select **MongoDB Compatible**, your Team, and Space. Click **Next**.
+   On **Capsule Details**, select **MongoDB Compatible**, your Team, and Space. Click **Next**.
 
 3. **Choose plan and resources**
 
-   On **Plan & Deploy**, choose a **Plan** and configure **CPU**, **RAM**, **Storage**, and **Replicas**.
+   On **Plan & Deploy**, choose the **Free** plan. Configure **CPU**, **RAM**, **Storage**, and **Replicas**. Click **Next**.
 
 4. **Create the capsule**
 
-   Enter a **Capsule Name** and click **Create Capsule**.
+   On **Plan & Deploy**, enter a **Capsule Name** and click **Create Capsule**.
 
 5. **Check the build**
 
-   Open the capsule and select the **Deploy** tab, then open **Builds**. The database capsule build is in progress.
+   On the capsule **Deploy** tab, open **Builds**. The database capsule build is in progress.
 
 ## Troubleshooting
 
@@ -52,4 +52,3 @@ Create a MongoDB-compatible DocumentDB Capsule on Code Capsules. When you finish
 Refresh the Capsule page and confirm you clicked **Save** on the correct section. Some changes start a rebuild or redeploy that takes a few minutes.
 
 </details>
-

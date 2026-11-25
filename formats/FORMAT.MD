@@ -116,6 +116,7 @@ Check the doc against every rule in the template for its type from Step 1.
 
 - Go through the template section by section and record each rule the doc breaks, quoting the doc's text or heading and naming the rule.
 - At minimum, confirm:
+  - The frontmatter has `slug`, `title`, `description`, `sidebar_label`, and `doc_version: drift`.
   - The `##` headings are exactly the ones in the template's section table, in that order. Optional sections can be missing, but not reordered.
   - Each section follows the template's rules for it, such as `### Step N: Title` in a How-to guide, a `### Checkpoint` at the end of each Tutorial part, tables with units in a Reference, and no steps in an Explanation.
 

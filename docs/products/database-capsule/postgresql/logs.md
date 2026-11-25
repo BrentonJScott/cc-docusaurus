@@ -19,6 +19,7 @@ View **Capsule logs**, **Build logs**, and **Access logs** for your PostgreSQL C
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
+    {type: 'link', href: '/docs/products/database-capsule/postgresql/deploy', label: '🛠️ PostgreSQL Capsule', description: 'Create the Capsule first.'},
   ]}
 />
 
@@ -26,11 +27,11 @@ View **Capsule logs**, **Build logs**, and **Access logs** for your PostgreSQL C
 
 1. **Open the Capsule**
 
-   In your Space, select the PostgreSQL Capsule.
+   On your **Space** dashboard, select the PostgreSQL Capsule.
 
 2. **Open Logs**
 
-   On the Capsule, click the **Logs** tab.
+   On the **Capsule** page, click the **Logs** tab.
 
 3. **Choose a log stream**
 
