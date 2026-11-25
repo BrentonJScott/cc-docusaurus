@@ -13,3 +13,4 @@
 | `docs/full-stack/index.md` | Explanation | pass | not applicable | |
 | `docs/products/agent-capsule/scale.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/agent-capsule/format-scale.md |
 | `docs/agentic-automation/index.md` | Explanation | pass | not applicable | |
+| `docs/backend/node.js/node.js-discord-bot.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/backend/node.js/format-node.js-discord-bot.md |
