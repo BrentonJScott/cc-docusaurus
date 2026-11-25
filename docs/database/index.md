@@ -22,28 +22,23 @@ Each database runs as its own capsule in a Space. You bind connection details to
 
 | Database | Capsule type | Getting started |
 | --- | --- | --- |
-| MongoDB | MongoDB Capsule (Atlas) | [MongoDB](/database/mongodb/) |
-| MySQL | MySQL Data Capsule | [MySQL](/database/mysql/) |
-| PostgreSQL | PostgreSQL Data Capsule | [PostgreSQL](/database/postgres/) |
-| Redis | Redis Data Capsule | [Redis](/database/redis/) |
+| MongoDB | MongoDB Capsule (Atlas) | [MongoDB](/docs/database/mongodb) |
+| MySQL | MySQL Data Capsule | [MySQL](/docs/database/mysql) |
+| PostgreSQL | PostgreSQL Data Capsule | [PostgreSQL](/docs/database/postgres) |
+| Redis | Redis Data Capsule | Not documented yet |
 
 ## Framework guides
 
 | Stack | Guide |
 | --- | --- |
-| Django + MongoDB | [Deploy guide](/database/mongodb/django-+-mongodb/) |
-| Express + MongoDB | [Deploy guide](/database/mongodb/express-+-mongodb/) |
-| Flask + MongoDB | [Deploy guide](/database/mongodb/flask-+-mongodb/) |
-| Django + MySQL | [Deploy guide](/database/mysql/django-+-mysql/) |
-| Flask + MySQL | [Deploy guide](/database/mysql/flask-+-mysql/) |
-| Java + MySQL | [Deploy guide](/database/mysql/java-+-mysql/) |
+| Flask + MySQL | [Deploy guide](/docs/database/mysql/flask-+-mysql) |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/database-capsule', label: '📋 Database Capsules', description: 'Product reference for managed databases.'},
-    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Deploy the apps that connect to these databases.'},
-    {type: 'link', href: '/full-stack', label: '📋 Full-stack guides', description: 'Deploy apps that include their own database capsule.'},
+    {type: 'link', href: '/docs/products/database-capsule', label: '📋 Database Capsules', description: 'Product reference for managed databases.'},
+    {type: 'link', href: '/docs/products/backend-capsule', label: '📋 Backend Capsules', description: 'Reference for the apps that connect to these databases.'},
+    {type: 'link', href: '/docs/database/postgres', label: '💡 PostgreSQL explained', description: 'How PostgreSQL Data Capsules work.'},
   ]}
 />

@@ -36,14 +36,14 @@ Environment variables and builds follow the standard Backend Capsule flow on the
 | Migration | Fits teams with an existing Express API | Fits greenfield Next.js projects |
 | Capsules | One Backend Capsule | One Backend Capsule |
 
-Use this pattern when you already have Express routes you want to keep. Use a [Frontend Capsule](/frontend/next.js) when you only need static or server-rendered Next.js without a custom Express server.
+Use this pattern when you already have Express routes you want to keep. Use a [Frontend Capsule](/docs/products/frontend-capsule) when you only need static or server-rendered Next.js without a custom Express server.
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/full-stack/next.js/next.js-+-mongodb', label: '🛠️ Next.js + MongoDB', description: 'Add a MongoDB capsule to a Next.js app.'},
-    {type: 'link', href: '/frontend/next.js', label: '🛠️ Next.js frontend', description: 'Deploy Next.js as a Backend Capsule.'},
-    {type: 'link', href: '/backend/node.js/express.js', label: '🛠️ Express.js', description: 'Deploy a standalone Express API.'},
+    {type: 'link', href: '/docs/full-stack/next.js', label: '📋 Next.js full-stack', description: 'All full-stack Next.js guides and demo repos.'},
+    {type: 'link', href: '/docs/products/backend-capsule', label: '💡 Backend Capsule', description: 'How Backend Capsules build and run your app.'},
+    {type: 'link', href: '/docs/products/frontend-capsule', label: '💡 Frontend Capsule', description: 'When static hosting fits better.'},
   ]}
 />

@@ -50,8 +50,7 @@ mysql -u root -p'MyPass' -h 127.0.0.1 -P 50001 app
 
 <DocCardList
   items={[
-    {type: 'link', href: '/cli/readme/getting-started/quick-start', label: '🛠️ Quick start', description: 'Copy a proxy command from the Capsule details page.'},
-    {type: 'link', href: '/products/database-capsule/mysql/connect-locally', label: '📋 MySQL locally', description: 'Connect to a MySQL Capsule after proxying.'},
-    {type: 'link', href: '/cli/readme/commands', label: '📋 Commands', description: 'Full command list.'},
+    {type: 'link', href: '/docs/cli/readme/getting-started/installation-and-usage', label: '🛠️ Install and use', description: 'Install the CLI before proxying.'},
+    {type: 'link', href: '/docs/cli/readme/commands', label: '📋 Commands', description: 'Full command list.'},
   ]}
 />

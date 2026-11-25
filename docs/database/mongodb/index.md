@@ -20,18 +20,14 @@ MongoDB Capsules are managed clusters on MongoDB Atlas. Connection details appea
 
 ## Guides
 
-| Guide | Deploys | Demo repository |
-| --- | --- | --- |
-| [Django + MongoDB](/database/mongodb/django-+-mongodb/) | Django with MongoDB | `codecapsules-io/demo-django-mongodb` |
-| [Express + MongoDB](/database/mongodb/express-+-mongodb/) | Express.js with MongoDB | `codecapsules-io/demo-express-mongodb` |
-| [Flask + MongoDB](/database/mongodb/flask-+-mongodb/) | Flask with MongoDB | `codecapsules-io/demo-flask-mongo` |
+No framework guides are published for MongoDB yet. For the capsule options, see the configuration reference.
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ Deploy MongoDB', description: 'Create a MongoDB Capsule in the dashboard.'},
-    {type: 'link', href: '/database', label: '📋 Database hosting', description: 'Compare MySQL, PostgreSQL, and Redis options.'},
-    {type: 'link', href: '/products/database-capsule/mongodb/configure', label: '📋 MongoDB configuration', description: 'Connection strings and environment variables.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/configure', label: '📋 MongoDB configuration', description: 'Cluster type, version, plan, and connection details.'},
+    {type: 'link', href: '/docs/database', label: '📋 Database hosting', description: 'Compare MySQL, PostgreSQL, and Redis options.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/versions/upgrades', label: '📋 MongoDB upgrades', description: 'Supported versions and upgrades.'},
   ]}
 />

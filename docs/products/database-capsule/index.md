@@ -21,16 +21,16 @@ Database Capsules provide managed MySQL, PostgreSQL, MongoDB, DocumentDB, and Re
 
 | Topic | What it covers |
 | --- | --- |
-| [Deploy](/products/database-capsule/mysql/deploy/) | Create a capsule and framework guides |
-| [Configure](/products/database-capsule/mysql/configure/) | Connection details, SQL modes, versions |
-| [Connect Locally](/products/database-capsule/mysql/connect-locally/) | CLI proxy from your laptop |
-| [Versions](/products/database-capsule/mysql/versions/) | Supported versions and upgrades |
-| [Schema Migrations](/products/database-capsule/mysql/schema-migrations/) | Schema changes with db-migrate |
-| [Scale](/products/database-capsule/mysql/scale/) | CPU, RAM, storage, replicas |
-| [Backups](/products/database-capsule/mysql/backups/) | Manual and scheduled backups |
-| [Monitor](/products/database-capsule/mysql/monitor/) | Metrics |
-| [Logs](/products/database-capsule/mysql/logs/) | System logs |
-| [Alerting](/products/alerting/) | Notifications |
+| Deploy | Create a capsule and framework guides |
+| Configure | Connection details, SQL modes, versions |
+| Connect Locally | CLI proxy from your laptop |
+| Versions | Supported versions and upgrades |
+| Schema Migrations | Schema changes with db-migrate |
+| Scale | CPU, RAM, storage, replicas |
+| Backups | Manual and scheduled backups |
+| Monitor | Metrics |
+| Logs | System logs |
+| Alerting | Notifications |
 
 ## MongoDB
 
@@ -38,66 +38,66 @@ MongoDB Capsules are managed clusters on MongoDB Atlas—the **recommended** opt
 
 | Topic | What it covers |
 | --- | --- |
-| [Deploy](/products/database-capsule/mongodb/deploy/) | Create a capsule and framework guides |
-| [Configure](/products/database-capsule/mongodb/configure/) | Connection and versions |
-| [Versions](/products/database-capsule/mongodb/versions/) | Supported versions and upgrades |
-| [Scale](/products/database-capsule/mongodb/scale/) | Instance size, storage, replicas |
-| [Backups](/products/database-capsule/mongodb/backups/) | Manual and scheduled backups |
-| [Monitor](/products/database-capsule/mongodb/monitor/) | Usage metrics |
-| [Alerting](/products/alerting/) | Notifications |
+| Deploy | Create a capsule and framework guides |
+| [Configure](/docs/products/database-capsule/mongodb/configure) | Connection and versions |
+| Versions | Supported versions and upgrades |
+| Scale | Instance size, storage, replicas |
+| Backups | Manual and scheduled backups |
+| Monitor | Usage metrics |
+| Alerting | Notifications |
 
 ## DocumentDB
 
-DocumentDB is self-hosted and MongoDB API–compatible. For new projects, prefer a [MongoDB Capsule](/products/database-capsule/mongodb/deploy/).
+DocumentDB is self-hosted and MongoDB API–compatible. For new projects, prefer a MongoDB Capsule.
 
 | Topic | What it covers |
 | --- | --- |
-| [Deploy](/products/database-capsule/documentdb/deploy/) | Create and connect applications |
-| [Configure](/products/database-capsule/documentdb/configure/) | Connection and binding |
-| [Connect Locally](/products/database-capsule/documentdb/connect-locally/) | CLI proxy |
-| [Scale](/products/database-capsule/documentdb/scale/) | Resources |
-| [Backups](/products/database-capsule/documentdb/backups/) | Manual and scheduled backups |
-| [Monitor](/products/database-capsule/documentdb/monitor/) | Metrics |
-| [Logs](/products/database-capsule/documentdb/logs/) | System logs |
-| [Alerting](/products/alerting/) | Notifications |
+| Deploy | Create and connect applications |
+| Configure | Connection and binding |
+| Connect Locally | CLI proxy |
+| Scale | Resources |
+| Backups | Manual and scheduled backups |
+| Monitor | Metrics |
+| Logs | System logs |
+| Alerting | Notifications |
 
 ## PostgreSQL
 
 | Topic | What it covers |
 | --- | --- |
-| [Deploy](/products/database-capsule/postgresql/deploy/) | Getting started |
-| [Configure](/products/database-capsule/postgresql/configure/) | Connection details |
-| [Connect Locally](/products/database-capsule/postgresql/connect-locally/) | CLI proxy |
-| [Scale](/products/database-capsule/postgresql/scale/) | Resources |
-| [Backups](/products/database-capsule/postgresql/backups/) | Manual and scheduled backups |
-| [Monitor](/products/database-capsule/postgresql/monitor/) | Metrics |
-| [Logs](/products/database-capsule/postgresql/logs/) | System logs |
-| [Alerting](/products/alerting/) | Notifications |
+| Deploy | Getting started |
+| Configure | Connection details |
+| Connect Locally | CLI proxy |
+| Scale | Resources |
+| Backups | Manual and scheduled backups |
+| Monitor | Metrics |
+| Logs | System logs |
+| Alerting | Notifications |
 
 ## Redis
 
 | Topic | What it covers |
 | --- | --- |
-| [Deploy](/products/database-capsule/redis/deploy/) | Getting started |
-| [Configure](/products/database-capsule/redis/configure/) | Connection details |
-| [Connect Locally](/products/database-capsule/redis/connect-locally/) | CLI proxy |
-| [Scale](/products/database-capsule/redis/scale/) | Resources |
-| [Monitor](/products/database-capsule/redis/monitor/) | Metrics |
-| [Logs](/products/database-capsule/redis/logs/) | System logs |
-| [Alerting](/products/alerting/) | Notifications |
+| Deploy | Getting started |
+| Configure | Connection details |
+| Connect Locally | CLI proxy |
+| Scale | Resources |
+| Monitor | Metrics |
+| Logs | System logs |
+| Alerting | Notifications |
 
 ## Deployment guides
 
 | Link | What it covers |
 | --- | --- |
-| [All Database Deployment Guides](/database/) | Framework connection tutorials |
+| [All Database Deployment Guides](/docs/database) | Framework connection tutorials |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/database', label: '📋 Database tutorials', description: 'Connect apps to each engine.'},
-    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ Deploy MySQL', description: 'Create a MySQL Capsule.'},
-    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ Deploy MongoDB', description: 'Create a MongoDB Capsule.'},
+    {type: 'link', href: '/docs/database', label: '📋 Database tutorials', description: 'Connect apps to each engine.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/configure', label: '🛠️ Configure MongoDB', description: 'View MongoDB connection details.'},
+    {type: 'link', href: '/docs/products/database-capsule/mysql/versions/upgrades', label: '🛠️ Upgrade MySQL', description: 'Move to a newer MySQL major version.'},
   ]}
 />

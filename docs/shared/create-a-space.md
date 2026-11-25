@@ -25,14 +25,14 @@ Create a Space in your Team so you have somewhere to deploy capsules.
 
 1. **Start a new Space**
 
-   On the dashboard, click **+** and select **New Space**.
+   In the sidebar, click **+** and select **New Space**.
 
 2. **Enter the Space details**
 
-   On **Create Space**, set:
-   - **Team**: the Team to deploy into, such as your Personal Team.
-   - **Name**: a name for the project.
-   - **Region**: the region closest to your users.
+   On **Space Details**, set:
+   - **Choose a Team**: the Team to deploy into, such as your Personal Team.
+   - **Space Name**: a name for the project.
+   - **Select Location/Cluster**: the location closest to your users.
 
 3. **Create the Space**
 

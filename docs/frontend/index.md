@@ -16,7 +16,7 @@ Framework and static-site deployment guides for Frontend Capsules on Code Capsul
 
 ## Overview
 
-Most guides deploy a **Frontend Capsule** with **Static** hosting. The server-rendered Next.js guide deploys a **Backend Capsule** instead.
+Every guide except Next.js deploys a **Frontend Capsule** with **Static** hosting. The server-rendered Next.js guide deploys a **Backend Capsule**.
 
 ## Deployment guides
 
@@ -33,13 +33,9 @@ Most guides deploy a **Frontend Capsule** with **Static** hosting. The server-re
 
 <DocCardList
   items={[
-    {type: 'link', href: '/frontend/angular', label: '🛠️ Angular', description: 'Deploy an Angular Frontend Capsule.'},
-    {type: 'link', href: '/frontend/react', label: '🛠️ React', description: 'Deploy a React Frontend Capsule.'},
-    {type: 'link', href: '/frontend/vue', label: '🛠️ Vue', description: 'Deploy a Vue Frontend Capsule.'},
-    {type: 'link', href: '/frontend/svelte', label: '🛠️ Svelte', description: 'Deploy a Svelte Frontend Capsule.'},
-    {type: 'link', href: '/frontend/static-html', label: '🛠️ Static HTML', description: 'Deploy a static HTML Frontend Capsule.'},
-    {type: 'link', href: '/frontend/next.js', label: '🛠️ Next.js', description: 'Deploy a server-rendered Next.js Backend Capsule.'},
-    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '📋 Static hosting', description: 'Reference for static Frontend Capsule deploy.'},
-    {type: 'link', href: '/products/frontend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Build commands and output folders by framework.'},
+    {type: 'link', href: '/docs/frontend/angular', label: '🛠️ Angular', description: 'Deploy an Angular Frontend Capsule.'},
+    {type: 'link', href: '/docs/frontend/vue', label: '🛠️ Vue', description: 'Deploy a Vue Frontend Capsule.'},
+    {type: 'link', href: '/docs/products/frontend-capsule', label: '📋 Frontend Capsule', description: 'What a Frontend Capsule hosts.'},
+    {type: 'link', href: '/docs/products/frontend-capsule/static/plans', label: '📋 Static hosting plans', description: 'Free and Paid plan limits for static hosting.'},
   ]}
 />

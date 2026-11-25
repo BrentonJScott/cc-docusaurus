@@ -26,7 +26,9 @@ Code Capsules’s File System Data Capsule mounts as a standard file system to a
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
-## Part 1: Build the project
+## Part 1: Set up the project and Capsules
+
+In this part, you'll create the project base, push it to GitHub, and set up a Backend Capsule and a Data Capsule on Code Capsules.
 
 ### Overview and Requirements
 
@@ -99,7 +101,17 @@ To create a new Data Capsule for your Space follow the instructions below:
 
 To use the Data Capsule with the Backend Capsule, we need to link the two. Head over to the backend capsule you created earlier, and click on the “Config” tab. Scroll down to “Bind Data Capsule”, and click “Bind” under the name of the data capsule you created.\
 \
-After binding the capsules, scroll up to the section “Capsule Parameters”. You’ll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, is automatically added with the mount point. We’ll use this environment variable in the code to access the storage drive.\\
+After binding the capsules, scroll up to the section “Capsule Parameters”. You’ll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, is automatically added with the mount point. We’ll use this environment variable in the code to access the storage drive.
+
+:::tip[Checkpoint]
+
+Your Backend Capsule has finished building, and its **Config** tab shows the `PERSISTENT_STORAGE_DIR` environment variable under **Capsule Parameters**.
+
+:::
+
+## Part 2: Write the web files code
+
+In this part, you'll add the code to list, upload, download, and delete files, and then protect the drive with a username and password.
 
 ### Writing the Web Files Code
 
@@ -457,19 +469,9 @@ We’re done with authentication. Commit these changes, and wait for Code Capsul
 \
 Congratulations, you have completed building a personal web drive using [Code Capsules](/docs/shared/create-an-account) and [Node.js](https://nodejs.org/)!
 
-### Next Steps
-
-This project has some decent basic functionality, but there are many things you could add to upgrade it, such as:
-
-* Add styling to make it look better
-* Add support for sub-folders
-* Add support for multi-file upload
-* Add logout functionality, using the [Passport logout function](http://www.passportjs.org/docs/logout/)
-* Add better authentication, and perhaps separate user accounts for a multi-user drive
-
 :::tip[Checkpoint]
 
-You completed the steps in Part 1. The local project matches the state described above.
+Open your Capsule URL. The site asks for your username and password, and then shows the files page where you can upload, download, and delete files.
 
 :::
 

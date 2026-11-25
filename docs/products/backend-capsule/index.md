@@ -15,27 +15,27 @@ Deploy, configure, scale, and monitor server-side applications and APIs with Cod
 
 ## Overview
 
-Backend Capsules detect your language, install dependencies, and build a runnable image from your Git repository. They support Python, Node.js, Go, Java, Ruby, PHP, and .NET. Applications with a custom `Dockerfile` deploy as [Docker Capsules](/products/docker-capsule/) instead.
+Backend Capsules detect your language, install dependencies, and build a runnable image from your Git repository. They support Python, Node.js, Go, Java, Ruby, PHP, and .NET. Applications with a custom `Dockerfile` deploy as [Docker Capsules](/docs/products/docker-capsule) instead.
 
 ## Guides
 
 | Topic | What it covers |
 | --- | --- |
-| [Build and Deploy](/products/backend-capsule/deploy/) | Supported languages, frameworks, and deployment |
-| [Supported Runtimes](/products/backend-capsule/supported-runtimes/) | Language versions and runtime pinning |
-| [Configure](/products/backend-capsule/configure/) | Environment variables, build settings, runtime options |
-| [Scale](/products/backend-capsule/scale/) | CPU, memory, and replicas |
-| [Monitor](/products/backend-capsule/monitor/) | Metrics and performance data |
-| [Logs](/products/backend-capsule/logs/) | Build and runtime logs |
-| [Alerting](/products/alerting/) | Notifications for capsule events |
-| [Add a Procfile](/products/backend-capsule/add-procfile/) | Custom start command |
+| Build and Deploy | Supported languages, frameworks, and deployment |
+| Supported Runtimes | Language versions and runtime pinning |
+| Configure | Environment variables, build settings, runtime options |
+| Scale | CPU, memory, and replicas |
+| Monitor | Metrics and performance data |
+| [Logs](/docs/products/backend-capsule/logs) | Build and runtime logs |
+| Alerting | Notifications for capsule events |
+| Add a Procfile | Custom start command |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Deploy backend app', description: 'Languages and framework links.'},
-    {type: 'link', href: '/backend', label: '📋 Backend hosting', description: 'Language-specific deployment guides.'},
-    {type: 'link', href: '/products/docker-capsule', label: '📋 Docker Capsule', description: 'Custom Dockerfile deployments.'},
+    {type: 'link', href: '/docs/products/backend-capsule/logs', label: '🛠️ View logs', description: 'Build, runtime, and access logs.'},
+    {type: 'link', href: '/docs/products/docker-capsule', label: '📋 Docker Capsule', description: 'Custom Dockerfile deployments.'},
+    {type: 'link', href: '/docs/products', label: '📋 Products', description: 'Entry pages for every Capsule type.'},
   ]}
 />

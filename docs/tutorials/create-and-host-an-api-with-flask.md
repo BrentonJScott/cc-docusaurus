@@ -11,6 +11,8 @@ import DocCardList from '@theme/DocCardList';
 
 # Create and Host an API With Flask
 
+Build a personal API that lets you access up to the minute exchange rates and weather data for cities of your choosing.
+
 ## What you'll build
 
 An API, or Application Programming Interface, is a tool enabling developers to interact with data online. Imagine: you navigate to some website and see your location’s temperature displayed on their homepage. How did they present this information?
@@ -26,7 +28,11 @@ Undoubtedly, they used an API. APIs are hosted on a server and operate as an acc
     {type: 'link', href: '/platform/account/connect-version-control', label: '🔌 GitHub connected', description: 'Link GitHub for deploy.'},
   ]}
 />
-## Setting Up Our Environment
+## Part 1: Set up the project
+
+In this part, you'll create a virtual Python environment and install the packages the API needs.
+
+### Setting Up Our Environment
 
 First, let’s set up a virtual Python environment using Virtualenv. Virtualenv provides a clean Python install with no third-party libraries or packages, allowing us to work on this project without interfering with the dependencies of our other projects.
 
@@ -48,12 +54,10 @@ source env/bin/activate
 #### Windows
 
 ```
-envScriptsactivate.bat
+env\Scripts\activate.bat
 ```
 
 If the virtual environment has activated correctly, you’ll see (env) to the left of your name in the terminal.
-
-## Part 1: Build the project
 
 ### Installing the Dependencies
 
@@ -73,17 +77,21 @@ Note, pip will have automatically been installed when you set the virtual enviro
 
 :::tip[Checkpoint]
 
-You completed the steps in Part 1. The local project matches the state described above.
+Your terminal shows `(env)` next to your prompt, and `pip3 install flask gunicorn requests` finished without errors.
 
 :::
 
-## Registering Accounts on OpenExchangeRates and weatherstack
+## Part 2: Get data from two APIs
+
+In this part, you'll register for the OpenExchangeRates and weatherstack APIs and request exchange rates and a temperature from them.
+
+### Registering Accounts on OpenExchangeRates and weatherstack
 
 Our API will return the current temperature of a chosen city and the USD exchange rates for three currencies. We’ll create our API by combining data from two other APIs – weatherstack and OpenExchangeRates. As their names suggest, weatherstack will provide the temperature data, and OpenExchangeRates the exchange rate data.
 
 Registering an account is required so that we can receive a unique API key. An API key is a password that lets us use a particular API. In APIs with more sensitive data, these are used to prevent unauthorized access, but for open APIs like weatherstack and OpenExchangeRates, they’re used for rate limiting to prevent users from sending too many requests at once and overwhelming the system.
 
-### Creating our accounts
+#### Creating our accounts
 
 First, let’s register an account on OpenExchangeRates. Navigate to here and:
 
@@ -98,7 +106,7 @@ Obtaining the weatherstack API key is similar:
 
 Now we can retrieve data from the OpenExchangeRates and weatherstack APIs using our API keys. Let’s try that out now.
 
-### Getting exchange rates
+#### Getting exchange rates
 
 First, let’s see how requesting data from OpenExchangeRates works. Create a file named app.py and open it.
 
@@ -152,7 +160,7 @@ Now we’ve included an EXCHANGE\_PARAMS variable. Providing parameters to an AP
 
 In our case, we supplied the parameter symbols with the three currencies we want data for. When you run the program again, you should only see three exchange rates.
 
-### Getting the temperature
+#### Getting the temperature
 
 Now that we’ve obtained the exchange rates, we can retrieve the temperature for a city. Let’s modify the program by adding the following below the print statement. Make sure to replace YOUR-API-KEY-HERE with the weatherstack API key.
 
@@ -168,13 +176,23 @@ print(weather.json()['current']['temperature'])
 
 Here we retrieve the temperature for Cape Town, South Africa. You can replace “Cape Town” with another city of your choice to see its temperature.
 
-## Creating our API
+:::tip[Checkpoint]
+
+Run `python app.py`. The terminal prints the three exchange rates (`ZAR`, `EUR`, `CAD`) and then the current temperature for Cape Town.
+
+:::
+
+## Part 3: Create the API with Flask
+
+In this part, you'll turn the script into a Flask API and add the files Code Capsules needs to run it.
+
+### Creating our API
 
 Now we’ll get to create the API with Flask. Our API will package the weatherstack and OpenExchangeRates data together in a single endpoint.
 
 This means we can build other applications later, which will be able to retrieve all the data above by calling `requests.get(MY_CODE_CAPSULES_URL)`.
 
-### Beginning steps with Flask
+#### Beginning steps with Flask
 
 First, we can remove all the print statements in our `app.py` file. Afterward, edit the file accordingly:
 
@@ -210,7 +228,7 @@ Once the API is hosted on Code Capsules, you’ll see “Welcome to my API!” w
 
 Next, we’ll implement the ability to “get” (using `requests.get()`) our data from the API when it’s hosted.
 
-### Combining the APIs
+#### Combining the APIs
 
 We’ve already written code to retrieve our data – now we need to combine it and create an endpoint to fetch it. We’ll do this by creating a new endpoint called /get that returns our selected data.
 
@@ -241,7 +259,7 @@ Here, the exchange rate data is stored under `usd_rates` and the temperature dat
 
 The API is complete – only a few steps left before hosting it on Code Capsules.
 
-## Freezing Requirements and Creating the Procfile
+### Freezing Requirements and Creating the Procfile
 
 Before sending our API to GitHub (so Code Capsules can host it), we need the `requirements.txt` file, and a Procfile.
 
@@ -255,7 +273,17 @@ web: gunicorn app:app
 
 This tells Code Capsules to use the Gunicorn WSGI server to serve the HTTP data sent and received by our Flask API.
 
-## Hosting the API on Code Capsules
+:::tip[Checkpoint]
+
+Your project folder contains `app.py`, `requirements.txt`, and `Procfile`.
+
+:::
+
+## Part 4: Host the API on Code Capsules
+
+In this part, you'll push the project to GitHub, deploy it to a Backend Capsule, and request data from the live API.
+
+### Hosting the API on Code Capsules
 
 The API is now ready to host on Code Capsules. Follow these steps to get it online:
 
@@ -274,7 +302,7 @@ With the repository linked to Code Capsules, we need to store the API on a Capsu
 
 Once the Capsule has built, the API is hosted! Let’s take a brief look at how to interact with it.
 
-### Viewing and interacting with our API
+#### Viewing and interacting with our API
 
 Once the Capsule has been built, Code Capsules will provide you with a URL (found in the “Overview” tab). Enter the URL in your browser, and you’ll be greeted with “Welcome to my API!”. To view the API data, add /get to the end of the URL.
 
@@ -290,7 +318,11 @@ api_data = requests.get(MY_URL)
 print(api_data.json())
 ```
 
-All done!
+:::tip[Checkpoint]
+
+Your Capsule URL shows “Welcome to my API!”, and the URL with `/get` at the end returns the exchange rates and the temperature as JSON.
+
+:::
 
 ## Summary
 

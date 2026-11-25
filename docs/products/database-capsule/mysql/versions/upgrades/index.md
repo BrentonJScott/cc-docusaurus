@@ -21,16 +21,15 @@ Major version upgrades must run in sequence—you cannot skip a major version in
 
 | From → To | Guide |
 | --- | --- |
-| 5.7 → 8.0 | [5.7 to 8.0](/products/database-capsule/mysql/versions/upgrades/5-7-to-8-0/) |
+| 5.7 → 8.0 | 5.7 to 8.0 |
 
-See [MySQL Versions](/products/database-capsule/mysql/versions/) for supported versions and general upgrade requirements.
+See MySQL Versions for supported versions and general upgrade requirements.
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/database-capsule/mysql/versions', label: '📋 MySQL versions', description: 'Supported versions and policies.'},
-    {type: 'link', href: '/products/database-capsule/mysql/configure', label: '⚙️ Configure MySQL', description: 'Connection and SQL mode settings.'},
-    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ Deploy MySQL', description: 'Create a MySQL Capsule.'},
+    {type: 'link', href: '/docs/database/mysql', label: '📋 MySQL hosting', description: 'MySQL deployment and framework guides.'},
+    {type: 'link', href: '/docs/products/database-capsule', label: '📋 Database Capsule', description: 'Every managed database engine.'},
   ]}
 />

@@ -155,7 +155,7 @@ If you're interested in learning more about building with Agent Capsules, check 
 
 :::tip[Checkpoint]
 
-You completed the steps in Part 1. The local project matches the state described above.
+Open your bot in Telegram and ask for your calendar events for a period. The bot replies with your events from Google Calendar, and it can add a new event when you ask.
 
 :::
 

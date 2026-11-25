@@ -11,16 +11,6 @@ import DocCardList from '@theme/DocCardList';
 
 # Frontend Capsule
 
-## Prerequisites
-
-<DocCardList
-  items={[
-    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/docs/shared/configure-git-for-code-capsules', label: '🔌 GitHub connected', description: 'Link GitHub so repos appear in the wizard.'},
-  ]}
-/>
-
 Static and container hosting for frontends on Code Capsules.
 
 ## Overview
@@ -29,29 +19,17 @@ Frontend Capsules build from Git and serve files over HTTPS. **Static** hosting 
 
 ## Hosting options
 
-| Option | Guide |
-| --- | --- |
-| Static deploy | [/products/frontend-capsule/static/deploy](/products/frontend-capsule/static/deploy) |
-| Container deploy | [/products/frontend-capsule/container/deploy](/products/frontend-capsule/container/deploy) |
-| Plans | [/products/frontend-capsule/static/plans](/products/frontend-capsule/static/plans) |
+| Option | What it is | Guide |
+| --- | --- | --- |
+| Static | Builds from Git and serves files; has a free tier | [Free and Paid Plans for Static Hosting](/docs/products/frontend-capsule/static/plans) |
+| Container | Runs an always-on web server | No guide published yet |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/frontend/index', label: '📋 Framework guides', description: 'React, Vue, Angular, and more.'},
-    {type: 'link', href: '/products/frontend-capsule/configure', label: '🛠️ Configure', description: 'Build command and environment variables.'},
-    {type: 'link', href: '/products/frontend-capsule/supported-runtimes', label: '📋 Supported runtimes', description: 'Framework build settings.'},
-    {type: 'link', href: '/products/frontend-capsule/custom-domains', label: '🛠️ Custom domains', description: 'Serve from your domain.'},
+    {type: 'link', href: '/docs/frontend', label: '📋 Framework guides', description: 'React, Vue, Angular, and more.'},
+    {type: 'link', href: '/docs/products/frontend-capsule/static/plans', label: '📋 Static plans', description: 'Free and Paid limits for static hosting.'},
+    {type: 'link', href: '/docs/frontend/angular', label: '🛠️ Host Angular', description: 'Deploy an Angular Frontend Capsule.'},
   ]}
 />
-
-## Troubleshooting
-
-<details>
-<summary>The UI does not match these steps</summary>
-
-Confirm you are signed in to the correct Team and Space, then run through the steps again from the start.
-
-</details>
-

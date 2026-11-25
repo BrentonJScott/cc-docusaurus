@@ -35,8 +35,7 @@ Code Capsules forwards additional headers on each request. Use them to authentic
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/agent-capsule/deploy', label: '🛠️ Deploy Agent Capsule', description: 'Create and ship an agent.'},
-    {type: 'link', href: '/products/agent-capsule/configure', label: '⚙️ Configure agent', description: 'Model and runtime settings.'},
-    {type: 'link', href: '/products/agent-capsule/templates', label: '📋 Agent templates', description: 'Prebuilt agent starting points.'},
+    {type: 'link', href: '/docs/products', label: '📋 Products', description: 'Entry pages for every Capsule type.'},
+    {type: 'link', href: '/docs/products/backend-capsule', label: '📋 Backend Capsule', description: 'Another app Capsule type for APIs.'},
   ]}
 />

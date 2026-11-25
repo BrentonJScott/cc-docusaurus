@@ -60,7 +60,7 @@ In the next section, we will walk through:
 
 :::tip[Checkpoint]
 
-You completed the steps in Part 1. The local project matches the state described above.
+You can explain the difference between single-tenant and multitenant white-label apps, and you are ready to build a single-tenant app in Part 2.
 
 :::
 
@@ -98,7 +98,7 @@ The application is currently set up for a singular purpose: to store book recomm
 
 ### Making the App a White-Label App
 
-To be a white-label app, this app needs to be customizable to match the requirements of different companies. To make the app customizable, we can remove hard-coded values from the code and replace them with environment variables that can be changed easily.
+To be a white-label app, this app needs to be customizable to match the requirements of different companies. To make the app customizable, we can remove hard-coded values from the code and replace them with environment variables that can be changed in the Code Capsules UI.
 
 Create a new file in the root directory of the project called `.env` and copy the following code into it:
 
@@ -265,7 +265,7 @@ If you run the code now, you will see the app has a branded look:
 
 We won’t need the `.env` file in our deployment, so you can go ahead and delete that file.
 
-Now that our application is easily customizable, we can deploy different versions of the application for different companies.
+Now that our application is customizable, we can deploy different versions of the application for different companies.
 
 ### Deploying the App on Code Capsules
 
@@ -365,7 +365,7 @@ Getting some new app ideas after reading this? Test your application out or depl
 
 :::tip[Checkpoint]
 
-Open your capsule URL in a browser. The deployed app responds without errors.
+Open the URL of each Backend Capsule. The pizza company app shows a red theme with its own headings and logo, and the movie club app shows a dark blue theme with its own headings and logo.
 
 :::
 

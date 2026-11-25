@@ -19,11 +19,11 @@ Enable HTTP Basic authentication on a Capsule's public URL. When you finish, the
 <DocCardList
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
-    {type: 'link', href: '/platform/capsules/how-do-i-add-remove-stop-capsules', label: '🛠️ A running Capsule', description: 'Create a Capsule with a public URL.'},
+    {type: 'link', href: '/docs/products/backend-capsule', label: '🛠️ A running Capsule', description: 'Learn about Backend Capsules, which have a public URL.'},
   ]}
 />
 
-## Enable Basic Auth
+## Protect your Capsule
 
 1. **Open Domains**
 

@@ -29,7 +29,7 @@ Deploy a Vue application on Code Capsules. When you finish, the first build is i
 
 1. **Open the capsule wizard**
 
-   Open the Space for this app. Click the yellow **+** and select **New Capsule**.
+   Open the Space for this app. In the sidebar, click **+** and select **New Capsule**.
 
 2. **Choose capsule details**
 

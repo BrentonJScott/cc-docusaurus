@@ -38,14 +38,14 @@ You can target a logical database name by appending it to the URL when your ORM 
 | Networking | Bind via **Config** to capsules in the Space | Configure firewalls and TLS yourself |
 | Best for | Apps already on Code Capsules | Data that must stay outside the platform |
 
-Choose PostgreSQL when you need SQL, JSON columns, or extensions the managed capsule supports. Use [MySQL](/database/mysql/) if your stack already targets MySQL, or [MongoDB](/database/mongodb/) for document data.
+Choose PostgreSQL when you need SQL, JSON columns, or extensions the managed capsule supports. Use [MySQL](/docs/database/mysql) if your stack already targets MySQL, or [MongoDB](/docs/database/mongodb) for document data.
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/database-capsule/postgresql/deploy', label: '🛠️ Deploy PostgreSQL', description: 'Create a PostgreSQL Data Capsule.'},
-    {type: 'link', href: '/database', label: '📋 Database hosting', description: 'Compare all managed database options.'},
-    {type: 'link', href: '/products/database-capsule/postgresql/configure', label: '📋 PostgreSQL configuration', description: 'Connection strings and bindings.'},
+    {type: 'link', href: '/docs/database', label: '📋 Database hosting', description: 'Compare all managed database options.'},
+    {type: 'link', href: '/docs/products/database-capsule', label: '📋 Database Capsules', description: 'Product reference for managed databases.'},
+    {type: 'link', href: '/docs/database/mysql', label: '📋 MySQL hosting', description: 'The alternative for MySQL stacks.'},
   ]}
 />

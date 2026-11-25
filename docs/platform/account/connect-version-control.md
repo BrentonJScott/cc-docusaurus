@@ -1,16 +1,16 @@
 ---
 slug: "/platform/account/connect-version-control"
-title: "Connect GitHub or GitLab"
+title: "Connect GitHub"
 description: >-
   Connect GitHub to Code Capsules. When you finish, your repositories appear in
   the Git Repository dropdown when you create a Capsule.
-sidebar_label: "Connect GitHub or GitLab"
+sidebar_label: "Connect GitHub"
 doc_version: drift
 ---
 
 import DocCardList from '@theme/DocCardList';
 
-# Connect GitHub or GitLab
+# Connect GitHub
 
 Connect GitHub to Code Capsules. When you finish, your repositories appear in the **Git Repository** dropdown when you create a Capsule.
 
@@ -36,9 +36,25 @@ Connect GitHub to Code Capsules. When you finish, your repositories appear in th
 
    On **Only select repositories**, choose the repositories you deploy from. Click **Install & Authorize**.
 
-4. **Confirm in the capsule wizard**
+4. **Open the capsule wizard**
 
-   Start **New Capsule**. On **Configure**, open **Git Repository**. Your selected repositories are listed.
+   In the sidebar, click **+** and select **New Capsule**.
+
+5. **Choose capsule details**
+
+   On **Capsule Details**, choose **Frontend** and your Team. Click **Next**.
+
+6. **Choose static hosting**
+
+   On **Hosting**, select **Static**. Click **Next**.
+
+7. **Choose a plan**
+
+   On **Plan**, select **Free**. Click **Next**.
+
+8. **Confirm your repositories**
+
+   On **Configure**, open **Git Repository**. Your selected repositories are listed.
 
 ## Troubleshooting
 

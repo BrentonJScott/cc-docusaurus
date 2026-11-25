@@ -19,7 +19,7 @@ This page explains how HTTP traffic flows through a WordPress Capsule and how to
 
 ## Why it matters
 
-Tuning and understanding this behavior keeps production sites reliable under real traffic.
+Knowing where each request is handled tells you which layer to adjust when a page is slow, cached when it should not be, or showing the wrong visitor IP. It is for anyone running a production WordPress Capsule, especially sites with WooCommerce, security plugins, a CDN, or a headless frontend.
 
 ## How it works
 
@@ -86,7 +86,7 @@ XML and text files (`sitemap.xml`, `robots.txt`) are served with a 1-hour cache 
 
 ### Domain and Subdomain Routing
 
-WordPress Capsules support custom domains and subdomains. To configure a custom domain, see [How to Add a Custom Domain](/platform/capsules/how-to-add-a-custom-domain/).
+WordPress Capsules support custom domains and subdomains.
 
 WordPress must be told its own URL. This is configured automatically via the `APP_URL` environment variable, which is injected by the platform. You can verify the current value in the **Config** tab.
 
@@ -216,18 +216,25 @@ WordPress admin routes (`/wp-admin/`, `/wp-login.php`) are handled separately:
 - Rate limiting is applied at the stricter `protected_routes` level (30 req/min).
 - Admin PHP files are passed directly to PHP-FPM with no cache layer.
 
-See [Security](/products/wordpress-capsule/security/) for configuring IP restrictions on wp-admin.
-
 ## When to use it
 
-Use these settings when traffic or workload patterns match the recommendations in the sections above.
+Keep the default routing for typical WordPress sites. Permalinks, custom post types, plugin routes, static files, and the REST API all work without extra configuration.
+
+Add `NGINX_EXTRA_CONF` only when you need behavior the defaults do not cover:
+
+- Proxying a path such as `/api/` to another Capsule.
+- Serving a headless frontend while `/wp-admin/` and `/wp-json/` stay on WordPress.
+- Redirecting specific URLs.
+
+The trade-off is that you become responsible for the injected nginx rules. A mistake in a custom `location` block can break routing for the whole site, so test changes before relying on them in production.
+
+If you put a CDN in front of the capsule, configure it to send a trusted IP header so WordPress still sees the real visitor IP.
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/wordpress-capsule/performance', label: '⚙️ Performance', description: 'Page cache for anonymous traffic.'},
-    {type: 'link', href: '/products/wordpress-capsule/configure', label: '⚙️ Configure', description: 'Environment variables.'},
-    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ Deploy WordPress', description: 'Create a WordPress Capsule.'},
+    {type: 'link', href: '/docs/products/wordpress-capsule/performance', label: '💡 Performance', description: 'How caching, PHP, and workers affect speed.'},
+    {type: 'link', href: '/docs/products', label: '📋 Products', description: 'Entry pages for every Capsule type.'},
   ]}
 />

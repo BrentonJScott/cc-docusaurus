@@ -48,7 +48,7 @@ Each build can produce up to 30 MB of files. If a build produces more than this,
 
 ### Monthly traffic
 
-Free capsules can serve 50 GB of traffic each calendar month. Traffic is the size of the files sent to visitors and includes requests to your [custom domains](/products/frontend-capsule/custom-domains/). Usage is updated once a day, so the meter on the **Details** tab can be up to a day behind.
+Free capsules can serve 50 GB of traffic each calendar month. Traffic is the size of the files sent to visitors and includes requests to your custom domains. Usage is updated once a day, so the meter on the **Details** tab can be up to a day behind.
 
 When a site reaches its traffic allowance:
 
@@ -84,8 +84,8 @@ You can't move a Paid capsule back to Free. To use the Free plan again, create a
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/frontend-capsule/static/deploy', label: '🛠️ Deploy static frontend', description: 'Create a Static Frontend Capsule.'},
-    {type: 'link', href: '/products/frontend-capsule/container/deploy', label: '🛠️ Container hosting', description: 'Logs, metrics, and scaling.'},
-    {type: 'link', href: '/platform/billing/how-does-the-pricing-work', label: '📋 How pricing works', description: 'Hourly billing and plans.'},
+    {type: 'link', href: '/docs/products/frontend-capsule', label: '📋 Frontend Capsule', description: 'Static and container hosting options.'},
+    {type: 'link', href: '/docs/frontend', label: '📋 Framework guides', description: 'Host React, Vue, Angular, and more.'},
+    {type: 'link', href: '/docs/products', label: '📋 Products', description: 'Entry pages for every Capsule type.'},
   ]}
 />

@@ -162,7 +162,7 @@ Navigate to the capsule you deployed at the start of this tutorial and copy its 
 
 :::tip[Checkpoint]
 
-You completed the steps in Part 1. The local project matches the state described above.
+Run `npm start` and send your bot `/start` and `/ethereum` messages in Telegram. The bot replies with its greeting and the current ethereum price in USD.
 
 :::
 
@@ -175,7 +175,7 @@ Now, head over to your local development environment and commit your changes if 
 
 :::tip[Checkpoint]
 
-Open your capsule URL in a browser. The deployed app responds without errors.
+Send `/start` and `/ethereum` to your bot in Telegram. The deployed bot replies with its greeting and the current ethereum price in USD.
 
 :::
 

@@ -20,7 +20,7 @@ Create a Persistent Storage Capsule, bind it to a backend app, and read or write
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Deploy an app to bind storage to.'},
+    {type: 'link', href: '/docs/products/backend-capsule', label: '🛠️ Backend Capsule', description: 'Deploy an app to bind storage to.'},
   ]}
 />
 

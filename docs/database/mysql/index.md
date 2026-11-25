@@ -22,16 +22,14 @@ MySQL Data Capsules support versions **5.7** and **8.0**. Bind a capsule to a Ba
 
 | Guide | Deploys | Demo repository |
 | --- | --- | --- |
-| [Django + MySQL](/database/mysql/django-+-mysql/) | Django with MySQL | `codecapsules-io/django-demo` |
-| [Flask + MySQL](/database/mysql/flask-+-mysql/) | Flask with MySQL | `codecapsules-io/demo-flask-mysql` |
-| [Java + MySQL](/database/mysql/java-+-mysql/) | Java with MySQL | `codecapsules-io/demo-java-mysql` |
+| [Flask + MySQL](/docs/database/mysql/flask-+-mysql) | Flask with MySQL | `codecapsules-io/demo-flask-mysql` |
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/database-capsule/mysql/deploy', label: '🛠️ Deploy MySQL', description: 'Create a MySQL Data Capsule in the dashboard.'},
-    {type: 'link', href: '/database', label: '📋 Database hosting', description: 'Compare MongoDB, PostgreSQL, and Redis options.'},
-    {type: 'link', href: '/products/database-capsule/mysql/versions', label: '📋 MySQL versions', description: 'Supported versions and upgrade paths.'},
+    {type: 'link', href: '/docs/database', label: '📋 Database hosting', description: 'Compare MongoDB, PostgreSQL, and Redis options.'},
+    {type: 'link', href: '/docs/products/database-capsule/mysql/versions/upgrades', label: '📋 MySQL upgrades', description: 'Supported versions and upgrade paths.'},
+    {type: 'link', href: '/docs/database/mysql/flask-+-mysql', label: '🛠️ Flask + MySQL', description: 'Deploy Flask with a MySQL Data Capsule.'},
   ]}
 />

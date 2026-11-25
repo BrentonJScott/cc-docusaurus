@@ -390,7 +390,7 @@ Your remote repository will now be up-to-date with your local one.
 
 :::tip[Checkpoint]
 
-You completed the steps in Part 1. The local project matches the state described above.
+Run `npm run start` and open `http://127.0.0.1:3005/`. Your book recommendations app loads in the browser, and your files are pushed to the `main` branch of your GitHub repository.
 
 :::
 
@@ -403,7 +403,7 @@ That’s it! Your “Book Recommendations” app should be live and fully functi
 
 :::tip[Checkpoint]
 
-Open your capsule URL in a browser. The deployed app responds without errors.
+Open your capsule URL in a browser. The “Book Recommendations” app loads and works as it did locally.
 
 :::
 

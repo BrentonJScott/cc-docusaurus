@@ -17,8 +17,8 @@ Every Docker Capsule must meet these runtime requirements whether built from Git
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/docker-capsule/git/deploy', label: '🛠️ Deploy from Git', description: 'Build from a Dockerfile.'},
-    {type: 'link', href: '/products/docker-capsule/image/deploy', label: '🛠️ Deploy from image', description: 'Use a public image.'},
+    {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
+    {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
   ]}
 />
 
@@ -26,7 +26,7 @@ Every Docker Capsule must meet these runtime requirements whether built from Git
 
 1. **Listen on the network port**
 
-   Your application must listen on the capsule [Network port](/products/docker-capsule/configure/#network-port) (default `3000`).
+   Your application must listen on the capsule **Network port** (default `3000`).
 
 2. **Bind to all interfaces**
 
@@ -38,17 +38,13 @@ Every Docker Capsule must meet these runtime requirements whether built from Git
 
 4. **Read PORT**
 
-   Read the `PORT` environment variable when possible so you can change the network port in **Config** without rebuilding. Node.js, Flask, and Gunicorn examples appear in this guide's history on the repository; bind with `$PORT` or `process.env.PORT` / `os.environ["PORT"]`.
-
-5. **Optional storage**
-
-   Files inside the container are ephemeral. Bind a [Storage Capsule](/products/storage-capsule/deploy/) and use `PERSISTENT_STORAGE_DIR` for durable files. Published images that ignore `PORT` (for example `nginx` on port `80`) need the capsule **Network port** set to match the image.
+   Read the `PORT` environment variable so you can change the network port in **Config** without rebuilding. Bind with `$PORT`, `process.env.PORT`, or `os.environ["PORT"]`. Published images that ignore `PORT` (for example `nginx` on port `80`) need the capsule **Network port** set to match the image. When the container starts, your application is listening on the capsule's network port.
 
 ## Troubleshooting
 
 <details>
 <summary>The capsule URL does not respond</summary>
 
-Confirm the app binds to `0.0.0.0` and the **Network port** matches the port the process listens on. Check [Logs](/products/docker-capsule/logs/).
+Confirm the app binds to `0.0.0.0` and the **Network port** matches the port the process listens on. Check the capsule's logs.
 
 </details>

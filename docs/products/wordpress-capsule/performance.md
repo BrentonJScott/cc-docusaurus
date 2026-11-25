@@ -11,13 +11,15 @@ import DocCardList from '@theme/DocCardList';
 
 # Make Your WordPress Site Fast
 
+Tune PHP, OPcache, and PHP-FPM workers to get the best performance from your WordPress Capsule.
+
 ## Overview
 
 WordPress Capsules ship with tuned PHP, OPcache, and PHP-FPM defaults. This page explains how requests are processed and how to adjust workers, memory, and caching-related PHP settings.
 
 ## Why it matters
 
-Tuning and understanding this behavior keeps production sites reliable under real traffic.
+PHP workers, memory, and caching settings decide how many visitors a capsule can serve before pages slow down or requests are rejected. It is for site owners who run production WordPress sites, such as WooCommerce stores and busy content sites, and want to size a capsule correctly.
 
 ## How it works
 
@@ -221,7 +223,7 @@ WORDPRESS_CONFIG_EXTRA=define('WP_POST_REVISIONS', 5);
 
 ### Object cache
 
-Database query results can be cached in memory using a Redis object cache. See [Configure](/products/wordpress-capsule/configure/) for setup instructions.
+Database query results can be cached in memory using a Redis object cache.
 
 
 
@@ -254,8 +256,7 @@ Database query results can be cached in memory using a Redis object cache. See [
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/wordpress-capsule/caching', label: '⚙️ Caching', description: 'Page cache for anonymous traffic.'},
-    {type: 'link', href: '/products/wordpress-capsule/configure', label: '⚙️ Configure', description: 'Environment variables.'},
-    {type: 'link', href: '/products/wordpress-capsule/deploy', label: '🛠️ Deploy WordPress', description: 'Create a WordPress Capsule.'},
+    {type: 'link', href: '/docs/products/wordpress-capsule/routing', label: '💡 Routing', description: 'How requests reach nginx, the cache, and PHP.'},
+    {type: 'link', href: '/docs/products', label: '📋 Products', description: 'Entry pages for every Capsule type.'},
   ]}
 />

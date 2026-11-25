@@ -31,9 +31,9 @@ You will tune each layer of a MERN stack—MongoDB queries, the Express API, the
 
 Work through database, API, client, and deployment optimizations in the order below.
 
-## Efficient Database Operations with MongoDB
+### Efficient Database Operations with MongoDB
 
-### a. Use Indexing Strategically
+#### a. Use Indexing Strategically
 
 **What is it?** Indexing in MongoDB is a key strategy to boost query performance. Without appropriate indexing, MongoDB would need to scan every document, which can be highly inefficient, especially for large datasets.
 
@@ -47,7 +47,7 @@ However, be cautious about over-indexing, as it can slow down write operations. 
 db.collection.find(query).explain("executionStats");
 ```
 
-### b. Opt for Projection
+#### b. Opt for Projection
 
 Fetching only the necessary data accelerates queries and reduces network overhead.
 
@@ -55,7 +55,7 @@ Fetching only the necessary data accelerates queries and reduces network overhea
 db.collection.find({}, { name: 1, _id: 0 });
 ```
 
-### c. Avoid Blocking the Event Loop
+#### c. Avoid Blocking the Event Loop
 
 Mongoose’s model instances come with overhead. For faster operations, retrieve plain JavaScript objects.
 
@@ -63,9 +63,9 @@ Mongoose’s model instances come with overhead. For faster operations, retrieve
 Model.find().lean().exec();
 ```
 
-## Streamline Your Express.js App
+### Streamline Your Express.js App
 
-### a. Use Gzip Compression
+#### a. Use Gzip Compression
 
 Compressing API responses significantly reduces data transfer times.
 
@@ -74,7 +74,7 @@ const compression = require('compression');
 app.use(compression());
 ```
 
-### b. Cache Middleware
+#### b. Cache Middleware
 
 Implementing caching for frequently accessed routes can decrease server load and improve response times.
 
@@ -84,9 +84,9 @@ const cache = apicache.middleware;
 app.get('/your-route', cache('5 minutes'), (req, res) => ... );
 ```
 
-## Boost React Performance
+### Boost React Performance
 
-### a. Virtualize Long Lists
+#### a. Virtualize Long Lists
 
 Efficiently render long lists using libraries like \`react-virtualized\`, which only display visible items.
 
@@ -94,7 +94,7 @@ Efficiently render long lists using libraries like \`react-virtualized\`, which 
 import { List } from 'react-virtualized';
 ```
 
-### b. Immutable Data Structures
+#### b. Immutable Data Structures
 
 Utilize \`immutable.js\` to prevent unintended data changes, optimizing React’s rendering process.
 
@@ -103,7 +103,7 @@ import { List } from 'immutable';
 const myList = List([1, 2, 3]);
 ```
 
-### c. Code Splitting with React Lazy and Suspense
+#### c. Code Splitting with React Lazy and Suspense
 
 Divide your app into smaller bundles, loading only what’s necessary.
 
@@ -113,9 +113,9 @@ const MyComponent = React.lazy(() => import('./MyComponent'));
 <React.Suspense fallback=<div>Loading...</div>>
 ```
 
-## Optimize Node.js Server Performance
+### Optimize Node.js Server Performance
 
-### a. Asynchronous Code
+#### a. Asynchronous Code
 
 Embrace JavaScript’s async features to prevent blocking the main thread.
 
@@ -126,11 +126,11 @@ app.get('/data', async (req, res) => {
 });
 ```
 
-### b. Profiling and Monitoring
+#### b. Profiling and Monitoring
 
 Regular monitoring helps identify potential bottlenecks.
 
-### c. Clustering
+#### c. Clustering
 
 Utilize multi-core systems by running multiple Node.js instances.
 
@@ -147,19 +147,19 @@ if (cluster.isMaster) {
 }
 ```
 
-## Networking and API Calls
+### Networking and API Calls
 
-### a. Efficient Data Fetching
+#### a. Efficient Data Fetching
 
 Enhance user experience and efficiency by fetching only necessary data.
 
-### b. Use Content Delivery Networks (CDNs)
+#### b. Use Content Delivery Networks (CDNs)
 
 CDNs like Cloudflare or AWS CloudFront serve content from a location nearest to the user, reducing load times.
 
-## DevOps Practices for Performance
+### DevOps Practices for Performance
 
-### a. Minification and Bundling
+#### a. Minification and Bundling
 
 Optimize JavaScript by bundling and minifying it using Webpack.
 
@@ -170,29 +170,29 @@ module.exports = {
 };
 ```
 
-### b. Continuous Monitoring
+#### b. Continuous Monitoring
 
 Monitor real-time performance metrics to detect and address issues promptly.
 
-## Enhancing App Performance with Code Capsules in MERN Stack
+### Enhancing App Performance with Code Capsules in MERN Stack
 
-### Optimizing Your Code Capsules Profile for MERN Stack
+#### Optimizing Your Code Capsules Profile for MERN Stack
 
 Initiate your journey by establishing a Code Capsules account, specifically tailored for MERN stack optimization. Carefully complete your profile setup, ensuring it aligns with performance enhancement strategies for MERN applications.
 
-### Streamlining MERN Project Management in Code Capsules
+#### Streamlining MERN Project Management in Code Capsules
 
 Post-registration, access your Code Capsules dashboard to manage MERN stack projects. This space is optimized for performance tracking and efficient deployment of MERN applications.
 
-### Formulating a High-Performance MERN Team in Code Capsules
+#### Formulating a High-Performance MERN Team in Code Capsules
 
 In Code Capsules, establish a team that specializes in MERN stack optimization. This step is crucial for collaboratively enhancing application performance and handling complex MERN projects.
 
-### Setting Up Performance-Optimized Spaces for MERN in Code Capsules
+#### Setting Up Performance-Optimized Spaces for MERN in Code Capsules
 
 Within Code Capsules, create spaces dedicated to MERN stack projects. These spaces are designed to host and run your applications in environments that are fine-tuned for maximum performance.
 
-### Launching Performance-Focused Capsules for MERN
+#### Launching Performance-Focused Capsules for MERN
 
 Start a new capsule in your MERN-optimized space, conceptualizing these as individual project units. These capsules are configured to enhance the performance of each component of your MERN application, such as the front-end, back-end, or server configurations.
 
@@ -200,7 +200,7 @@ By following these modified steps focused on MERN stack performance, you can eff
 
 :::tip[Checkpoint]
 
-You have a checklist of MongoDB, Express, React, and deployment optimizations to apply to your MERN app on Code Capsules.
+You have worked through the MongoDB, Express, React, Node.js, networking, and DevOps optimizations in order, and you have a Capsule set up on Code Capsules for your MERN app.
 
 :::
 

@@ -21,16 +21,16 @@ Major version upgrades on **Dedicated** MongoDB clusters must run in sequence—
 
 | From → To | Guide |
 | --- | --- |
-| 7.0 → 8.0 | [7.0 to 8.0](/products/database-capsule/mongodb/versions/upgrades/7-0-to-8-0/) |
+| 7.0 → 8.0 | 7.0 to 8.0 |
 
-See [MongoDB Versions](/products/database-capsule/mongodb/versions/) for supported versions and general upgrade requirements.
+See MongoDB Versions for supported versions and general upgrade requirements.
 
 ## Related
 
 <DocCardList
   items={[
-    {type: 'link', href: '/products/database-capsule/mongodb/versions', label: '📋 MongoDB versions', description: 'Supported versions and policies.'},
-    {type: 'link', href: '/products/database-capsule/mongodb/configure', label: '⚙️ Configure MongoDB', description: 'Connection and version settings.'},
-    {type: 'link', href: '/products/database-capsule/mongodb/deploy', label: '🛠️ Deploy MongoDB', description: 'Create a MongoDB Capsule.'},
+    {type: 'link', href: '/docs/products/database-capsule/mongodb/configure', label: '🛠️ Configure MongoDB', description: 'View MongoDB connection details.'},
+    {type: 'link', href: '/docs/database/mongodb', label: '📋 MongoDB hosting', description: 'MongoDB deployment and framework guides.'},
+    {type: 'link', href: '/docs/products/database-capsule', label: '📋 Database Capsule', description: 'Every managed database engine.'},
   ]}
 />

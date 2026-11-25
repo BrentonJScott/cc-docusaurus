@@ -9,7 +9,7 @@ doc_version: drift
 
 import DocCardList from '@theme/DocCardList';
 
-# Logs logs
+# View Your Backend Capsule Logs
 
 View build, runtime, and access logs for your Backend Capsule.
 
@@ -19,12 +19,11 @@ View build, runtime, and access logs for your Backend Capsule.
   items={[
     {type: 'link', href: '/docs/shared/create-an-account', label: '👤 Code Capsules account', description: 'Sign up and open your Personal Team.'},
     {type: 'link', href: '/docs/shared/create-a-space', label: '📦 A Space', description: 'Create a Space to deploy into.'},
-    {type: 'link', href: '/products/backend-capsule/deploy', label: '🛠️ Backend Capsule', description: 'Create the Capsule first.'},
+    {type: 'link', href: '/docs/products/backend-capsule', label: '📋 Backend Capsule', description: 'Create a Backend Capsule to view logs for.'},
   ]}
 />
 
-
-## View logs
+## View your logs
 
 1. **Open the Capsule**
 
@@ -36,7 +35,7 @@ View build, runtime, and access logs for your Backend Capsule.
 
 3. **Switch log streams**
 
-   Open **Capsule logs**, **Build logs**, or **Access logs** as listed. Scroll to the latest entries after a deploy.
+   Open **Capsule logs**, **Build logs**, or **Access logs** as listed. Scroll to the latest entries after a deploy. You now see the capsule logs, build logs, and access logs for your Backend Capsule.
 
 ## Troubleshooting
 
