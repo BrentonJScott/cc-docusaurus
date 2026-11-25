@@ -12,6 +12,11 @@
 - A guide's age, or wording that refers to production or an older UI, is never a reason to skip it. Outdated labels, values, and steps are the findings this audit exists to report.
 - Never mark a guide "not applicable," "out of scope," or "legacy" and move on. Every guide for a listed feature must be attempted in the browser.
 
+## Platform credentials
+- Sign in to `https://test-platform.codecapsules.io` with the account in the environment variables `EMAIL` and `PASSWORD`. Never write their values into a report, ticket, log or PR.
+- Sign in once at the start of the run and reuse the session. Don't sign up for a new account.
+- If sign-in fails or either variable is missing, stop and report it. Don't mark guides `not testable` as a workaround.
+
 ## Ground rules
 - Don't commit directly to any repo or branch. All your work goes into reports, delivered through a pull request.
 - Don't fix code to match the docs. If something doesn't work (for example, a button does nothing), report it as an issue.
