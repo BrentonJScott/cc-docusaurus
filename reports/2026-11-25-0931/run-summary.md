@@ -13,4 +13,9 @@
 | `docs/full-stack/index.md` | Explanation | pass | not applicable | |
 | `docs/products/agent-capsule/scale.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/agent-capsule/format-scale.md |
 | `docs/agentic-automation/index.md` | Explanation | pass | not applicable | |
+| `docs/products/storage-capsule/logs.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/storage-capsule/format-logs.md |
+| `docs/products/frontend-capsule/static/deploy.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/frontend-capsule/static/format-deploy.md |
+| `docs/platform/billing/how-do-i-change-my-billing-details.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/platform/billing/format-how-do-i-change-my-billing-details.md |
+| `docs/products/wordpress-capsule/scale.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/wordpress-capsule/format-scale.md |
 | `docs/backend/node.js/node.js-discord-bot.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/backend/node.js/format-node.js-discord-bot.md |
+| `docs/backend/node.js/express.js.md` | How-to guide | pass | pending | |
