@@ -24,4 +24,11 @@
 - If more than one guide could match a feature, test the one `DOCUMENTED_FEATURES.MD` names. If it names none, test the closest match by title and slug, and say in the report which guide you chose and why.
 
 ## Running the guides
-- Use the FORMAT.md document on each guide.
+- Run the format check in `formats/FORMAT.MD` on every guide, then follow `WALKTHROUGH.md`.
+- Read `formats/FORMAT.MD` after the git sync, from the freshly synced branch. If another `FORMAT.MD` exists anywhere else (for example the repo root), ignore it. `formats/FORMAT.MD` is the only source for format rules.
+- Never write a report from memory or from an earlier run's reports. If a `reports/` folder from a previous run shows a different pattern, don't copy it.
+
+## Report files (applies to every run)
+- A format report (`format-<doc>.md`) exists only for a guide that failed a format check or has tickets.
+- A guide that passes gets no `format-*.md` file. Record its doc type and `Format check: pass` as a row in `run-summary.md` only.
+- Before opening the pull request, list every `format-*.md` file in this run's folder. Open each one and confirm it says `Format check: fail` and contains at least one ticket. Delete any that don't.

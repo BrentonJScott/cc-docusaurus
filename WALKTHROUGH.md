@@ -5,7 +5,7 @@
 
 ## Format gate
 - Before walking through any guide, run the format check in `formats/FORMAT.MD` on it.
-- If the guide fails the format check, don't walk it through. Its format report replaces the walkthrough report, and the run summary shows `Walkthrough: not run (format fail)`. This is the only allowed reason to skip a guide.
+- If the guide fails the format check, don't walk it through. Its format report replaces the walkthrough report (a guide that passes gets no format report, only a row in `run-summary.md`), and the run summary shows `Walkthrough: not run (format fail)`. This is the only allowed reason to skip a guide.
 - Only guides that pass the format check go on to the walkthrough below.
 
 ## Before running each test
