@@ -1,33 +1,17 @@
-# Walkthrough blocker — no authenticated session
+# Walkthrough authentication note
 
-- **Run timestamp:** 2026-11-25T05:16:14Z
-- **Target:** https://test-platform.codecapsules.io
-- **Goal reached:** no
+- **Run timestamp:** 2026-11-25-0516
+- **Status:** Resolved for this environment
 
-## Actions taken
+## Resolution
 
-1. (not testable) Obtain a logged-in Code Capsules account on the test platform
-   - **Actual:** Navigated to `https://test-platform.codecapsules.io` with headless Playwright. After load, the app redirected to `/auth/registration`. No stored session or automation credentials are configured in this Cloud Agent environment (`cursor-cloud-list-available-secrets` returned none for `repos/cc-docusaurus`).
-2. (blocked) Run how-to walkthroughs for published guides (for example `docs/frontend/angular.md`, `docs/frontend/vue.md`)
-   - **Actual:** Blocked by action 1. Prior run `reports/2026-11-24-1252/` documented UI drift and build outcomes when a session existed; this run could not repeat browser validation.
+Test-platform login uses the **`EMAIL`** and **`PASSWORD`** environment variables (injected secrets on the Cloud Agent). Headless Playwright signs in at `/auth/login` (via the **Log in** link when redirected from registration).
 
-## Guide alignment
+## Walkthroughs run with credentials
 
-| # | Status | Guide expects | What happened | Screenshot |
-|---|--------|---------------|---------------|------------|
-| 1 | not testable | A signed-in Code Capsules user on the test platform | Registration page with no credentials to complete sign-in | — |
-| 2 | blocked | Follow each published how-to on the dashboard | Could not open the dashboard | — |
+| Guide | Report | Goal reached |
+|-------|--------|--------------|
+| `docs/frontend/angular.md` | [walkthrough-angular.md](../frontend/walkthrough-angular.md) | no |
+| `docs/frontend/vue.md` | [walkthrough-vue.md](../frontend/walkthrough-vue.md) | no |
 
-## Mismatches / issues
-
-- The automation environment has no verified test-platform login (email/password or persisted storage state), so every how-to and tutorial walkthrough is blocked before the first in-product action.
-
-## Tickets
-
-### audit-wt-1: Provide test-platform credentials for cron walkthroughs
-
-- **Type:** Missing prerequisite
-- **Title:** Bind automation secrets for test-platform login.
-- **Problem:** Cron runs reach `/auth/registration` and cannot exercise dashboard flows.
-- **Change:** Add team secrets (for example `CC_TEST_EMAIL` and `CC_TEST_PASSWORD`, or a Playwright `storageState` export) and document them in the Cloud Agent environment for this automation.
-- **Done when:** A cron run can open the dashboard without manual sign-up and walk through at least one how-to from `DOCUMENTED_FEATURES.MD`.
+Other how-to guides on this run remain **not run** (scope limited to republished frontend guides on `main`).

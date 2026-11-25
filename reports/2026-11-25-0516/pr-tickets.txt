@@ -3,8 +3,14 @@
 ## manifest/missing-published-guides.md
 - manifest-1: Restore 179 manifest paths from docs.bak to docs/
 
+## frontend/walkthrough-angular.md
+- angular-wt-1 … angular-wt-3 (labels, fork repo, Create Capsule)
+
+## frontend/walkthrough-vue.md
+- vue-wt-1 … vue-wt-3
+
 ## exploratory/walkthrough-login-blocker.md
-- audit-wt-1: Provide test-platform credentials for cron walkthroughs
+- Resolved: EMAIL / PASSWORD env vars
 
 ## Cross-cutting (from prior run 2026-11-24-1252 — not re-tested this run)
 - Frontend guides: Capsule Details → Choose a Capsule; Build & Deploy → Create Capsule; demo repo naming

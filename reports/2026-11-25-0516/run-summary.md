@@ -8,7 +8,7 @@ Manifest source: `cc-site/DOCUMENTED_FEATURES.MD` (239 features)
 
 **Manifest goals reached (all features): no**
 
-Walkthroughs were not run: no authenticated test session in this environment (see [walkthrough-login-blocker.md](exploratory/walkthrough-login-blocker.md)).
+Walkthroughs use **`EMAIL`** and **`PASSWORD`** environment variables for test-platform login. Angular and Vue frontend guides were walked through on this run; see [walkthrough-login-blocker.md](exploratory/walkthrough-login-blocker.md).
 
 ## Publication gap
 
@@ -24,8 +24,9 @@ Until copies move back from `docs.bak/` to `docs/`, most features have no publis
 
 ## Walkthrough summary
 
-- How-to guides and tutorials on `main`: **not run (login blocked)**
-- How-to guides and tutorials with no published file: **not run (guide missing)**
+- **Completed:** `docs/frontend/angular.md` (goal **no**), `docs/frontend/vue.md` (goal **no**)
+- Other how-to guides and tutorials on `main`: **not run** (not attempted this run)
+- How-to guides with no published file: **not run (guide missing)**
 - Reference and explanation pages: **not applicable**
 
 ## Feature table
@@ -70,13 +71,13 @@ Until copies move back from `docs.bak/` to `docs/`, most features have no publis
 | Fork a Demo Repository | `docs/shared/fork-a-demo-repo.md` | how-to | yes | pass | not run (login blocked) | — |
 | Shared Prerequisites Reference | `docs/shared/index.md` | reference | yes | pass | not applicable | — |
 | Set Up a Twilio WhatsApp Sandbox | `docs/shared/set-up-twilio-whatsapp-sandbox.md` | how-to | yes | pass | not run (login blocked) | — |
-| Host an Angular Application | `docs/frontend/angular.md` | how-to | yes | pass | not run (login blocked) | [walkthrough-login-blocker.md](exploratory/walkthrough-login-blocker.md) |
+| Host an Angular Application | `docs/frontend/angular.md` | how-to | yes | pass | completed (goal no) | [walkthrough-angular.md](frontend/walkthrough-angular.md) |
 | Frontend & Static Site Hosting | `docs/frontend/index.md` | reference | yes | pass | not applicable | — |
 | Host a Next.js App | `docs/frontend/next.js.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
 | Host a React Application | `docs/frontend/react.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
 | Host a Static HTML Website | `docs/frontend/static-html.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
 | Host a Svelte Application | `docs/frontend/svelte.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
-| Host a Vue Application | `docs/frontend/vue.md` | how-to | yes | pass | not run (login blocked) | [walkthrough-login-blocker.md](exploratory/walkthrough-login-blocker.md) |
+| Host a Vue Application | `docs/frontend/vue.md` | how-to | yes | pass | completed (goal no) | [walkthrough-vue.md](frontend/walkthrough-vue.md) |
 | Deploy a Container Frontend | `docs/products/frontend-capsule/container/deploy.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
 | Frontend Framework Deployment Guides | `docs/products/frontend-capsule/deploy.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
 | Deploy a Static Frontend | `docs/products/frontend-capsule/static/deploy.md` | — | no | fail | not run (guide missing) | [missing-published-guides.md](manifest/missing-published-guides.md) |
