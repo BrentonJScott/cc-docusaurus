@@ -13,6 +13,7 @@
 | `docs/full-stack/index.md` | Explanation | pass | not applicable | |
 | `docs/products/agent-capsule/scale.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/agent-capsule/format-scale.md |
 | `docs/agentic-automation/index.md` | Explanation | pass | not applicable | |
+| `docs/tutorials/build-a-mern-job-board.md` | Tutorial | fail | not run (format fail) | reports/2026-11-25-0931/tutorials/format-build-a-mern-job-board.md |
 | `docs/products/frontend-capsule/container/deploy.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/frontend-capsule/container/format-deploy.md |
 | `docs/backend/python/python-discord-bot.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/backend/python/format-python-discord-bot.md |
 | `docs/products/storage-capsule/logs.md` | How-to guide | fail | not run (format fail) | reports/2026-11-25-0931/products/storage-capsule/format-logs.md |
