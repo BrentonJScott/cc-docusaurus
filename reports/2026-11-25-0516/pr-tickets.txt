@@ -1,0 +1,11 @@
+# Tickets — 2026-11-25-0516 cron audit
+
+## manifest/missing-published-guides.md
+- manifest-1: Restore 179 manifest paths from docs.bak to docs/
+
+## exploratory/walkthrough-login-blocker.md
+- audit-wt-1: Provide test-platform credentials for cron walkthroughs
+
+## Cross-cutting (from prior run 2026-11-24-1252 — not re-tested this run)
+- Frontend guides: Capsule Details → Choose a Capsule; Build & Deploy → Create Capsule; demo repo naming
+- See open PR https://github.com/BrentonJScott/cc-docusaurus/pull/39
