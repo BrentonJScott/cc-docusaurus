@@ -33,6 +33,15 @@
 - Read `formats/FORMAT.MD` after the git sync, from the freshly synced branch. If another `FORMAT.MD` exists anywhere else (for example the repo root), ignore it. `formats/FORMAT.MD` is the only source for format rules.
 - Never write a report from memory or from an earlier run's reports. If a `reports/` folder from a previous run shows a different pattern, don't copy it.
 
+## One subagent per guide
+- Run every guide in its own subagent. Don't run the format check or the walkthrough for more than one guide in the same context.
+- You are the coordinator. Do the setup and build the feature list yourself, then start one subagent per guide. Each subagent gets only its guide's path, its feature and goal line, the target URL, the run's `<datetime>`, and the paths to `formats/FORMAT.MD` and `WALKTHROUGH.md`. Don't paste the feature list or other guides' results into it.
+- Each subagent runs the format check, then the walkthrough if the guide passes and is a how-to or tutorial. It writes its own report files (only as `formats/FORMAT.MD` and `WALKTHROUGH.md` allow) and returns one line: the guide, its doc type, `Format check: pass|fail`, its walkthrough status, and the report path if it wrote one.
+- Subagents sign in with the credentials from "Platform credentials" and must not write their values anywhere. Subagents don't commit or open pull requests.
+- Start walkthrough subagents one at a time, since they share one test account and can interfere with each other. Format-check subagents can run in parallel.
+- Build `run-summary.md` from the one-line results only. Don't re-read the reports to fill it in.
+- Every guide that passed and is a how-to or tutorial needs a walkthrough subagent. If one fails to start or returns nothing, mark the guide `blocked` with the reason. Never leave it as a bare `not run`.
+
 ## Report files (applies to every run)
 - A format report (`format-<doc>.md`) exists only for a guide that failed a format check or has tickets.
 - A guide that passes gets no `format-*.md` file. Record its doc type and `Format check: pass` as a row in `run-summary.md` only.
